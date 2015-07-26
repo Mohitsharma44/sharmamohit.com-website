@@ -1,0 +1,32 @@
+{{ partial "head.html" . }}
+<body class="{{ .Site.Params.themeColor }}">
+
+{{ partial "sidebar.html" . }}
+
+    <div class="content container">
+<div class="posts">
+
+      {{ range .Data.Pages }}
+  <div class="post">
+    <h1 class="post-title">
+      <a href="{{ .Permalink }}"><font face="monospace" size="10">
+        {{ .Title }}
+      </font></a>
+    </h1>
+
+    <span class="post-date"><font size="4">{{ .Date.Format "Mon, Jan 2, 2006" }}</font></span>
+    <font size="4">
+      {{ if eq .Site.Params.truncate false }}
+      {{ .Content }}
+      {{ else }}
+      <p>{{ .Description }}</p>
+      <a href="{{ .Permalink }}">Read On &rarr;</a>
+      {{ end }}
+    </font>
+  </div>
+  {{ end }}
+</div>
+</div>
+
+  </body>
+</html>
