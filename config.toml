@@ -1,9 +1,9 @@
 theme = "mohyde"
 title = "Mohit Sharma"
-baseurl = "http://sharmamohit.com/"
+baseurl = ""
 languageCode = "en-us"
 SectionPagesMenu = "main"
-canonifyurls = true
+canonifyurls = false
 
 [params]
   description = "Asst. Research Scientist at NYU Center for Urban Science and Progress"
