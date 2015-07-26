@@ -1,6 +1,6 @@
 +++
 Description = ""
-Tags = ["Development", "Python", "USCL"]
-Categories = ["Development", "Python", "USCL"]
+Tags = ["Development", "Python"]
+Categories = ["Development", "Python"]
 author = "Mohit Sharma"
 +++
