@@ -3,7 +3,93 @@
   
   <url>
     <loc>http://sharmamohit.com/</loc>
+    <lastmod>2015-07-06T21:10:08-04:00</lastmod>
     <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://sharmamohit.com/USCL/Python_Numpy/</loc>
+    <lastmod>2015-07-06T21:10:08-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sharmamohit.com/USCL/Python_Dictionaries/</loc>
+    <lastmod>2015-07-06T15:01:20-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sharmamohit.com/USCL/Python_Challenge2/</loc>
+    <lastmod>2015-06-30T02:04:43-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sharmamohit.com/USCL/Python_Pickle/</loc>
+    <lastmod>2015-06-29T00:07:47-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sharmamohit.com/USCL/Python_FileIO/</loc>
+    <lastmod>2015-06-26T02:07:12-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sharmamohit.com/USCL/Python_ImportingModules/</loc>
+    <lastmod>2015-06-22T09:06:37-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sharmamohit.com/USCL/Python_Challenge1/</loc>
+    <lastmod>2015-06-20T12:12:15-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sharmamohit.com/USCL/Python_Functions/</loc>
+    <lastmod>2015-06-17T20:02:58-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sharmamohit.com/USCL/Python_ExceptionHandling/</loc>
+    <lastmod>2015-06-12T20:02:29-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sharmamohit.com/USCL/Python_Tuples/</loc>
+    <lastmod>2015-06-10T02:01:53-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sharmamohit.com/USCL/Python_Lists/</loc>
+    <lastmod>2015-06-05T02:00:44-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sharmamohit.com/USCL/Python_Strings/</loc>
+    <lastmod>2015-06-03T18:58:31-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sharmamohit.com/USCL/Python_Loops/</loc>
+    <lastmod>2015-06-01T01:57:59-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sharmamohit.com/USCL/Python_Operators/</loc>
+    <lastmod>2015-05-30T20:57:31-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sharmamohit.com/USCL/Python_Variables/</loc>
+    <lastmod>2015-05-28T21:56:15-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sharmamohit.com/USCL/Python_Intro/</loc>
+    <lastmod>2015-05-27T11:52:53-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sharmamohit.com/USCL/Python_Installing/</loc>
+    <lastmod>2015-05-26T01:55:34-04:00</lastmod>
   </url>
   
 </urlset>

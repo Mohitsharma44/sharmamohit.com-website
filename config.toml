@@ -1,0 +1,23 @@
+theme = "mohyde"
+title = "Mohit Sharma"
+baseurl = "http://sharmamohit.com/"
+languageCode = "en-us"
+SectionPagesMenu = "main"
+canonifyurls = true
+
+[params]
+  description = "Asst. Research Scientist at NYU Center for Urban Science and Progress"
+  author = "Mohit Sharma"
+  themeColor = "theme-base-00"
+  disqusShortname = "mohitsharma44"
+  copyright = "2015. Mohit Sharma"
+  gravatarHash = "ed88ccf945e7eb22400c19296528b7e8"
+  truncate = true
+  GitHubUser = "mohitsharma44"
+  
+[author]
+name = "Mohit Sharma"
+
+[taxonomies]
+  tag = "tags"
+  category = "categories"
