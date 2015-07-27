@@ -1,5 +1,5 @@
 <div class="sidebar">
-  <div class="container sidebar-sticky">
+  <div class="container">
     <div class="sidebar-about">
       {{ with .Site.Params.gravatarHash }}<img src="https://www.gravatar.com/avatar/{{ . }}?s=250" alt="gravatar">{{ end }}
       <a href="{{ .Site.BaseURL }}"><h1><font face="Lucida Console" size="6">{{ .Site.Title }}</font></h1></a>
@@ -13,6 +13,7 @@
       {{ range .Site.Menus.main }}
         <li><a href="{{.URL}}"> {{ .Name }} </a></li>
       {{end}}
+      <li><a href="/about.html">About Me</a></li>
     </font></ul>
 
     <p><font face="monospace" size="3">&copy; {{ with .Site.Params.copyright }}{{.}}{{ else }}&copy; {{.Now.Format "2006"}}. All rights reserved. {{end}}</font></p>
