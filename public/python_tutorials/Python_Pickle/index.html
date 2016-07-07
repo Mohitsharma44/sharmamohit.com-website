@@ -1,0 +1,159 @@
+	<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="Hugo 0.14" />
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title> Python_Pickle &middot; Mohit Sharma </title>
+
+  
+  <link rel="stylesheet" href="http://localhost:1313/css/poole.css">
+  <link rel="stylesheet" href="http://localhost:1313/css/syntax.css">
+  <link rel="stylesheet" href="http://localhost:1313/css/hyde.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="Mohit Sharma" />
+</head>
+
+	<body class="theme-base-00">
+		<div class="sidebar">
+  <div class="container">
+    <div class="sidebar-about">
+      <img src="https://www.gravatar.com/avatar/ed88ccf945e7eb22400c19296528b7e8?s=250" alt="gravatar">
+      <a href="http://localhost:1313"><h1><font face="Lucida Console" size="6">Mohit Sharma</font></h1></a>
+      <p class="lead"><font size="4" face="monospace">
+	   Asst. Research Scientist at NYU Center for Urban Science and Progress 
+      </font></p>
+    </div>
+
+    <ul class="sidebar-nav"><font face="monospace" size="5">
+      <li><a href="/">Home</a> </li>
+      
+        <li><a href="/about_me/"> About_Me </a></li>
+      
+        <li><a href="/electronics/"> Electronics </a></li>
+      
+        <li><a href="/my_projects/"> My_Projects </a></li>
+      
+        <li><a href="/python_tutorials/"> Python_Tutorials </a></li>
+      
+        <li><a href="/talks/"> Talks </a></li>
+      
+      <li><a href="/about.html">My CV</a></li>
+    </font></ul>
+
+    <p><font face="monospace" size="3">&copy; 2015. Mohit Sharma</font></p>
+  </div>
+</div>
+
+
+		<div class="content container">
+			<div class="post">
+			 	<h1><font face="monospace" size="10">Python_Pickle</font></h1>
+			  <span class="post-date">Mon, Jun 29, 2015</span>
+			      
+
+<h1 align='center'>Python Pickle</h1>
+
+<p>Pickle module implements an algorithm for turning your Python object into a series of bytes by the process of serialization. Before we can jump into the unique feature of pickling, lets understand what serialization means.</p>
+
+<p>Serialization is the process of converting a data structure or object state into a format that can be stored and resurrected later in the same or another computer environment. During resurrection, when the series of bytes is reread according to the serialization algorithm, it can be used to create a semantically identical clone of the original object. This process of serializing an object is also called as deflating an object. The opposite operation, as you must&rsquo;ve guessed, is called inflating. You can read more about serialization on <a href="https://en.wikipedia.org/wiki/Serialization" title="Serialization"><code>wikipedia</code></a>.</p>
+
+<p>In python, the bulk of pickle module is written in C. It can store arbitrary complex python data structures however since it stores python objects, it is very highly unsafe as it can contain malicious data. So remember, pickle is good if only you create your pickle file locally and do not share it with some one.</p>
+
+<p>Now lets see some of the datatypes that pickle can store:</p>
+
+<ul>
+<li>All the native datatypes that python supports such as booleans, integers, complex numbers, strings etc</li>
+<li>Collections such as lists, tuples, dictionaries containing any combination of native datatypes.</li>
+<li>Lists, Dictionaries and Tuples containing Nested combinations of &hellip;&hellip; you get it!</li>
+<li>Methods, Functions, Classes, Instances etc.</li>
+</ul>
+
+<h2 id="constructing-pickle-data:ed9defbb74b994fe12064bced1d45b08">Constructing Pickle data:</h2>
+
+<p>Lets jump directly into code and I will explain as we go.</p>
+
+<pre><code>student = {}
+student['name'] = 'Jack'
+student['course'] = 'Urban Skills Lab'
+student['enrolled'] = True
+student['misc'] = ('full-time', )
+</code></pre>
+
+<p>In the above example, we have created a student dictionary. Now lets save the above dictionary to a pickle file</p>
+
+<h2 id="saving-data-as-pickle:ed9defbb74b994fe12064bced1d45b08">Saving data as Pickle:</h2>
+
+<pre><code>import pickle
+try:
+    with open('test_pickle.pkl', 'wb') as f:
+        pickle.dump(student, f)
+except IOError, e:
+    print 'IOError: ',e
+</code></pre>
+
+<p>Did you check out a new way to open file object for writing? With this technique, you don&rsquo;t have to worry about closing the file_object. As soon as the while loop is broken, the file_object will automatically be closed. (Think why?)
+Ok, so the dump() method in pickle module takes the serializable python data structure, serializes it into a binary and save it to the file. Now lets try loading the data. To make sure it works, lets open an new ipython terminal or just close your current session and reopen it fresh.</p>
+
+<h2 id="loading-data-from-pickle-file:ed9defbb74b994fe12064bced1d45b08">Loading Data from Pickle file</h2>
+
+<pre><code>import pickle
+try:
+    with open('test_pickle.pkl', 'rb') as f:
+        s = pickle.load(f)
+except IOError, e:
+    print 'IOError: ',e
+
+s
+
+
+
+
+
+{'course': 'Urban Skills Lab',
+ 'enrolled': True,
+ 'misc': ('full-time',),
+ 'name': 'Jack'}
+</code></pre>
+
+<p>And voila! a new data structure is created with the data structure that is equal to the original data structure.</p>
+
+<p>This technique only works when you are working in python. If you want this to be compatible with other programming languages then you will have to take a look at other serialization format like JSON.
+This is beyond the scope of the subject and is left as a self-assignment for interested students.</p>
+
+			</div>
+
+			
+				<h3>Comments</h3>
+				<div id="disqus_thread"></div>
+<script type="text/javascript">
+     
+    var disqus_shortname = 'mohitsharma44'; 
+
+     
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+			
+		</div>
+
+  <script data-no-instant>document.write('<script src="http://'
+        + (location.host || 'localhost').split(':')[0]
+		+ ':1313/livereload.js?mindelay=10"></'
+        + 'script>')</script></body>
+</html>

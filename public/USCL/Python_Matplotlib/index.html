@@ -1,0 +1,1738 @@
+	<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="Hugo 0.14" />
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title> Python_Matplotlib &middot; Mohit Sharma </title>
+
+  
+  <link rel="stylesheet" href="http://localhost:1313/css/poole.css">
+  <link rel="stylesheet" href="http://localhost:1313/css/syntax.css">
+  <link rel="stylesheet" href="http://localhost:1313/css/hyde.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="Mohit Sharma" />
+</head>
+
+	<body class="theme-base-00">
+		<div class="sidebar">
+  <div class="container">
+    <div class="sidebar-about">
+      <img src="https://www.gravatar.com/avatar/ed88ccf945e7eb22400c19296528b7e8?s=250" alt="gravatar">
+      <a href="http://localhost:1313"><h1><font face="Lucida Console" size="6">Mohit Sharma</font></h1></a>
+      <p class="lead"><font size="4" face="monospace">
+	   Asst. Research Scientist at NYU Center for Urban Science and Progress 
+      </font></p>
+    </div>
+
+    <ul class="sidebar-nav"><font face="monospace" size="5">
+      <li><a href="/">Home</a> </li>
+      
+        <li><a href="/rps/"> RPS </a></li>
+      
+        <li><a href="/uscl/"> USCL </a></li>
+      
+      <li><a href="/about.html">My CV</a></li>
+    </font></ul>
+
+    <p><font face="monospace" size="3">&copy; 2015. Mohit Sharma</font></p>
+  </div>
+</div>
+
+
+		<div class="content container">
+			<div class="post">
+			 	<h1><font face="monospace" size="10">Python_Matplotlib</font></h1>
+			  <span class="post-date">Tue, Aug 4, 2015</span>
+			      
+
+<h1 align='center'>Matplotlib</h1>
+
+<blockquote>
+<p>Disclaimer: This tutorial is heavily inspired from</p>
+
+<ul>
+<li><p>Benjamin Root&rsquo;s Anatomy of Matplotlib</p></li>
+
+<li><p>Eric Jones&rsquo; SciPy 2012 tutorial</p></li>
+
+<li><p>Nicolas Rougier&rsquo;s Matplotlib tutorial</p></li>
+
+<li><p>Matplotlib Gallery</p></li>
+</ul>
+
+<p>A lot of the content has been taken directly/ indirectly from these tutorials since it couldn&rsquo;t have been made more simpler than the collaborative result of these hardworking people.</p>
+</blockquote>
+
+<p>Matplotlib is probably the single most used Python package for 2D-graphics. It provides both a very quick way to visualize data from Python and publication-quality figures in many formats. We are going to explore matplotlib in interactive mode covering most common cases.
+The matplotlib code is conceptually divided into three parts: the <code>pylab</code> interface is the set of functions provided by <code>matplotlib.pylab</code> which allow the user to create plots with code quite similar to <code>MATLAB</code> figure generating code. The matplotlib frontend or matplotlib API is the set of classes that do the heavy lifting, creating and managing figures, text, lines, plots and so on. This is an abstract interface that knows nothing about output. The backends are device-dependent drawing devices, aka renderers, that transform the frontend representation to hardcopy or a display device.</p>
+
+<h3 id="backends:12e5e4622920f32cd819b8409703bfed"><code>Backends?</code></h3>
+
+<p>Matplotlib has multiple backends. The backends allow mpl to be used on a variety of platforms with a variety of GUI toolkits (<a href="http://www.gtk.org/" title="GTK"><code>GTK</code></a>, <a href="http://www.qt.io/" title="Qt"><code>Qt</code></a>, <a href="https://www.wxwidgets.org/" title="WxWidgets"><code>WxWidgets</code></a>, etc.), all of them written so that most of the time, you will not need to care which backend you are using. However, bugs do occur, and so two of the most important pieces of information you can provide in a bug report is which version of matplotlib, and which backend.</p>
+
+<h2 id="gallery:12e5e4622920f32cd819b8409703bfed">Gallery</h2>
+
+<p>Many users of matplotlib are often faced with the question, &ldquo;I want to make a plot that has X with Y in the same figure, but it needs to look like Z&rdquo;. Good luck getting an answer from a web search with that query. This is why the <a href="http://matplotlib.org/gallery.html" title="Matplotlib Gallery"><code>Gallery</code></a> is so useful, because it showcases the variety of ways one can make plots. Browse through the gallery, click on any figure that has pieces of what you want to see the code that generated it. Soon enough, you will be like a chef, mixing and matching components to produce your masterpiece!</p>
+
+<pre><code>import matplotlib
+print(matplotlib.__version__)
+print(matplotlib.get_backend())
+
+1.4.3
+MacOSX
+</code></pre>
+
+<h1 id="lets-begin:12e5e4622920f32cd819b8409703bfed">Lets Begin!</h1>
+
+<p>Matplotlib is a large project and can seem daunting at first. However, by learning the components, it should begin to feel much smaller and more approachable.</p>
+
+<p>We start with the most important import statements you will ever need for matplotlib</p>
+
+<pre><code>import numpy as np
+import matplotlib.pyplot as plt
+%matplotlib inline
+</code></pre>
+
+<h1 id="pyplot:12e5e4622920f32cd819b8409703bfed">pyplot</h1>
+
+<p>The pyplot module is where everything in matplotlib comes together. It is the launching point for</p>
+
+<ul>
+<li>preparing your figures,</li>
+<li>making plots, and</li>
+<li>doing any modifications and decorations you want.</li>
+</ul>
+
+<p>It all comes together here. Let us take a look at those three catagories of pyplot functions.</p>
+
+<h2 id="plotting-preparation:12e5e4622920f32cd819b8409703bfed">Plotting Preparation</h2>
+
+<table>
+<thead>
+<tr>
+<th align="left">Function</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left"><code>autoscale</code></td>
+<td align="left">Autoscale the axis view to the data (toggle).</td>
+</tr>
+
+<tr>
+<td align="left"><code>axes</code></td>
+<td align="left">Add an axes to the figure.</td>
+</tr>
+
+<tr>
+<td align="left"><code>axis</code></td>
+<td align="left">Convenience method to get or set axis properties.</td>
+</tr>
+
+<tr>
+<td align="left"><code>cla</code></td>
+<td align="left">Clear the current axes.</td>
+</tr>
+
+<tr>
+<td align="left"><code>clf</code></td>
+<td align="left">Clear the current figure.</td>
+</tr>
+
+<tr>
+<td align="left"><code>clim</code></td>
+<td align="left">Set the color limits of the current image.</td>
+</tr>
+
+<tr>
+<td align="left"><code>delaxes</code></td>
+<td align="left">Remove an axes from the current figure.</td>
+</tr>
+
+<tr>
+<td align="left"><code>locator_params</code></td>
+<td align="left">Control behavior of tick locators.</td>
+</tr>
+
+<tr>
+<td align="left"><code>margins</code></td>
+<td align="left">Set or retrieve autoscaling margins.</td>
+</tr>
+
+<tr>
+<td align="left"><code>figure</code></td>
+<td align="left">Creates a new figure.</td>
+</tr>
+
+<tr>
+<td align="left"><code>gca</code></td>
+<td align="left">Return the current axis instance.</td>
+</tr>
+
+<tr>
+<td align="left"><code>gcf</code></td>
+<td align="left">Return a reference to the current figure.</td>
+</tr>
+
+<tr>
+<td align="left"><code>gci</code></td>
+<td align="left">Get the current colorable artist.</td>
+</tr>
+
+<tr>
+<td align="left"><code>hold</code></td>
+<td align="left">Set the hold state.</td>
+</tr>
+
+<tr>
+<td align="left"><code>ioff</code></td>
+<td align="left">Turn interactive mode off.</td>
+</tr>
+
+<tr>
+<td align="left"><code>ion</code></td>
+<td align="left">Turn interactive mode on.</td>
+</tr>
+
+<tr>
+<td align="left"><code>ishold</code></td>
+<td align="left">Return the hold status of the current axes.</td>
+</tr>
+
+<tr>
+<td align="left"><code>isinteractive</code></td>
+<td align="left">Return status of interactive mode.</td>
+</tr>
+
+<tr>
+<td align="left"><code>rc</code></td>
+<td align="left">Set the current rc params.</td>
+</tr>
+
+<tr>
+<td align="left"><code>rc_context</code></td>
+<td align="left">Return a context manager for managing rc settings.</td>
+</tr>
+
+<tr>
+<td align="left"><code>rcdefaults</code></td>
+<td align="left">Restore the default rc params.</td>
+</tr>
+
+<tr>
+<td align="left"><code>savefig</code></td>
+<td align="left">Save the current figure.</td>
+</tr>
+
+<tr>
+<td align="left"><code>sca</code></td>
+<td align="left">Set the current Axes instance.</td>
+</tr>
+
+<tr>
+<td align="left"><code>sci</code></td>
+<td align="left">Set the current image.</td>
+</tr>
+
+<tr>
+<td align="left"><code>set_cmap</code></td>
+<td align="left">Set the default colormap</td>
+</tr>
+
+<tr>
+<td align="left"><code>setp</code></td>
+<td align="left">Set a property on an artist object</td>
+</tr>
+
+<tr>
+<td align="left"><code>show</code></td>
+<td align="left">Display a figure</td>
+</tr>
+
+<tr>
+<td align="left"><code>subplot</code></td>
+<td align="left">Return a subplot axes positioned by the given grid definition.</td>
+</tr>
+
+<tr>
+<td align="left"><code>subplot2grid</code></td>
+<td align="left">Create a subplot in a grid.</td>
+</tr>
+
+<tr>
+<td align="left"><code>subplot_tool</code></td>
+<td align="left">Launch a subplot tool window for a figure.</td>
+</tr>
+
+<tr>
+<td align="left"><code>subplots</code></td>
+<td align="left">Create a figure with a set of subplots already made.</td>
+</tr>
+
+<tr>
+<td align="left"><code>subplots_adjust</code></td>
+<td align="left">Tune the subplot layout.</td>
+</tr>
+
+<tr>
+<td align="left"><code>switch_backend</code></td>
+<td align="left">Switch the default backend.</td>
+</tr>
+
+<tr>
+<td align="left"><code>tick_params</code></td>
+<td align="left">Change the appearance of ticks and tick labels.</td>
+</tr>
+
+<tr>
+<td align="left"><code>ticklabel_format</code></td>
+<td align="left">Change the ScalarFormatter used by default for linear axes.</td>
+</tr>
+
+<tr>
+<td align="left"><code>tight_layout</code></td>
+<td align="left">Automatically adjust subplot parameters to give specified padding.</td>
+</tr>
+
+<tr>
+<td align="left"><code>xkcd</code></td>
+<td align="left">Turns on <a href="http://xkcd.com/">XKCD</a> sketch-style drawing mode.</td>
+</tr>
+
+<tr>
+<td align="left"><code>xlabel</code></td>
+<td align="left">Set the <em>x</em> axis label of the current axis.</td>
+</tr>
+
+<tr>
+<td align="left"><code>xlim</code></td>
+<td align="left">Get or set the <em>x</em> limits of the current axes.</td>
+</tr>
+
+<tr>
+<td align="left"><code>xscale</code></td>
+<td align="left">Set the scaling of the <em>x</em>-axis.</td>
+</tr>
+
+<tr>
+<td align="left"><code>xticks</code></td>
+<td align="left">Get or set the <em>x</em>-limits of the current tick locations and labels.</td>
+</tr>
+
+<tr>
+<td align="left"><code>ylabel</code></td>
+<td align="left">Set the <em>y</em> axis label of the current axis.</td>
+</tr>
+
+<tr>
+<td align="left"><code>ylim</code></td>
+<td align="left">Get or set the <em>y</em>-limits of the current axes.</td>
+</tr>
+
+<tr>
+<td align="left"><code>yscale</code></td>
+<td align="left">Set the scaling of the <em>y</em>-axis.</td>
+</tr>
+
+<tr>
+<td align="left"><code>yticks</code></td>
+<td align="left">Get or set the <em>y</em>-limits of the current tick locations and labels.</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="plotting-functions:12e5e4622920f32cd819b8409703bfed">Plotting Functions</h2>
+
+<table>
+<thead>
+<tr>
+<th align="left">Function</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left"><code>acorr</code></td>
+<td align="left">Plot the autocorrelation of <em>x</em></td>
+</tr>
+
+<tr>
+<td align="left"><code>bar</code></td>
+<td align="left">Make a bar plot</td>
+</tr>
+
+<tr>
+<td align="left"><code>barbs</code></td>
+<td align="left">Plot a 2-D field of barbs</td>
+</tr>
+
+<tr>
+<td align="left"><code>barh</code></td>
+<td align="left">Make a horizontal bar plot</td>
+</tr>
+
+<tr>
+<td align="left"><code>boxplot</code></td>
+<td align="left">Make a box and whisker plot</td>
+</tr>
+
+<tr>
+<td align="left"><code>broken_barh</code></td>
+<td align="left">Plot horizontal bars</td>
+</tr>
+
+<tr>
+<td align="left"><code>cohere</code></td>
+<td align="left">Plot the coherence between <em>x</em> and <em>y</em></td>
+</tr>
+
+<tr>
+<td align="left"><code>contour</code></td>
+<td align="left">Plot contours</td>
+</tr>
+
+<tr>
+<td align="left"><code>contourf</code></td>
+<td align="left">Plot filled contours</td>
+</tr>
+
+<tr>
+<td align="left"><code>csd</code></td>
+<td align="left">Plot cross-spectral density</td>
+</tr>
+
+<tr>
+<td align="left"><code>errorbar</code></td>
+<td align="left">Plot an errorbar graph</td>
+</tr>
+
+<tr>
+<td align="left"><code>eventplot</code></td>
+<td align="left">Plot identical parallel lines at specific positions</td>
+</tr>
+
+<tr>
+<td align="left"><code>fill</code></td>
+<td align="left">Plot filled polygons</td>
+</tr>
+
+<tr>
+<td align="left"><code>fill_between</code></td>
+<td align="left">Make filled polygons between two curves</td>
+</tr>
+
+<tr>
+<td align="left"><code>fill_betweenx</code></td>
+<td align="left">Make filled polygons between two horizontal curves</td>
+</tr>
+
+<tr>
+<td align="left"><code>hexbin</code></td>
+<td align="left">Make a hexagonal binning plot</td>
+</tr>
+
+<tr>
+<td align="left"><code>hist</code></td>
+<td align="left">Plot a histogram</td>
+</tr>
+
+<tr>
+<td align="left"><code>hist2d</code></td>
+<td align="left">Make a 2D histogram plot</td>
+</tr>
+
+<tr>
+<td align="left"><code>imshow</code></td>
+<td align="left">Display an image on the axes</td>
+</tr>
+
+<tr>
+<td align="left"><code>loglog</code></td>
+<td align="left">Make a plot with log scaling on both the <em>x</em> and <em>y</em> axis</td>
+</tr>
+
+<tr>
+<td align="left"><code>matshow</code></td>
+<td align="left">Display an array as a matrix in a new figure window</td>
+</tr>
+
+<tr>
+<td align="left"><code>pcolor</code></td>
+<td align="left">Create a pseudocolor plot of a 2-D array</td>
+</tr>
+
+<tr>
+<td align="left"><code>pcolormesh</code></td>
+<td align="left">Plot a quadrilateral mesh</td>
+</tr>
+
+<tr>
+<td align="left"><code>pie</code></td>
+<td align="left">Plot a pie chart</td>
+</tr>
+
+<tr>
+<td align="left"><code>plot</code></td>
+<td align="left">Plot lines and/or markers</td>
+</tr>
+
+<tr>
+<td align="left"><code>plot_date</code></td>
+<td align="left">Plot with data with dates</td>
+</tr>
+
+<tr>
+<td align="left"><code>polar</code></td>
+<td align="left">Make a polar plot</td>
+</tr>
+
+<tr>
+<td align="left"><code>psd</code></td>
+<td align="left">Plot the power spectral density</td>
+</tr>
+
+<tr>
+<td align="left"><code>quiver</code></td>
+<td align="left">Plot a 2-D field of arrows</td>
+</tr>
+
+<tr>
+<td align="left"><code>scatter</code></td>
+<td align="left">Make a scatter plot of x vs y</td>
+</tr>
+
+<tr>
+<td align="left"><code>semilogx</code></td>
+<td align="left">Make a plot with log scaling on the <em>x</em> axis</td>
+</tr>
+
+<tr>
+<td align="left"><code>semilogy</code></td>
+<td align="left">Make a plot with log scaling on the <em>y</em> axis</td>
+</tr>
+
+<tr>
+<td align="left"><code>specgram</code></td>
+<td align="left">Plot a spectrogram</td>
+</tr>
+
+<tr>
+<td align="left"><code>spy</code></td>
+<td align="left">Plot the sparsity pattern on a 2-D array</td>
+</tr>
+
+<tr>
+<td align="left"><code>stackplot</code></td>
+<td align="left">Draws a stacked area plot</td>
+</tr>
+
+<tr>
+<td align="left"><code>stem</code></td>
+<td align="left">Create a stem plot</td>
+</tr>
+
+<tr>
+<td align="left"><code>step</code></td>
+<td align="left">Make a step plot</td>
+</tr>
+
+<tr>
+<td align="left"><code>streamplot</code></td>
+<td align="left">Draws streamlines of a vector flow</td>
+</tr>
+
+<tr>
+<td align="left"><code>tricontour</code></td>
+<td align="left">Draw contours on an unstructured triangular grid</td>
+</tr>
+
+<tr>
+<td align="left"><code>tricontourf</code></td>
+<td align="left">Draw filled contours on an unstructured triangular grid</td>
+</tr>
+
+<tr>
+<td align="left"><code>tripcolor</code></td>
+<td align="left">Create a pseudocolor plot of an unstructured triangular grid</td>
+</tr>
+
+<tr>
+<td align="left"><code>triplot</code></td>
+<td align="left">Draw a unstructured triangular grid as lines and/or markers</td>
+</tr>
+
+<tr>
+<td align="left"><code>xcorr</code></td>
+<td align="left">Plot the cross-correlation between <em>x</em> and <em>y</em></td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="plot-modifiers:12e5e4622920f32cd819b8409703bfed">Plot modifiers</h2>
+
+<table>
+<thead>
+<tr>
+<th align="left">Function</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left"><code>annotate</code></td>
+<td align="left">Create an annotation: a piece of text referring to a data point</td>
+</tr>
+
+<tr>
+<td align="left"><code>arrow</code></td>
+<td align="left">Add an arrow to the axes</td>
+</tr>
+
+<tr>
+<td align="left"><code>axhline</code></td>
+<td align="left">Add a horizontal line across the axis</td>
+</tr>
+
+<tr>
+<td align="left"><code>axhspan</code></td>
+<td align="left">Add a horizontal span (rectangle) across the axis</td>
+</tr>
+
+<tr>
+<td align="left"><code>axvline</code></td>
+<td align="left">Add a vertical line across the axes</td>
+</tr>
+
+<tr>
+<td align="left"><code>axvspan</code></td>
+<td align="left">Add a vertical span (rectangle) across the axes</td>
+</tr>
+
+<tr>
+<td align="left"><code>box</code></td>
+<td align="left">Turn the axes box on or off</td>
+</tr>
+
+<tr>
+<td align="left"><code>clabel</code></td>
+<td align="left">Label a contour plot</td>
+</tr>
+
+<tr>
+<td align="left"><code>colorbar</code></td>
+<td align="left">Add a colorbar to a plot</td>
+</tr>
+
+<tr>
+<td align="left"><code>grid</code></td>
+<td align="left">Turn the axes grids on or off</td>
+</tr>
+
+<tr>
+<td align="left"><code>hlines</code></td>
+<td align="left">Plot horizontal lines</td>
+</tr>
+
+<tr>
+<td align="left"><code>legend</code></td>
+<td align="left">Place a legend on the current axes</td>
+</tr>
+
+<tr>
+<td align="left"><code>minorticks_off</code></td>
+<td align="left">Remove minor ticks from the current plot</td>
+</tr>
+
+<tr>
+<td align="left"><code>minorticks_on</code></td>
+<td align="left">Display minor ticks on the current plot</td>
+</tr>
+
+<tr>
+<td align="left"><code>quiverkey</code></td>
+<td align="left">Add a key to a quiver plot</td>
+</tr>
+
+<tr>
+<td align="left"><code>rgrids</code></td>
+<td align="left">Get or set the radial gridlines on a polar plot</td>
+</tr>
+
+<tr>
+<td align="left"><code>suptitle</code></td>
+<td align="left">Add a centered title to the figure</td>
+</tr>
+
+<tr>
+<td align="left"><code>table</code></td>
+<td align="left">Add a table to the current axes</td>
+</tr>
+
+<tr>
+<td align="left"><code>text</code></td>
+<td align="left">Add text to the axes</td>
+</tr>
+
+<tr>
+<td align="left"><code>title</code></td>
+<td align="left">Set a title of the current axes</td>
+</tr>
+
+<tr>
+<td align="left"><code>vlines</code></td>
+<td align="left">Plot vertical lines</td>
+</tr>
+
+<tr>
+<td align="left"><code>xlabel</code></td>
+<td align="left">Set the <em>x</em> axis label of the current axis</td>
+</tr>
+
+<tr>
+<td align="left"><code>ylabel</code></td>
+<td align="left">Set the <em>y</em> axis label of the current axis</td>
+</tr>
+</tbody>
+</table>
+
+<p>####**Enough! **</p>
+
+<p>####<strong>That&rsquo;s Enough tables and theory.</strong> Let&rsquo;s actually plot something&hellip;</p>
+
+<h2 id="figure:12e5e4622920f32cd819b8409703bfed">Figure</h2>
+
+<h3 id="introduction:12e5e4622920f32cd819b8409703bfed">Introduction</h3>
+
+<p>All plotting is done through the <a href="http://matplotlib.org/api/figure_api.html#matplotlib.figure.Figure"><code>Figure</code></a> object. You can create as many figures as you need. Figures can&rsquo;t do much by themselves, but no plotting can happen without them. They are, literally, the &ldquo;canvas&rdquo; of your plot.</p>
+
+<pre><code>fig = plt.figure()
+
+
+&lt;matplotlib.figure.Figure at 0x102f4b710&gt;
+</code></pre>
+
+<p>Ha! nothing happened! This is because by default mpl will not show anything until told to do so. In other words, the &ldquo;interactive mode&rdquo; is turned off. This is very useful for scripting where we would not ever want to see the intermediate results. For those who wishes to experiment and want to see their plot as they issue commands, there is the &ldquo;<code>plt.ion()</code>&rdquo; command they can issue before creating their first figure of their session. For the purpoase of this tutorial, we will leave interactivity off.</p>
+
+<h3 id="figure-properties:12e5e4622920f32cd819b8409703bfed">Figure properties</h3>
+
+<ul>
+<li><p>figsize : tuple of integers, width, height in inches.</p></li>
+
+<li><p>dpi : integer, esolution of the figure in dots per inch.</p>
+
+<p>fig = plt.figure(figsize=(10, 4))
+fig.gca()  # needed for the ipython-inline to display anything. This returns the current axis instance.
+plt.show() # Lets see the plot (Nothin special.. just axis and a white canvas!)</p></li>
+</ul>
+
+<p><img src="output_9_0.png" alt="png" /></p>
+
+<p>A really useful utility function is <a href="http://matplotlib.org/api/figure_api.html?highlight=figaspect#matplotlib.figure.figaspect"><code>figaspect</code></a></p>
+
+<p>This lets you create a figure with specified aspect ratio. If arg is a number, use that aspect ratio. If arg is an array, figaspect will determine the width and height for a figure that would fit array preserving aspect ratio.</p>
+
+<pre><code># Twice as wide. Ratio of Height/ Width
+fig = plt.figure(figsize=plt.figaspect(0.5))
+fig.gca()
+plt.show()
+</code></pre>
+
+<p><img src="output_11_0.png" alt="png" /></p>
+
+<h2 id="axes:12e5e4622920f32cd819b8409703bfed">Axes</h2>
+
+<p>From above output we can observe that Matplotlib automatically creates axis for us. mpl gives us an option to change the axes. (Obviously since All plotting is done with respect to an <a href="http://matplotlib.org/api/axes_api.html#matplotlib.axes.Axes"><code>Axes</code></a>).</p>
+
+<p>An <em>Axes</em> is made up of <a href="http://matplotlib.org/api/axis_api.html#matplotlib.axis.Axis"><code>Axis</code></a> objects (and many other things). An <em>Axes</em> object must belong to a <em>Figure</em> (and only one <code>Figure</code>). Most commands you will ever issue will be with respect to this <em>Axes</em> object.</p>
+
+<pre><code># Lets manually add axis for x axis
+fig = plt.figure()
+'''
+fig.add_subplot(numrows numcols fignum). subplot(111) will be created by default 
+if you don't manually specify axes. fignum ranges from 1 to numrows*numcols.
+If you want to place an axes manually, i.e., not on a rectangular grid, use the axes() command, 
+which allows you to specify the location as axes([left, bottom, width, height]) where all values 
+are in fractional (0 to 1) coordinates. 
+Each figure can contain as many axes and subplots as your heart desires
+'''
+ax = fig.add_subplot(111) 
+ax.plot([1, 2, 3, 4, 5, 6, 7, 8], np.random.randint(1, 99, size=(1,8))[0])  # Add some data for X and Y
+ax.set_xlim(0.5, 8.5) # Set X axis between 0.5 and 8.5
+plt.show()
+</code></pre>
+
+<p><img src="output_13_0.png" alt="png" /></p>
+
+<p>All methods of an <code>Axes</code> object exist as a function in the <em>pyplot</em> module (and vice-versa). For example, when calling <code>plt.xlim(1, 10)</code>, <code>pyplot</code> calls <code>ax.set_xlim(1, 10)</code> on whichever <code>Axes</code> is &ldquo;current&rdquo;. Here is an equivalent version of the above example using just pyplot.</p>
+
+<pre><code>plt.plot([1, 2, 3, 4, 5, 6, 7, 8], np.random.randint(1, 99, size=(1,8))[0])  # Add some data for X and Y
+plt.xlim(0.5, 8.5)
+plt.show()
+</code></pre>
+
+<p><img src="output_15_0.png" alt="png" /></p>
+
+<p>Much cleaner Code, right? So, why will most of my examples not follow the pyplot approach? Because <a href="http://www.python.org/dev/peps/pep-0020/"><code>PEP20</code></a> &ldquo;The Zen of Python&rdquo; says:</p>
+
+<p>&ldquo;<code>Explicit is better than implicit</code>&ldquo;</p>
+
+<p>While very simple plots, with short scripts would benefit from the conciseness of the pyplot implicit approach, when doing more complicated plots, or working within larger scripts, you will want to explicitly pass around the <code>Axes</code> and/or <code>Figure</code> object to operate upon.</p>
+
+<h3 id="limits-and-autoscaling:12e5e4622920f32cd819b8409703bfed">Limits and autoscaling</h3>
+
+<p>As mentioned above, by default, matplotlib will attempt to determine limits for you that encompasses all the data you have plotted.  This is the &ldquo;autoscale&rdquo; feature. For line and image plots, the limits are not padded, while plots such as scatter plots and bar plots are given some padding.</p>
+
+<pre><code>fig, (ax1, ax2) = plt.subplots(1, 2, figsize=plt.figaspect(0.5))
+ax1.plot([-10, -5, 0, 5, 10, 15], [-1.2, 2, 3.5, -0.3, -4, 1]) # Will not pad
+ax2.scatter([-10, -5, 0, 5, 10, 15], [-1.2, 2, 3.5, -0.3, -4, 1]) # Will pad
+plt.show()
+</code></pre>
+
+<p><img src="output_18_0.png" alt="png" /></p>
+
+<blockquote>
+<p>A trick with limits is to specify only half of a limit. When done <strong>after</strong> a plot is made, this has the effect of allowing the user to anchor a limit while letting matplotlib to autoscale the rest of it.</p>
+</blockquote>
+
+<p>Take a look at below example to understand what I mean</p>
+
+<pre><code># Good -- setting limits after plotting is done
+fig, (ax1, ax2) = plt.subplots(1, 2, figsize=plt.figaspect(0.5))
+ax1.plot([-10, -5, 0, 5, 10, 15], [-1.2, 2, 3.5, -0.3, -4, 1])
+ax2.scatter([-10, -5, 0, 5, 10, 15], [-1.2, 2, 3.5, -0.3, -4, 1])
+ax1.set_ylim(bottom=-10)
+ax2.set_xlim(right=25)
+plt.show()
+</code></pre>
+
+<p><img src="output_20_0.png" alt="png" /></p>
+
+<pre><code># Bad -- Setting limits before plotting is done
+fig, (ax1, ax2) = plt.subplots(1, 2, figsize=plt.figaspect(0.5))
+ax1.set_ylim(bottom=-10) # This will mess up your plot
+ax2.set_xlim(right=25)  # This will mess up your plot
+ax1.plot([-10, -5, 0, 5, 10, 15], [-1.2, 2, 3.5, -0.3, -4, 1])
+ax2.scatter([-10, -5, 0, 5, 10, 15], [-1.2, 2, 3.5, -0.3, -4, 1])
+plt.show()
+</code></pre>
+
+<p><img src="output_21_0.png" alt="png" /></p>
+
+<h3 id="labels-and-legends:12e5e4622920f32cd819b8409703bfed">Labels and Legends</h3>
+
+<p>You can label just about anything in mpl. You can provide a label to your plot, which allows your legend to automatically build itself. The X and Y axis can also be labeled, as well as the subplot itself via the title.</p>
+
+<pre><code>fig = plt.figure()
+ax = fig.add_subplot(111)
+ax.plot([1, 2, 3, 4], np.random.randint(1, 99, size=(1,4))[0], label='Philadelphia')
+ax.plot([1, 2, 3, 4], np.random.randint(1, 99, size=(1,4))[0], label='Boston')
+ax.set_ylabel('Temperature (deg C)')
+ax.set_xlabel('Time')
+ax.set_title(&quot;A tale of two cities&quot;)
+ax.legend()
+plt.show()
+</code></pre>
+
+<p><img src="output_23_0.png" alt="png" /></p>
+
+<p>Also, if you happen to be plotting something that you do not want to appear in the legend, just set the label to &ldquo;_<code>nolegend</code>_&rdquo;.</p>
+
+<pre><code>fig, ax = plt.subplots(1, 1)
+ax.bar([1, 2, 3, 4], [10, 20, 25, 30], label=&quot;Bar&quot;)
+ax.plot([1, 2, 3, 4], [10, 20, 25, 30], label=&quot;_nolegend_&quot;)  # __nolengend__ is equivalent to not specifying any lengend      
+ax.set_ylim(top=35)
+ax.legend()
+plt.show()
+</code></pre>
+
+<p><img src="output_25_0.png" alt="png" /></p>
+
+<h3 id="ticks-tick-lines-tick-labels-and-tickers:12e5e4622920f32cd819b8409703bfed">Ticks, Tick Lines, Tick Labels and Tickers</h3>
+
+<ul>
+<li>A Tick is the location of a Tick Label.</li>
+<li>A Tick Line is the line that denotes the location of the tick.</li>
+<li>A Tick Label is the text that is displayed at that tick.</li>
+<li>A <a href="http://matplotlib.org/api/ticker_api.html#module-matplotlib.ticker"><code>Ticker</code></a> automatically determines the ticks for an Axis and formats the tick labels.</li>
+</ul>
+
+<p><a href="http://matplotlib.org/api/axes_api.html#matplotlib.axes.Axes.tick_params"><code>tick_params()</code></a> is often used to help configure your tickers.</p>
+
+<pre><code>fig = plt.figure()
+ax = fig.add_subplot(111)
+ax.plot([1, 2, 3, 4], [10, 20, 25, 30])
+ax.xaxis.set_ticks(range(1, 5))               # Set ticks at 1, 2, 3, 4
+ax.xaxis.set_ticklabels([3, 100, -12, &quot;foo&quot;]) # Label ticks as &quot;3&quot;, &quot;100&quot;, &quot;-12&quot;, and &quot;foo&quot;
+ax.tick_params(axis='y', direction='inout', length=10)
+plt.show()
+</code></pre>
+
+<p><img src="output_27_0.png" alt="png" /></p>
+
+<h2 id="subplots:12e5e4622920f32cd819b8409703bfed">Subplots</h2>
+
+<p>While an <code>Axes</code> object can only belong to one <code>Figure</code> (and it <strong>MUST</strong>), A <code>Figure</code> can have many <code>Axes</code> objects. These are typically called &ldquo;subaxes&rdquo; or &ldquo;subplots&rdquo;. They act just like regular <code>Axes</code>.</p>
+
+<pre><code>fig = plt.figure(figsize=(10, 5))
+ax = fig.add_subplot(121)
+ax.plot([1, 2, 3, 4], np.random.randint(1, 99, size=(1,4))[0], label='Philadelphia')
+ax.plot([1, 2, 3, 4], np.random.randint(1, 99, size=(1,4))[0], label='Boston')
+ax.set_title('A tale of two cities')
+ax.legend()
+
+t = np.linspace(-np.pi, np.pi, 256, endpoint=True)
+z = np.sin(t)
+ax = fig.add_subplot(122)
+plt.xticks([-np.pi, -np.pi/2, 0, np.pi/2, np.pi])
+ax.plot(t, z, label='Sine Wave')
+ax.set_title(&quot;Observed Tide&quot;)
+ax.legend()
+
+fig.suptitle('Figure Title')  # Add a centered title for the whole figure
+plt.show()
+</code></pre>
+
+<p><img src="output_29_0.png" alt="png" /></p>
+
+<p>There are many ways to add and modify subplots in a figure.</p>
+
+<ul>
+<li><a href="http://matplotlib.org/api/pyplot_api.html#matplotlib.pyplot.subplots"><code>plt.subplots()</code></a></li>
+<li><a href="http://matplotlib.org/api/pyplot_api.html#matplotlib.pyplot.subplot"><code>plt.subplot()</code></a> and <a href="http://matplotlib.org/api/figure_api.html?#matplotlib.figure.Figure.add_subplot"><code>fig.add_subplot()</code></a>  Which should be familiar to all Matlab users</li>
+<li><a href="http://matplotlib.org/api/pyplot_api.html?#matplotlib.pyplot.axes"><code>plt.axes()</code></a></li>
+<li><a href="http://matplotlib.org/api/pyplot_api.html?#matplotlib.pyplot.subplot2grid"><code>plt.subplot2grid()</code></a></li>
+<li><code>plt.subplot_tool()</code> Interactive modification of subplot spacing.</li>
+</ul>
+
+<h3 id="spacing:12e5e4622920f32cd819b8409703bfed">Spacing</h3>
+
+<p>The spacing between the subplots can be adjusted using <a href="http://matplotlib.org/api/pyplot_api.html?#matplotlib.pyplot.subplots_adjust"><code>plt.subplots_adjust()</code></a>.</p>
+
+<p>Play around with the example below to see how the different arguments affect the spacing.</p>
+
+<pre><code>fig, axes = plt.subplots(2, 2, figsize=(9, 9))
+plt.subplots_adjust(wspace=0.5, hspace=0.3,
+                    left=0.125, right=0.9,
+                    top=0.9,    bottom=0.1)
+plt.show()
+</code></pre>
+
+<p><img src="output_31_0.png" alt="png" /></p>
+
+<p>A common complaint with matplotlib users is that the labels do not fit with the subplots, or the label of one subplot spills onto another subplot&rsquo;s area. Matplotlib does not currently have any sort of robust layout engine, as it is a design decision to minimize the amount of &ldquo;magic&rdquo; that matplotlib performs. We intend to let users have complete, 100% control over their plots. LaTeX users would be quite familiar with the amount of frustration that can occur with placement of figures in their documents.</p>
+
+<p>That said, there have been some efforts to develop tools that users can use to help address the most common compaints. The <a href="http://matplotlib.org/users/tight_layout_guide.html"><code>Tight Layout</code></a> feature, when invoked, will attempt to resize margins, and subplots so that nothing overlaps.</p>
+
+<pre><code>def example_plot(ax):
+    ax.plot([1, 2])
+    ax.set_xlabel('x-label', fontsize=10)
+    ax.set_ylabel('y-label', fontsize=10)
+
+fig, ((ax1, ax2), (ax3, ax4)) = plt.subplots(nrows=2, ncols=2)
+example_plot(ax1)
+example_plot(ax2)
+example_plot(ax3)
+example_plot(ax4)
+#plt.tight_layout()
+plt.show()  # Check x label, y label 
+</code></pre>
+
+<p><img src="output_33_0.png" alt="png" /></p>
+
+<p>As a last bit of an FAQ, this <code>tight_layout</code> feature is unrelated to the so-called <code>bbox_inches='tight'</code> feature that will be discussed separately. (Check Sine and Cosine plots below)</p>
+
+<h3 id="gridspec:12e5e4622920f32cd819b8409703bfed">GridSpec</h3>
+
+<p>Under the hood, matplotlib utilizes <a href="http://matplotlib.org/api/gridspec_api.html"><code>GridSpec</code></a> to lay out the subplots. While <code>plt.subplots()</code> is fine for simple cases, sometimes you will need more advanced subplot layouts. In such cases, you should use GridSpec directly. GridSpec is outside the scope of this tutorial, but it is handy to know that it exists. <a href="http://matplotlib.org/users/gridspec.html"><code>GridSpec Guide</code></a> is a guide on how to use it.</p>
+
+<h3 id="sharing-axes:12e5e4622920f32cd819b8409703bfed">Sharing axes</h3>
+
+<p>There will be times when you want to have the x axis and/or the y axis of your subplots to be &ldquo;shared&rdquo;. Sharing an axis means that the axis in one or more subplots will be tied together such that any change in one of the axis changes all of the other shared axes. This works very nicely with autoscaling arbitrary datasets that may have overlapping domains. Furthermore, when interacting with the plots (panning and zooming), all of the shared axes will pan and zoom automatically.</p>
+
+<pre><code>fig, (ax1, ax2) = plt.subplots(1, 2, sharex=True, sharey=True)  # Common X and Y axis for both subplots
+ax1.plot([1, 2, 3, 4], [1, 2, 3, 4])
+ax2.plot([3, 4, 5, 6], [6, 5, 4, 3])
+plt.show()
+</code></pre>
+
+<p><img src="output_37_0.png" alt="png" /></p>
+
+<h3 id="twinning-axes:12e5e4622920f32cd819b8409703bfed">&ldquo;Twinning&rdquo; axes</h3>
+
+<p>Sometimes one may want to overlay two plots on the same axes, but the scales may be entirely different. You can simply treat them as separate plots, but then twin them.</p>
+
+<pre><code>fig, ax1 = plt.subplots(1, 1)
+ax1.plot([1, 2, 3, 4], [1, 2, 3, 4])  # A plot with X and Y values
+ax2 = ax1.twinx()  # Twin X
+ax2.scatter([1, 2, 3, 4], [60, 50, 40, 30])  # Another plot with SAME X but different Y values
+ax1.set_xlabel('X')
+ax1.set_ylabel('First scale')
+ax2.set_ylabel('Other scale')
+plt.show()
+</code></pre>
+
+<p><img src="output_39_0.png" alt="png" /></p>
+
+<pre><code># A better Twinx example:
+fig, ax1 = plt.subplots()
+t = np.arange(0.01, 10.0, 0.01)
+s1 = np.exp(t)
+ax1.plot(t, s1, 'b-')
+ax1.set_xlabel('time (s)')
+# Make the y-axis label and tick labels match the line color.
+ax1.set_ylabel('exp', color='b')
+for tl in ax1.get_yticklabels():
+    tl.set_color('b')
+
+
+ax2 = ax1.twinx()
+s2 = np.sin(2*np.pi*t)
+ax2.plot(t, s2, 'r.')
+ax2.set_ylabel('sin', color='r')
+for tl in ax2.get_yticklabels():
+    tl.set_color('r')
+plt.show()
+</code></pre>
+
+<p><img src="output_40_0.png" alt="png" /></p>
+
+<h1 id="axis-spines:12e5e4622920f32cd819b8409703bfed">Axis Spines</h1>
+
+<p>Spines are the axis lines for a plot. Each plot can have four spines: &ldquo;top&rdquo;, &ldquo;bottom&rdquo;, &ldquo;left&rdquo; and &ldquo;right&rdquo;. By default, they are set so that they frame the plot, but they can be individually positioned and configured via the <a href="http://matplotlib.org/api/spines_api.html#matplotlib.spines.Spine.set_position"><code>set_position()</code></a> method of the spine. Here are some different configurations.</p>
+
+<pre><code>fig, ax = plt.subplots(1, 1)
+ax.plot([-2, 2, 3, 4], [-10, 20, 25, 5])
+ax.spines['top'].set_visible(False)
+ax.xaxis.set_ticks_position('bottom')  # no ticklines at the top
+ax.spines['right'].set_visible(False)
+ax.yaxis.set_ticks_position('left')  # no ticklines on the right
+
+# &quot;outward&quot;
+# Move the two remaining spines &quot;out&quot; away from the plot by 10 points
+ax.spines['bottom'].set_position(('outward', 10))
+ax.spines['left'].set_position(('outward', 10))
+
+# &quot;data&quot;
+# Have the spines stay intersected at (0,0)
+#ax.spines['bottom'].set_position(('data', 0))
+#ax.spines['left'].set_position(('data', 0))
+
+# &quot;axes&quot;
+# Have the two remaining spines placed at a fraction of the axes
+#ax.spines['bottom'].set_position(('axes', 0.75))
+#ax.spines['left'].set_position(('axes', 0.25))
+
+plt.show()
+</code></pre>
+
+<p><img src="output_42_0.png" alt="png" /></p>
+
+<h2 id="colorbars:12e5e4622920f32cd819b8409703bfed">Colorbars</h2>
+
+<p>Let&rsquo;s look at something cool now.</p>
+
+<p>Colorbars are much like legends because they help to describe the data being displayed. While legends describe plots, i.e., plot(), scatter(), hist(), stem(), colorbars describe images. To be really specific and technical, they can be used for any &ldquo;ScalarMappable&rdquo;, which will be discussed in the <code>Artists</code> section. Let us take a look at a very simple example of a colorbar for a simple 2D image.</p>
+
+<pre><code>y, x = np.ogrid[-6:6:20j, -10:10:30j]
+z = np.hypot(x, y)
+plt.imshow(z)
+plt.colorbar()
+plt.show()
+</code></pre>
+
+<p><img src="output_44_0.png" alt="png" /></p>
+
+<pre><code># Horizontal Colorbar
+plt.imshow(z)
+plt.colorbar(orientation='horizontal', shrink=0.75)  # We can make colorbars do all sorts of things!
+plt.show()
+</code></pre>
+
+<p><img src="output_45_0.png" alt="png" /></p>
+
+<pre><code># Change colorbar shape
+plt.imshow(z)
+cbar = plt.colorbar(extend='both', aspect=10)
+cbar.set_label('distance')                           # And we can even add a label to it
+plt.show()
+</code></pre>
+
+<p><img src="output_46_0.png" alt="png" /></p>
+
+<h2 id="colors:12e5e4622920f32cd819b8409703bfed">Colors</h2>
+
+<p>This is, perhaps, the most important piece of vocabulary in matplotlib. Given that matplotlib is a plotting library, colors are associated with everything that is plotted in your figures. Matplotlib supports a <a href="http://matplotlib.org/api/colors_api.html#module-matplotlib.colors">very robust language</a> for specifying colors that should be familiar to a wide variety of users.</p>
+
+<h3 id="colornames:12e5e4622920f32cd819b8409703bfed">Colornames</h3>
+
+<p>First, colors can be given as strings. For very basic colors, you can even get away with just a single letter:</p>
+
+<ul>
+<li>b: blue</li>
+<li>g: green</li>
+<li>r: red</li>
+<li>c: cyan</li>
+<li>m: magenta</li>
+<li>y: yellow</li>
+<li>k: black</li>
+<li>w: white</li>
+</ul>
+
+<p>Other colornames that are allowed are the HTML/CSS colornames such as &ldquo;burlywood&rdquo; and &ldquo;chartreuse&rdquo; are valid. See the <a href="http://www.w3schools.com/html/html_colornames.asp">full list</a> of the 147 colornames. For the British speaking and poor spellers among us (Note, I am not implying that British speakers are poor spellers!), we allow &ldquo;grey&rdquo; where-ever &ldquo;gray&rdquo; appears in that list of colornames. All of these colornames are case-insensitive.</p>
+
+<h3 id="hex-values:12e5e4622920f32cd819b8409703bfed">Hex values</h3>
+
+<p>Colors can also be specified by supplying an HTML/CSS hex string, such as <code>'#0000FF'</code> for blue.</p>
+
+<h3 id="256-shades-of-gray:12e5e4622920f32cd819b8409703bfed">256 Shades of Gray</h3>
+
+<p>A gray level can be given instead of a color by passing a string representation of a number between 0 and 1, inclusive. <code>'0.0'</code> is black, while <code>'1.0'</code> is white. <code>'0.75'</code> would be a lighter shade of gray.</p>
+
+<h3 id="rgb-a-tuples:12e5e4622920f32cd819b8409703bfed">RGB[A] tuples</h3>
+
+<p>You may come upon instances where the previous ways of specifying colors do not work. This can sometimes happen in some of the deeper, stranger levels of the code. When all else fails, the universal language of colors for matplotlib is the RGB[A] tuple. This is the &ldquo;Red&rdquo;, &ldquo;Green&rdquo;, &ldquo;Blue&rdquo;, and sometimes &ldquo;Alpha&rdquo; tuple of floats in the range of [0, 1]. One means full saturation of that channel, so a red RGBA tuple would be <code>(1.0, 0.0, 0.0, 1.0)</code>, whereas a partly transparent green RGBA tuple would be <code>(0.0, 1.0, 0.0, 0.75)</code>.  The documentation will usually specify whether it accepts RGB or RGBA tuples. Sometimes, a list of tuples would be required for multiple colors, and you can even supply a Nx3 or Nx4 numpy array in such cases.</p>
+
+<p>In functions such as <code>plot()</code> and <code>scatter()</code>, while it may appear that they can take a color specification, what they really need is a &ldquo;format specification&rdquo;, which includes color as part of the format. Unfortunately, such specifications are string only and so RGB[A] tuples are not supported for such arguments (but you can still pass an RGB[A] tuple for a &ldquo;color&rdquo; argument).</p>
+
+<p>Note, oftentimes there is a separate argument for &ldquo;alpha&rdquo; where-ever you can specify a color. The value for &ldquo;alpha&rdquo; will usually take precedence over the alpha value in the RGBA tuple. There is no easy way around this problem.</p>
+
+<h1 id="markers:12e5e4622920f32cd819b8409703bfed">Markers</h1>
+
+<p><a href="http://matplotlib.org/api/markers_api.html"><code>Markers</code></a> are commonly used in <a href="http://matplotlib.org/api/pyplot_api.html#matplotlib.pyplot.plot"><code>plot()</code></a> and <a href="http://matplotlib.org/api/pyplot_api.html#matplotlib.pyplot.scatter"><code>scatter()</code></a> plots, but also show up elsewhere. There is a wide set of markers available, and custom markers can even be specified.</p>
+
+<p>marker     |  description  ||marker    |  description  ||marker    |  description  ||marker    |  description<br />
+:&mdash;&mdash;&mdash;-|:&mdash;&mdash;&mdash;&mdash;&ndash;||:&mdash;&mdash;&mdash;|:&mdash;&mdash;&mdash;&mdash;&ndash;||:&mdash;&mdash;&mdash;|:&mdash;&mdash;&mdash;&mdash;&ndash;||:&mdash;&mdash;&mdash;|:&mdash;&mdash;&mdash;&mdash;&ndash;
+&ldquo;.&rdquo;        |  point        ||&ldquo;+&rdquo;       |  plus         ||&ldquo;,&rdquo;       |  pixel        ||&ldquo;x&rdquo;       |  cross
+&ldquo;o&rdquo;        |  circle       ||&ldquo;D&rdquo;       |  diamond      ||&ldquo;d&rdquo;       |  thin<em>diamond ||          |
+&ldquo;8&rdquo;        |  octagon      ||&ldquo;s&rdquo;       |  square       ||&ldquo;p&rdquo;       |  pentagon     ||&rdquo;*&rdquo;      |  star
+&ldquo;&#124;&rdquo;   |  vertical line||&rdquo;</em>&rdquo;      | horizontal line ||&ldquo;h&rdquo;     |  hexagon1     ||&ldquo;H&rdquo;       |  hexagon2
+0          |  tickleft     ||4         |  caretleft    ||&rdquo;&lt;&rdquo;       | triangle_left ||&ldquo;3&rdquo;       |  tri_left
+1          |  tickright    ||5         |  caretright   ||&ldquo;&gt;&rdquo;       | triangle_right||&ldquo;4&rdquo;       |  tri_right
+2          |  tickup       ||6         |  caretup      ||&ldquo;^&rdquo;       | triangle_up   ||&ldquo;2&rdquo;       |  tri_up
+3          |  tickdown     ||7         |  caretdown    ||&ldquo;v&rdquo;       | triangle_down ||&ldquo;1&rdquo;       |  tri_down
+&ldquo;None&rdquo;     |  nothing      ||<code>None</code>    |  nothing      ||&rdquo; &ldquo;       |  nothing      ||&rdquo;&rdquo;        |  nothing</p>
+
+<pre><code>xs, ys = np.mgrid[:4, 9:0:-1]
+markers = [&quot;.&quot;, &quot;+&quot;, &quot;,&quot;, &quot;x&quot;, &quot;o&quot;, &quot;D&quot;, &quot;d&quot;, &quot;&quot;, &quot;8&quot;, &quot;s&quot;, &quot;p&quot;, &quot;*&quot;, &quot;|&quot;, &quot;_&quot;, &quot;h&quot;, &quot;H&quot;, 0, 4, &quot;&lt;&quot;, &quot;3&quot;,
+           1, 5, &quot;&gt;&quot;, &quot;4&quot;, 2, 6, &quot;^&quot;, &quot;2&quot;, 3, 7, &quot;v&quot;, &quot;1&quot;, &quot;None&quot;, None, &quot; &quot;, &quot;&quot;]
+descripts = [&quot;point&quot;, &quot;plus&quot;, &quot;pixel&quot;, &quot;cross&quot;, &quot;circle&quot;, &quot;diamond&quot;, &quot;thin diamond&quot;, &quot;&quot;,
+             &quot;octagon&quot;, &quot;square&quot;, &quot;pentagon&quot;, &quot;star&quot;, &quot;vertical bar&quot;, &quot;horizontal bar&quot;, &quot;hexagon 1&quot;, &quot;hexagon 2&quot;,
+             &quot;tick left&quot;, &quot;caret left&quot;, &quot;triangle left&quot;, &quot;tri left&quot;, &quot;tick right&quot;, &quot;caret right&quot;, &quot;triangle right&quot;, &quot;tri right&quot;,
+             &quot;tick up&quot;, &quot;caret up&quot;, &quot;triangle up&quot;, &quot;tri up&quot;, &quot;tick down&quot;, &quot;caret down&quot;, &quot;triangle down&quot;, &quot;tri down&quot;,
+             &quot;Nothing&quot;, &quot;Nothing&quot;, &quot;Nothing&quot;, &quot;Nothing&quot;]
+fig, ax = plt.subplots(1, 1, figsize=(14, 4))
+for x, y, m, d in zip(xs.T.flat, ys.T.flat, markers, descripts):
+    ax.scatter(x, y, marker=m, s=100)
+    ax.text(x + 0.1, y - 0.1, d, size=14)
+ax.set_axis_off()
+plt.show()
+</code></pre>
+
+<p><img src="output_49_0.png" alt="png" /></p>
+
+<h2 id="linestyles:12e5e4622920f32cd819b8409703bfed">Linestyles</h2>
+
+<p>Line styles are about as commonly used as colors. There are a few predefined linestyles available to use. Note that there are some advanced techniques to specify some custom line styles. <a href="http://matplotlib.org/1.3.0/examples/lines_bars_and_markers/line_demo_dash_control.html"><code>Here</code></a> is an example of a custom dash pattern.</p>
+
+<table>
+<thead>
+<tr>
+<th>linestyle</th>
+<th>description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>&rsquo;-&rsquo;</td>
+<td>solid</td>
+</tr>
+
+<tr>
+<td>&rsquo;&ndash;&rsquo;</td>
+<td>dashed</td>
+</tr>
+
+<tr>
+<td>&rsquo;-.&rsquo;</td>
+<td>dashdot</td>
+</tr>
+
+<tr>
+<td>&lsquo;:&rsquo;</td>
+<td>dotted</td>
+</tr>
+
+<tr>
+<td>&lsquo;None&rsquo;</td>
+<td>draw nothing</td>
+</tr>
+
+<tr>
+<td>&rsquo; &lsquo;</td>
+<td>draw nothing</td>
+</tr>
+
+<tr>
+<td>&ldquo;</td>
+<td>draw nothing</td>
+</tr>
+</tbody>
+</table>
+
+<p>Also, don&rsquo;t mix up &ldquo;.-&rdquo; (line with dot markers) and &ldquo;-.&rdquo; (dash-dot line) when using the plot or scatter functions.</p>
+
+<pre><code>t = np.arange(0.0, 5.0, 0.2)
+plt.plot(t, t, '-', t, t**2, '--', t, t**3, '-.', t, -t, ':')
+plt.show()
+</code></pre>
+
+<p><img src="output_51_0.png" alt="png" /></p>
+
+<p>It is a bit confusing, but the line styles mentioned above are only valid for lines. Whenever you are dealing with the linestyles of the edges of &ldquo;Patch&rdquo; objects, you will need to use words instead of the symbols. So &ldquo;solid&rdquo; instead of &ldquo;-&rdquo;, and &ldquo;dashdot&rdquo; instead of &ldquo;-.&rdquo;. Hopefully, this issue will be fixed for the v1.5 release and allow these specifications to be used interchangably.</p>
+
+<pre><code>fig, ax = plt.subplots(1, 1)
+ax.bar([1, 2, 3, 4], [10, 20, 15, 13], ls='dashed', ec='r', lw=5)
+plt.show()
+</code></pre>
+
+<p><img src="output_53_0.png" alt="png" /></p>
+
+<h2 id="plot-attributes:12e5e4622920f32cd819b8409703bfed">Plot attributes</h2>
+
+<p>With just about any plot you can make, there are many attributes that can be modified to make the lines and markers suit your needs. Note that for many plotting functions, matplotlib will cycle the colors for each dataset you plot. However, you are free to explicitly state which colors you want used for which plots. For the <a href="http://matplotlib.org/api/pyplot_api.html#matplotlib.pyplot.plot"><code>plt.plot()</code></a> and <a href="http://matplotlib.org/api/pyplot_api.html#matplotlib.pyplot.scatter"><code>plt.scatter()</code></a> functions, you can mix the specification for the colors, linestyles, and markers in a single string.</p>
+
+<pre><code>t = np.arange(0., 5., 0.2)
+# red dashes, blue squares and green triangles
+plt.plot(t, t, 'r--', t, t**2, 'bs', t, t**3, 'g^')
+plt.show()
+</code></pre>
+
+<p><img src="output_55_0.png" alt="png" /></p>
+
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Value Type</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>alpha</td>
+<td>float</td>
+</tr>
+
+<tr>
+<td>color or c</td>
+<td>any matplotlib color</td>
+</tr>
+
+<tr>
+<td>dash_capstyle</td>
+<td>[&lsquo;butt&rsquo;, &lsquo;round&rsquo; &lsquo;projecting&rsquo;]</td>
+</tr>
+
+<tr>
+<td>dash_joinstyle</td>
+<td>[&lsquo;miter&rsquo; &lsquo;round&rsquo; &lsquo;bevel&rsquo;]</td>
+</tr>
+
+<tr>
+<td>dashes</td>
+<td>sequence of on/off ink in points</td>
+</tr>
+
+<tr>
+<td>drawstyle</td>
+<td>[ ‘default’ ‘steps’ ‘steps-pre’</td>
+</tr>
+
+<tr>
+<td></td>
+<td>‘steps-mid’ ‘steps-post’ ]</td>
+</tr>
+
+<tr>
+<td>linestyle or ls</td>
+<td>[ &lsquo;-&rsquo; &lsquo;&ndash;&rsquo; &lsquo;-.&rsquo; &lsquo;:&rsquo; &lsquo;None&rsquo; &lsquo; &rsquo; &ldquo;]</td>
+</tr>
+
+<tr>
+<td></td>
+<td>and any drawstyle in combination with a</td>
+</tr>
+
+<tr>
+<td></td>
+<td>linestyle, e.g. &lsquo;steps&ndash;&rsquo;.</td>
+</tr>
+
+<tr>
+<td>linewidth or lw</td>
+<td>float value in points</td>
+</tr>
+
+<tr>
+<td>marker</td>
+<td>[ 0 1 2 3 4 5 6 7 &lsquo;o&rsquo; &rsquo;d&rsquo; &rsquo;D&rsquo; &lsquo;h&rsquo; &lsquo;H&rsquo;</td>
+</tr>
+
+<tr>
+<td></td>
+<td>&rdquo; &lsquo;None&rsquo; &lsquo; &rsquo; <code>None</code> &lsquo;8&rsquo; &lsquo;p&rsquo; &lsquo;,&rsquo;</td>
+</tr>
+
+<tr>
+<td></td>
+<td>&rsquo;+&rsquo; &lsquo;x&rsquo; &lsquo;.&rsquo; &rsquo;s&rsquo; &lsquo;*&rsquo; &lsquo;_&rsquo; &lsquo;&#124;&lsquo;</td>
+</tr>
+
+<tr>
+<td></td>
+<td>&lsquo;1&rsquo; &lsquo;2&rsquo; &lsquo;3&rsquo; &lsquo;4&rsquo; &lsquo;v&rsquo; &lsquo;&lt;&rsquo; &lsquo;&gt;&rsquo; &lsquo;^&rsquo; ]</td>
+</tr>
+
+<tr>
+<td>markeredgecolor or mec</td>
+<td>any matplotlib color</td>
+</tr>
+
+<tr>
+<td>markeredgewidth or mew</td>
+<td>float value in points</td>
+</tr>
+
+<tr>
+<td>markerfacecolor or mfc</td>
+<td>any matplotlib color</td>
+</tr>
+
+<tr>
+<td>markersize or ms</td>
+<td>float</td>
+</tr>
+
+<tr>
+<td>solid_capstyle</td>
+<td>[&lsquo;butt&rsquo; &lsquo;round&rsquo; &lsquo;projecting&rsquo;]</td>
+</tr>
+
+<tr>
+<td>solid_joinstyle</td>
+<td>[&lsquo;miter&rsquo; &lsquo;round&rsquo; &lsquo;bevel&rsquo;]</td>
+</tr>
+
+<tr>
+<td>visible</td>
+<td>[<code>True</code> <code>False</code>]</td>
+</tr>
+
+<tr>
+<td>zorder</td>
+<td>any number</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="mathtext:12e5e4622920f32cd819b8409703bfed">Mathtext</h2>
+
+<p>Oftentimes, you just simply need that superscript or some other math text in your labels. Matplotlib provides a very easy way to do this for those familiar with LaTeX. Any text that is surrounded by dollar signs will be treated as &ldquo;<a href="http://matplotlib.org/users/mathtext.html#mathtext-tutorial"><code>mathtext</code></a>&rdquo;. Do note that because backslashes are prevelent in LaTeX, it is often a good idea to prepend an <code>r</code> to your string literal so that Python will not treat the backslashes as escape characters.</p>
+
+<pre><code>plt.scatter([1, 2, 3, 4], [4, 3, 2, 1])
+plt.title(r'$\sigma_i=15$', fontsize=20)
+plt.show()
+</code></pre>
+
+<p><img src="output_58_0.png" alt="png" /></p>
+
+<h2 id="annotations-and-arrows:12e5e4622920f32cd819b8409703bfed">Annotations and Arrows</h2>
+
+<p>There are two ways one can place arbitrary text anywhere they want on a plot. The first is a simple <a href="http://matplotlib.org/api/pyplot_api.html#matplotlib.pyplot.text"><code>text()</code></a>.  Then there is the fancier <a href="http://matplotlib.org/api/pyplot_api.html#matplotlib.pyplot.annotate"><code>annotate()</code></a> function that can help &ldquo;point out&rdquo; what you want to annotate.</p>
+
+<pre><code>t = np.arange(0.0, 5.0, 0.01)
+s = np.cos(2*np.pi*t)
+plt.plot(t, s, lw=2)
+
+plt.annotate('local max', xy=(2, 1), xytext=(3, 1.5),
+             arrowprops=dict(facecolor='black', shrink=0.05))
+
+plt.ylim(-2, 2)
+plt.show()
+</code></pre>
+
+<p><img src="output_60_0.png" alt="png" /></p>
+
+<p>There are all sorts of boxes for your text, and arrows you can use, and there are many different ways to connect the text to the point that you want to annotate. For a complete tutorial on this topic, go to the <a href="http://matplotlib.org/users/annotations_guide.html"><code>Annotation Guide</code></a>.</p>
+
+<h2 id="hatches:12e5e4622920f32cd819b8409703bfed">Hatches</h2>
+
+<p>A Patch object can have a hatching defined for it.</p>
+
+<ul>
+<li>/   - diagonal hatching</li>
+<li>\   - back diagonal</li>
+<li>|   - vertical</li>
+<li>-   - horizontal</li>
+<li>+   - crossed</li>
+<li>x   - crossed diagonal</li>
+<li>o   - small circle</li>
+<li>O   - large circle (upper-case &lsquo;o&rsquo;)</li>
+<li>.   - dots</li>
+<li>*   - stars</li>
+</ul>
+
+<p>Letters can be combined, in which case all the specified
+hatchings are done.  If same letter repeats, it increases the
+density of hatching of that pattern.</p>
+
+<pre><code>bars = plt.bar([1, 2, 3, 4], [10, 12, 15, 17])
+plt.setp(bars[0], hatch='x', facecolor='w')
+plt.show()
+</code></pre>
+
+<p><img src="output_63_0.png" alt="png" /></p>
+
+<h2 id="now-that-we-know-some-basics-on-matplotlib-lets-play-with-an-example:12e5e4622920f32cd819b8409703bfed">Now that we know some basics on Matplotlib, lets play with an example.</h2>
+
+<h2 id="sine-cosine-plot:12e5e4622920f32cd819b8409703bfed">Sine Cosine Plot</h2>
+
+<p>In this section we will calculate cosine and sine values for a range of values and draw them on the same plot.
+Fire up your ipython terminal with command line argument <code>--pylab</code>
+pylab is a magic function for ipython which will basically make following calls behind the scenes for us:</p>
+
+<pre><code>import numpy
+import matplotlib
+from matplotlib import pylab, mlab, pyplot
+np = numpy
+plt = pyplot
+
+from IPython.display import display
+from IPython.core.pylabtools import figsize, getfigs
+
+from pylab import *
+from numpy import *
+</code></pre>
+
+<pre><code>import pylab as pl
+import numpy as np
+# If you are using Ipython, you do not have to type this. If you are using Ipython notebook or Jupyter,
+# this next line will help generate plots inside the browser window instead of in a separate &quot;pop up&quot;
+%matplotlib inline
+
+
+n = np.linspace(-np.pi, np.pi, 256, endpoint=True)
+co, si = np.cos(n), np.sin(n)
+
+
+pl.plot(n, co)
+pl.plot(n, si)
+pl.show()
+</code></pre>
+
+<p><img src="output_68_0.png" alt="png" /></p>
+
+<p>Now lets look at the default settings and try changing some parameters that will influence the appearance of the plot.</p>
+
+<h3 id="controlling-line-properties:12e5e4622920f32cd819b8409703bfed">Controlling line properties</h3>
+
+<p>Lines have many attributes that you can set: <code>linewidth</code>, <code>dash style</code>, <code>antialiased</code>, etc; see <a href="http://matplotlib.org/api/lines_api.html#matplotlib.lines.Line2D" title="MPL 2D Lines"><code>matplotlib.lines.Line2D</code></a>. There are several ways to set line properties. We will use keyword args:</p>
+
+<p><code>pl.plot(n, co, color='red', linewidth=2.0, linestyle='-', marker='+')</code></p>
+
+<p><code>pl.plot(n, si, color='#9A69FC', linestyle=':', marker=',')</code></p>
+
+<p>You can use color names to set the color of the line or you can use the hex code.</p>
+
+<pre><code>pl.plot(n, co, color='red', linewidth=2.0, linestyle='-')
+pl.plot(n, si, color='#9A69FC', linewidth=2.0, linestyle='--')
+pl.show()
+</code></pre>
+
+<p><img src="output_71_0.png" alt="png" /></p>
+
+<p>There are many more line properties that you can change. Check <a href="http://matplotlib.org/users/pyplot_tutorial.html#controlling-line-properties" title="Controlling Line Properties"><code>complete list of properties</code></a></p>
+
+<h3 id="setting-limits:12e5e4622920f32cd819b8409703bfed">Setting Limits</h3>
+
+<p>Current limits of the figure are a bit too tight and the amplitude part is getting clipped. Now lets make some space in order to clearly see all data points.</p>
+
+<pre><code>pl.xlim(n.min() * 1.1, n.max() * 1.1)  # set the xlim between n.min()*1.1 and n.max()*1.1
+pl.ylim(co.min() * 1.1, co.max() * 1.1)
+pl.plot(n, co, color='red', linewidth=1.0, linestyle='-', label='Cosine Function')
+pl.plot(n, si, color='#9A69FC', linewidth=1.0, linestyle='--', label='Sine Function')
+pl.show()
+</code></pre>
+
+<p><img src="output_74_0.png" alt="png" /></p>
+
+<p>Setting limits turns autoscaling off for the x-axis.</p>
+
+<p>If you do not specify args, you can pass the xmin and xmax as kwargs, e.g.:</p>
+
+<p><code>pl.xlim(xmax=n.max()*1.1)</code> # adjust the max leaving min unchanged</p>
+
+<p><code>pl.xlim(xmin=n.min()*1.1)</code> # adjust the min leaving max unchanged</p>
+
+<h3 id="setting-ticks:12e5e4622920f32cd819b8409703bfed">Setting Ticks</h3>
+
+<p>Current ticks are not ideal because they do not show the interesting values (+/-π,+/-π/2) for sine and cosine. Let&rsquo;s change them such that they show only these values.</p>
+
+<pre><code>pl.plot(n, co, color='red', linewidth=1.0, linestyle='-', label='Cosine Fn')
+pl.plot(n, si, color='#9A69FC', linewidth=1.0, linestyle='--', label='Sine Fn')
+pl.xticks([-np.pi, -np.pi/2, 0, np.pi/2, np.pi], rotation=30)  # set the location and orientation of the xticks
+pl.yticks([-1, 0, +1])  # set the locations of the yticks
+pl.show()
+</code></pre>
+
+<p><img src="output_77_0.png" alt="png" /></p>
+
+<p>The keyword args, if any, are <a href="http://matplotlib.org/api/text_api.html#matplotlib.text.Text" title="Text Properties">Text</a> properties.</p>
+
+<p>For example, if the xticks are some long values, you can rotate them so that they do not overlap.</p>
+
+<h3 id="adding-a-legend:12e5e4622920f32cd819b8409703bfed">Adding a Legend</h3>
+
+<p>Let’s add a legend in the upper left corner. This only requires adding the keyword argument label (that will be used in the legend box) to the plot commands.</p>
+
+<pre><code>pl.plot(n, co, color=&quot;red&quot;, linewidth=1, linestyle=&quot;-&quot;, label=&quot;cosine Fn&quot;)
+pl.plot(n, si, color=&quot;#9A69FC&quot;,  linewidth=1, linestyle=&quot;--&quot;, label=&quot;sine Fn&quot;)
+pl.xlim(n.min() * 1.1, n.max() * 1.1)  # Setting xlim
+pl.ylim(co.min() * 1.1, co.max() * 1.1) # Setting ylim
+pl.xticks([-np.pi, -np.pi/2, 0, np.pi/2, np.pi], rotation=30)  # Setting xticks
+pl.yticks([-1, 0, +1])  # set the locations of the yticks  # Setting yticks
+
+pl.legend(loc='upper left')
+pl.show()
+</code></pre>
+
+<p><img src="output_80_0.png" alt="png" /></p>
+
+<h3 id="moving-spines:12e5e4622920f32cd819b8409703bfed">Moving Spines</h3>
+
+<p>Spines are the lines connecting the axis tick marks and noting the boundaries of the data area. They can be placed at arbitrary positions and until now, they were on the border of the axis. We&rsquo;ll change that since we want to have them in the middle. Since there are four of them (top/bottom/left/right), we&rsquo;ll discard the top and right by setting their color to none and we&rsquo;ll move the bottom and left ones to coordinate 0 in data space coordinates.</p>
+
+<pre><code>pl.xlim(n.min() * 1.1, n.max() * 1.1)  # Setting xlim
+pl.ylim(co.min() * 1.1, co.max() * 1.1) # Setting ylim
+pl.xticks([-np.pi, -np.pi/2, 0, np.pi/2, np.pi], rotation=30)  # Setting xticks
+pl.yticks([-1, 0, +1])  # set the locations of the yticks  # Setting yticks
+
+pl.plot(n, co, color=&quot;red&quot;, linewidth=1, linestyle=&quot;-&quot;, label=&quot;cosine Fn&quot;)
+pl.plot(n, si, color=&quot;#9A69FC&quot;,  linewidth=1, linestyle=&quot;--&quot;, label=&quot;sine Fn&quot;)
+
+ax = pl.gca()  # gca stands for 'get current axis'
+ax.spines['right'].set_color('none')  # hide 
+ax.spines['top'].set_color('none')
+ax.xaxis.set_ticks_position('bottom')
+ax.spines['bottom'].set_position(('data',0))
+ax.yaxis.set_ticks_position('left')
+ax.spines['left'].set_position(('data',0))
+
+pl.legend(loc='upper left')
+pl.show()
+</code></pre>
+
+<p><img src="output_82_0.png" alt="png" /></p>
+
+<h3 id="setting-tick-labels:12e5e4622920f32cd819b8409703bfed">Setting tick labels</h3>
+
+<p>Ok, so far so good. Now we look at this plot and the values on the x-axis does not appeal us. We could guess that 3.142 means $\pi$ but we are used to seeing x axis ranging from $-\pi$ and $\pi$ on such plots.</p>
+
+<blockquote>
+<p>Note that we’ll use $\LaTeX$ to allow for nice rendering of the label.</p>
+</blockquote>
+
+<pre><code>pl.xlim(n.min() * 1.1, n.max() * 1.1)  # Setting xlim
+pl.ylim(co.min() * 1.1, co.max() * 1.1) # Setting ylim
+
+# when we set tick values, we can also provide 
+# a corresponding label in the second argument list.
+# So the tick values will be replaced by the latex labels.
+pl.xticks([-np.pi, -np.pi/2, 0, np.pi/2, np.pi],
+          [r'$-\pi$', r'$-\pi/2$', r'$0$', r'$+\pi/2$', r'$+\pi$'])
+
+# We don't like 0 being printed for both x and y axis.
+# insted we will just keep x's 0
+pl.yticks([-1, 0, +1],
+          [r'$-1$', '', r'$+1$'])
+
+pl.plot(n, co, color=&quot;red&quot;, linewidth=1, linestyle=&quot;-&quot;, label=&quot;cosine Fn&quot;)
+pl.plot(n, si, color=&quot;#9A69FC&quot;,  linewidth=1, linestyle=&quot;--&quot;, label=&quot;sine Fn&quot;)
+
+ax = pl.gca()  # gca stands for 'get current axis'
+ax.spines['right'].set_color('none')          # hide right spine
+ax.spines['top'].set_color('none')            # hide top spine
+ax.xaxis.set_ticks_position('bottom')         # set ticks position to bottom spine
+ax.spines['bottom'].set_position(('data',0))  # set bottom spine at position 0
+ax.yaxis.set_ticks_position('left')
+ax.spines['left'].set_position(('data',0))    # set left spine at position 0
+
+pl.legend(loc='upper left')
+pl.show()
+</code></pre>
+
+<p><img src="output_84_0.png" alt="png" /></p>
+
+<h3 id="annotate:12e5e4622920f32cd819b8409703bfed">Annotate</h3>
+
+<p>Let’s annotate some interesting points using the annotate command. We chose the 2π/3 value and we want to annotate both the sine and the cosine. We’ll first draw a marker on the curve as well as a straight dotted line. Then, we’ll use the annotate command to display some text with an arrow.</p>
+
+<pre><code>pl.xlim(n.min() * 1.1, n.max() * 1.1)  # Setting xlim
+pl.ylim(co.min() * 1.1, co.max() * 1.1) # Setting ylim
+
+# when we set tick values, we can also provide 
+# a corresponding label in the second argument list.
+# So the tick values will be replaced by the latex labels.
+pl.xticks([-np.pi, -np.pi/2, 0, np.pi/2, np.pi],
+          [r'$-\pi$', r'$-\pi/2$', r'$0$', r'$+\pi/2$', r'$+\pi$'])
+
+# We don't like 0 being printed for both x and y axis.
+# insted we will just keep x's 0
+pl.yticks([-1, 0, +1],
+          [r'$-1$', '', r'$+1$'])
+
+pl.plot(n, co, color=&quot;red&quot;, linewidth=1, linestyle=&quot;-&quot;, label=&quot;cosine Fn&quot;)
+pl.plot(n, si, color=&quot;#9A69FC&quot;,  linewidth=1, linestyle=&quot;--&quot;, label=&quot;sine Fn&quot;)
+
+
+# Plot the line where value of cos is 2pi/3
+t = 2 * np.pi / 3
+pl.plot([t, t], [0, np.cos(t)], color='red', linewidth=2.5, linestyle=&quot;--&quot;)
+pl.scatter([t, ], [np.cos(t), ], 50, color='red')
+
+# Annotate using LaTeX fonts.
+pl.annotate(r'$sin(\frac{2\pi}{3})=\frac{\sqrt{3}}{2}$',
+            xy=(t, np.sin(t)), xycoords='data',
+            xytext=(+10, +30), textcoords='offset points', fontsize=16,
+            arrowprops=dict(arrowstyle=&quot;-&gt;&quot;, connectionstyle=&quot;arc3,rad=.2&quot;))
+
+# Plot the line where value of sin is 2pi/3
+pl.plot([t, t],[0, np.sin(t)], color='#9A69FC', linewidth=2.5, linestyle=&quot;--&quot;)
+pl.scatter([t, ],[np.sin(t), ], 50, color='#9A69FC')
+
+pl.annotate(r'$cos(\frac{2\pi}{3})=-\frac{1}{2}$',
+            xy=(t, np.cos(t)), xycoords='data',
+            xytext=(-90, -50), textcoords='offset points', fontsize=16,
+            arrowprops=dict(arrowstyle=&quot;-&gt;&quot;, connectionstyle=&quot;arc3,rad=.2&quot;))
+
+ax = pl.gca()  # gca stands for 'get current axis'
+ax.spines['right'].set_color('none')          # hide right spine
+ax.spines['top'].set_color('none')            # hide top spine
+ax.xaxis.set_ticks_position('bottom')         # set ticks position to bottom spine
+ax.spines['bottom'].set_position(('data',0))  # set bottom spine at position 0
+ax.yaxis.set_ticks_position('left')
+ax.spines['left'].set_position(('data',0))    # set left spine at position 0
+
+pl.legend(loc='upper left')
+
+pl.show()
+</code></pre>
+
+<p><img src="output_86_0.png" alt="png" /></p>
+
+<h3 id="bbox:12e5e4622920f32cd819b8409703bfed">Bbox</h3>
+
+<p>Everything looks almost perfect.. except for one small thing. The tick labels are hardly visible.</p>
+
+<p>We can make them bigger and we can also adjust their properties such that they’ll be rendered on a semi-transparent white background. This will allow us to see both the data and the labels.</p>
+
+<pre><code>pl.xlim(n.min() * 1.1, n.max() * 1.1)  # Setting xlim
+pl.ylim(co.min() * 1.1, co.max() * 1.1) # Setting ylim
+
+# when we set tick values, we can also provide 
+# a corresponding label in the second argument list.
+# So the tick values will be replaced by the latex labels.
+pl.xticks([-np.pi, -np.pi/2, 0, np.pi/2, np.pi],
+          [r'$-\pi$', r'$-\pi/2$', r'$0$', r'$+\pi/2$', r'$+\pi$'])
+
+# We don't like 0 being printed for both x and y axis.
+# insted we will just keep x's 0
+pl.yticks([-1, 0, +1],
+          [r'$-1$', '', r'$+1$'])
+
+pl.plot(n, co, color=&quot;red&quot;, linewidth=1, linestyle=&quot;-&quot;, label=&quot;cosine Fn&quot;)
+pl.plot(n, si, color=&quot;#9A69FC&quot;,  linewidth=1, linestyle=&quot;--&quot;, label=&quot;sine Fn&quot;)
+
+
+# Plot the line where value of cos is 2pi/3
+t = 2 * np.pi / 3
+pl.plot([t, t], [0, np.cos(t)], color='red', linewidth=2.5, linestyle=&quot;--&quot;)
+pl.scatter([t, ], [np.cos(t), ], 50, color='red')
+
+pl.annotate(r'$sin(\frac{2\pi}{3})=\frac{\sqrt{3}}{2}$',
+            xy=(t, np.sin(t)), xycoords='data',
+            xytext=(+10, +30), textcoords='offset points', fontsize=16,
+            arrowprops=dict(arrowstyle=&quot;-&gt;&quot;, connectionstyle=&quot;arc3,rad=.2&quot;))
+
+# Plot the line where value of sin is 2pi/3
+pl.plot([t, t],[0, np.sin(t)], color='#9A69FC', linewidth=2.5, linestyle=&quot;--&quot;)
+pl.scatter([t, ],[np.sin(t), ], 50, color='#9A69FC')
+
+pl.annotate(r'$cos(\frac{2\pi}{3})=-\frac{1}{2}$',
+            xy=(t, np.cos(t)), xycoords='data',
+            xytext=(-90, -50), textcoords='offset points', fontsize=16,
+            arrowprops=dict(arrowstyle=&quot;-&gt;&quot;, connectionstyle=&quot;arc3,rad=.2&quot;))
+
+ax = pl.gca()  # gca stands for 'get current axis'
+ax.spines['right'].set_color('none')          # hide right spine
+ax.spines['top'].set_color('none')            # hide top spine
+ax.xaxis.set_ticks_position('bottom')         # set ticks position to bottom spine
+ax.spines['bottom'].set_position(('data',0))  # set bottom spine at position 0
+ax.yaxis.set_ticks_position('left')
+ax.spines['left'].set_position(('data',0))    # set left spine at position 0
+
+pl.legend(loc='upper left')
+
+# Increase font size for x and y tick labels and set the facecolor as 
+# same color as our background
+for label in ax.get_xticklabels() + ax.get_yticklabels():
+    label.set_fontsize(16)
+    label.set_bbox(dict(facecolor='white', edgecolor='None', alpha=0.65))
+
+pl.show()
+</code></pre>
+
+<p><img src="output_88_0.png" alt="png" /></p>
+
+			</div>
+
+			
+				<h3>Comments</h3>
+				<div id="disqus_thread"></div>
+<script type="text/javascript">
+     
+    var disqus_shortname = 'mohitsharma44'; 
+
+     
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+			
+		</div>
+
+  <script data-no-instant>document.write('<script src="http://'
+        + (location.host || 'localhost').split(':')[0]
+		+ ':1313/livereload.js?mindelay=10"></'
+        + 'script>')</script></body>
+</html>

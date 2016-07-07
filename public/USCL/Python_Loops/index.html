@@ -1,0 +1,237 @@
+	<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="Hugo 0.14" />
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title> Python_Loops &middot; Mohit Sharma </title>
+
+  
+  <link rel="stylesheet" href="http://localhost:1313/css/poole.css">
+  <link rel="stylesheet" href="http://localhost:1313/css/syntax.css">
+  <link rel="stylesheet" href="http://localhost:1313/css/hyde.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="Mohit Sharma" />
+</head>
+
+	<body class="theme-base-00">
+		<div class="sidebar">
+  <div class="container">
+    <div class="sidebar-about">
+      <img src="https://www.gravatar.com/avatar/ed88ccf945e7eb22400c19296528b7e8?s=250" alt="gravatar">
+      <a href="http://localhost:1313"><h1><font face="Lucida Console" size="6">Mohit Sharma</font></h1></a>
+      <p class="lead"><font size="4" face="monospace">
+	   Asst. Research Scientist at NYU Center for Urban Science and Progress 
+      </font></p>
+    </div>
+
+    <ul class="sidebar-nav"><font face="monospace" size="5">
+      <li><a href="/">Home</a> </li>
+      
+        <li><a href="/rps/"> RPS </a></li>
+      
+        <li><a href="/uscl/"> USCL </a></li>
+      
+      <li><a href="/about.html">My CV</a></li>
+    </font></ul>
+
+    <p><font face="monospace" size="3">&copy; 2015. Mohit Sharma</font></p>
+  </div>
+</div>
+
+
+		<div class="content container">
+			<div class="post">
+			 	<h1><font face="monospace" size="10">Python_Loops</font></h1>
+			  <span class="post-date">Mon, Jun 1, 2015</span>
+			      
+
+<h1 align='center'>Python Loops</h1>
+
+<p>Generally in python, statements are executed sequentially and once executed it is not repeated again. There may be a situation when you need to execute a piece of code n number of times, this is where the loops come in. Python has two types of loops viz. for loop and while loop. Lets take a look at an example:</p>
+
+<pre><code>for i in range(3):
+    print 'Hello World!'
+
+Hello World!
+Hello World!
+Hello World!
+
+
+
+while i &gt; 0:
+    print 'Hello World'
+    i -= 1
+
+Hello World
+Hello World
+</code></pre>
+
+<p>As you can see, they both serve different purposes. For loop is used when you want to run something for fixed amount of times, whereas while loop can theoretically run forever (if you use something like <code>while True:</code>).</p>
+
+<h2 id="working-of-loops:43e605172a057b3ef2255df8d7d3f724">Working of Loops</h2>
+
+<p>If you&rsquo;ve done any programming before, there&rsquo;s no doubt you&rsquo;ve come across a for loop or an equivalent to it. In Python, they work a little differently. Basically, any object with an iterable method can be used in a for loop in Python. Even strings, despite not having an iterable method - but we&rsquo;ll not get on to that here. Having an iterable method basically means that the data can be presented in list form, where there&rsquo;s multiple values in an orderly fashion. You can define your own iterables by creating an object with next() and iter() methods (We will use this in later parts of the module). This means that you&rsquo;ll rarely be dealing with raw numbers when it comes to for loops in Python - great for just about anyone!</p>
+
+<p>When you have a piece of code that you want to run x number of times, then code within that code which you want to run y number of times, you can use what is known as nested loops. In python these are heavily used with list (especially when it is a list of lists).
+Example:</p>
+
+<pre><code># Nested Loops
+for i in xrange(5, 10):
+    for y in xrange(11, 15):
+        print 'i: %s\ty: %s'%(i, y)
+
+
+i: 5    y: 11
+i: 5    y: 12
+i: 5    y: 13
+i: 5    y: 14
+i: 6    y: 11
+i: 6    y: 12
+i: 6    y: 13
+i: 6    y: 14
+i: 7    y: 11
+i: 7    y: 12
+i: 7    y: 13
+i: 7    y: 14
+i: 8    y: 11
+i: 8    y: 12
+i: 8    y: 13
+i: 8    y: 14
+i: 9    y: 11
+i: 9    y: 12
+i: 9    y: 13
+i: 9    y: 14
+
+
+
+# List of Lists
+a = [[1,2,3], [4,5,6]]
+for lists in a:
+    for x in lists:
+        print x
+
+1
+2
+3
+4
+5
+6
+</code></pre>
+
+<h2 id="loop-control-statements:43e605172a057b3ef2255df8d7d3f724">Loop Control Statements</h2>
+
+<p>Loop control statements change the executing of loop from its normal sequence. When execution leaves a scope, all automatic objects that were created in that scope are destroyed.</p>
+
+<h3 id="break-statement:43e605172a057b3ef2255df8d7d3f724">Break Statement</h3>
+
+<p>It terminates the current loop and resumes the execution at the next statement. The most common use for break is when some external condition is triggered requiring a hasty exit from a loop. The break statement can be used in both while and for loops.
+Example:</p>
+
+<pre><code>for i in range(1, 10):
+    if i == 5:
+        print 'Condition satisfied'
+        break
+    print i  # What would happen if this is placed before if condition?
+
+1
+2
+3
+4
+Condition satisfied
+</code></pre>
+
+<p>From above example you can observe that when the value of i reached 5, the if condition was satisfied and the break statement was executed which stopped the for loop and exited.</p>
+
+<h3 id="continue:43e605172a057b3ef2255df8d7d3f724">Continue</h3>
+
+<p>Continue statement returns the control to the beginning of the loop. The continue statement rejects all the remaining statements in the current iteration of the loop and moves the control back to the top of the loop.
+Example:</p>
+
+<pre><code>x = 10
+while x &gt; 0:
+    x -= 1
+    if x == 8:
+        print 'Condition satisfied'
+        continue
+    print x
+
+#What is the difference when use the same code but in a for loop?
+
+9
+Condition satisfied
+7
+6
+5
+4
+3
+2
+1
+0
+</code></pre>
+
+<h3 id="pass:43e605172a057b3ef2255df8d7d3f724">Pass</h3>
+
+<p>Pass is used when a statement is required syntactically but performs a null operation i.e. nothing happens when the statement is executed.
+Example:</p>
+
+<pre><code>for i in range(1, 10):
+    if i == 5:
+        print 'Condition satisfied'
+        pass
+    print i
+
+1
+2
+3
+4
+Condition satisfied
+5
+6
+7
+8
+9
+</code></pre>
+
+<p>As you can see execution of pass statement had no effect on the flow of the code. It wouldn&rsquo;t have mattered if it was not there. So when is it useful? It is generally used for temporary unimplemented logic. For example you have written a function and you are using if condition to test for something but before that you need to check the output of the code or just execute it. You can use pass statement. Python interpreter will read that and skip that part and get on with further execution.</p>
+
+<h2 id="range-and-xrange:43e605172a057b3ef2255df8d7d3f724">range and xrange</h2>
+
+<p>We used range and xrange in the examples of flow control statements. range function creates a list containing the numbers defined by the input. xrange on the other hand creates a number generator. The difference is very subtle but important based on what you are using it for. You will observe that xrange is used more frequently than the range function and the reason is resource usage. xrange generates (technically evaluates lazily) the numbers as needed whereas range creates the list of all the numbers at once. This means that using xrange less memory is used. Imagine a scenario where we are using loop control statements and somewhere in the code we need to exit the loop pre-maturely. If we use the range function, the memory is wasted creating the unused numbers. It might not sound like a big deal for small lists or small numbers but when you consider lists that hold data read from a csv file which has thousands of entries.. the difference is pretty significant.</p>
+
+			</div>
+
+			
+				<h3>Comments</h3>
+				<div id="disqus_thread"></div>
+<script type="text/javascript">
+     
+    var disqus_shortname = 'mohitsharma44'; 
+
+     
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+			
+		</div>
+
+  <script data-no-instant>document.write('<script src="http://'
+        + (location.host || 'localhost').split(':')[0]
+		+ ':1313/livereload.js?mindelay=10"></'
+        + 'script>')</script></body>
+</html>

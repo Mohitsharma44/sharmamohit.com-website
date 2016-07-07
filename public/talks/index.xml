@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Talks on Mohit Sharma</title>
+    <link>http://localhost:1313/talks/</link>
+    <description>Recent content in Talks on Mohit Sharma</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 29 Aug 2015 01:31:14 -0400</lastBuildDate>
+    <atom:link href="http://localhost:1313/talks/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Using_3rd_Party_API</title>
+      <link>http://localhost:1313/Talks/Using_3rd_Party_API/</link>
+      <pubDate>Sat, 29 Aug 2015 01:31:14 -0400</pubDate>
+      
+      <guid>http://localhost:1313/Talks/Using_3rd_Party_API/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

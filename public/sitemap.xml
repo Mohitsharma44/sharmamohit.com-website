@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  <url>
+    <loc>http://localhost:1313/</loc>
+    <lastmod>2015-08-29T01:34:02-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/My_Projects/CitySynth/</loc>
+    <lastmod>2015-08-29T01:34:02-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/Talks/Using_3rd_Party_API/</loc>
+    <lastmod>2015-08-29T01:31:14-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/About_Me/about_me/</loc>
+    <lastmod>2015-08-29T01:30:25-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/Python_Tutorials/Python_Pandas/</loc>
+    <lastmod>2015-08-15T06:59:38+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/Python_Tutorials/Python_Matplotlib/</loc>
+    <lastmod>2015-08-04T01:20:20-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/Python_Tutorials/Python_Numpy/</loc>
+    <lastmod>2015-07-06T21:10:08-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/Python_Tutorials/Python_Dictionaries/</loc>
+    <lastmod>2015-07-06T15:01:20-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/Electronics/Advanced_Electronics/</loc>
+    <lastmod>2015-07-02T21:25:17-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/Python_Tutorials/Python_Challenge2/</loc>
+    <lastmod>2015-06-30T02:04:43-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/Python_Tutorials/Python_Pickle/</loc>
+    <lastmod>2015-06-29T00:07:47-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/Electronics/Intro_to_Electronics/</loc>
+    <lastmod>2015-06-26T10:24:37-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/Python_Tutorials/Python_FileIO/</loc>
+    <lastmod>2015-06-26T02:07:12-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/Python_Tutorials/Python_ImportingModules/</loc>
+    <lastmod>2015-06-22T09:06:37-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/Python_Tutorials/Python_Challenge1/</loc>
+    <lastmod>2015-06-20T12:12:15-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/Python_Tutorials/Python_Functions/</loc>
+    <lastmod>2015-06-17T20:02:58-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/Python_Tutorials/Python_ExceptionHandling/</loc>
+    <lastmod>2015-06-12T20:02:29-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/Python_Tutorials/Python_Tuples/</loc>
+    <lastmod>2015-06-10T02:01:53-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/Python_Tutorials/Python_Lists/</loc>
+    <lastmod>2015-06-05T02:00:44-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/Python_Tutorials/Python_Strings/</loc>
+    <lastmod>2015-06-03T18:58:31-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/Python_Tutorials/Python_Loops/</loc>
+    <lastmod>2015-06-01T01:57:59-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/Python_Tutorials/Python_Operators/</loc>
+    <lastmod>2015-05-30T20:57:31-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/Python_Tutorials/Python_Variables/</loc>
+    <lastmod>2015-05-28T21:56:15-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/Python_Tutorials/Python_Intro/</loc>
+    <lastmod>2015-05-27T11:52:53-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/Python_Tutorials/Python_Installing/</loc>
+    <lastmod>2015-05-26T01:55:34-04:00</lastmod>
+  </url>
+  
+</urlset>

@@ -1,0 +1,179 @@
+	<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="Hugo 0.14" />
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title> Python_ImportingModules &middot; Mohit Sharma </title>
+
+  
+  <link rel="stylesheet" href="http://localhost:1313/css/poole.css">
+  <link rel="stylesheet" href="http://localhost:1313/css/syntax.css">
+  <link rel="stylesheet" href="http://localhost:1313/css/hyde.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="Mohit Sharma" />
+</head>
+
+	<body class="theme-base-00">
+		<div class="sidebar">
+  <div class="container">
+    <div class="sidebar-about">
+      <img src="https://www.gravatar.com/avatar/ed88ccf945e7eb22400c19296528b7e8?s=250" alt="gravatar">
+      <a href="http://localhost:1313"><h1><font face="Lucida Console" size="6">Mohit Sharma</font></h1></a>
+      <p class="lead"><font size="4" face="monospace">
+	   Asst. Research Scientist at NYU Center for Urban Science and Progress 
+      </font></p>
+    </div>
+
+    <ul class="sidebar-nav"><font face="monospace" size="5">
+      <li><a href="/">Home</a> </li>
+      
+        <li><a href="/about_me/"> About_Me </a></li>
+      
+        <li><a href="/electronics/"> Electronics </a></li>
+      
+        <li><a href="/my_projects/"> My_Projects </a></li>
+      
+        <li><a href="/python_tutorials/"> Python_Tutorials </a></li>
+      
+        <li><a href="/talks/"> Talks </a></li>
+      
+      <li><a href="/about.html">My CV</a></li>
+    </font></ul>
+
+    <p><font face="monospace" size="3">&copy; 2015. Mohit Sharma</font></p>
+  </div>
+</div>
+
+
+		<div class="content container">
+			<div class="post">
+			 	<h1><font face="monospace" size="10">Python_ImportingModules</font></h1>
+			  <span class="post-date">Mon, Jun 22, 2015</span>
+			      
+
+<h1 align='center'>Importing Modules and Packages</h1>
+
+<p>If you quit the ipython terminal or python interpreter, the functions and variables are lost. What if you want to access them in your other programs or at a later point of time?(You don&rsquo;t expect to complete your projects in a day do you?) Therefore you are better of using a text editor to prepare the input for the interpreter and running it with that file as input. This file is known as script. Now, you might have written several programs and some of them require a function that you wrote in a script for some other project. You want to use that handy function! There is no point in Ctrl+C and Ctrl+V for all these programs. To support this, python has a way to use these functions or definitions by using import.</p>
+
+<h2 id="what-is-a-module:ba0a07ffaad58c1f51305f3f279de339">What is a Module?</h2>
+
+<p>A module is a python file that (generally) has only definitions of variables, functions and classes. It can also have executable statements if you&rsquo;d like. A module allows you to logically organize your python code. Grouping related code in a module makes the code easier to understand and use. The module can have components that are imported from other modules.</p>
+
+<h2 id="import-statement:ba0a07ffaad58c1f51305f3f279de339">Import Statement</h2>
+
+<p>It is customary (and we have followed this in a couple of examples) to place all the import statements at the beginning of the module. Let&rsquo;s create a python file with functions that will perform addition, subtraction, multiplication and division of two numbers:</p>
+
+<pre><code># Create a file by name my_calc.py in your current directory and write this code:
+def mul(a ,b):
+    return a * b
+
+def div(a, b):
+    return a / b
+
+def add(a, b):
+    return a + b
+
+def sub(a, b):
+    return a - b
+</code></pre>
+
+<p>Now we shall import the file and just use the functions directly. Fire up your ipython terminals in the current directory.</p>
+
+<pre><code>import my_calc  # Import our above module
+
+
+sum = my_calc.add(123, 456)  # Use add function
+
+
+print 'Sum = ',sum
+
+Sum =  579
+</code></pre>
+
+<p>You can use any python source file as a module by executing an import statement in some other python source file, just like we did. A module is loaded only once regardless of the number of times it is imported. So if you made any error in writing the file/ module that you are trying to import in ipython session, you will have to reload the module in the current ipython session.</p>
+
+<p>When the python interpreter encounters an import statement it looks for the module name in the built-in modules first. if not found, it then searches for a file by the module&rsquo;s name in a list of directories that are given by variable PYTHONPATH (it is an environment variable which is basically a list of directory names) and it looks for the file in the current directory. If it fails everywhere then it goes and looks on the default path. On linux/ unix the default path is normally /usr/local/lib/python</p>
+
+<h2 id="from-import:ba0a07ffaad58c1f51305f3f279de339">from .. import ..</h2>
+
+<p>To preserve your current namespace, python&rsquo;s from statement let&rsquo;s you import only specific attributes to your current namespace. Let&rsquo;s take a look at how this works. We will use our same my_calc.py file as a file that we are importing.</p>
+
+<pre><code>from my_calc import div
+
+
+division = div (6, 7.)
+print 'Division = ',division
+
+Division =  0.857142857143
+
+
+
+# Let's print only upto 2 decimal places.. Remember how to do it?
+divison = div(6,7.)
+print 'Division = {0:.2f}'.format(divison)
+
+Division = 0.86
+</code></pre>
+
+<p>Using for statement does not import the entire file (or module) into the current namespace, it just introduced the item div from the module into our namespace. You might be wondering what if your file has many functions, you will go crazy writing so many import statements! Well.. it is also possible to import all names or definitions from a module into the current namespace by using for statement.</p>
+
+<pre><code>from my_calc import *  # * means everything/ all
+
+
+division = div (6, 7.)
+
+
+print 'Division = ',division
+
+Division =  0.857142857143
+</code></pre>
+
+<hr />
+
+<h2 id="exercise:ba0a07ffaad58c1f51305f3f279de339">Exercise</h2>
+
+<ul>
+<li><p>Using python&rsquo;s built-in module sys, try to find the path for directories in which python will look for the modules. (Hint: Use Ipython and make use of tab completions and ? )</p></li>
+
+<li><p>Find a way to reload the module in the current ipython session.</p></li>
+
+<li><p>Find out the names or definitions that you have defined currently. Next, find the names or definitions of the module that you are trying to import.</p></li>
+</ul>
+
+			</div>
+
+			
+				<h3>Comments</h3>
+				<div id="disqus_thread"></div>
+<script type="text/javascript">
+     
+    var disqus_shortname = 'mohitsharma44'; 
+
+     
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+			
+		</div>
+
+  <script data-no-instant>document.write('<script src="http://'
+        + (location.host || 'localhost').split(':')[0]
+		+ ':1313/livereload.js?mindelay=10"></'
+        + 'script>')</script></body>
+</html>

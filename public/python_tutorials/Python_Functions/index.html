@@ -1,0 +1,336 @@
+	<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="Hugo 0.14" />
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title> Python_Functions &middot; Mohit Sharma </title>
+
+  
+  <link rel="stylesheet" href="http://localhost:1313/css/poole.css">
+  <link rel="stylesheet" href="http://localhost:1313/css/syntax.css">
+  <link rel="stylesheet" href="http://localhost:1313/css/hyde.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="Mohit Sharma" />
+</head>
+
+	<body class="theme-base-00">
+		<div class="sidebar">
+  <div class="container">
+    <div class="sidebar-about">
+      <img src="https://www.gravatar.com/avatar/ed88ccf945e7eb22400c19296528b7e8?s=250" alt="gravatar">
+      <a href="http://localhost:1313"><h1><font face="Lucida Console" size="6">Mohit Sharma</font></h1></a>
+      <p class="lead"><font size="4" face="monospace">
+	   Asst. Research Scientist at NYU Center for Urban Science and Progress 
+      </font></p>
+    </div>
+
+    <ul class="sidebar-nav"><font face="monospace" size="5">
+      <li><a href="/">Home</a> </li>
+      
+        <li><a href="/about_me/"> About_Me </a></li>
+      
+        <li><a href="/electronics/"> Electronics </a></li>
+      
+        <li><a href="/my_projects/"> My_Projects </a></li>
+      
+        <li><a href="/python_tutorials/"> Python_Tutorials </a></li>
+      
+        <li><a href="/talks/"> Talks </a></li>
+      
+      <li><a href="/about.html">My CV</a></li>
+    </font></ul>
+
+    <p><font face="monospace" size="3">&copy; 2015. Mohit Sharma</font></p>
+  </div>
+</div>
+
+
+		<div class="content container">
+			<div class="post">
+			 	<h1><font face="monospace" size="10">Python_Functions</font></h1>
+			  <span class="post-date">Wed, Jun 17, 2015</span>
+			      
+
+<h1 align='center'>Python Functions</h1>
+
+<p>Imagine that you have to open a file, read the contents of the file and close it. Pretty trivial, right? We did that in the exception handling. Now imagine that you have to read ten files, print their output and close it. Now you don&rsquo;t want to sit there and type file i/o operations for every file. what if there are over 50 files and you have to concatenate them to a single file? This is where the functions come in. A function is a block of organized and reusable code in a program that performs a specific task which can be incorporated into a larger program. The advantages of using functions are:</p>
+
+<ul>
+<li>Reuse of code</li>
+<li>Reducing duplication of the code</li>
+<li>Improving readability and reducing complexity of the code</li>
+</ul>
+
+<p>There are two basic types of functions: Built-in functions and user defined functions. We have been using built-in functions for quite some time without actually understanding how a function works. This is the beauty of python. According to Guido van Rossum, all objects in python are first class citizens. Meaning all the objects (like function, strings, integers etc) have equal status. That is they can be assigned to variables, placed in lists, stored in dictionaries, passed as arguments and so forth. We have been doing this the whole time, right? Now lets see how you can create your own functions and call them in your code.</p>
+
+<h2 id="defining-functions:a96953da2ca000206315c659e2b1f3ff">Defining Functions</h2>
+
+<p>A function is defined using the def keyword followed by the name of the function. The parameters or the arguments should be placed within the parentheses followed by the function name. The code block within every function starts with a colon and should be indented.</p>
+
+<p>From here on, I might ask you to write the piece of code using your favorite text editor and execute the code.
+Example:</p>
+
+<pre><code># Create test_func.py file and write the following code
+'''
+Author = Mohit
+Date = June 20, 2014
+This is our first script with user-defined functions
+'''
+def mul(a, b):  # defining a function
+    print a,'*',b,'=',a * b
+
+def info():  # defining a function
+    return __doc__
+
+print info()
+mul(4, 5)
+
+
+Author = Mohit
+Date = June 20, 2014
+This is our first script with user-defined functions
+
+4 * 5 = 20
+</code></pre>
+
+<p>Save the above file and execute it: python test_func.py and you should get an output that looks like above.</p>
+
+<p>In the above code we have used a keyword return.  A function may or may not have a return value. The job of return is just to return the expression/ object to the the calling function.</p>
+
+<hr />
+
+<h2 id="exercise:a96953da2ca000206315c659e2b1f3ff">Exercise</h2>
+
+<p>Try to execute this code. If there is an error, what do you think caused it? Try rectifying the error.</p>
+
+<p><code>Create test_func.py file and write the following code</code></p>
+
+<pre><code>'''
+Author = Mohit
+Date = June 20, 2014
+This is our first script with user-defined functions
+'''
+
+def mul(a, b):
+    print info()  # Calling a function from another function
+    print a,'*',b,'=',a * b
+
+def info():
+    return __doc__
+</code></pre>
+
+<h2 id="calling-a-function:a96953da2ca000206315c659e2b1f3ff">Calling a function</h2>
+
+<p>Defining a function only gives it a name, specifies the parameters and structures the blocks of code but unless you call the function, the function is never executed. Just like above example, once the basic structure of a function is finalized, the function can be called by just using the function name followed by the arguments/ parameters enclosed in parenthesis. You can also call the function from another function. There are two ways of passing the parameters to the functions.</p>
+
+<h3 id="pass-by-reference:a96953da2ca000206315c659e2b1f3ff">Pass by Reference</h3>
+
+<p>All the parameters in the python language are passed by reference. It means if you change what a parameter refers to within a function, the change also reflects back in the calling function. Let&rsquo;s take a look at an example:</p>
+
+<pre><code>def append_list(list1):
+    list1.append(99)
+
+
+l1 = [1, 2, 3, 4, 5]
+append_list(l1)
+l1
+
+
+
+
+[1, 2, 3, 4, 5, 99]
+</code></pre>
+
+<p>Here we are maintaining reference of the passed object and appending values to the same object thus modifying the actual object.</p>
+
+<h2 id="pass-by-value:a96953da2ca000206315c659e2b1f3ff">Pass by Value</h2>
+
+<pre><code>def remove_list(list1):
+    del(list1)
+    list1 = [21, 22, 23, 24, 25]
+
+
+l1 = [1, 2, 3, 4, 5]
+remove_list(l1)
+l1
+
+
+
+
+[1, 2, 3, 4, 5]
+</code></pre>
+
+<p>From the above example we can observe that the parameter list1 is local to the function and modifying the list1 does not affect l1. The function basically accomplishes nothing.</p>
+
+<h2 id="function-arguments:a96953da2ca000206315c659e2b1f3ff">Function Arguments</h2>
+
+<p>A function can be called by using following types of formal arguments</p>
+
+<ul>
+<li>Required arguments</li>
+<li>Keyword arguments</li>
+<li>Default arguments</li>
+<li>Variable-length arguments</li>
+</ul>
+
+<h3 id="required-arguments:a96953da2ca000206315c659e2b1f3ff">Required Arguments:</h3>
+
+<p>Required arguments are passed to a function in correct positional order. The number of arguments being passed should be equal to the number or arguments expected by the function that is defined. Let&rsquo;s take a look at the example:
+Example:</p>
+
+<pre><code># Lame example
+def info(name, sem):
+    print 'My name is: ',name
+    print 'This is semester',int(sem)
+
+
+info('Mohit', '2')
+
+My name is:  Mohit
+This is semester 2
+
+
+
+info(2, 'Mohit')
+
+My name is:  2
+This is semester
+
+
+---------------------------------------------------------------------------
+
+ValueError                                Traceback (most recent call last)
+
+&lt;ipython-input-8-f692458a13af&gt; in &lt;module&gt;()
+----&gt; 1 info(2, 'Mohit')
+
+
+&lt;ipython-input-6-32fe472dcf83&gt; in info(name, sem)
+      2 def info(name, sem):
+      3     print 'My name is: ',name
+----&gt; 4     print 'This is semester',int(sem)
+
+
+ValueError: invalid literal for int() with base 10: 'Mohit'
+</code></pre>
+
+<h3 id="keyword-arguments:a96953da2ca000206315c659e2b1f3ff">Keyword Arguments:</h3>
+
+<p>Keyword arguments are related to the function calls. When you use keyword arguments in a function call, the caller identifies the arguments by the parameter name. This allows you to skip the arguments or place them out of order because python&rsquo;s interpreter will be able to match the values with parameters. Let&rsquo;s modify the way we are calling the above function.
+Example:</p>
+
+<pre><code>def info(name, sem):
+    print 'My name is: ',name
+    print 'This is semester',int(sem)
+
+
+
+
+
+info(sem = 2,  name = 'Mohit')  # The order of the parameter does not matter.
+
+My name is:  Mohit
+This is semester 2
+</code></pre>
+
+<h3 id="default-arguments:a96953da2ca000206315c659e2b1f3ff">Default Arguments:</h3>
+
+<p>A default argument is an argument that assumes a default value if the value is not provided when the function is called. Let&rsquo;s modify the above example and specify sem = 2 by default.
+Example:</p>
+
+<pre><code>def info(name, sem = 2):  # Default argument for semester is 2
+    print 'My name is: ',name
+    print 'This is semester',int(sem)
+
+
+info('Mohit', 2)
+
+My name is:  Mohit
+This is semester 2
+
+
+
+info('Jack')  # Not providing second argument.
+
+My name is:  Jack
+This is semester 2
+</code></pre>
+
+<h3 id="variable-length-arguments:a96953da2ca000206315c659e2b1f3ff">Variable Length Arguments:</h3>
+
+<p>At some point, you may need to process the function for more than the arguments that you specified when you defined the function. These arguments can be of variable length and are not named in the function definition, unlike required and default arguments. So how do you handle this? Let&rsquo;s take a look at another example:
+Example:</p>
+
+<pre><code>def names(course, *names):
+    print 'Name of course: ',course
+    print 'Name of students in the course:'
+    for name in names:
+        print name
+
+
+names('Python', 'Jim', 'Jack', 'Mat')
+
+Name of course:  Python
+Name of students in the course:
+Jim
+Jack
+Mat
+</code></pre>
+
+<p>An asterisk (*) is placed before the variable name that holds the values of all non keyword variable arguments. This tuple remains empty if no additional arguments are specified during the function call.</p>
+
+<h2 id="anonymous-functions:a96953da2ca000206315c659e2b1f3ff">Anonymous Functions</h2>
+
+<p>Anonymous functions do not have a name! They are not declared in the standard manner using the def keyword. To create an anonymous function you can use lambda keyword. They are part of the functional paradigm incorporated in python.</p>
+
+<ul>
+<li>Lambda forms can take any number of arguments but they return just one value in the form of an expression. They cannot contain commands or multiple expressions.</li>
+<li>Lambda functions have their own local namespace (just like regular functions) and cannot access variables other than those in their parameter list or those in the global namespace.</li>
+
+<li><p>Lambda function cannot be a direct call to print function.
+Example:</p>
+
+<p>mul = lambda a, b: a*b</p>
+
+<p>print mul(4, 5)</p>
+
+<p>20</p></li>
+</ul>
+
+			</div>
+
+			
+				<h3>Comments</h3>
+				<div id="disqus_thread"></div>
+<script type="text/javascript">
+     
+    var disqus_shortname = 'mohitsharma44'; 
+
+     
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+			
+		</div>
+
+  <script data-no-instant>document.write('<script src="http://'
+        + (location.host || 'localhost').split(':')[0]
+		+ ':1313/livereload.js?mindelay=10"></'
+        + 'script>')</script></body>
+</html>

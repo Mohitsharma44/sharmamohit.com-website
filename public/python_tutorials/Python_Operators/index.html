@@ -1,0 +1,537 @@
+	<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="Hugo 0.14" />
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title> Python_Operators &middot; Mohit Sharma </title>
+
+  
+  <link rel="stylesheet" href="http://localhost:1313/css/poole.css">
+  <link rel="stylesheet" href="http://localhost:1313/css/syntax.css">
+  <link rel="stylesheet" href="http://localhost:1313/css/hyde.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="Mohit Sharma" />
+</head>
+
+	<body class="theme-base-00">
+		<div class="sidebar">
+  <div class="container">
+    <div class="sidebar-about">
+      <img src="https://www.gravatar.com/avatar/ed88ccf945e7eb22400c19296528b7e8?s=250" alt="gravatar">
+      <a href="http://localhost:1313"><h1><font face="Lucida Console" size="6">Mohit Sharma</font></h1></a>
+      <p class="lead"><font size="4" face="monospace">
+	   Asst. Research Scientist at NYU Center for Urban Science and Progress 
+      </font></p>
+    </div>
+
+    <ul class="sidebar-nav"><font face="monospace" size="5">
+      <li><a href="/">Home</a> </li>
+      
+        <li><a href="/about_me/"> About_Me </a></li>
+      
+        <li><a href="/electronics/"> Electronics </a></li>
+      
+        <li><a href="/my_projects/"> My_Projects </a></li>
+      
+        <li><a href="/python_tutorials/"> Python_Tutorials </a></li>
+      
+        <li><a href="/talks/"> Talks </a></li>
+      
+      <li><a href="/about.html">My CV</a></li>
+    </font></ul>
+
+    <p><font face="monospace" size="3">&copy; 2015. Mohit Sharma</font></p>
+  </div>
+</div>
+
+
+		<div class="content container">
+			<div class="post">
+			 	<h1><font face="monospace" size="10">Python_Operators</font></h1>
+			  <span class="post-date">Sat, May 30, 2015</span>
+			      
+
+<h1 align='center'>Python Operators</h1>
+
+<p>Operators in python are the constructs which can manipulate the value of operands. Simply put when operators are used with one or more than one operand, they produce some result. Consider a basic mathematical addition 1 + 2 in this case, 1 and 2 are operands and + is the operator. Operands can also be variables.
+Python supports following types of operators:</p>
+
+<ul>
+<li><code>Arithmetic Operators</code></li>
+<li><code>Relational (Comparison) Operators</code></li>
+<li><code>Assignment Operators</code></li>
+<li><code>Logical Operators</code></li>
+<li><code>Bitwise Operators</code></li>
+<li><code>Membership Operators</code></li>
+<li><code>Identity Operators</code></li>
+</ul>
+
+<h2 id="arithmetic-operators:2fbacc9c8605581ed75ba1c473f93b28">Arithmetic Operators</h2>
+
+<p>As the name suggests, Arithmetic Operators includes all the operators to perform basic arithmetic functions.</p>
+
+<h3 id="addition:2fbacc9c8605581ed75ba1c473f93b28">Addition (+)</h3>
+
+<p>Addition operator adds the value of the operands on its either side.</p>
+
+<pre><code>2 + 2
+
+
+
+
+4
+</code></pre>
+
+<h3 id="subtraction:2fbacc9c8605581ed75ba1c473f93b28">Subtraction (-)</h3>
+
+<p>Subtracts right hand operand with the operand on the left hand.</p>
+
+<pre><code>2 - 2
+
+
+
+
+0
+</code></pre>
+
+<h3 id="multiplication:2fbacc9c8605581ed75ba1c473f93b28">Multiplication ( * )</h3>
+
+<p>Multiplies the operands on its either sides and outputs the product.</p>
+
+<pre><code>2 * 2
+
+
+
+
+4
+</code></pre>
+
+<h3 id="division:2fbacc9c8605581ed75ba1c473f93b28">Division ( / )</h3>
+
+<p>Divides left hand operand with the right hand operand and outputs the quotient of the division.</p>
+
+<pre><code>2 / 2
+
+
+
+
+1
+</code></pre>
+
+<h3 id="modulus:2fbacc9c8605581ed75ba1c473f93b28">Modulus ( % )</h3>
+
+<p>Divides left hand operand with the right hand operate and outputs the remainder of the division.</p>
+
+<pre><code>4 % 2
+
+
+
+
+0
+</code></pre>
+
+<h3 id="exponential:2fbacc9c8605581ed75ba1c473f93b28">Exponential ( ** )</h3>
+
+<p>Performs exponential operation on the operands. The left hand operand is &lsquo;raised to&rsquo; the right hand operand.</p>
+
+<pre><code>4 ** 4
+
+
+
+
+256
+</code></pre>
+
+<h3 id="floor-division:2fbacc9c8605581ed75ba1c473f93b28">Floor Division ( // )</h3>
+
+<p>Divides the left hand operand with the right hand operand and outputs the quotient of the division removing the digits after decimal point.</p>
+
+<pre><code>3.0 // 2
+
+
+
+
+1.0
+</code></pre>
+
+<h2 id="relational-operators:2fbacc9c8605581ed75ba1c473f93b28">Relational Operators</h2>
+
+<p>Relational Operators compare the operands on either side and identifies the relation between them. These are also known as Comparison Operators.</p>
+
+<h3 id="equal-to:2fbacc9c8605581ed75ba1c473f93b28">Equal to ( == )</h3>
+
+<p>If the value of the two operands are equal, the condition becomes true.</p>
+
+<pre><code>a, b = 10, 10
+
+
+a == b
+
+
+
+
+True
+</code></pre>
+
+<h3 id="not-equal-to:2fbacc9c8605581ed75ba1c473f93b28">Not Equal to ( != )</h3>
+
+<p>If the value of two operands are not equal, the condition becomes true.</p>
+
+<pre><code>a != b
+
+
+
+
+False
+</code></pre>
+
+<h3 id="greater-than:2fbacc9c8605581ed75ba1c473f93b28">Greater than ( &gt; )</h3>
+
+<p>If the value of the operand on the left hand side of the operator is greater than the value of the operand on the right hand side, the condition becomes true.</p>
+
+<pre><code>a &gt; b
+
+
+
+
+False
+</code></pre>
+
+<h3 id="less-than:2fbacc9c8605581ed75ba1c473f93b28">Less than ( &lt; )</h3>
+
+<p>If the value of the operand on the left hand side of the operator is less than the value of the operand on the right hand side, the condition becomes true.</p>
+
+<pre><code>a &lt; b
+
+
+
+
+False
+</code></pre>
+
+<h3 id="less-than-or-greater-than:2fbacc9c8605581ed75ba1c473f93b28">Less than OR Greater than ( &lt;&gt; )</h3>
+
+<p>If the value of the Operands on either side of the operator is not equal, the condition becomes true. It is equivalent to &lsquo; != &lsquo;</p>
+
+<pre><code>a &lt;&gt; b
+
+
+
+
+False
+</code></pre>
+
+<h3 id="greater-than-or-equal-to:2fbacc9c8605581ed75ba1c473f93b28">Greater than OR Equal to ( &gt;= )</h3>
+
+<p>If the value of the operand on the left hand side of the operator is greater than or equal to the operand on the right hand side, the condition becomes true.</p>
+
+<pre><code>a &gt;= b
+
+
+
+
+True
+</code></pre>
+
+<h3 id="less-than-or-equal-to:2fbacc9c8605581ed75ba1c473f93b28">Less than OR Equal to ( &lt;= )</h3>
+
+<p>If the value of the operand on the left hand side of the operator is less than or equal to the operand on the right hand side, the condition becomes true.</p>
+
+<pre><code>a &lt;= b
+
+
+
+
+True
+</code></pre>
+
+<h2 id="assignment-operators:2fbacc9c8605581ed75ba1c473f93b28">Assignment Operators</h2>
+
+<p>Assignment operator is responsible for assigning some value to a variable. Example a = 2 .We have been doing this for quite sometime now, but assignment operator can be used in many other ways.</p>
+
+<h3 id="equals:2fbacc9c8605581ed75ba1c473f93b28">Equals ( = )</h3>
+
+<p>Assigns the value from right hand side operand to the left hand side operand.</p>
+
+<pre><code>a = 10
+</code></pre>
+
+<h3 id="add-and:2fbacc9c8605581ed75ba1c473f93b28">Add AND ( += )</h3>
+
+<p>It is logically a two step process. In first step, the right hand side operand is added to the left hand side operand. In second step, the output of the first step is assigned to the operand on the left hand side.</p>
+
+<pre><code>a += 10  # It is equivalent to a = a + 10
+</code></pre>
+
+<h3 id="subtract-and:2fbacc9c8605581ed75ba1c473f93b28">Subtract AND ( -= )</h3>
+
+<p>It is also a two step process where the right operand is subtracted from the left operand and the result is assigned to the left operand.</p>
+
+<pre><code>a -= 10  # It is equivalent to a = a - 10
+</code></pre>
+
+<h3 id="multiply-and:2fbacc9c8605581ed75ba1c473f93b28">Multiply AND ( *= )</h3>
+
+<p>The right operand is multiplied with the left operand and the result is assigned to the left operand.</p>
+
+<pre><code>a *= 10  # It is equivalent to a = a * 10
+</code></pre>
+
+<h3 id="divide-and:2fbacc9c8605581ed75ba1c473f93b28">Divide AND ( /= )</h3>
+
+<p>The left operand is divided by the right operand and the quotient is assigned to the left operand.</p>
+
+<pre><code>a /= 10  # It is equivalent to a = a / 10
+</code></pre>
+
+<h3 id="modulus-and:2fbacc9c8605581ed75ba1c473f93b28">Modulus AND ( %= )</h3>
+
+<p>It takes the modulus of the two operands and assigns the result to the left operand</p>
+
+<pre><code>a %= 10  # It is equivalent to a = a % 10
+</code></pre>
+
+<h3 id="exponent-and:2fbacc9c8605581ed75ba1c473f93b28">Exponent AND ( **= )</h3>
+
+<p>It performs the exponential operation on the two operands and assigns the value to the left operand</p>
+
+<pre><code>a **= 10  # It is equivalent to a = a ** 10
+</code></pre>
+
+<h3 id="floor-division-and:2fbacc9c8605581ed75ba1c473f93b28">Floor Division AND ( //= )</h3>
+
+<p>It performs floor division and assigns the quotient to the left operand.</p>
+
+<pre><code>a //= 10 # It is equivalent to a = a // 10
+</code></pre>
+
+<h2 id="bitwise-operator:2fbacc9c8605581ed75ba1c473f93b28">Bitwise Operator</h2>
+
+<p>Bitwise operator works on bits and performs operations bit by bit. Before we jump into the operator, lets revise the concept of Bits. At the smallest scale in computers, the information is stored in bits. Consider bit as a smallest unit of storage, just like an atom. A bit can only store binary values i.e 0&rsquo;s or 1&rsquo;s (but not both). n bits can store 2 to the power of n values (n 0&rsquo;s or 1&rsquo;s). Practically a bit is  very small for storage purposes, thus we deal with bytes which is equal to 8 bits. Then comes KiloBytes and MegaBytes and so on.. To understand the working of bitwise operators, we need to convert the operands to bits.</p>
+
+<p>To understand the conversion between decimal and binary numbers, watch this video:</p>
+
+<p><a href="https:/youtube.com/v/H4BstqvgBow"><img src="http://img.youtube.com/vi/H4BstqvgBow/0.jpg" alt="IMAGE ALT TEXT HERE" /></a></p>
+
+<p>For examples below, we will be using a, b = 6, 10. In python binary equivalent can be obtained by using a built-in function bin() which basically converts the integer to binary representation. If you followed the tutorial video above you must be writing full 8-bit representation for even a small integer. Python&rsquo;s bin() however only prints the bits that are necessary for representing the integer. For example,</p>
+
+<pre><code>bin(6)   # To print the binary equivalent of integer 6
+
+
+
+
+'0b110'
+</code></pre>
+
+<blockquote>
+<p>It did not print leading zeros (0b00000110)</p>
+
+<p>The leading 0b is for python to understand that the string representation means a binary number and not a regular string. Lets dive into the bitwise operators.</p>
+</blockquote>
+
+<p>Let&rsquo;s get going with our examples.</p>
+
+<pre><code>a,b = 6, 10
+</code></pre>
+
+<h3 id="binary-and:2fbacc9c8605581ed75ba1c473f93b28">Binary AND ( &amp; )</h3>
+
+<p>Operator uses two operands comparing them bit by bit. It outputs 1 if and only if both the operands have 1 at same bit location</p>
+
+<pre><code>bin(a &amp; b)
+
+
+
+
+'0b10'
+</code></pre>
+
+<p>### Binary OR ( | )
+(The key above Return/ Enter key)</p>
+
+<p>Operator uses two operands comparing them bit by bit. It outputs 1 if both the operands do not have 0 at same bit location.</p>
+
+<pre><code>bin(a | b)
+
+
+
+
+'0b1110'
+</code></pre>
+
+<h3 id="binary-xor:2fbacc9c8605581ed75ba1c473f93b28">Binary XOR ( ^ )</h3>
+
+<p>Operator uses two operands comparing them bit by bit. It outputs 1 if and only if both the operands do not have same bit value at same location.</p>
+
+<pre><code>bin(a ^ b)
+
+
+
+
+'0b1100'
+</code></pre>
+
+<h3 id="binary-one-s-complement:2fbacc9c8605581ed75ba1c473f93b28">Binary One&rsquo;s Complement ( ~ )</h3>
+
+<p>Operator uses single operand and toggles the bit value at every location.</p>
+
+<pre><code>bin(~ a)
+
+
+
+
+'-0b111'
+</code></pre>
+
+<h3 id="binary-left-shift:2fbacc9c8605581ed75ba1c473f93b28">Binary Left Shift ( &lt;&lt; )</h3>
+
+<p>Operator shifts the bit location of the left operand towards left by the number of bits specified by the right operand.</p>
+
+<pre><code>bin(a &lt;&lt; 2)
+
+
+
+
+'0b11000'
+</code></pre>
+
+<h3 id="binary-right-shift:2fbacc9c8605581ed75ba1c473f93b28">Binary Right Shift ( &gt;&gt; )</h3>
+
+<p>Operator shifts the bit location of the left operand towards right by the number of bits specified by the right operand.</p>
+
+<pre><code>bin(a &gt;&gt; 2)
+
+
+
+
+'0b1'
+</code></pre>
+
+<h2 id="logical-operators:2fbacc9c8605581ed75ba1c473f93b28">Logical Operators</h2>
+
+<p>Python supports three logical operators viz AND, OR and NOT.</p>
+
+<h3 id="and-and:2fbacc9c8605581ed75ba1c473f93b28">AND ( and )</h3>
+
+<p>If both the operands are true, the condition becomes true.</p>
+
+<h3 id="or-or:2fbacc9c8605581ed75ba1c473f93b28">OR ( or )</h3>
+
+<p>If any of the two operands are true, the condition becomes true.</p>
+
+<h3 id="not-not:2fbacc9c8605581ed75ba1c473f93b28">NOT (not)</h3>
+
+<p>Reverses the logical state of the operand.</p>
+
+<h2 id="membership-operator:2fbacc9c8605581ed75ba1c473f93b28">Membership Operator</h2>
+
+<p>This operator basically tests if the two operands are pointing at the same object or not. There are two types of membership operators:</p>
+
+<p>Is</p>
+
+<p>It evaluates to true if the operands on both the sides of the operator point to the same object.</p>
+
+<pre><code>a =10
+
+
+b = a
+
+
+b is a
+
+
+
+
+True
+</code></pre>
+
+<h3 id="is-not:2fbacc9c8605581ed75ba1c473f93b28">Is Not</h3>
+
+<p>It evaluates to true if both the operands do not point to the same object.</p>
+
+<pre><code>a is not b
+
+
+
+
+False
+</code></pre>
+
+<h2 id="identity-operator:2fbacc9c8605581ed75ba1c473f93b28">Identity Operator</h2>
+
+<p>It is same as the python&rsquo;s Membership operator.</p>
+
+<hr />
+
+<p>##Exercise:</p>
+
+<ul>
+<li><p>What will be the output of 3 / 2 ?
+Is the output of 3.0/2 and 3 / 2 the same? Why or Why not?</p></li>
+
+<li><p>Is &lsquo;Six&rsquo; == &lsquo;six&rsquo; ?If not, why?</p></li>
+
+<li><p>Try assigning a to the power of 2, to the power of 2, to the power of 2 to a. (Check output of below code.)</p>
+
+<p>%%latex
+$$a = {{a^2}^2}^2 $$</p></li>
+</ul>
+
+<p>$$a = {{a^2}^2}^2 $$</p>
+
+<ul>
+<li>Implement your own decimal to 8-bit binary converter. Convert decimal number 88 and see if the output is 01011000 .</li>
+
+<li><p>Consider an example below:</p>
+
+<p>a = 10
+b = a</p>
+
+<p>a == b</p>
+
+<p>True</p>
+
+<p>a is b</p>
+
+<p>True</p></li>
+</ul>
+
+<p>What is the difference between &lsquo; == &rsquo; and &lsquo; is &rsquo; operator? Are they the same? What would happen if b is now assigned as 10 instead of a ?</p>
+
+			</div>
+
+			
+				<h3>Comments</h3>
+				<div id="disqus_thread"></div>
+<script type="text/javascript">
+     
+    var disqus_shortname = 'mohitsharma44'; 
+
+     
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+			
+		</div>
+
+  <script data-no-instant>document.write('<script src="http://'
+        + (location.host || 'localhost').split(':')[0]
+		+ ':1313/livereload.js?mindelay=10"></'
+        + 'script>')</script></body>
+</html>
