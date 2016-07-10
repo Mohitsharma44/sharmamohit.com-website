@@ -17,7 +17,7 @@ googleAnalytics = ""
   organization = "New York University, Center for Urban Science and Progress"
   avatar = "portrait.jpg"
   email = "mohit.sharma@nyu.edu"
-  address = "1 Metrotech Center, 19Floor, Brooklyn, NY 11201"
+  address = "NYU CUSP, 1 Metrotech Center, 19Floor, Brooklyn, NY 11201"
   phone = "646 997 0566"
 
   # Date format (refer to Go's date format: http://flippinggodateformat.com )
@@ -125,6 +125,11 @@ googleAnalytics = ""
     icon = "github"
     icon_pack = "fa"
     link = "//github.com/mohitsharma44"
+
+  [[params.social]]
+    icon = "th-large"
+    icon_pack = "fa"
+    link = "//slides.com/mohitsharma44"
 
 
 # Navigation Links
