@@ -9,6 +9,11 @@ summary = "Masters Thesis on developing a cost efficient technique for performin
 tags = []
 title = "Citysynth"
 
+url_video = "https://www.youtube.com/watch?v=-fqUpAJJDs0"
+url_pdf = "https://drive.google.com/file/d/0B8u6lNL0UNKgVkJLeUxDS2N5LVE/view?usp=sharing"
+[[url_custom]]
+name = "Website"
+url = "https://citysynth.com"
 +++
 
 ## Abstract:
