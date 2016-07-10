@@ -7,12 +7,16 @@ section_id = 10
 weight = 10
 +++
 
-I am a teaching instructor for the following courses at University X:
+### <u>Adjunct Faculty</u>
+I am a teaching instructor for the following courses at New York University:
 
-- CS101: An intro to computer science
-- CS102: An intro to computer science
-- CS103: An intro to computer science
-- CS104: An intro to computer science
-- CS105: An intro to computer science
-- CS106: An intro to computer science
-- CS107: An intro to computer science
+- CUSP-GX 1001: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Urban Computing Skills Lab
+
+- CUSP-GX 9004.005: Advanced Topics in Urban Informatics
+<br/>(Wireless Sensor and Networking)
+
+
+### <u>Students Advised</u>
+- Denis Khryashchev
+<br/>2015-16 NYU CUSP Master's Student 
+<br/>**Social Pattern Detection by Analysis of Dowlink Cellular Spectrum**
