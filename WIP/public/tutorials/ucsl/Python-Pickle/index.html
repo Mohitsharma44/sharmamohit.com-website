@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="theme" content="hugo-academic">
+    <meta name="generator" content="Hugo 0.16" />
+    <meta name="author" content="Mohit Sharma">
+    <meta name="description" content="Associate Research Scientist">
+
+    <link rel="stylesheet" href="http://replace-this-with-your-website-url.com/css/jupyter.css">
+    <link rel="stylesheet" href="http://replace-this-with-your-website-url.com/css/highlight.min.css">
+    <link rel="stylesheet" href="http://replace-this-with-your-website-url.com/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://replace-this-with-your-website-url.com/css/font-awesome.min.css">
+    <link rel="stylesheet" href="http://replace-this-with-your-website-url.com/css/academicons.min.css">
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700|Merriweather|Roboto+Mono">
+    <link rel="stylesheet" href="http://replace-this-with-your-website-url.com/css/hugo-academic.css">
+    
+
+
+    <link rel="shortcut icon" href="http://replace-this-with-your-website-url.com/img/favicon.ico" type="image/x-icon">
+    <link rel="canonical" href="http://replace-this-with-your-website-url.com/tutorials/ucsl/Python-Pickle/">
+
+    <title>Python-Pickle | Mohit Sharma</title>
+
+</head>
+<body id="top">
+
+
+<nav class="navbar navbar-default navbar-fixed-top" id="navbar-main">
+    <div class="container">
+
+        
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="http://replace-this-with-your-website-url.com/">Mohit Sharma</a>
+        </div>
+
+        
+        <div class="collapse navbar-collapse" id="#navbar-collapse-1">
+
+            
+            <ul class="nav navbar-nav navbar-right">
+                
+                <li class="nav-item"><a href="http://replace-this-with-your-website-url.com/#top">Home</a></li>
+                
+                <li class="nav-item"><a href="http://replace-this-with-your-website-url.com/#publications">Publications</a></li>
+                
+                <li class="nav-item"><a href="http://replace-this-with-your-website-url.com/#posts">Posts</a></li>
+                
+                <li class="nav-item"><a href="http://replace-this-with-your-website-url.com/#projects">Projects</a></li>
+                
+                <li class="nav-item"><a href="http://replace-this-with-your-website-url.com/#tutorials">Tutorials</a></li>
+                
+                <li class="nav-item"><a href="http://replace-this-with-your-website-url.com/#teaching">Teaching</a></li>
+                
+                <li class="nav-item"><a href="http://replace-this-with-your-website-url.com/#contact">Contact</a></li>
+                
+            </ul>
+
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+
+    <article class="article article-project" itemscope itemtype="http://schema.org/Article">
+        
+
+        <h1 itemprop="name">Python-Pickle</h1>
+
+        
+
+        <div class="article-style" itemprop="articleBody">
+            <div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 align='center'>Python Pickle</h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Pickle module implements an algorithm for turning your Python object into a series of bytes by the process of serialization. Before we can jump into the unique feature of pickling, lets understand what serialization means.</p>
+<p>Serialization is the process of converting a data structure or object state into a format that can be stored and resurrected later in the same or another computer environment. During resurrection, when the series of bytes is reread according to the serialization algorithm, it can be used to create a semantically identical clone of the original object. This process of serializing an object is also called as deflating an object. The opposite operation, as you must've guessed, is called inflating. You can read more about serialization on <a href="https://en.wikipedia.org/wiki/Serialization" title="Serialization"><code>wikipedia</code></a>.</p>
+<p>In python, the bulk of pickle module is written in C. It can store arbitrary complex python data structures however since it stores python objects, it is very highly unsafe as it can contain malicious data. So remember, pickle is good if only you create your pickle file locally and do not share it with some one.</p>
+<p>Now lets see some of the datatypes that pickle can store:</p>
+<ul>
+<li>All the native datatypes that python supports such as booleans, integers, complex numbers, strings etc </li>
+<li>Collections such as lists, tuples, dictionaries containing any combination of native datatypes.</li>
+<li>Lists, Dictionaries and Tuples containing Nested combinations of ...... you get it!</li>
+<li>Methods, Functions, Classes, Instances etc.</li>
+</ul>
+<h2 id="Constructing-Pickle-data:">Constructing Pickle data:<a class="anchor-link" href="#Constructing-Pickle-data:">&#182;</a></h2><p>Lets jump directly into code and I will explain as we go.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">student</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">student</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Jack&#39;</span>
+<span class="n">student</span><span class="p">[</span><span class="s1">&#39;course&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Urban Skills Lab&#39;</span>
+<span class="n">student</span><span class="p">[</span><span class="s1">&#39;enrolled&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">True</span>
+<span class="n">student</span><span class="p">[</span><span class="s1">&#39;misc&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;full-time&#39;</span><span class="p">,</span> <span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>In the above example, we have created a student dictionary. Now lets save the above dictionary to a pickle file</p>
+<h2 id="Saving-data-as-Pickle:">Saving data as Pickle:<a class="anchor-link" href="#Saving-data-as-Pickle:">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="kn">import</span> <span class="nn">pickle</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;test_pickle.pkl&#39;</span><span class="p">,</span> <span class="s1">&#39;wb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">pickle</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">student</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">IOError</span><span class="p">,</span> <span class="n">e</span><span class="p">:</span>
+    <span class="k">print</span> <span class="s1">&#39;IOError: &#39;</span><span class="p">,</span><span class="n">e</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Did you check out a new way to open file object for writing? With this technique, you don't have to worry about closing the file_object. As soon as the while loop is broken, the file_object will automatically be closed. (Think why?)
+Ok, so the dump() method in pickle module takes the serializable python data structure, serializes it into a binary and save it to the file. Now lets try loading the data. To make sure it works, lets open an new ipython terminal or just close your current session and reopen it fresh.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Loading-Data-from-Pickle-file">Loading Data from Pickle file<a class="anchor-link" href="#Loading-Data-from-Pickle-file">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="kn">import</span> <span class="nn">pickle</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;test_pickle.pkl&#39;</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">s</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">IOError</span><span class="p">,</span> <span class="n">e</span><span class="p">:</span>
+    <span class="k">print</span> <span class="s1">&#39;IOError: &#39;</span><span class="p">,</span><span class="n">e</span>
+
+<span class="n">s</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[3]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>{&apos;course&apos;: &apos;Urban Skills Lab&apos;,
+ &apos;enrolled&apos;: True,
+ &apos;misc&apos;: (&apos;full-time&apos;,),
+ &apos;name&apos;: &apos;Jack&apos;}</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>And voila! a new data structure is created with the data structure that is equal to the original data structure.</p>
+<p>This technique only works when you are working in python. If you want this to be compatible with other programming languages then you will have to take a look at other serialization format like JSON. 
+This is beyond the scope of the subject and is left as a self-assignment for interested students.</p>
+
+</div>
+</div>
+</div>
+
+        </div>
+    </article>
+
+    <nav>
+  <ul class="pager">
+    
+    
+    <li class="previous"><a href="http://replace-this-with-your-website-url.com/tutorials/ucsl/Python-File-IO/"><span aria-hidden="true">&larr;</span> Python-File-IO</a></li>
+    
+    
+    
+    <li class="next"><a href="http://replace-this-with-your-website-url.com/tutorials/ucsl/Python-Numpy/">Python-Numpy <span aria-hidden="true">&rarr;</span></a></li>
+    
+
+     <li class="current"><a href="http://replace-this-with-your-website-url.com/"><span aria-hidden="true"></span> <i class="fa fa-home" aria-hidden="true"></i> Home </a></li>
+    
+    </ul>
+</nav>
+
+
+</div>
+<footer class="site-footer">
+    <div class="container">
+        <p class="powered-by">
+
+          &copy; 2016 Mohit Sharma 
+
+            <span class="pull-right"><a href="#" id="back_to_top"><span class="button_icon"><i class="fa fa-chevron-up fa-2x" aria-hidden="true"></i></span></a></span>
+
+        </p>
+    </div>
+</footer>
+
+        <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.4/TweenMax.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/latest/plugins/ScrollToPlugin.min.js"></script>
+        <script src="http://replace-this-with-your-website-url.com/js/jquery-1.12.3.min.js"></script>
+        <script src="http://replace-this-with-your-website-url.com/js/bootstrap.min.js"></script>
+        <script src="http://replace-this-with-your-website-url.com/js/hugo-academic.js"></script>
+        
+
+        
+
+        
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.3.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
+
+        
+        
+
+    </body>
+</html>
+

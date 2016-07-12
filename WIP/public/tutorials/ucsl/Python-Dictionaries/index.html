@@ -1,0 +1,1334 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="theme" content="hugo-academic">
+    <meta name="generator" content="Hugo 0.16" />
+    <meta name="author" content="Mohit Sharma">
+    <meta name="description" content="Associate Research Scientist">
+
+    <link rel="stylesheet" href="http://replace-this-with-your-website-url.com/css/jupyter.css">
+    <link rel="stylesheet" href="http://replace-this-with-your-website-url.com/css/highlight.min.css">
+    <link rel="stylesheet" href="http://replace-this-with-your-website-url.com/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://replace-this-with-your-website-url.com/css/font-awesome.min.css">
+    <link rel="stylesheet" href="http://replace-this-with-your-website-url.com/css/academicons.min.css">
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700|Merriweather|Roboto+Mono">
+    <link rel="stylesheet" href="http://replace-this-with-your-website-url.com/css/hugo-academic.css">
+    
+
+
+    <link rel="shortcut icon" href="http://replace-this-with-your-website-url.com/img/favicon.ico" type="image/x-icon">
+    <link rel="canonical" href="http://replace-this-with-your-website-url.com/tutorials/ucsl/Python-Dictionaries/">
+
+    <title>Python-Dictionaries | Mohit Sharma</title>
+
+</head>
+<body id="top">
+
+
+<nav class="navbar navbar-default navbar-fixed-top" id="navbar-main">
+    <div class="container">
+
+        
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="http://replace-this-with-your-website-url.com/">Mohit Sharma</a>
+        </div>
+
+        
+        <div class="collapse navbar-collapse" id="#navbar-collapse-1">
+
+            
+            <ul class="nav navbar-nav navbar-right">
+                
+                <li class="nav-item"><a href="http://replace-this-with-your-website-url.com/#top">Home</a></li>
+                
+                <li class="nav-item"><a href="http://replace-this-with-your-website-url.com/#publications">Publications</a></li>
+                
+                <li class="nav-item"><a href="http://replace-this-with-your-website-url.com/#posts">Posts</a></li>
+                
+                <li class="nav-item"><a href="http://replace-this-with-your-website-url.com/#projects">Projects</a></li>
+                
+                <li class="nav-item"><a href="http://replace-this-with-your-website-url.com/#tutorials">Tutorials</a></li>
+                
+                <li class="nav-item"><a href="http://replace-this-with-your-website-url.com/#teaching">Teaching</a></li>
+                
+                <li class="nav-item"><a href="http://replace-this-with-your-website-url.com/#contact">Contact</a></li>
+                
+            </ul>
+
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+
+    <article class="article article-project" itemscope itemtype="http://schema.org/Article">
+        
+
+        <h1 itemprop="name">Python-Dictionaries</h1>
+
+        
+
+        <div class="article-style" itemprop="articleBody">
+            <div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 align='center'>Python Dictionaries</h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>A dictionary is a container of key-value pairs. Just like lists, python dictionaries are mutable and can contain mixed types, however the key in the dictionary is immutable just like strings or numbers and are unique within a dictionary. Python dictionaries are also known as hash tables in other programming languages. Each key is separated from its value by a colon (:) and just like lists the items are separated by commas and thre whole thing is enclosed in curly braces. 
+Example:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">student</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Name&#39;</span><span class="p">:</span> <span class="s1">&#39;John&#39;</span><span class="p">,</span> <span class="s1">&#39;Class&#39;</span><span class="p">:</span> <span class="s1">&#39;Urban Skills&#39;</span><span class="p">,</span> <span class="s1">&#39;Course&#39;</span><span class="p">:</span> <span class="s1">&#39;Python&#39;</span><span class="p">}</span>
+<span class="n">student</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[1]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>{&apos;Class&apos;: &apos;Urban Skills&apos;, &apos;Course&apos;: &apos;Python&apos;, &apos;Name&apos;: &apos;John&apos;}</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">student</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[2]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>dict</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">states</span> <span class="o">=</span> <span class="p">{}</span>  <span class="c1"># Creating empty dictionary</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">states</span><span class="p">[</span><span class="s1">&#39;AL&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Alabama&#39;</span>  <span class="c1"># Keys are inside square brackets and values on the right side of assignment</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">states</span><span class="p">[</span><span class="s1">&#39;NY&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;New York&#39;</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">states</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[6]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>{&apos;AL&apos;: &apos;Alabama&apos;, &apos;NY&apos;: &apos;New York&apos;}</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="fromkeys(-)">fromkeys( )<a class="anchor-link" href="#fromkeys(-)">&#182;</a></h3><p>The fromkeys() method creates a new dictionary from a list.
+Example:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">states_list</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;AL&#39;</span><span class="p">,</span> <span class="s1">&#39;NY&#39;</span><span class="p">)</span>
+<span class="n">states_dict</span> <span class="o">=</span> <span class="p">{}</span><span class="o">.</span><span class="n">fromkeys</span><span class="p">(</span><span class="n">states_list</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>  <span class="c1"># Instead of 0 you can leave the field empty</span>
+<span class="n">states_dict</span><span class="p">[</span><span class="s1">&#39;AL&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Alabama&#39;</span>
+<span class="n">states_dict</span><span class="p">[</span><span class="s1">&#39;NY&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;New York&#39;</span>
+<span class="n">states_dict</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[7]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>{&apos;AL&apos;: &apos;Alabama&apos;, &apos;NY&apos;: &apos;New York&apos;}</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Accessing-Dictionary-Items:">Accessing Dictionary Items:<a class="anchor-link" href="#Accessing-Dictionary-Items:">&#182;</a></h2><p>There are various ways of accessing elements of dictionary. Best way to understand them are through the examples.
+Example:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">student</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Name&#39;</span><span class="p">:</span> <span class="s1">&#39;John&#39;</span><span class="p">,</span> <span class="s1">&#39;Class&#39;</span><span class="p">:</span> <span class="s1">&#39;Urban Skills&#39;</span><span class="p">,</span> <span class="s1">&#39;Course&#39;</span><span class="p">:</span> <span class="s1">&#39;Python&#39;</span><span class="p">}</span>
+<span class="n">student</span><span class="p">[</span><span class="s1">&#39;Name&#39;</span><span class="p">]</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[8]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&apos;John&apos;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">student</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;Course&#39;</span><span class="p">,</span> <span class="s1">&#39;Not Found&#39;</span><span class="p">)</span>  <span class="c1"># If key is in Dictionary, it will return the value</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[9]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&apos;Python&apos;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">student</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;Location&#39;</span><span class="p">,</span> <span class="s1">&#39;Not Found&#39;</span><span class="p">)</span>  <span class="c1"># If key is not found, it will return second parameter of argument</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[10]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&apos;Not Found&apos;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Updating-Dictionary:">Updating Dictionary:<a class="anchor-link" href="#Updating-Dictionary:">&#182;</a></h2><p>The dictionary can be updated by adding a new entry or a new key-value pair, modifying existing entry and/ or deleting an entry.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">student</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Name&#39;</span><span class="p">:</span> <span class="s1">&#39;John&#39;</span><span class="p">,</span> <span class="s1">&#39;Class&#39;</span><span class="p">:</span> <span class="s1">&#39;Urban Skills&#39;</span><span class="p">,</span> <span class="s1">&#39;Course&#39;</span><span class="p">:</span> <span class="s1">&#39;Python&#39;</span><span class="p">}</span>
+<span class="n">student</span><span class="p">[</span><span class="s1">&#39;Degree&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Masters&#39;</span>
+<span class="n">student</span><span class="p">[</span><span class="s1">&#39;Name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Tom&#39;</span>
+<span class="n">student</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[11]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>{&apos;Class&apos;: &apos;Urban Skills&apos;,
+ &apos;Course&apos;: &apos;Python&apos;,
+ &apos;Degree&apos;: &apos;Masters&apos;,
+ &apos;Name&apos;: &apos;Tom&apos;}</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>As you must have observed, a new value to the dictionary can be added or modified simply by passing the key value pair to the dictionary.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="setdefault(-)">setdefault( )<a class="anchor-link" href="#setdefault(-)">&#182;</a></h3><p>In python, the value (of a key-value pair) is mutable. However at times you might not want to overwrite the existing key-value pair but if it does not exist, you might want to add it. To perform this, you can use the setdefault() method. setdefault method returns a value if a key is present. Otherwise it inserts a key with the specified value and returns the value
+Example:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">student</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Name&#39;</span><span class="p">:</span> <span class="s1">&#39;John&#39;</span><span class="p">,</span> <span class="s1">&#39;Class&#39;</span><span class="p">:</span> <span class="s1">&#39;Urban Skills&#39;</span><span class="p">,</span> <span class="s1">&#39;Course&#39;</span><span class="p">:</span> <span class="s1">&#39;Python&#39;</span><span class="p">}</span>
+<span class="n">student</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="s1">&#39;Degree&#39;</span><span class="p">,</span> <span class="s1">&#39;Masters&#39;</span><span class="p">)</span>  <span class="c1"># This will add the &#39;Degree:Masters&#39; key value pair to the dictionary since it doesn&#39;t exist</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[12]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&apos;Masters&apos;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">student</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="s1">&#39;Class&#39;</span><span class="p">,</span><span class="s1">&#39;Urban Sensing&#39;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[13]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&apos;Urban Skills&apos;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">student</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[14]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>{&apos;Class&apos;: &apos;Urban Skills&apos;,
+ &apos;Course&apos;: &apos;Python&apos;,
+ &apos;Degree&apos;: &apos;Masters&apos;,
+ &apos;Name&apos;: &apos;John&apos;}</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="update(-)">update( )<a class="anchor-link" href="#update(-)">&#182;</a></h3><p>The update method adds (joins) the two dictionary together.
+Example:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">states_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;AL&#39;</span><span class="p">:</span> <span class="s1">&#39;Alabama&#39;</span><span class="p">,</span> <span class="s1">&#39;NY&#39;</span><span class="p">:</span> <span class="s1">&#39;New York&#39;</span><span class="p">}</span>
+<span class="n">states_dict2</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;NJ&#39;</span><span class="p">:</span> <span class="s1">&#39;New Jersey&#39;</span><span class="p">,</span> <span class="s1">&#39;CA&#39;</span><span class="p">:</span> <span class="s1">&#39;California&#39;</span><span class="p">}</span>
+<span class="n">states_dict</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">states_dict2</span><span class="p">)</span>
+<span class="n">states_dict</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[15]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>{&apos;AL&apos;: &apos;Alabama&apos;, &apos;CA&apos;: &apos;California&apos;, &apos;NJ&apos;: &apos;New Jersey&apos;, &apos;NY&apos;: &apos;New York&apos;}</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Removing-from-Dictionary">Removing from Dictionary<a class="anchor-link" href="#Removing-from-Dictionary">&#182;</a></h2><h3 id="pop(-)">pop( )<a class="anchor-link" href="#pop(-)">&#182;</a></h3><p>Pop() method removes the key-value pair based on the key passed as an argument. It returns the value that is being 'popped' from the dictionary
+Example:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">states_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;AL&#39;</span><span class="p">:</span> <span class="s1">&#39;Alabama&#39;</span><span class="p">,</span> <span class="s1">&#39;CA&#39;</span><span class="p">:</span> <span class="s1">&#39;California&#39;</span><span class="p">,</span> <span class="s1">&#39;NJ&#39;</span><span class="p">:</span> <span class="s1">&#39;New Jersey&#39;</span><span class="p">,</span> <span class="s1">&#39;NY&#39;</span><span class="p">:</span> <span class="s1">&#39;New York&#39;</span><span class="p">}</span>
+<span class="n">states_dict</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;AL&#39;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[16]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&apos;Alabama&apos;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">states_dict</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[17]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>{&apos;CA&apos;: &apos;California&apos;, &apos;NJ&apos;: &apos;New Jersey&apos;, &apos;NY&apos;: &apos;New York&apos;}</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="del(-)">del( )<a class="anchor-link" href="#del(-)">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>del() method can be used to perform the above operation and also can be used to remove an entire dictionary. It does not return anything.
+Example:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[18]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">states_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;AL&#39;</span><span class="p">:</span> <span class="s1">&#39;Alabama&#39;</span><span class="p">,</span> <span class="s1">&#39;CA&#39;</span><span class="p">:</span> <span class="s1">&#39;California&#39;</span><span class="p">,</span> <span class="s1">&#39;NJ&#39;</span><span class="p">:</span> <span class="s1">&#39;New Jersey&#39;</span><span class="p">,</span> <span class="s1">&#39;NY&#39;</span><span class="p">:</span> <span class="s1">&#39;New York&#39;</span><span class="p">}</span>
+<span class="k">del</span> <span class="n">states_dict</span><span class="p">[</span><span class="s1">&#39;AL&#39;</span><span class="p">]</span>
+<span class="n">states_dict</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[18]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>{&apos;CA&apos;: &apos;California&apos;, &apos;NJ&apos;: &apos;New Jersey&apos;, &apos;NY&apos;: &apos;New York&apos;}</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[19]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="k">del</span> <span class="n">states_dict</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[20]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">states_dict</span>  <span class="c1"># Will raise an error because we deleted the object.</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansired">---------------------------------------------------------------------------</span>
+<span class="ansired">NameError</span>                                 Traceback (most recent call last)
+<span class="ansigreen">&lt;ipython-input-20-0d583e464cf4&gt;</span> in <span class="ansicyan">&lt;module&gt;</span><span class="ansiblue">()</span>
+<span class="ansigreen">----&gt; 1</span><span class="ansiyellow"> </span>states_dict  <span class="ansired"># Will raise an error because we deleted the object.</span><span class="ansiyellow"></span>
+
+<span class="ansired">NameError</span>: name &apos;states_dict&apos; is not defined</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="clear(-)">clear( )<a class="anchor-link" href="#clear(-)">&#182;</a></h3><p>clear method clears all items from the dictionary</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[21]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">states_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;CA&#39;</span><span class="p">:</span> <span class="s1">&#39;California&#39;</span><span class="p">,</span> <span class="s1">&#39;NJ&#39;</span><span class="p">:</span> <span class="s1">&#39;New Jersey&#39;</span><span class="p">,</span> <span class="s1">&#39;NY&#39;</span><span class="p">:</span> <span class="s1">&#39;New York&#39;</span><span class="p">}</span>
+<span class="n">states_dict</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+<span class="n">states_dict</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[21]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>{}</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Traversing-a-Dictionary">Traversing a Dictionary<a class="anchor-link" href="#Traversing-a-Dictionary">&#182;</a></h2><h3 id="for-loop:">for loop:<a class="anchor-link" href="#for-loop:">&#182;</a></h3><p>A dictionary can be traversed by using for loops.
+Example:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[22]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">states_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;AL&#39;</span><span class="p">:</span> <span class="s1">&#39;Alabama&#39;</span><span class="p">,</span> <span class="s1">&#39;CA&#39;</span><span class="p">:</span> <span class="s1">&#39;California&#39;</span><span class="p">,</span> <span class="s1">&#39;NJ&#39;</span><span class="p">:</span> <span class="s1">&#39;New Jersey&#39;</span><span class="p">,</span> <span class="s1">&#39;NY&#39;</span><span class="p">:</span> <span class="s1">&#39;New York&#39;</span><span class="p">}</span>
+<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">states_dict</span><span class="p">:</span>
+    <span class="k">print</span> <span class="n">k</span><span class="p">,</span> <span class="n">states_dict</span><span class="p">[</span><span class="n">k</span><span class="p">]</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>NY New York
+CA California
+NJ New Jersey
+AL Alabama
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[23]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">states_dict</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>  <span class="c1"># We will see items() method in next sub- topic</span>
+    <span class="k">print</span> <span class="s1">&#39;: &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">((</span><span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">))</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>NY: New York
+CA: California
+NJ: New Jersey
+AL: Alabama
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="keys(-)-,-values(-)-and-items(-)">keys( ) , values( ) and items( )<a class="anchor-link" href="#keys(-)-,-values(-)-and-items(-)">&#182;</a></h3><p>The keys() method returns a list of keys in dictionary. The values() method returns a list of all the values and items() returns a list of all key-value tuples.
+Example:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[24]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">states_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;AL&#39;</span><span class="p">:</span> <span class="s1">&#39;Alabama&#39;</span><span class="p">,</span> <span class="s1">&#39;CA&#39;</span><span class="p">:</span> <span class="s1">&#39;California&#39;</span><span class="p">,</span> <span class="s1">&#39;NJ&#39;</span><span class="p">:</span> <span class="s1">&#39;New Jersey&#39;</span><span class="p">,</span> <span class="s1">&#39;NY&#39;</span><span class="p">:</span> <span class="s1">&#39;New York&#39;</span><span class="p">}</span>
+<span class="n">states_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[24]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[&apos;NY&apos;, &apos;CA&apos;, &apos;NJ&apos;, &apos;AL&apos;]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[25]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">states_dict</span><span class="o">.</span><span class="n">values</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[25]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[&apos;New York&apos;, &apos;California&apos;, &apos;New Jersey&apos;, &apos;Alabama&apos;]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[26]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">states_dict</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[26]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[(&apos;NY&apos;, &apos;New York&apos;),
+ (&apos;CA&apos;, &apos;California&apos;),
+ (&apos;NJ&apos;, &apos;New Jersey&apos;),
+ (&apos;AL&apos;, &apos;Alabama&apos;)]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Sorting">Sorting<a class="anchor-link" href="#Sorting">&#182;</a></h2><p>Dictionaries in python can be sorted using keys or values. Just like keys the dictionaries can be sorted in ascending or descending order. First let us look as the built-in function sorted() and then the method specific to collections class.</p>
+<h3 id="sorted(-)">sorted( )<a class="anchor-link" href="#sorted(-)">&#182;</a></h3><p>Sorted method returns a sorted list from the items in the iterable (in our case it is a dictionary). It can also take a boolean value for reverse which, if set as True, will sort the iterable in descending order. It is actually the most efficient way to sort anything, be it strings, integers, dictionaries, lists etc. 
+Example:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[27]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">states_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;AL&#39;</span><span class="p">:</span> <span class="s1">&#39;Alabama&#39;</span><span class="p">,</span> <span class="s1">&#39;CA&#39;</span><span class="p">:</span> <span class="s1">&#39;California&#39;</span><span class="p">,</span> <span class="s1">&#39;NJ&#39;</span><span class="p">:</span> <span class="s1">&#39;New Jersey&#39;</span><span class="p">,</span> <span class="s1">&#39;NY&#39;</span><span class="p">:</span> <span class="s1">&#39;New York&#39;</span><span class="p">}</span>
+<span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="nb">sorted</span> <span class="p">(</span><span class="n">states_dict</span><span class="o">.</span><span class="n">iterkeys</span><span class="p">()):</span>
+    <span class="k">print</span> <span class="s1">&#39;</span><span class="si">%s</span><span class="s1"> : </span><span class="si">%s</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">states_dict</span><span class="p">[</span><span class="n">key</span><span class="p">])</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>AL : Alabama
+CA : California
+NJ : New Jersey
+NY : New York
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[28]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="nb">sorted</span> <span class="p">(</span><span class="n">states_dict</span><span class="o">.</span><span class="n">iterkeys</span><span class="p">(),</span> <span class="n">reverse</span><span class="o">=</span><span class="bp">True</span><span class="p">):</span>
+    <span class="k">print</span> <span class="s1">&#39;</span><span class="si">%s</span><span class="s1"> : </span><span class="si">%s</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">states_dict</span><span class="p">[</span><span class="n">key</span><span class="p">])</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>NY : New York
+NJ : New Jersey
+CA : California
+AL : Alabama
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>If you observe the above example, we have used a function iterkeys() This function returns an iterator over the dictionary's keys..</p>
+<h3 id="sort(-)">sort( )<a class="anchor-link" href="#sort(-)">&#182;</a></h3><p>Just like the sort method in lists, the method simply sorts the data. 
+Example:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[29]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">states_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;AL&#39;</span><span class="p">:</span> <span class="s1">&#39;Alabama&#39;</span><span class="p">,</span> <span class="s1">&#39;CA&#39;</span><span class="p">:</span> <span class="s1">&#39;California&#39;</span><span class="p">,</span> <span class="s1">&#39;NJ&#39;</span><span class="p">:</span> <span class="s1">&#39;New Jersey&#39;</span><span class="p">,</span> <span class="s1">&#39;NY&#39;</span><span class="p">:</span> <span class="s1">&#39;New York&#39;</span><span class="p">}</span>
+<span class="n">k</span> <span class="o">=</span> <span class="n">states_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+<span class="n">k</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>  <span class="c1"># For reverse sorting, pass the argument reverse=True</span>
+<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">k</span><span class="p">:</span>
+    <span class="k">print</span> <span class="s1">&#39;</span><span class="si">%s</span><span class="s1"> : </span><span class="si">%s</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">((</span><span class="n">x</span><span class="p">,</span> <span class="n">states_dict</span><span class="p">[</span><span class="n">x</span><span class="p">]))</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>AL : Alabama
+CA : California
+NJ : New Jersey
+NY : New York
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span> 
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+<h2 id="Exercise">Exercise<a class="anchor-link" href="#Exercise">&#182;</a></h2><ul>
+<li><p>1</p>
+<ul>
+<li><p>An iterator, as the name suggests creates an iterator object which can be manually accessed using next() method. As an exercise, create a dictionary's keyiterator object and assign it to a variable and then access the items/ elements of the iterator object using next() method.</p>
+</li>
+<li><p>Use the built-in method iter() and see what is the output when you use next function with it.</p>
+</li>
+<li><p>Sort the items by their values.</p>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Views">Views<a class="anchor-link" href="#Views">&#182;</a></h2><p>The views are methods that are introduced in Python 2.7 (It is highly recommended to upgrade your python version if you are running Python version &lt; 2.7) The problem with dictionary methods like items() is that it wastes the resources by creating a copy of the dictionary's key, value pair. However view() methods reflect the changes without creating a copy. Basically, views doesn't care if the dictionary has been changed, all it does is show the view of the dictionary. Let's take a look at an example that shows difference between iteritems() and viewitems().
+Example:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[30]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">states_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;AL&#39;</span><span class="p">:</span> <span class="s1">&#39;Alabama&#39;</span><span class="p">,</span> <span class="s1">&#39;CA&#39;</span><span class="p">:</span> <span class="s1">&#39;California&#39;</span><span class="p">,</span> <span class="s1">&#39;NJ&#39;</span><span class="p">:</span> <span class="s1">&#39;New Jersey&#39;</span><span class="p">,</span> <span class="s1">&#39;NY&#39;</span><span class="p">:</span> <span class="s1">&#39;New York&#39;</span><span class="p">}</span>
+<span class="n">s_iter</span> <span class="o">=</span> <span class="n">states_dict</span><span class="o">.</span><span class="n">iteritems</span><span class="p">()</span>
+<span class="n">states_dict</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;AL&#39;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[30]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&apos;Alabama&apos;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[31]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">s_iter</span><span class="p">:</span>
+    <span class="k">print</span> <span class="n">i</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansired">---------------------------------------------------------------------------</span>
+<span class="ansired">RuntimeError</span>                              Traceback (most recent call last)
+<span class="ansigreen">&lt;ipython-input-31-e32cc735634f&gt;</span> in <span class="ansicyan">&lt;module&gt;</span><span class="ansiblue">()</span>
+<span class="ansigreen">----&gt; 1</span><span class="ansiyellow"> </span><span class="ansigreen">for</span> i <span class="ansigreen">in</span> s_iter<span class="ansiyellow">:</span><span class="ansiyellow"></span>
+<span class="ansigreen">      2</span>     <span class="ansigreen">print</span> i<span class="ansiyellow"></span>
+
+<span class="ansired">RuntimeError</span>: dictionary changed size during iteration</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We expected an error right? Because the iterator was trying to go through all the items in the dictionary and suddenly it detected that dictionary was changed due to our pop() method.
+Now lets try the same thing with viewitems() instead of iteritems() and see if we still get an error or not.
+Example:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[32]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">states_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;AL&#39;</span><span class="p">:</span> <span class="s1">&#39;Alabama&#39;</span><span class="p">,</span> <span class="s1">&#39;CA&#39;</span><span class="p">:</span> <span class="s1">&#39;California&#39;</span><span class="p">,</span> <span class="s1">&#39;NJ&#39;</span><span class="p">:</span> <span class="s1">&#39;New Jersey&#39;</span><span class="p">,</span> <span class="s1">&#39;NY&#39;</span><span class="p">:</span> <span class="s1">&#39;New York&#39;</span><span class="p">}</span>
+<span class="n">s_view</span> <span class="o">=</span> <span class="n">states_dict</span><span class="o">.</span><span class="n">viewitems</span><span class="p">()</span>
+<span class="n">s_view</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[32]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>dict_items([(&apos;NY&apos;, &apos;New York&apos;), (&apos;CA&apos;, &apos;California&apos;), (&apos;NJ&apos;, &apos;New Jersey&apos;), (&apos;AL&apos;, &apos;Alabama&apos;)])</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[33]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">states_dict</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;AL&#39;</span><span class="p">)</span>
+<span class="n">s_view</span>  <span class="c1"># We didn&#39;t modify it after popping.</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[33]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>dict_items([(&apos;NY&apos;, &apos;New York&apos;), (&apos;CA&apos;, &apos;California&apos;), (&apos;NJ&apos;, &apos;New Jersey&apos;)])</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>This example makes it clear that viewitems does not create a copy, it just shows the current dictionary. If you try using items() method or iteritems() method after modifying the dictionary, it will always throw an error.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+<h2 id="Exercise">Exercise<a class="anchor-link" href="#Exercise">&#182;</a></h2><p>Exercise: Try using the viewkeys() and viewvalues() and compare the differences between them and iteritems() &amp; iterkeys().</p>
+<p><em>Remember, If you have any difficulty using any function or method in Jupyter notebook, type the function or method name followed by a '?' or <code>shift + Tab</code> and it will print the docstring/ help manual for you.</em></p>
+
+</div>
+</div>
+</div>
+
+        </div>
+    </article>
+
+    <nav>
+  <ul class="pager">
+    
+    
+    <li class="previous"><a href="http://replace-this-with-your-website-url.com/tutorials/ucsl/Python-Matplotlib/"><span aria-hidden="true">&larr;</span> Python-Matplotlib</a></li>
+    
+    
+    
+    <li class="next"><a href="http://replace-this-with-your-website-url.com/tutorials/ucsl/">UCSL <span aria-hidden="true">&rarr;</span></a></li>
+    
+
+     <li class="current"><a href="http://replace-this-with-your-website-url.com/"><span aria-hidden="true"></span> <i class="fa fa-home" aria-hidden="true"></i> Home </a></li>
+    
+    </ul>
+</nav>
+
+
+</div>
+<footer class="site-footer">
+    <div class="container">
+        <p class="powered-by">
+
+          &copy; 2016 Mohit Sharma 
+
+            <span class="pull-right"><a href="#" id="back_to_top"><span class="button_icon"><i class="fa fa-chevron-up fa-2x" aria-hidden="true"></i></span></a></span>
+
+        </p>
+    </div>
+</footer>
+
+        <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.4/TweenMax.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/latest/plugins/ScrollToPlugin.min.js"></script>
+        <script src="http://replace-this-with-your-website-url.com/js/jquery-1.12.3.min.js"></script>
+        <script src="http://replace-this-with-your-website-url.com/js/bootstrap.min.js"></script>
+        <script src="http://replace-this-with-your-website-url.com/js/hugo-academic.js"></script>
+        
+
+        
+
+        
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.3.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
+
+        
+        
+
+    </body>
+</html>
+

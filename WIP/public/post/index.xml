@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Mohit Sharma</title>
+    <link>http://replace-this-with-your-website-url.com/post/</link>
+    <description>Recent content in Posts on Mohit Sharma</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2016 Mohit Sharma</copyright>
+    <lastBuildDate>Tue, 12 Jul 2016 00:59:02 -0400</lastBuildDate>
+    <atom:link href="http://replace-this-with-your-website-url.com/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>jupyter_notebooks_in_blog</title>
+      <link>http://replace-this-with-your-website-url.com/post/jupyter_notebooks_in_blog/</link>
+      <pubDate>Tue, 12 Jul 2016 00:59:02 -0400</pubDate>
+      
+      <guid>http://replace-this-with-your-website-url.com/post/jupyter_notebooks_in_blog/</guid>
+      <description>
+
+&lt;h2 id=&#34;using-jupyter-notebooks-in-your-blog&#34;&gt;Using Jupyter notebooks in your blog&lt;/h2&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

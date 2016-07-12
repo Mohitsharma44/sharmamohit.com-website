@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Nyu on Mohit Sharma</title>
+    <link>http://replace-this-with-your-website-url.com/tags/nyu/</link>
+    <description>Recent content in Nyu on Mohit Sharma</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2016 Mohit Sharma</copyright>
+    <lastBuildDate>Tue, 12 Jul 2016 16:29:28 -0400</lastBuildDate>
+    <atom:link href="http://replace-this-with-your-website-url.com/tags/nyu/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Advanced Topics in Urban Informatics</title>
+      <link>http://replace-this-with-your-website-url.com/tutorials/gx-9004-005-16/</link>
+      <pubDate>Tue, 12 Jul 2016 16:29:28 -0400</pubDate>
+      
+      <guid>http://replace-this-with-your-website-url.com/tutorials/gx-9004-005-16/</guid>
+      <description>&lt;p&gt;A one day course on Advanced Topics in Urban Informatics (Wireless Sensor and Networking)&lt;/p&gt;
+
+&lt;iframe src=&#34;//slides.com/mohitsharma44/cusp_gx9004-005/embed&#34; width=&#34;576&#34; height=&#34;420&#34; scrolling=&#34;no&#34; frameborder=&#34;0&#34; webkitallowfullscreen mozallowfullscreen allowfullscreen&gt;&lt;/iframe&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>CUSP e-DAP 2016</title>
+      <link>http://replace-this-with-your-website-url.com/tutorials/cusp-edap16/</link>
+      <pubDate>Tue, 12 Jul 2016 16:17:21 -0400</pubDate>
+      
+      <guid>http://replace-this-with-your-website-url.com/tutorials/cusp-edap16/</guid>
+      <description>&lt;p&gt;Technical workshop on Writing Idiomatic Python, Python Packaging and creating static websites using python&lt;/p&gt;
+
+&lt;iframe src=&#34;//slides.com/mohitsharma44/cusp-edap/embed&#34; width=&#34;570&#34; height=&#34;420&#34; scrolling=&#34;no&#34; frameborder=&#34;0&#34; webkitallowfullscreen mozallowfullscreen allowfullscreen&gt;&lt;/iframe&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
