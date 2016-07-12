@@ -10,6 +10,8 @@
     {{if .NextInSection}}
     <li class="next"><a href="{{.NextInSection.Permalink}}">{{.NextInSection.Title}} <span aria-hidden="true">&rarr;</span></a></li>
     {{end}}
+
+     <li class="current"><a href="{{.Site.BaseURL}}"><span aria-hidden="true"></span> <i class="fa fa-home" aria-hidden="true"></i> Home </a></li>
     {{end}}
     </ul>
 </nav>
