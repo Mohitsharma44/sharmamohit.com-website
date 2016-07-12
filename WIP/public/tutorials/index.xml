@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tutorials on Mohit Sharma</title>
-    <link>http://replace-this-with-your-website-url.com/tutorials/</link>
+    <link>http://sharmamohit.com/tutorials/</link>
     <description>Recent content in Tutorials on Mohit Sharma</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2016 Mohit Sharma</copyright>
     <lastBuildDate>Tue, 12 Jul 2016 16:29:28 -0400</lastBuildDate>
-    <atom:link href="http://replace-this-with-your-website-url.com/tutorials/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://sharmamohit.com/tutorials/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Advanced Topics in Urban Informatics</title>
-      <link>http://replace-this-with-your-website-url.com/tutorials/gx-9004-005-16/</link>
+      <link>http://sharmamohit.com/tutorials/gx-9004-005-16/</link>
       <pubDate>Tue, 12 Jul 2016 16:29:28 -0400</pubDate>
       
-      <guid>http://replace-this-with-your-website-url.com/tutorials/gx-9004-005-16/</guid>
+      <guid>http://sharmamohit.com/tutorials/gx-9004-005-16/</guid>
       <description>&lt;p&gt;A one day course on Advanced Topics in Urban Informatics (Wireless Sensor and Networking)&lt;/p&gt;
 
 &lt;iframe src=&#34;//slides.com/mohitsharma44/cusp_gx9004-005/embed&#34; width=&#34;576&#34; height=&#34;420&#34; scrolling=&#34;no&#34; frameborder=&#34;0&#34; webkitallowfullscreen mozallowfullscreen allowfullscreen&gt;&lt;/iframe&gt;
@@ -24,10 +24,10 @@
     
     <item>
       <title>CUSP e-DAP 2016</title>
-      <link>http://replace-this-with-your-website-url.com/tutorials/cusp-edap16/</link>
+      <link>http://sharmamohit.com/tutorials/cusp-edap16/</link>
       <pubDate>Tue, 12 Jul 2016 16:17:21 -0400</pubDate>
       
-      <guid>http://replace-this-with-your-website-url.com/tutorials/cusp-edap16/</guid>
+      <guid>http://sharmamohit.com/tutorials/cusp-edap16/</guid>
       <description>&lt;p&gt;Technical workshop on Writing Idiomatic Python, Python Packaging and creating static websites using python&lt;/p&gt;
 
 &lt;iframe src=&#34;//slides.com/mohitsharma44/cusp-edap/embed&#34; width=&#34;570&#34; height=&#34;420&#34; scrolling=&#34;no&#34; frameborder=&#34;0&#34; webkitallowfullscreen mozallowfullscreen allowfullscreen&gt;&lt;/iframe&gt;
@@ -36,10 +36,10 @@
     
     <item>
       <title>Python-Pandas</title>
-      <link>http://replace-this-with-your-website-url.com/tutorials/ucsl/Python-Pandas-Intro/</link>
+      <link>http://sharmamohit.com/tutorials/ucsl/Python-Pandas-Intro/</link>
       <pubDate>Tue, 12 Jul 2016 00:00:00 +0000</pubDate>
       
-      <guid>http://replace-this-with-your-website-url.com/tutorials/ucsl/Python-Pandas-Intro/</guid>
+      <guid>http://sharmamohit.com/tutorials/ucsl/Python-Pandas-Intro/</guid>
       <description>&lt;div class=&#34;cell border-box-sizing text_cell rendered&#34;&gt;
 &lt;div class=&#34;prompt input_prompt&#34;&gt;
 &lt;/div&gt;
@@ -3355,10 +3355,10 @@ SUVORK5CYII=
     
     <item>
       <title>UCSL</title>
-      <link>http://replace-this-with-your-website-url.com/tutorials/ucsl/</link>
+      <link>http://sharmamohit.com/tutorials/ucsl/</link>
       <pubDate>Sun, 10 Jul 2016 12:58:22 -0400</pubDate>
       
-      <guid>http://replace-this-with-your-website-url.com/tutorials/ucsl/</guid>
+      <guid>http://sharmamohit.com/tutorials/ucsl/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;./Python-Intro&#34;&gt;Python-Intro&lt;/a&gt; &lt;br/&gt;
 Introduction to Python and Jupyter Notebook.&lt;/p&gt;
 
@@ -3448,10 +3448,10 @@ Working with relational and labeled made easy&lt;/p&gt;
     
     <item>
       <title>Python-Dictionaries</title>
-      <link>http://replace-this-with-your-website-url.com/tutorials/ucsl/Python-Dictionaries/</link>
+      <link>http://sharmamohit.com/tutorials/ucsl/Python-Dictionaries/</link>
       <pubDate>Thu, 07 Jul 2016 00:00:00 +0000</pubDate>
       
-      <guid>http://replace-this-with-your-website-url.com/tutorials/ucsl/Python-Dictionaries/</guid>
+      <guid>http://sharmamohit.com/tutorials/ucsl/Python-Dictionaries/</guid>
       <description>&lt;div class=&#34;cell border-box-sizing text_cell rendered&#34;&gt;
 &lt;div class=&#34;prompt input_prompt&#34;&gt;
 &lt;/div&gt;
@@ -4657,10 +4657,10 @@ Example:&lt;/p&gt;
     
     <item>
       <title>Python-Matplotlib</title>
-      <link>http://replace-this-with-your-website-url.com/tutorials/ucsl/Python-Matplotlib/</link>
+      <link>http://sharmamohit.com/tutorials/ucsl/Python-Matplotlib/</link>
       <pubDate>Mon, 04 Jul 2016 00:00:00 +0000</pubDate>
       
-      <guid>http://replace-this-with-your-website-url.com/tutorials/ucsl/Python-Matplotlib/</guid>
+      <guid>http://sharmamohit.com/tutorials/ucsl/Python-Matplotlib/</guid>
       <description>&lt;div class=&#34;cell border-box-sizing text_cell rendered&#34;&gt;
 &lt;div class=&#34;prompt input_prompt&#34;&gt;
 &lt;/div&gt;
@@ -15304,10 +15304,10 @@ mqZ5MZ3kNU3TvJhO8pqmaV5MJ3lN0zQv9v/J94NmpOkfpAAAAABJRU5ErkJggg==
     
     <item>
       <title>Python-Basic-Plotting</title>
-      <link>http://replace-this-with-your-website-url.com/tutorials/ucsl/Python-Basic-Plotting/</link>
+      <link>http://sharmamohit.com/tutorials/ucsl/Python-Basic-Plotting/</link>
       <pubDate>Tue, 21 Jun 2016 00:00:00 +0000</pubDate>
       
-      <guid>http://replace-this-with-your-website-url.com/tutorials/ucsl/Python-Basic-Plotting/</guid>
+      <guid>http://sharmamohit.com/tutorials/ucsl/Python-Basic-Plotting/</guid>
       <description>&lt;div class=&#34;cell border-box-sizing text_cell rendered&#34;&gt;
 &lt;div class=&#34;prompt input_prompt&#34;&gt;
 &lt;/div&gt;
@@ -17922,10 +17922,10 @@ GGOMKZIlCWOMMUWyJGGMMaZI/x9M92CO92US6AAAAABJRU5ErkJggg==
     
     <item>
       <title>Python-Numpy</title>
-      <link>http://replace-this-with-your-website-url.com/tutorials/ucsl/Python-Numpy/</link>
+      <link>http://sharmamohit.com/tutorials/ucsl/Python-Numpy/</link>
       <pubDate>Wed, 15 Jun 2016 00:00:00 +0000</pubDate>
       
-      <guid>http://replace-this-with-your-website-url.com/tutorials/ucsl/Python-Numpy/</guid>
+      <guid>http://sharmamohit.com/tutorials/ucsl/Python-Numpy/</guid>
       <description>&lt;div class=&#34;cell border-box-sizing text_cell rendered&#34;&gt;
 &lt;div class=&#34;prompt input_prompt&#34;&gt;
 &lt;/div&gt;
@@ -19534,10 +19534,10 @@ M/KS1Nj/AnH/PODhbGqXAAAAAElFTkSuQmCC
     
     <item>
       <title>Python-Pickle</title>
-      <link>http://replace-this-with-your-website-url.com/tutorials/ucsl/Python-Pickle/</link>
+      <link>http://sharmamohit.com/tutorials/ucsl/Python-Pickle/</link>
       <pubDate>Mon, 29 Jun 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://replace-this-with-your-website-url.com/tutorials/ucsl/Python-Pickle/</guid>
+      <guid>http://sharmamohit.com/tutorials/ucsl/Python-Pickle/</guid>
       <description>&lt;div class=&#34;cell border-box-sizing text_cell rendered&#34;&gt;
 &lt;div class=&#34;prompt input_prompt&#34;&gt;
 &lt;/div&gt;
@@ -19688,10 +19688,10 @@ This is beyond the scope of the subject and is left as a self-assignment for int
     
     <item>
       <title>Python-File-IO</title>
-      <link>http://replace-this-with-your-website-url.com/tutorials/ucsl/Python-File-IO/</link>
+      <link>http://sharmamohit.com/tutorials/ucsl/Python-File-IO/</link>
       <pubDate>Fri, 26 Jun 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://replace-this-with-your-website-url.com/tutorials/ucsl/Python-File-IO/</guid>
+      <guid>http://sharmamohit.com/tutorials/ucsl/Python-File-IO/</guid>
       <description>&lt;div class=&#34;cell border-box-sizing text_cell rendered&#34;&gt;
 &lt;div class=&#34;prompt input_prompt&#34;&gt;
 &lt;/div&gt;
@@ -20276,10 +20276,10 @@ We will generally be dealing with the files that have over a million row entries
     
     <item>
       <title>Python-Importing-Modules</title>
-      <link>http://replace-this-with-your-website-url.com/tutorials/ucsl/Python-Importing-Modules/</link>
+      <link>http://sharmamohit.com/tutorials/ucsl/Python-Importing-Modules/</link>
       <pubDate>Mon, 22 Jun 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://replace-this-with-your-website-url.com/tutorials/ucsl/Python-Importing-Modules/</guid>
+      <guid>http://sharmamohit.com/tutorials/ucsl/Python-Importing-Modules/</guid>
       <description>&lt;div class=&#34;cell border-box-sizing text_cell rendered&#34;&gt;
 &lt;div class=&#34;prompt input_prompt&#34;&gt;
 &lt;/div&gt;
@@ -20581,10 +20581,10 @@ We will generally be dealing with the files that have over a million row entries
     
     <item>
       <title>Python-Functions</title>
-      <link>http://replace-this-with-your-website-url.com/tutorials/ucsl/Python-Functions/</link>
+      <link>http://sharmamohit.com/tutorials/ucsl/Python-Functions/</link>
       <pubDate>Wed, 17 Jun 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://replace-this-with-your-website-url.com/tutorials/ucsl/Python-Functions/</guid>
+      <guid>http://sharmamohit.com/tutorials/ucsl/Python-Functions/</guid>
       <description>&lt;div class=&#34;cell border-box-sizing text_cell rendered&#34;&gt;
 &lt;div class=&#34;prompt input_prompt&#34;&gt;
 &lt;/div&gt;
@@ -21357,10 +21357,10 @@ Mat
     
     <item>
       <title>Python-Exception-Handling</title>
-      <link>http://replace-this-with-your-website-url.com/tutorials/ucsl/Python-Exception-Handling/</link>
+      <link>http://sharmamohit.com/tutorials/ucsl/Python-Exception-Handling/</link>
       <pubDate>Fri, 12 Jun 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://replace-this-with-your-website-url.com/tutorials/ucsl/Python-Exception-Handling/</guid>
+      <guid>http://sharmamohit.com/tutorials/ucsl/Python-Exception-Handling/</guid>
       <description>&lt;div class=&#34;cell border-box-sizing text_cell rendered&#34;&gt;
 &lt;div class=&#34;prompt input_prompt&#34;&gt;
 &lt;/div&gt;
@@ -21777,10 +21777,10 @@ Example&lt;/p&gt;
     
     <item>
       <title>Python-Tuples</title>
-      <link>http://replace-this-with-your-website-url.com/tutorials/ucsl/Python-Tuples/</link>
+      <link>http://sharmamohit.com/tutorials/ucsl/Python-Tuples/</link>
       <pubDate>Wed, 10 Jun 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://replace-this-with-your-website-url.com/tutorials/ucsl/Python-Tuples/</guid>
+      <guid>http://sharmamohit.com/tutorials/ucsl/Python-Tuples/</guid>
       <description>&lt;div class=&#34;cell border-box-sizing text_cell rendered&#34;&gt;
 &lt;div class=&#34;prompt input_prompt&#34;&gt;
 &lt;/div&gt;
@@ -22477,10 +22477,10 @@ Example: (extending the above example)&lt;/p&gt;
     
     <item>
       <title>Python-Lists</title>
-      <link>http://replace-this-with-your-website-url.com/tutorials/ucsl/Python-Lists/</link>
+      <link>http://sharmamohit.com/tutorials/ucsl/Python-Lists/</link>
       <pubDate>Fri, 05 Jun 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://replace-this-with-your-website-url.com/tutorials/ucsl/Python-Lists/</guid>
+      <guid>http://sharmamohit.com/tutorials/ucsl/Python-Lists/</guid>
       <description>&lt;div class=&#34;cell border-box-sizing text_cell rendered&#34;&gt;
 &lt;div class=&#34;prompt input_prompt&#34;&gt;
 &lt;/div&gt;

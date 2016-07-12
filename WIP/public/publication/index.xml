@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Publications on Mohit Sharma</title>
-    <link>http://replace-this-with-your-website-url.com/publication/</link>
+    <link>http://sharmamohit.com/publication/</link>
     <description>Recent content in Publications on Mohit Sharma</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2016 Mohit Sharma</copyright>
     <lastBuildDate>Thu, 31 Dec 2015 11:17:33 -0400</lastBuildDate>
-    <atom:link href="http://replace-this-with-your-website-url.com/publication/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://sharmamohit.com/publication/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Dynamics of the Urban Lightscape</title>
-      <link>http://replace-this-with-your-website-url.com/publication/Dynamics-of-the-Urban-Lightscape/</link>
+      <link>http://sharmamohit.com/publication/Dynamics-of-the-Urban-Lightscape/</link>
       <pubDate>Thu, 31 Dec 2015 11:17:33 -0400</pubDate>
       
-      <guid>http://replace-this-with-your-website-url.com/publication/Dynamics-of-the-Urban-Lightscape/</guid>
+      <guid>http://sharmamohit.com/publication/Dynamics-of-the-Urban-Lightscape/</guid>
       <description></description>
     </item>
     
