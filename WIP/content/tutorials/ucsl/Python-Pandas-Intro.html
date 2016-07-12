@@ -1,0 +1,3321 @@
++++
+client_name = ""
+date = "2016-07-12"
+image = ""
+image_preview = ""
+summary = "Working with relational and labeled made easy"
+tags = []
+title = "Python-Pandas"
+external_link = ""
++++
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 align='center'>Pandas</h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Pandas</strong> is a Python package providing fast, flexible, and expressive data structures designed to make working with “relational” or “labeled” data both easy and intuitive. It aims to be the fundamental high-level building block for doing practical, real world data analysis in Python.
+Pandas provides high-performance, easy-to-use data structures and data analysis tools for the Python programming language. To get started with pandas, you will need to get comfortable with its two workhorse data structures: Series and DataFrame.</p>
+<h2 id="Series">Series<a class="anchor-link" href="#Series">&#182;</a></h2><p>Pandas Series is a one-dimensional array-like object that has index and value just like Numpy. Infact if you view the type of the <code>values</code> of series object, you will see that it indeed is <code>numpy.ndarray</code>.</p>
+<p>You can assign name to pandas Series.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">ob</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">8</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">5</span><span class="p">],</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;test_data&#39;</span><span class="p">)</span>
+<span class="k">print</span> <span class="s1">&#39;Name: &#39;</span><span class="p">,</span><span class="n">ob</span><span class="o">.</span><span class="n">name</span>
+<span class="k">print</span> <span class="s1">&#39;Data:</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">ob</span>
+<span class="k">print</span> <span class="s1">&#39;Type of Object: &#39;</span><span class="p">,</span><span class="nb">type</span><span class="p">(</span><span class="n">ob</span><span class="p">)</span>
+<span class="k">print</span> <span class="s1">&#39;Type of elements:&#39;</span><span class="p">,</span><span class="nb">type</span><span class="p">(</span><span class="n">ob</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Name:  test_data
+Data:
+0    8
+1    7
+2    6
+3    5
+Name: test_data, dtype: int64
+Type of Object:  &lt;class &apos;pandas.core.series.Series&apos;&gt;
+Type of elements: &lt;type &apos;numpy.ndarray&apos;&gt;
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>You can also use your numpy array and convert them to Series.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">ob</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)[::</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="c1"># np.linspace(5,8,num=4,dtype=int) = Evenly spaced integers </span>
+<span class="c1"># between 5 to 8 (reversed)</span>
+<span class="k">print</span> <span class="n">ob</span>
+<span class="k">print</span> <span class="nb">type</span><span class="p">(</span><span class="n">ob</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>0    8
+1    7
+2    6
+3    5
+dtype: int64
+&lt;class &apos;pandas.core.series.Series&apos;&gt;
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>You can also provide custom index to the values and just like in Numpy, access them with the index.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">ob</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">8</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">5</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">,</span><span class="s1">&#39;d&#39;</span><span class="p">])</span>
+<span class="k">print</span> <span class="n">ob</span><span class="p">[</span><span class="s1">&#39;b&#39;</span><span class="p">]</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>7
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Pandas Series is more like an fixed size dictionary whose mapping of index-value is preserved when array operations are applied to them. For example,</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="k">print</span> <span class="n">ob</span><span class="p">[(</span><span class="n">ob</span><span class="o">&gt;</span><span class="mi">4</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">ob</span><span class="o">&lt;</span><span class="mi">8</span><span class="p">)]</span> <span class="c1"># select all the values greater than 4 and less than 8</span>
+<span class="c1"># or lets apply numpy&#39;s exp function to calculate exponential of all elements </span>
+<span class="c1">#print np.exp(ob)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>b    7
+c    6
+d    5
+dtype: int64
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>This also means that if you have a dictionary, you can easily convert that into pandas series.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">states_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;State1&#39;</span><span class="p">:</span> <span class="s1">&#39;Alabama&#39;</span><span class="p">,</span> <span class="s1">&#39;State2&#39;</span><span class="p">:</span> <span class="s1">&#39;California&#39;</span><span class="p">,</span> <span class="s1">&#39;State3&#39;</span><span class="p">:</span> <span class="s1">&#39;New Jersey&#39;</span><span class="p">,</span> <span class="s1">&#39;State4&#39;</span><span class="p">:</span> <span class="s1">&#39;New York&#39;</span><span class="p">}</span>
+<span class="n">ob</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">states_dict</span><span class="p">)</span>
+<span class="k">print</span> <span class="n">ob</span>
+<span class="k">print</span> <span class="nb">type</span><span class="p">(</span><span class="n">ob</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>State1       Alabama
+State2    California
+State3    New Jersey
+State4      New York
+dtype: object
+&lt;class &apos;pandas.core.series.Series&apos;&gt;
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Just like dictionaries, you can also change the index..</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">ob</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;AL&#39;</span><span class="p">,</span><span class="s1">&#39;CA&#39;</span><span class="p">,</span><span class="s1">&#39;NJ&#39;</span><span class="p">,</span><span class="s1">&#39;NY&#39;</span><span class="p">]</span>
+<span class="k">print</span> <span class="n">ob</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>AL       Alabama
+CA    California
+NJ    New Jersey
+NY      New York
+dtype: object
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>or use dictionary's method to get the label..</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">ob</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;CA&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[8]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&apos;California&apos;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Dataframe">Dataframe<a class="anchor-link" href="#Dataframe">&#182;</a></h2><p>Dataframe is something like spreadsheet or a sql table. It is basically a 2 dimensional labelled data structure with columns of potentially different datatype. Like Series, DataFrame accepts many different kinds of input:</p>
+<ul>
+<li>Dict of 1D ndarrays, lists, dicts, or Series</li>
+<li>2-D numpy.ndarray</li>
+<li><a href="http://docs.scipy.org/doc/numpy/user/basics.rec.html" title="Structured or record ndarray"><code>Structured or record ndarray</code></a></li>
+<li>A Series</li>
+<li>Another DataFrame</li>
+</ul>
+<p>Compared with other such DataFrame-like structures you may have used before (like <code>R’s</code> <code>data.frame</code>), row- oriented and column-oriented operations in DataFrame are treated roughly symmetrically. Under the hood, the data is stored as one or more two-dimensional blocks rather than a list, dict, or some other collection of one-dimensional arrays.</p>
+<h3 id="Creating-Dataframes-from-dictionaries">Creating Dataframes from dictionaries<a class="anchor-link" href="#Creating-Dataframes-from-dictionaries">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;one&#39;</span> <span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">,</span> <span class="mf">3.</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">]),</span>
+    <span class="s1">&#39;two&#39;</span> <span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">,</span> <span class="mf">3.</span><span class="p">,</span> <span class="mf">4.</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">])}</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="k">print</span> <span class="s1">&#39;Dataframe:</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">df</span>
+<span class="k">print</span> <span class="s1">&#39;Type of Object:&#39;</span><span class="p">,</span><span class="nb">type</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<span class="k">print</span> <span class="s1">&#39;Type of elements:&#39;</span><span class="p">,</span><span class="nb">type</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Dataframe:
+   one  two
+a    1    1
+b    2    2
+c    3    3
+d  NaN    4
+Type of Object: &lt;class &apos;pandas.core.frame.DataFrame&apos;&gt;
+Type of elements: &lt;type &apos;numpy.ndarray&apos;&gt;
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<blockquote><p>Another way to construct dataframe from dictionaries is by using <code>DataFrame.from_dict</code> function. <code>DataFrame.from_dict</code> takes a dict of dicts or a dict of array-like sequences and returns a DataFrame. It operates like the DataFrame constructor except for the orient parameter which is 'columns' by default, but which can be set to 'index' in order to use the dict keys as row labels.</p>
+</blockquote>
+<p>Just like Series, you can access index, values and also columns.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="k">print</span> <span class="s1">&#39;Index: &#39;</span><span class="p">,</span><span class="n">df</span><span class="o">.</span><span class="n">index</span>
+<span class="k">print</span> <span class="s1">&#39;Columns: &#39;</span><span class="p">,</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span>
+<span class="k">print</span> <span class="s1">&#39;Values of Column one: &#39;</span><span class="p">,</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;one&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+<span class="k">print</span> <span class="s1">&#39;Values of Column two: &#39;</span><span class="p">,</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;two&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Index:  Index([u&apos;a&apos;, u&apos;b&apos;, u&apos;c&apos;, u&apos;d&apos;], dtype=&apos;object&apos;)
+Columns:  Index([u&apos;one&apos;, u&apos;two&apos;], dtype=&apos;object&apos;)
+Values of Column one:  [  1.   2.   3.  nan]
+Values of Column two:  [ 1.  2.  3.  4.]
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Creating-dataframe-from-list-of-dictionaries">Creating dataframe from list of dictionaries<a class="anchor-link" href="#Creating-dataframe-from-list-of-dictionaries">&#182;</a></h3><p>As with Series, if you pass a column that isn’t contained in data, it will appear with NaN values in the result</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">df2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([{</span><span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">:</span><span class="bp">None</span><span class="p">},</span> <span class="p">{</span><span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">:</span> <span class="mi">4</span><span class="p">}],</span>
+                   <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;one&#39;</span><span class="p">,</span> <span class="s1">&#39;two&#39;</span><span class="p">])</span>
+<span class="k">print</span> <span class="s1">&#39;Dataframe: </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">df2</span>
+
+<span class="c1"># Ofcourse you can also transpose the result:</span>
+
+<span class="k">print</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Transposed Dataframe: </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">df2</span><span class="o">.</span><span class="n">T</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Dataframe: 
+     a  b  c   d
+one  1  2  3 NaN
+two  2  2  3   4
+
+Transposed Dataframe: 
+   one  two
+a    1    2
+b    2    2
+c    3    3
+d  NaN    4
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Assigning a column that doesn’t exist will create a new column.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;three&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">None</span>
+<span class="k">print</span> <span class="s1">&#39;Added third column: </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">df</span>
+
+<span class="c1"># The del keyword will delete columns as with a dict:</span>
+<span class="k">del</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;three&#39;</span><span class="p">]</span>
+<span class="k">print</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Deleted third column: </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">df</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Added third column: 
+   one  two three
+a    1    1  None
+b    2    2  None
+c    3    3  None
+d  NaN    4  None
+
+Deleted third column: 
+   one  two
+a    1    1
+b    2    2
+c    3    3
+d  NaN    4
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Each Index has a number of methods and properties for set logic and answering other common questions about the data it contains.</p>
+<table>
+<thead><tr>
+<th style="text-align:left">Method</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>append</code></td>
+<td style="text-align:left">Concatenate with additional Index objects, producing a new Index</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>diff</code></td>
+<td style="text-align:left">Compute set difference as an Index</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>intersection</code></td>
+<td style="text-align:left">Compute set intersection</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>union</code></td>
+<td style="text-align:left">Compute set union</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>isin</code></td>
+<td style="text-align:left">Compute boolean array indicating whether each value is contained in the passed collection</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>delete</code></td>
+<td style="text-align:left">Compute new Index with element at index i deleted</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>drop</code></td>
+<td style="text-align:left">Compute new index by deleting passed values</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>insert</code></td>
+<td style="text-align:left">Compute new Index by inserting element at index i</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>is_monotonic</code></td>
+<td style="text-align:left">Returns True if each element is greater than or equal to the previous element</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>is_unique</code></td>
+<td style="text-align:left">Returns True if the Index has no duplicate values</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>unique</code></td>
+<td style="text-align:left">Compute the array of unique values in the Index</td>
+</tr>
+</tbody>
+</table>
+<p>for example:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="k">print</span> <span class="mi">1</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">one</span><span class="o">.</span><span class="n">values</span>
+<span class="k">print</span> <span class="s1">&#39;one&#39;</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>True
+True
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Reindexing">Reindexing<a class="anchor-link" href="#Reindexing">&#182;</a></h2><p>A critical method on pandas objects is reindex, which means to create a new object with the data conformed to a new index.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;one&#39;</span> <span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">,</span> <span class="mf">3.</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">]),</span>
+    <span class="s1">&#39;two&#39;</span> <span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">,</span> <span class="mf">3.</span><span class="p">,</span> <span class="mf">4.</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">])}</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="k">print</span> <span class="n">df</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>   one  two
+a    1    1
+b    2    2
+c    3    3
+d  NaN    4
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="k">print</span> <span class="n">df</span><span class="o">.</span><span class="n">reindex</span><span class="p">([</span><span class="s1">&#39;d&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;a&#39;</span><span class="p">])</span>  <span class="c1"># Reindex in descending order.</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>   one  two
+d  NaN    4
+c    3    3
+b    2    2
+a    1    1
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>If you <code>reindex</code> with more number of rows than in the dataframe, it will return the dataframe with new row whose values are <code>NaN</code>.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="k">print</span> <span class="n">df</span><span class="o">.</span><span class="n">reindex</span><span class="p">([</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">,</span><span class="s1">&#39;d&#39;</span><span class="p">,</span><span class="s1">&#39;e&#39;</span><span class="p">])</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>   one  two
+a    1    1
+b    2    2
+c    3    3
+d  NaN    4
+e  NaN  NaN
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Reindexing is also useful when you want to introduce any missing values. For example in our case, look at column <code>one</code> and row <code>d</code></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[18]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">reindex</span><span class="p">([</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">,</span><span class="s1">&#39;d&#39;</span><span class="p">,</span><span class="s1">&#39;e&#39;</span><span class="p">],</span> <span class="n">fill_value</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="c1"># Guess why the df[&#39;one&#39;][&#39;d&#39;] was not filled with 0 ?</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[18]:</div>
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>one</th>
+      <th>two</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>a</th>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>b</th>
+      <td>2</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>c</th>
+      <td>3</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>d</th>
+      <td>NaN</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>e</th>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>For ordered data like time series, it may be desirable to do some interpolation or filling of values when <code>reindex</code>ing. The method option allows us to do this, using a <code>method</code> such as <code>ffill</code> which forward fills the values:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[19]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">reindex</span><span class="p">([</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">,</span><span class="s1">&#39;d&#39;</span><span class="p">,</span><span class="s1">&#39;e&#39;</span><span class="p">],</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;ffill&#39;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[19]:</div>
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>one</th>
+      <th>two</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>a</th>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>b</th>
+      <td>2</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>c</th>
+      <td>3</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>d</th>
+      <td>NaN</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>e</th>
+      <td>NaN</td>
+      <td>4</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>There are basically two different types of method (interpolation) options:</p>
+<table>
+<thead><tr>
+<th style="text-align:left">Method</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>ffill</code> or <code>pad</code></td>
+<td style="text-align:left">Fill (or carry) values forward</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>bfill</code> or <code>backfill</code></td>
+<td style="text-align:left">Fill (or carry) values backward</td>
+</tr>
+</tbody>
+</table>
+<p>Reindexing has following arguments:</p>
+<table>
+<thead><tr>
+<th style="text-align:left">Argument</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>index</code></td>
+<td style="text-align:left">New sequence to use as index. Can be Index instance or any other sequence-like Python data structure. An Index will be used exactly as is without any copying</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>method</code></td>
+<td style="text-align:left">Interpolation (fill) method, see above table for options.</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>fill_value</code></td>
+<td style="text-align:left">Substitute value to use when introducing missing data by reindexing.</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>limit</code></td>
+<td style="text-align:left">When forward- or backfilling, maximum size gap to fill</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>level</code></td>
+<td style="text-align:left">Match simple Index on level of MultiIndex, otherwise select subset of</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>copy</code></td>
+<td style="text-align:left">Do not copy underlying data if new index is equivalent to old index. True by default (i.e. always copy data)</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Dropping-Entries">Dropping Entries<a class="anchor-link" href="#Dropping-Entries">&#182;</a></h2><p>Dropping one or more entries from an axis is easy if you have an index array or list without those entries.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[20]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Drop row c and row a</span>
+<span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">])</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[20]:</div>
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>one</th>
+      <th>two</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>b</th>
+      <td>2</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>d</th>
+      <td>NaN</td>
+      <td>4</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[21]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Drop column two</span>
+<span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;two&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[21]:</div>
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>one</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>a</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>b</th>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>c</th>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>d</th>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Indexing,-selection,-Sorting-and-filtering">Indexing, selection, Sorting and filtering<a class="anchor-link" href="#Indexing,-selection,-Sorting-and-filtering">&#182;</a></h2><p>Series indexing works analogously to NumPy array indexing, except you can use the Series’s index values instead of only integers.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[22]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="k">print</span> <span class="n">df</span>
+<span class="c1"># Slicing and selecting only row 0 and row 4</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;one&#39;</span><span class="p">][[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">]]</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>   one  two
+a    1    1
+b    2    2
+c    3    3
+d  NaN    4
+</pre>
+</div>
+</div>
+
+<div class="output_area"><div class="prompt output_prompt">Out[22]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>a     1
+d   NaN
+Name: one, dtype: float64</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[23]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Slicing df from row b to row 4</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;one&#39;</span><span class="p">][</span><span class="s1">&#39;b&#39;</span><span class="p">:</span><span class="s1">&#39;d&#39;</span><span class="p">]</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[23]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>b     2
+c     3
+d   NaN
+Name: one, dtype: float64</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>If you observe the above command (and the one above it), you will see that slicing with labels behaves differently than normal Python slicing in that the endpoint is inclusive.</p>
+<p>For DataFrame label-indexing on the rows, there is a special indexing field <code>ix</code>. It enables you to select a subset of the rows and columns from a DataFrame with NumPy- like notation plus axis labels. It is a less verbose way to do the reindexing.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[24]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">ix</span><span class="p">[[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">],[</span><span class="s1">&#39;one&#39;</span><span class="p">]]</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[24]:</div>
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>one</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>a</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>c</th>
+      <td>3</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[25]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">ix</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">one</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">]</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[25]:</div>
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>one</th>
+      <th>two</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>b</th>
+      <td>2</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>c</th>
+      <td>3</td>
+      <td>3</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>There are many ways to select and rearrange the data contained in a pandas object. Some indexing options can be seen in below table:</p>
+<table>
+<thead><tr>
+<th style="text-align:left">Indexing Type</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">df[val]</td>
+<td style="text-align:left">Select single column or sequence of columns from the DataFrame. Special case con- veniences: boolean array (filter rows), slice (slice rows), or boolean DataFrame (set values based on some criterion).</td>
+</tr>
+<tr>
+<td style="text-align:left">df.ix[val]</td>
+<td style="text-align:left">Selects single row of subset of rows from the DataFrame.</td>
+</tr>
+<tr>
+<td style="text-align:left">df.ix[:, val]</td>
+<td style="text-align:left">Selects single column of subset of columns.</td>
+</tr>
+<tr>
+<td style="text-align:left">df.ix[val1, val2]</td>
+<td style="text-align:left">Select both rows and columns.</td>
+</tr>
+<tr>
+<td style="text-align:left">reindex method</td>
+<td style="text-align:left">Conform one or more axes to new indexes.</td>
+</tr>
+<tr>
+<td style="text-align:left">xs method</td>
+<td style="text-align:left">Select single row or column as a Series by label.</td>
+</tr>
+<tr>
+<td style="text-align:left">icol, irowmethods</td>
+<td style="text-align:left">Select single column or row, respectively, as a Series by integer location.</td>
+</tr>
+<tr>
+<td style="text-align:left">get_value, set_value methods</td>
+<td style="text-align:left">Select single value by row and column label.</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>You can sort a data frame or series (by some criteria) using the built-in functions. To sort lexicographically by row or column index, use the sort_index method, which returns a new, sorted object:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[26]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">dt</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">7</span><span class="p">),</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;g&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">,</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;e&#39;</span><span class="p">,</span><span class="s1">&#39;d&#39;</span><span class="p">,</span><span class="s1">&#39;f&#39;</span><span class="p">])</span>
+<span class="k">print</span> <span class="s1">&#39;Original Data: </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">dt</span>
+<span class="k">print</span> <span class="s1">&#39;Sorted by Index: </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">dt</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Original Data: 
+g    6
+c    9
+a    9
+b    5
+e    3
+d    8
+f    7
+dtype: int64
+Sorted by Index: 
+a    9
+b    5
+c    9
+d    8
+e    3
+f    7
+g    6
+dtype: int64
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Data-alignment-and-arithmetic">Data alignment and arithmetic<a class="anchor-link" href="#Data-alignment-and-arithmetic">&#182;</a></h2><p>Data alignment between DataFrame objects automatically align on both the columns and the index (row labels). The resulting object will have the union of the column and row labels.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[27]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">df1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="s1">&#39;D&#39;</span><span class="p">])</span>
+<span class="n">df2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">])</span>
+<span class="k">print</span> <span class="s1">&#39;df1:</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">df1</span>
+<span class="k">print</span> <span class="s1">&#39;df2:</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">df2</span>
+<span class="k">print</span> <span class="s1">&#39;Sum:</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">df1</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">df2</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>df1:
+          A         B         C         D
+0 -1.869235  0.114255  0.816411 -0.297434
+1  0.112815  0.660802  1.037941  0.576426
+2  1.041494 -0.078062 -0.972924 -0.568679
+3 -2.785414  1.578352  0.924656  0.226743
+4 -0.429171  0.321302  0.183773  0.850985
+5 -0.536632  0.500795  1.429295 -1.099967
+6  0.592204  0.392437  0.174914 -0.009833
+7  0.425151  0.453137 -1.347765  1.300194
+8  0.081314 -0.324954  0.347301  1.892119
+9  1.738767  1.396856  0.326706 -0.741861
+df2:
+          A         B         C
+0 -0.074048  0.530960 -1.013815
+1  0.709423 -0.953860 -0.270428
+2  0.215185  1.276945 -1.479264
+3 -1.376585 -0.417693  0.039363
+4  0.305415  0.403303  1.495533
+5  1.983297 -0.363862  1.657616
+6  0.673487  1.211236 -0.347881
+Sum:
+          A         B         C   D
+0 -1.943283  0.645215 -0.197403 NaN
+1  0.822238 -0.293058  0.767512 NaN
+2  1.256679  1.198883 -2.452188 NaN
+3 -4.161999  1.160658  0.964019 NaN
+4 -0.123756  0.724605  1.679306 NaN
+5  1.446665  0.136932  3.086912 NaN
+6  1.265692  1.603673 -0.172967 NaN
+7       NaN       NaN       NaN NaN
+8       NaN       NaN       NaN NaN
+9       NaN       NaN       NaN NaN
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Note that in arithmetic operations between differently-indexed objects, you might want to fill with a special value, like 0, when an axis label is found in one object but not the other:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[28]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="k">print</span> <span class="s1">&#39;Sum:</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">df1</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">df2</span><span class="p">,</span> <span class="n">fill_value</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Sum:
+          A         B         C         D
+0 -1.943283  0.645215 -0.197403 -0.297434
+1  0.822238 -0.293058  0.767512  0.576426
+2  1.256679  1.198883 -2.452188 -0.568679
+3 -4.161999  1.160658  0.964019  0.226743
+4 -0.123756  0.724605  1.679306  0.850985
+5  1.446665  0.136932  3.086912 -1.099967
+6  1.265692  1.603673 -0.172967 -0.009833
+7  0.425151  0.453137 -1.347765  1.300194
+8  0.081314 -0.324954  0.347301  1.892119
+9  1.738767  1.396856  0.326706 -0.741861
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Similarly you can perform subtracion, multiplication and division.</p>
+<p>When doing an operation between DataFrame and Series, the default behavior is to align the Series index on the DataFrame columns, thus broadcasting (just like in numpy) row-wise.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[29]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="k">print</span> <span class="n">df1</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="k">print</span> <span class="s1">&#39;Sum: </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">df1</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">df1</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>A   -1.869235
+B    0.114255
+C    0.816411
+D   -0.297434
+Name: 0, dtype: float64
+Sum: 
+          A         B         C         D
+0  0.000000  0.000000  0.000000  0.000000
+1  1.982050  0.546547  0.221530  0.873859
+2  2.910729 -0.192316 -1.789335 -0.271245
+3 -0.916179  1.464097  0.108245  0.524177
+4  1.440064  0.207047 -0.632639  1.148418
+5  1.332603  0.386540  0.612884 -0.802533
+6  2.461440  0.278182 -0.641497  0.287601
+7  2.294386  0.338882 -2.164176  1.597627
+8  1.950549 -0.439209 -0.469110  2.189553
+9  3.608003  1.282602 -0.489706 -0.444427
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>In the special case of working with time series data, and the DataFrame index also contains dates, the broadcasting will be column-wise:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[30]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">ind1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="s1">&#39;08/1/2015&#39;</span><span class="p">,</span> <span class="n">periods</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">df1</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="n">ind1</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[30]:</div>
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>A</th>
+      <th>B</th>
+      <th>C</th>
+      <th>D</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2015-08-01</th>
+      <td>-1.869235</td>
+      <td>0.114255</td>
+      <td>0.816411</td>
+      <td>-0.297434</td>
+    </tr>
+    <tr>
+      <th>2015-08-02</th>
+      <td>0.112815</td>
+      <td>0.660802</td>
+      <td>1.037941</td>
+      <td>0.576426</td>
+    </tr>
+    <tr>
+      <th>2015-08-03</th>
+      <td>1.041494</td>
+      <td>-0.078062</td>
+      <td>-0.972924</td>
+      <td>-0.568679</td>
+    </tr>
+    <tr>
+      <th>2015-08-04</th>
+      <td>-2.785414</td>
+      <td>1.578352</td>
+      <td>0.924656</td>
+      <td>0.226743</td>
+    </tr>
+    <tr>
+      <th>2015-08-05</th>
+      <td>-0.429171</td>
+      <td>0.321302</td>
+      <td>0.183773</td>
+      <td>0.850985</td>
+    </tr>
+    <tr>
+      <th>2015-08-06</th>
+      <td>-0.536632</td>
+      <td>0.500795</td>
+      <td>1.429295</td>
+      <td>-1.099967</td>
+    </tr>
+    <tr>
+      <th>2015-08-07</th>
+      <td>0.592204</td>
+      <td>0.392437</td>
+      <td>0.174914</td>
+      <td>-0.009833</td>
+    </tr>
+    <tr>
+      <th>2015-08-08</th>
+      <td>0.425151</td>
+      <td>0.453137</td>
+      <td>-1.347765</td>
+      <td>1.300194</td>
+    </tr>
+    <tr>
+      <th>2015-08-09</th>
+      <td>0.081314</td>
+      <td>-0.324954</td>
+      <td>0.347301</td>
+      <td>1.892119</td>
+    </tr>
+    <tr>
+      <th>2015-08-10</th>
+      <td>1.738767</td>
+      <td>1.396856</td>
+      <td>0.326706</td>
+      <td>-0.741861</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Using-Numpy-functions-on-DataFrame">Using Numpy functions on DataFrame<a class="anchor-link" href="#Using-Numpy-functions-on-DataFrame">&#182;</a></h2><p>Elementwise NumPy <code>ufuncs</code> like <code>log</code>, <code>exp</code>, <code>sqrt</code>, ... and various other NumPy functions can be used on DataFrame</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[31]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">df1</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[31]:</div>
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>A</th>
+      <th>B</th>
+      <th>C</th>
+      <th>D</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1.869235</td>
+      <td>0.114255</td>
+      <td>0.816411</td>
+      <td>0.297434</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.112815</td>
+      <td>0.660802</td>
+      <td>1.037941</td>
+      <td>0.576426</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1.041494</td>
+      <td>0.078062</td>
+      <td>0.972924</td>
+      <td>0.568679</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2.785414</td>
+      <td>1.578352</td>
+      <td>0.924656</td>
+      <td>0.226743</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0.429171</td>
+      <td>0.321302</td>
+      <td>0.183773</td>
+      <td>0.850985</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>0.536632</td>
+      <td>0.500795</td>
+      <td>1.429295</td>
+      <td>1.099967</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>0.592204</td>
+      <td>0.392437</td>
+      <td>0.174914</td>
+      <td>0.009833</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>0.425151</td>
+      <td>0.453137</td>
+      <td>1.347765</td>
+      <td>1.300194</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>0.081314</td>
+      <td>0.324954</td>
+      <td>0.347301</td>
+      <td>1.892119</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>1.738767</td>
+      <td>1.396856</td>
+      <td>0.326706</td>
+      <td>0.741861</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[32]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">df1</span><span class="p">)</span>  <span class="c1"># Convert input to numpy array</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[32]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>array([[-1.86923522,  0.11425481,  0.81641128, -0.29743373],
+       [ 0.11281503,  0.66080205,  1.03794085,  0.57642562],
+       [ 1.04149359, -0.07806151, -0.97292403, -0.56867919],
+       [-2.78541399,  1.57835165,  0.92465601,  0.22674327],
+       [-0.4291715 ,  0.32130162,  0.18377266,  0.8509845 ],
+       [-0.53663223,  0.5007948 ,  1.42929534, -1.09996685],
+       [ 0.59220433,  0.39243689,  0.17491424, -0.00983318],
+       [ 0.42515075,  0.4531367 , -1.34776521,  1.30019367],
+       [ 0.08131366, -0.32495414,  0.34730131,  1.89211945],
+       [ 1.73876733,  1.39685642,  0.32670562, -0.74186091]])</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Another frequent operation is applying a function on 1D arrays to each column or row. DataFrame’s apply method does exactly this:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[33]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">fn</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="n">x</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">x</span><span class="o">.</span><span class="n">max</span><span class="p">()],</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;min&#39;</span><span class="p">,</span> <span class="s1">&#39;max&#39;</span><span class="p">])</span>  <span class="c1"># Get max and min of the columns</span>
+
+<span class="c1">#fn = lambda x: x - x.min()  # Subtract the minimum of the column from each element of that column</span>
+<span class="n">df1</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">fn</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[33]:</div>
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>A</th>
+      <th>B</th>
+      <th>C</th>
+      <th>D</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>min</th>
+      <td>-2.785414</td>
+      <td>-0.324954</td>
+      <td>-1.347765</td>
+      <td>-1.099967</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>1.738767</td>
+      <td>1.578352</td>
+      <td>1.429295</td>
+      <td>1.892119</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Element-wise Python functions can be used, too. Suppose you wanted to format the dataframe elements in floating point format with accuracy of only 3 decimal places. You can do this with applymap:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[34]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">fmt</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="s2">&quot;{:.3f}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">df1</span><span class="o">.</span><span class="n">applymap</span><span class="p">(</span><span class="n">fmt</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[34]:</div>
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>A</th>
+      <th>B</th>
+      <th>C</th>
+      <th>D</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>-1.869</td>
+      <td>0.114</td>
+      <td>0.816</td>
+      <td>-0.297</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.113</td>
+      <td>0.661</td>
+      <td>1.038</td>
+      <td>0.576</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1.041</td>
+      <td>-0.078</td>
+      <td>-0.973</td>
+      <td>-0.569</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>-2.785</td>
+      <td>1.578</td>
+      <td>0.925</td>
+      <td>0.227</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>-0.429</td>
+      <td>0.321</td>
+      <td>0.184</td>
+      <td>0.851</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>-0.537</td>
+      <td>0.501</td>
+      <td>1.429</td>
+      <td>-1.100</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>0.592</td>
+      <td>0.392</td>
+      <td>0.175</td>
+      <td>-0.010</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>0.425</td>
+      <td>0.453</td>
+      <td>-1.348</td>
+      <td>1.300</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>0.081</td>
+      <td>-0.325</td>
+      <td>0.347</td>
+      <td>1.892</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>1.739</td>
+      <td>1.397</td>
+      <td>0.327</td>
+      <td>-0.742</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<blockquote><p>The reason for the name <code>applymap</code> is that Series has a <code>map</code> method for applying an element-wise function</p>
+</blockquote>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Loading-Data">Loading Data<a class="anchor-link" href="#Loading-Data">&#182;</a></h2><p>You can read data from a CSV file using the read_csv function. By default, it assumes that the fields are comma-separated.
+Pandas supports following file formats:</p>
+<table>
+<thead><tr>
+<th style="text-align:left">Function</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">read_csv</td>
+<td style="text-align:left">Load delimited data from a file, URL, or file-like object. Use comma as default delimiter</td>
+</tr>
+<tr>
+<td style="text-align:left">read_table</td>
+<td style="text-align:left">Load delimited data from a file, URL, or file-like object. Use tab ('\t') as default delimiter</td>
+</tr>
+<tr>
+<td style="text-align:left">read_fwf</td>
+<td style="text-align:left">Read data in fixed-width column format (that is, no delimiters)</td>
+</tr>
+<tr>
+<td style="text-align:left">read_clipboard</td>
+<td style="text-align:left">Version of read_table that reads data from the clipboard. Useful for converting tables from web pages.</td>
+</tr>
+</tbody>
+</table>
+<p>Let's try loading some citibike data that you used for your challenge #2 using pandas. (We will also use the same technique later on for loading big file like the one you had to use for Core Challenge). If you do not have the csv file from Challenge #2, you can download it again from here: <a href="http://sharmamohit.com/misc_files/dec-2week-2014.csv" title="dec-2week-2014"><code>Dec-2week-2014.csv</code></a></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[35]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">dec</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;dec-2week-2014.csv&#39;</span><span class="p">)</span>
+<span class="n">dec</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[35]:</div>
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>tripduration</th>
+      <th>start station id</th>
+      <th>start station latitude</th>
+      <th>start station longitude</th>
+      <th>end station id</th>
+      <th>end station latitude</th>
+      <th>end station longitude</th>
+      <th>bikeid</th>
+      <th>birth year</th>
+      <th>gender</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>192260.000000</td>
+      <td>192260.000000</td>
+      <td>192260.000000</td>
+      <td>192260.000000</td>
+      <td>192260.000000</td>
+      <td>192260.000000</td>
+      <td>192260.000000</td>
+      <td>192260.000000</td>
+      <td>187314.000000</td>
+      <td>192260.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>746.854666</td>
+      <td>436.637116</td>
+      <td>40.735708</td>
+      <td>-73.990421</td>
+      <td>437.083829</td>
+      <td>40.735578</td>
+      <td>-73.990647</td>
+      <td>18141.270124</td>
+      <td>1975.495451</td>
+      <td>1.169874</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>2997.200035</td>
+      <td>318.126922</td>
+      <td>0.018599</td>
+      <td>0.011611</td>
+      <td>321.761738</td>
+      <td>0.018638</td>
+      <td>0.011726</td>
+      <td>2061.113390</td>
+      <td>11.737892</td>
+      <td>0.439104</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>60.000000</td>
+      <td>72.000000</td>
+      <td>40.680342</td>
+      <td>-74.017134</td>
+      <td>72.000000</td>
+      <td>40.680342</td>
+      <td>-74.017134</td>
+      <td>14529.000000</td>
+      <td>1899.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>348.000000</td>
+      <td>307.000000</td>
+      <td>40.724055</td>
+      <td>-73.998393</td>
+      <td>307.000000</td>
+      <td>40.723627</td>
+      <td>-73.999061</td>
+      <td>16387.000000</td>
+      <td>1967.000000</td>
+      <td>1.000000</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>529.000000</td>
+      <td>417.000000</td>
+      <td>40.737262</td>
+      <td>-73.990617</td>
+      <td>414.000000</td>
+      <td>40.737050</td>
+      <td>-73.990741</td>
+      <td>18135.000000</td>
+      <td>1977.000000</td>
+      <td>1.000000</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>816.000000</td>
+      <td>491.000000</td>
+      <td>40.750380</td>
+      <td>-73.981948</td>
+      <td>490.000000</td>
+      <td>40.750200</td>
+      <td>-73.981948</td>
+      <td>19911.000000</td>
+      <td>1985.000000</td>
+      <td>1.000000</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>732149.000000</td>
+      <td>3002.000000</td>
+      <td>40.771522</td>
+      <td>-73.950048</td>
+      <td>3002.000000</td>
+      <td>40.771522</td>
+      <td>-73.950048</td>
+      <td>21690.000000</td>
+      <td>1998.000000</td>
+      <td>2.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>As we can see, the <code>describe()</code> method produces some very useful statistics about the csv data that we loaded.</p>
+<p>The parser functions have many additional arguments to help you handle the wide variety of exception file formats that occur</p>
+<table>
+<thead><tr>
+<th style="text-align:left">Argument</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>path</code></td>
+<td style="text-align:left">String indicating filesystem location, URL, or file-like object</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>sep</code> or <code>delimiter</code></td>
+<td style="text-align:left">Character sequence or regular expression to use to split fields in each row</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>header</code></td>
+<td style="text-align:left">Row number to use as column names. Defaults to 0 (first row), but should be None if there is no header row</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>index_col</code></td>
+<td style="text-align:left">Column numbers or names to use as the row index in the result. Can be a single name/number or a list of them for a hierarchical index</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>names</code></td>
+<td style="text-align:left">List of column names for result, combine with header=None</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>skiprows</code></td>
+<td style="text-align:left">Number of rows at beginning of file to ignore or list of row numbers (starting from 0) to skip </td>
+</tr>
+<tr>
+<td style="text-align:left"><code>na_values</code></td>
+<td style="text-align:left">Sequence of values to replace with NA</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>comment</code></td>
+<td style="text-align:left">Character or characters to split comments off the end of lines</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>parse_dates</code></td>
+<td style="text-align:left">Attempt to parse data to datetime; False by default. If True, will attempt to parse all columns. Otherwise can specify a list of column numbers or name to parse. If element of list is tuple or list, will combine multiple columns together and parse to date (for example if date/time split across two columns)</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>keep_date_col</code></td>
+<td style="text-align:left">If joining columns to parse date, drop the joined columns. Default True</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>converters</code></td>
+<td style="text-align:left">Dict containing column number of name mapping to functions. For example {'foo': f} would apply the function f to all values in the 'foo' column</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>dayfirst</code></td>
+<td style="text-align:left">When parsing potentially ambiguous dates, treat as international format (e.g. 7/6/2012 -&gt; June 7, 2012). Default False</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>date_parser</code></td>
+<td style="text-align:left">Function to use to parse dates</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>nrows</code></td>
+<td style="text-align:left">Number of rows to read from beginning of file</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>iterator</code></td>
+<td style="text-align:left">Return a TextParser object for reading file piecemeal</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>chunksize</code></td>
+<td style="text-align:left">For iteration, size of file chunks</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>skip_footer</code></td>
+<td style="text-align:left">Number of lines to ignore at end of file</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>verbose</code></td>
+<td style="text-align:left">Print various parser output information, like the number of missing values placed in non-numeric columns</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>encoding</code></td>
+<td style="text-align:left">Text encoding for unicode. For example 'utf-8' for UTF-8 encoded text</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>squeeze</code></td>
+<td style="text-align:left">If the parsed data only contains one column return a Series</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>thousands</code></td>
+<td style="text-align:left">Separator for thousands, e.g. ',' or '.'</td>
+</tr>
+</tbody>
+</table>
+<blockquote><p><strong> If you have a file that is comparatively huge in size and you see that pandas or numpy(genfromtxt or loadfromtxt) is struggling to load it then pandas provide an iterator that can be used. The arguments with <code>pd.read_csv()</code> would be something like (along with any other arguments as required):</strong></p>
+
+<pre><code>data_iter = pd.read_csv(infile, iterator=True, chunksize=1000, )  # This returns iterator with chunk of 1000 rows.
+data = pd.concat(data_iter)</code></pre>
+</blockquote>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[36]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">dec</span><span class="p">[:</span><span class="mi">3</span><span class="p">]</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[36]:</div>
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>tripduration</th>
+      <th>starttime</th>
+      <th>stoptime</th>
+      <th>start station id</th>
+      <th>start station name</th>
+      <th>start station latitude</th>
+      <th>start station longitude</th>
+      <th>end station id</th>
+      <th>end station name</th>
+      <th>end station latitude</th>
+      <th>end station longitude</th>
+      <th>bikeid</th>
+      <th>usertype</th>
+      <th>birth year</th>
+      <th>gender</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1257</td>
+      <td>12/1/2014 00:00:28</td>
+      <td>12/1/2014 00:21:25</td>
+      <td>475</td>
+      <td>E 16 St &amp; Irving Pl</td>
+      <td>40.735243</td>
+      <td>-73.987586</td>
+      <td>521</td>
+      <td>8 Ave &amp; W 31 St</td>
+      <td>40.750450</td>
+      <td>-73.994811</td>
+      <td>16047</td>
+      <td>Customer</td>
+      <td>NaN</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>275</td>
+      <td>12/1/2014 00:00:43</td>
+      <td>12/1/2014 00:05:18</td>
+      <td>498</td>
+      <td>Broadway &amp; W 32 St</td>
+      <td>40.748549</td>
+      <td>-73.988084</td>
+      <td>546</td>
+      <td>E 30 St &amp; Park Ave S</td>
+      <td>40.744449</td>
+      <td>-73.983035</td>
+      <td>18472</td>
+      <td>Subscriber</td>
+      <td>1988</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>450</td>
+      <td>12/1/2014 00:01:22</td>
+      <td>12/1/2014 00:08:52</td>
+      <td>444</td>
+      <td>Broadway &amp; W 24 St</td>
+      <td>40.742354</td>
+      <td>-73.989151</td>
+      <td>434</td>
+      <td>9 Ave &amp; W 18 St</td>
+      <td>40.743174</td>
+      <td>-74.003664</td>
+      <td>19589</td>
+      <td>Subscriber</td>
+      <td>1983</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[37]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">dec</span><span class="p">[</span><span class="s1">&#39;starttime&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[37]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>str</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>From above example, we can see that the <code>starttime</code> column is parsed as a string. We need to parse the dates as a datetime object so we can perform some datetime related computation.</p>
+<p>Pandas provide an excellent and easy way to parse the column with date and/or time as a datetime object. To do that, you simply need to proide the read_csv function with <code>parse_dates</code> with column name that has date (and/or time).</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[38]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">dec</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;dec-2week-2014.csv&#39;</span><span class="p">,</span> <span class="n">parse_dates</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;starttime&#39;</span><span class="p">])</span>
+<span class="nb">type</span><span class="p">(</span><span class="n">dec</span><span class="p">[</span><span class="s1">&#39;starttime&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[38]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>numpy.datetime64</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The above option works perfectly fine and as we can see the <code>starttime</code> column now has <code>numpy.datetime64</code> objects. You have to provide <code>parse_date</code> with the column that has the date (and/or time) information. This uses Pandas <code>dateutil.parser.parser</code> to do the conversion.</p>
+<p>Pandas will try to call <code>date_parser</code> in three different ways, advancing to the next if an exception occurs:</p>
+<ol>
+<li><p>Pass one or more arrays (as defined by <code>parse_dates</code>) as arguments.</p>
+</li>
+<li><p>Concatenate (row-wise) the string values from the columns defined by parse_dates into a single array and pass that;</p>
+</li>
+<li><p>Call <code>date_parser</code> once for each row using one or more strings (corresponding to the columns defined by <code>parse_dates</code>) as arguments.</p>
+</li>
+</ol>
+<p>Now this works fine but it consumes (comparatively) quite a lot of time. If you know the format of your date and is consistent then you can create a function to do the conversion and pass it to <code>date_parser</code>. <code>date_parser</code> will basically pass every element of the column specified in <code>parse_dates</code> to the function and let your function manually convert it to <code>datetime</code> object. This reduces the computation time.  (This is a good time to check it for yourself. use the ipython's magic function <code>%timeit</code>)</p>
+<blockquote><p>Once you start parsing huge files for dates, you might have to write your own cython functions. Do not worry about cython for now. But for the curious heads, check how to improve performance of pandas.. <a href="http://pandas.pydata.org/pandas-docs/stable/enhancingperf.html" title="Enhancing Performance of Pandas"><code>http://pandas.pydata.org/pandas-docs/stable/enhancingperf.html</code></a></p>
+</blockquote>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[39]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">dates</span>
+<span class="n">dt_parse</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="s1">&#39;%m/</span><span class="si">%d</span><span class="s1">/%Y %H:%M:%S&#39;</span><span class="p">)</span>
+<span class="n">dec</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;dec-2week-2014.csv&#39;</span><span class="p">,</span> <span class="n">parse_dates</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;starttime&#39;</span><span class="p">],</span> <span class="n">date_parser</span><span class="o">=</span><span class="n">dt_parse</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="s1">&#39;starttime&#39;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[40]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">dec</span><span class="p">[</span><span class="s1">&#39;tripduration&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;area&#39;</span><span class="p">,</span> <span class="n">stacked</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;#3F5D7D&#39;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,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
+Z3puWLtpl1paD+nosRP67//Hp/Tb/8uHM93ZtLR26Oor3q/x47K/nvSV8MBA6uT0/KurVKkD7UfU
+19+vRc1v6/DRY0U3ypbWQ+o42i2X8l7Nmkytu7dqxfrt+t3/9T9JUtaJJ13Ob9z3eP4FuORF+q9O
+/yza09unnwR3gOcbp9KdasW6bbr68vfrh7NSN3h1nzytC88/T+eeO77COeX3H0+8lPX3oc7i67nc
+bSvsuaUr9Sf/7eNavKRJe7pcf/6nf6SOzmNasHSV/uYvbj5j/K7ukzodalN++z3Tdfa4ceov0I1e
+7g1NvaFmN4nEQOEurgqcwO99ZJ5u+dTvauGrqzTtzsmZ4ekmUVdceokSiUQm3BbT29evfQcPq+vY
+Sc1a+AudffbgNMdPns5cfN3wB7+dLlTW9MlkMlOzlQ6rF15wnv7Hl27Su0GTr44jx9TeOXgnezoQ
+dp84pQkXpi4K0qEumUyesV329vWr+8Qpvf/iiyRJff392tt2WL929eCvDf/84OzMjX3LVm/KzKPQ
+tpB+nb4HpHllKkiE78b/j9kv69bP/mHm73VbWrRx+97Mvjh70eu69bN/WPGFvJQKhBMuuiBvu/J0
+X8n9iQF955FnJEkr16W670wHvXy/IpVq853ugSC9nfb29auvP6FzzjlbM+c8o/lv7szansrR09On
+vcGvm9NmLtLVl79ff/aZ6zPvP/bsqzJJD9zx15kyf+YPflv/7Xev1bnnjtdTL7ypP7vhet35wBM6
+66yzzrg58/DRbi1cmmq/fPBwl15+fa1272/Xd77+F5q18Be64IJz9WrWL5yupGf/opBMJtVxpDtz
+7gpfdB0+0p1pi1tKuTXLazft0vsvvlBL3hj89WPl+u2ZLvPu/Yf/KzP8n74/S//j1hu1eeM7uvI3
+B2tik8mkevr6df6555S1TCn1LAJJer2ch7Zo6CEq33roOHJM733P+Tpn/NllzaPzaHfquw3Ou7kV
+Oq/m/Gp98nRPVpeDX7/3Z2UtJ3efSNfcH+o8pg/+ygRJ0vq1q8/on3zJG+/oj//rx4vOe1Hzap1/
+7jnqTwzo1KnB40a1fsn1nD+ebSr8FOrjJ0/rnHNS6z5deZf5mjy1H55/7jn6Uuh49sIv1uiPrvuN
+spZf7mc62p3KNuFmskWV2KWslvtdNbMvSLrJ3b8a/P2Xkq53978LjeN/e/dPw9Mo1Tvy4I7UkG63
+k7uA8Fks9Do9nYVOZx4abfD/VvBby5ll6ObC4D855WwIahTMTMng/x+4+CL96lUf0Lote3S6t++M
+5RflPvibac7WFT5Jl7vl5S4zXeZfNi3Q79/weUmpm7jOajD9+q9eqe7jJ3Wg46j6+xMaN+6srHmE
+21FZTokGi5P6b9JdDQ2Dn8PlmdqXrO8hN37ku009z+cM/1KQnsv5547Xr119mT5+7a9qxoLsNtJD
+2lvc828v4Znllq3M72XF0ud0/ac/N/jJ07UxUmY7KrTI8KKzts9ggMsHp62kdifY9tLbc77lWM7o
+4a8w/d5AsD1NeO8F6usf0KmgViv9ubK/cs/attLLSIbLkGezGJyXn9ErgOWUbSCZ1FkNlpnf8mDd
+y7O309wQHD4WnbE+fPBFZt2E112oAJmPm/k8nvU6Xf5Sx4dCv2a5pPecd26m9vA3f+2qzEVG7vh5
+5x/6/obrrBIu7/Klz+n6T92S9blv+i8f04ev+oBOnOzR5R+4WNtbDuiNtZvV0dlduNw58w3vN1nH
+Z515DsgSfB3FlnFGpYCn+vE/q6FhcPt1V29/QuecPU7nnjtePT19pdd9NYW3qxzhz7986XP6RLD+
+B6eVrrniV9TVfUrHjp8cPNYr/+cvdWzKLlfOH+n9I2f5he81zv5ecz9T+Psr9D2Xd+4tXIZKFFpf
+rsHjfmaReT5b+vjXEFo/Bct+xof1op/bZJkxso9JgxN4+Dide3DIPQEEx7yBgaTOOqsh6/P83u/8
+ulas25b1OT1n2tzPkDp32WA50mUsds4Nz0OFt4uku/79X74qd8/7Ldd6TXVZx4/+/oRkpmQydWIz
+Mw0MJDOBySxnIwj9JJa+phgMfMoMzxqWs6el388Kq5mwlz/chS9gLGd4etqGhgYNDAyooaFBre2d
+2nfw8GDbZRucpXvuZh8qh7K2bWVtJXnKkm/6UEGzNq7cEZKeVH9/QgNJl4Lyb9i2R8lkUsmky0xK
+9nmwP1kmFGfKkO/MnrOphr+7XJ5ZH9l7S0OBk1v606RPYKkTZjIrAHYnBrTm3Z1au3l3qhbKBtei
+++Ae5spT/igqmFe6RAMDSfUF7egHt9fUp+xPDKihwXRWQ0MqKGhwneRb94Obd/b6LhokzihXzkYa
+2ifS31N6GekDVVabe1cmnKYPsAcPd8ks9TkGBpJZB8rw9zi4XpQ58OYG+9x1mG7Lmn2hF6xdC3/f
+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
+"
+>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<blockquote><p>In the above example, I have also used the <code>starttime</code> as my index column. Also <code>plot()</code> function returns <code>matplotlib.axes._subplots.AxesSubplot</code> so you can play around with the plot before showing it. Refer to our <code>matplotlib</code> notes to use some ways to plot it better.</p>
+<blockquote><p>A quick example:</p>
+
+<pre><code>dt = pd.date_range(start=dec.index[0], end=dec.index[-1], freq='D')
+ax = dec['tripduration'].plot(kind='area', stacked=False, figsize=(12, 8), xticks=dt)
+ax.xaxis.set_minor_locator(dates.HourLocator(interval=12))
+ax.xaxis.grid(True, which="major", linestyle='--')
+ax.xaxis.grid(True, which="minor")
+ax.yaxis.grid(True, which="major")
+ax.xaxis.set_major_formatter(dates.DateFormatter('%b %d'))</code></pre>
+</blockquote>
+</blockquote>
+<p>Pandas makes it really easy to select a subset of the columns: just index with list of columns you want.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[41]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">dec</span><span class="p">[[</span><span class="s1">&#39;start station id&#39;</span><span class="p">,</span> <span class="s1">&#39;end station id&#39;</span><span class="p">]][:</span><span class="mi">5</span><span class="p">]</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[41]:</div>
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>start station id</th>
+      <th>end station id</th>
+    </tr>
+    <tr>
+      <th>starttime</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2014-12-01 00:00:28</th>
+      <td>475</td>
+      <td>521</td>
+    </tr>
+    <tr>
+      <th>2014-12-01 00:00:43</th>
+      <td>498</td>
+      <td>546</td>
+    </tr>
+    <tr>
+      <th>2014-12-01 00:01:22</th>
+      <td>444</td>
+      <td>434</td>
+    </tr>
+    <tr>
+      <th>2014-12-01 00:02:17</th>
+      <td>475</td>
+      <td>521</td>
+    </tr>
+    <tr>
+      <th>2014-12-01 00:02:21</th>
+      <td>519</td>
+      <td>527</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Another very common question that can be asked is.. just of curiosity, which bike was used the most in these 15days.. and the answer is..</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[42]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">dec</span><span class="p">[</span><span class="s1">&#39;bikeid&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()[:</span><span class="mi">5</span><span class="p">]</span>  <span class="c1"># Top 5 bikes by id</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[42]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>18440    118
+19977    115
+19846    110
+19757    108
+19494    105
+dtype: int64</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Also, just for fun, lets plot this!</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[43]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">famous_bikes</span> <span class="o">=</span> <span class="n">dec</span><span class="p">[</span><span class="s1">&#39;bikeid&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+<span class="n">famous_bikes</span><span class="p">[:</span><span class="mi">10</span><span class="p">][::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;barh&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;#3F5D7D&#39;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[43]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;matplotlib.axes._subplots.AxesSubplot at 0x115146710&gt;</pre>
+</div>
+
+</div>
+
+<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,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
+SUVORK5CYII=
+"
+>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+<hr>
+<h1 align='center'> End Note </h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Remember, this is just the tip of the iceberg of what functions Pandas provide. Pandas combined with Numpy and Matplotlib gives you an ultimate tool for almost all your Data Analysis needs.</p>
+<blockquote><p>Because of the high majority of the votes to not introduce Pandas, I have created this concise version of otherwise what would have been a 3 part course.</p>
+</blockquote>
+<p><strong>It is highly recommended to check out some tutorials below for more information on Pandas:</strong></p>
+<p><a href="http://pandas.pydata.org/pandas-docs/stable/10min.html#min" title="10 minutes to pandas"><code>Pandas own 10 minute to Pandas</code></a></p>
+<p><a href="https://bitbucket.org/hrojas/learn-pandas" title="hrojas&#39;s Learn Pandas"><code>Hernan Rojas's Learn Pandas</code></a></p>
+<p><a href="http://pandas.pydata.org/pandas-docs/stable/cookbook.html#cookbook" title="Pandas Cookbook"><code>Pandas Cookbook</code></a></p>
+<p><a href="https://github.com/brandon-rhodes/pycon-pandas-tutorial" title="Brandon Rhodes Exercise and Solutions"><code>Brandon Rhodes's Exercise and Solutions</code></a></p>
+<p><a href="http://www.gregreda.com/2013/10/26/intro-to-pandas-data-structures/" title="Greg Redas blog on Pandas"><code>Greg Reda's Blog</code></a></p>
+<p><strong>You can also find many PyCon talks:</strong></p>
+<p><em>PyCon 2015:</em></p>
+<p><a href="https://www.youtube.com/watch?v=5JnMutdy6Fw" title="Pandas from Ground Up"><code>Brandon Rhodes's Pandas from Ground up</code></a></p>
+<p><strong>PyVideo Videos</strong>:</p>
+<p><a href="http://pyvideo.org/search?q=pandas" title="PyVideo Pandas"><code>Some Videos from pyvideo.org on Pandas</code></a></p>
+
+</div>
+</div>
+</div>
