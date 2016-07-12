@@ -1,11 +1,15 @@
 <nav>
-    <ul class="pager">
-        {{if .PrevInSection}}
-        <li class="previous"><a href="{{.PrevInSection.Permalink}}"><span aria-hidden="true">&larr;</span> {{.PrevInSection.Title}}</a></li>
-        {{end}}
-
-        {{if .NextInSection}}
-        <li class="next"><a href="{{.NextInSection.Permalink}}">{{.NextInSection.Title}} <span aria-hidden="true">&rarr;</span></a></li>
-        {{end}}
+  <ul class="pager">
+    {{if .Params.index_file}}
+    <li class="previous"><a href="{{.Site.BaseURL}}"><span aria-hidden="true">&larr;</span> <i class="fa fa-home" aria-hidden="true"></i> Home </a></li>
+    {{else}}
+    {{if .PrevInSection}}
+    <li class="previous"><a href="{{.PrevInSection.Permalink}}"><span aria-hidden="true">&larr;</span> {{.PrevInSection.Title}}</a></li>
+    {{end}}
+    
+    {{if .NextInSection}}
+    <li class="next"><a href="{{.NextInSection.Permalink}}">{{.NextInSection.Title}} <span aria-hidden="true">&rarr;</span></a></li>
+    {{end}}
+    {{end}}
     </ul>
 </nav>
