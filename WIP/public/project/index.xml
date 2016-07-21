@@ -26,9 +26,7 @@
 
 &lt;p&gt;NYC has tried to regulate the sources of noise since 1930’s but just like other cities around the world, lacks the resources to systematically monitor noise pollution, enforce its mitigation and validate effectiveness of such actions.&lt;/p&gt;
 
-&lt;p&gt;Currently the city monitors the noise via its 311 service, which is for civil complaints and as of 2014 it receives about 400 noise complaint calls per day.&lt;/p&gt;
-
-&lt;p&gt;Unfortunately the combination of limited human resources, transient nature of sound and relative low priority of the noise complaints causes slow or nonexistent responses.&lt;/p&gt;
+&lt;p&gt;Currently the city monitors the noise via its 311 service, which is for civil complaints and as of 2014 it receives about 400 noise complaint calls per day. Unfortunately the combination of limited human resources, transient nature of sound and relative low priority of the noise complaints causes slow or nonexistent responses.&lt;/p&gt;
 
 &lt;p&gt;In order to address these limitations, the objectives of our project is to create technological solutions for:&lt;/p&gt;
 
@@ -45,11 +43,7 @@
 &lt;p&gt;This system includes:&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;A distributed network of sensors for large scale noise monitoring.&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;The sensors incorporate advanced processing capabilities and produce acoustic data up to the city agency standards&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;A distributed network of sensors for large scale noise monitoring.&lt;/p&gt;&lt;/li&gt;
 
 &lt;li&gt;&lt;p&gt;These sensors make use of cutting-edge machine listening methods to constantly provide a rich description of their acoustic environment.&lt;/p&gt;&lt;/li&gt;
 
@@ -58,7 +52,27 @@
 
 &lt;p&gt;&lt;img src=&#34;../../img/sonyc/system.png&#34; alt=&#34;SonycSystem&#34; style=&#34;width: 500px&#34;/&gt;&lt;/p&gt;
 
-&lt;p&gt;For more information, visit: &lt;a href=&#34;https://wp.nyu.edu/sonyc/&#34;&gt;&lt;strong&gt;wp.nyu.edu/sonyc&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;distributed-network-of-sensors&#34;&gt;Distributed Network of Sensors&lt;/h2&gt;
+
+&lt;p&gt;For performing a large scale noise monitoring, we need a distributed network of sensors that can perform advanced processing to produce audio data up to city standards. We played around with different options such as:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;http://www.geekbuying.com/item/Tronsmart-MK908II-RK3188-Cortex-A9-Quad-Core-1-6GHz-Google-Android-4-2-Mini-TV-BOX-2G-8G-BT-External-Wifi-Antenna-Black-318432.html&#34;&gt;&lt;code&gt;Tronsmart MK908ii&lt;/code&gt;&lt;/a&gt;: &lt;br/&gt;
+This was a Quad Core 1.4GHz, Cortex-A9 based mini PC packing a whopping 2GB RAM, built-in Wi-Fi and running Android 4.1 (by default). We were able to unlock the boot loader and install custom Linux kernel which would allow us to run a headless version of Debian based OS.  Everything went fine until we started hitting problems with custom linux kernel that was installed. We started getting boot loops, kernel panics.. all this was basically taking me a lot of time to debug and.. it was just more daunting than it should have been especially given the fact that these sensors were soon to be deployed outside in remote locations that could not be accessed everyday for, let&amp;rsquo;s say, performing kernel updates. We tried working with the device and even the company that manufactured it but soon they gave up stating &amp;ldquo;it can only run Android&amp;rdquo; and so did we after some time. &lt;br/&gt;
+Believe me if there was any way we could achieve everything that we wanted to using Android (rather than using Linux), this would have been my definite choice&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;http://www.hardkernel.com/main/products/prdt_info.php?g_code=G143703355573&#34;&gt;&lt;code&gt;Odroid C1+&lt;/code&gt;&lt;/a&gt;:&lt;br/&gt;
+This one was our second choice because of the beefy 1.7GHz ARM Cortex A7 processor and 1GB RAM. This guy came with default support for well known Linux based operating systems such as Arch and Ubuntu. For some reason we were having issues with the way kernel was handling audio data. After trying some tweaks we had to give up because soon we also started seeing issues with the &lt;a href=&#34;https://www.amazon.com/Edimax-EW-7811Un-150Mbps-Raspberry-Supports/dp/B003MTTJOY/ref=sr_1_1?ie=UTF8&amp;amp;qid=1469060992&amp;amp;sr=8-1&amp;amp;keywords=edimax&#34;&gt;&lt;code&gt;edimax&lt;/code&gt;&lt;/a&gt; WiFi usb dongle that was connected to it. &lt;br/&gt;
+Ofcourse, I don&amp;rsquo;t blame those guys. After all this was their first attempt at low cost single board mini pc. However I guess it was not meant to be in SONYC&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://www.raspberrypi.org/products/raspberry-pi-2-model-b/&#34;&gt;&lt;code&gt;Raspberry pi 2&lt;/code&gt;&lt;/a&gt;: &lt;br/&gt;
+Who doesn&amp;rsquo;t know these mini pcs. Probably one of the very few single board computers to have such a large developer and user base. These guys pack in a 900MHz quad-core ARM Cortex-A7 CPU and a 1 GB RAM. These come with a native &lt;a href=&#34;https://www.raspbian.org/&#34;&gt;&lt;code&gt;raspbian&lt;/code&gt;&lt;/a&gt; os which is built up on Debian wheezy (and now Jessie).
+Finally we had a sensor node that could perform our audio signal processing, provide reliable connectivity with off the shelf wifi dongles and a debian based OS which basically gave me liberty to write our codes in whatever language I preferred*.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;sup&gt;* if you know me, you would know that my preferred language is (and will always be) Python &lt;sup/&gt;&lt;/p&gt;
+
+&lt;p&gt;I would like to boast a lot about this project but for the sake of length of this blog, I will stop rambling. However if you are interested to know more about this project, you can visit: &lt;a href=&#34;https://wp.nyu.edu/sonyc/&#34;&gt;&lt;strong&gt;wp.nyu.edu/sonyc&lt;/strong&gt;&lt;/a&gt; or &lt;a href=&#34;http://sharmamohit.com/#contact&#34;&gt;contact Me&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     

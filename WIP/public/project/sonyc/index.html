@@ -89,9 +89,7 @@
 
 <p>NYC has tried to regulate the sources of noise since 1930’s but just like other cities around the world, lacks the resources to systematically monitor noise pollution, enforce its mitigation and validate effectiveness of such actions.</p>
 
-<p>Currently the city monitors the noise via its 311 service, which is for civil complaints and as of 2014 it receives about 400 noise complaint calls per day.</p>
-
-<p>Unfortunately the combination of limited human resources, transient nature of sound and relative low priority of the noise complaints causes slow or nonexistent responses.</p>
+<p>Currently the city monitors the noise via its 311 service, which is for civil complaints and as of 2014 it receives about 400 noise complaint calls per day. Unfortunately the combination of limited human resources, transient nature of sound and relative low priority of the noise complaints causes slow or nonexistent responses.</p>
 
 <p>In order to address these limitations, the objectives of our project is to create technological solutions for:</p>
 
@@ -108,11 +106,7 @@
 <p>This system includes:</p>
 
 <ul>
-<li><p>A distributed network of sensors for large scale noise monitoring.</p>
-
-<ul>
-<li>The sensors incorporate advanced processing capabilities and produce acoustic data up to the city agency standards</li>
-</ul></li>
+<li><p>A distributed network of sensors for large scale noise monitoring.</p></li>
 
 <li><p>These sensors make use of cutting-edge machine listening methods to constantly provide a rich description of their acoustic environment.</p></li>
 
@@ -121,7 +115,27 @@
 
 <p><img src="../../img/sonyc/system.png" alt="SonycSystem" style="width: 500px"/></p>
 
-<p>For more information, visit: <a href="https://wp.nyu.edu/sonyc/"><strong>wp.nyu.edu/sonyc</strong></a></p>
+<h2 id="distributed-network-of-sensors">Distributed Network of Sensors</h2>
+
+<p>For performing a large scale noise monitoring, we need a distributed network of sensors that can perform advanced processing to produce audio data up to city standards. We played around with different options such as:</p>
+
+<ul>
+<li><p><a href="http://www.geekbuying.com/item/Tronsmart-MK908II-RK3188-Cortex-A9-Quad-Core-1-6GHz-Google-Android-4-2-Mini-TV-BOX-2G-8G-BT-External-Wifi-Antenna-Black-318432.html"><code>Tronsmart MK908ii</code></a>: <br/>
+This was a Quad Core 1.4GHz, Cortex-A9 based mini PC packing a whopping 2GB RAM, built-in Wi-Fi and running Android 4.1 (by default). We were able to unlock the boot loader and install custom Linux kernel which would allow us to run a headless version of Debian based OS.  Everything went fine until we started hitting problems with custom linux kernel that was installed. We started getting boot loops, kernel panics.. all this was basically taking me a lot of time to debug and.. it was just more daunting than it should have been especially given the fact that these sensors were soon to be deployed outside in remote locations that could not be accessed everyday for, let&rsquo;s say, performing kernel updates. We tried working with the device and even the company that manufactured it but soon they gave up stating &ldquo;it can only run Android&rdquo; and so did we after some time. <br/>
+Believe me if there was any way we could achieve everything that we wanted to using Android (rather than using Linux), this would have been my definite choice</p></li>
+
+<li><p><a href="http://www.hardkernel.com/main/products/prdt_info.php?g_code=G143703355573"><code>Odroid C1+</code></a>:<br/>
+This one was our second choice because of the beefy 1.7GHz ARM Cortex A7 processor and 1GB RAM. This guy came with default support for well known Linux based operating systems such as Arch and Ubuntu. For some reason we were having issues with the way kernel was handling audio data. After trying some tweaks we had to give up because soon we also started seeing issues with the <a href="https://www.amazon.com/Edimax-EW-7811Un-150Mbps-Raspberry-Supports/dp/B003MTTJOY/ref=sr_1_1?ie=UTF8&amp;qid=1469060992&amp;sr=8-1&amp;keywords=edimax"><code>edimax</code></a> WiFi usb dongle that was connected to it. <br/>
+Ofcourse, I don&rsquo;t blame those guys. After all this was their first attempt at low cost single board mini pc. However I guess it was not meant to be in SONYC</p></li>
+
+<li><p><a href="https://www.raspberrypi.org/products/raspberry-pi-2-model-b/"><code>Raspberry pi 2</code></a>: <br/>
+Who doesn&rsquo;t know these mini pcs. Probably one of the very few single board computers to have such a large developer and user base. These guys pack in a 900MHz quad-core ARM Cortex-A7 CPU and a 1 GB RAM. These come with a native <a href="https://www.raspbian.org/"><code>raspbian</code></a> os which is built up on Debian wheezy (and now Jessie).
+Finally we had a sensor node that could perform our audio signal processing, provide reliable connectivity with off the shelf wifi dongles and a debian based OS which basically gave me liberty to write our codes in whatever language I preferred*.</p></li>
+</ul>
+
+<p><sup>* if you know me, you would know that my preferred language is (and will always be) Python <sup/></p>
+
+<p>I would like to boast a lot about this project but for the sake of length of this blog, I will stop rambling. However if you are interested to know more about this project, you can visit: <a href="https://wp.nyu.edu/sonyc/"><strong>wp.nyu.edu/sonyc</strong></a> or <a href="http://sharmamohit.com/#contact">contact Me</a></p>
 
         </div>
     </article>

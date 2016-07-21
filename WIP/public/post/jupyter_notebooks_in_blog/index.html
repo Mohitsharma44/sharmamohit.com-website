@@ -131,7 +131,51 @@
         <div class="article-style" itemprop="articleBody">
             
 
+<p>I love Jupyter notebooks! They are great for experimenting and playing around with the ideas. I always liked the idea of using a single web based application for writing code snippets, visualizations, creating presentations and even blogging! <br/>
+There are great static website generators out there but most of them use restructured text or markdown to convert to html pages.
+<br>
+Developers of jupyter notebooks have now embedded the nbconvert tool for converting notebooks (<code>ipynb</code>) to Markdown (<code>md</code>) or ReStructuredText (<code>reST</code>) and even standalone <code>html</code> with all the css stylings. Regardless of whether you use blogging engines like <a href="https://wordpress.com/"><code>Wordpress</code></a> or static website generators like <a href="https://gohugo.io/"><code>Hugo</code></a>, the issue of formatting the notebook so that they play well with your website has always persisted.</p>
+
 <h2 id="using-jupyter-notebooks-in-your-blog">Using Jupyter notebooks in your blog</h2>
+
+<p>I&rsquo;ve always had two options:</p>
+
+<ul>
+<li><p>Convert Notebooks to Markdown<br/>
+Use Jupyter notebook&rsquo;s built-in command to convert to markdown and then spend 20 more minutes correcting formatting, image&rsquo;s that are embedded, code blocks, etc. I would then convert to html using <a href="https://gohugo.io/"><code>Hugo</code></a> or <a href="http://blog.getpelican.com/"><code>Pelican</code></a> website generator (based on what I am using for my website) and then publish it online.  Problem with this method? Formatiing, Code samples, Code coloring, everything lost!</p></li>
+
+<li><p>Convert Notebooks directly to html<br/>
+Use Jupyter notebook&rsquo;s built-in command to convert to html and use it in my blog. Issues with this? Horrible CSS! Don&rsquo;t get me wrong. The html output from Jupyter&rsquo;s nbconvert was meant to provide a decent layout and styling for a standalone professional html file.. and it does that well. However if you are like me, you have some global layout style that you want your notebook in.</p></li>
+</ul>
+
+<h2 id="available-tools">Available Tools</h2>
+
+<p>I have used:</p>
+
+<ul>
+<li><p><a href="https://github.com/danielfrg/pelican-ipynb"><code>pelican-ipynb</code></a> plugin for blogging using ipython (or Jupyter) notebook. However I had a hard time setting it up. Plus there were some incompatibilities with the themes that I was using. It is a good tool and you can check it out here: (<a href="https://github.com/danielfrg/pelican-ipynb">https://github.com/danielfrg/pelican-ipynb</a>) but I wanted something that would.. Just.. Work!</p></li>
+
+<li><p><a href="https://getnikola.com/blog/"><code>Nikola</code></a> static website generator just like <code>Hugo</code> and <code>Pelican</code>. It has an added advantage that it supports blogging via notebooks right out of the box. Sweet! but it is really targeted at making a blog first that means main page always seems to be the blogroll. Whereas I wanted a single page academic website having my intro on top and publications and then posts with some kind of blogroll in there. Anyways it really felt targeted towards a blog site or a site with lots of posts. Moreover it uses <a href="http://www.makotemplates.org/"><code>Mako</code></a> templating engine whereas I was more familiar with <a href="http://jinja.pocoo.org/"><code>jinja</code></a> and <a href="https://golang.org/pkg/html/template/"><code>Go</code> template library</a>. Anyways in the end, I decided to stick with either <code>Pelican</code> or <code>Hugo</code></p></li>
+</ul>
+
+<p>I have spent enough hours trying to google and reading forums to realize that there is no one tool to solve it all. In the end I decided to do this manually. I opened chrome developer tools and started analyzing the generated html page. <br/>
+Stripping away as much css styling as possible, I was finally able to create a barebones version of css styling that can be used with the exported html page  (from notebook using nbconvert).
+<br/></p>
+
+<p>Now whenever you want to embed your notebook in your blog, you can simply:</p>
+
+<ul>
+<li>Convert the jupyter notebook to basic html file:
+<code>
+jupyter nbconvert --to html --template basic *source_file.ipynb* *target_file.html*
+</code></li>
+
+<li><p>Download the <a href="http://sharmamohit.com/css/jupyter.css"><code>jupyter.css</code></a> file and place it in your css folder of your website.</p></li>
+
+<li><p>Now simply modify your base index html file or whatever it is that contains the boiler plate/ placeholder for your website by adding a css tag linking to this file.</p></li>
+</ul>
+
+<p>That&rsquo;s it!</p>
 
         </div>
 
@@ -219,6 +263,11 @@
         <script>hljs.initHighlightingOnLoad();</script>
 
         
+        
+        <script type="text/x-mathjax-config">
+            MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+        </script>
+        <script async src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
         
 
     </body>
