@@ -3,11 +3,11 @@ date = "2016-08-11T23:47:17-04:00"
 image = ""
 math = false
 tags = []
-title = "letsencrypt_nginx"
+title = "lets_encrypt_nginx"
 
 +++
 
-Encrypting the web traffic is a standard practice today. It is used by almost everyone regardless of whether you are a Bank making sure your customers feel safe to use online services, an e-commerce website trying to gain the confidence of your customers or just another blog writer who wants to look cool with the nice green lock in the address bar. In today's world and with the recent developments/ enhancements in the TLS security (check the draft for v1.3 here [https://tlswg.github.io/tls13-spec/](https://tlswg.github.io/tls13-spec/)) and especially with the launch of [Let's Encrypt](https://letsencrypt.org/), there is only one reason to not encrypt your webtraffic.. Laziness! and No, encrypting all your traffic is not computationally heavy. So even if you are running your blog or any webservice on a $5/month 512MB droplet from digitalocean, you should be fine!
+Encrypting the web traffic is a standard practice today. It is used by almost everyone regardless of whether you are a Bank making sure your customers feel safe to use online services, an e-commerce website trying to gain the confidence of your customers or just another blog writer who wants to look cool with the nice green lock in the address bar. In today's world and with the recent developments/ enhancements in the TLS security (check the draft for v1.3 here [https://tlswg.github.io/tls13-spec/](https://tlswg.github.io/tls13-spec/)) and especially with the launch of [`Let's Encrypt`](https://letsencrypt.org/), there is only one reason to not encrypt your webtraffic.. Laziness! and No, encrypting all your traffic is not computationally heavy. So even if you are running your blog or any webservice on a $5/month 512MB droplet from digitalocean, you should be fine!
 
 Anyways, so why did I make this move now? Call me stingy but I just cannot open my wallet to pay for services. Howver to my excitement, I got the [news](http://thehackernews.com/2016/03/lets-encrypt-free-ssl-certificate.html) about a new certificate authority `[Let's Encrypt](https://letsencrypt.org/)` which offers free SSL certificate! (well only 20 per domain per week but that's, frankly, quite enough!). Anyways thats was it for me.. Now, I HAD to do it. I decided to use the `Webroot` plugin. There are many other methods but I find this to be quite straightforward.
 
@@ -17,6 +17,7 @@ Let's Encrypt provides a number of ways to obtain SSL certificates and install i
 
 Installing the certificate, however, is left upto the user. <br/>
 I use Nginx for serving all my web requests so this post is specifically for nginx. <br/>let's start with the process of encrypting all your web traffic. I am assuming you have: <br/>
+
 - Root access to the server
 
 - Have A record updated in DNS settings (check with your domain name provider like godaddy, namespace etc) and it correctly points to your server's ip address
