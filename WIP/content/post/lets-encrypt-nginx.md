@@ -3,7 +3,7 @@ date = "2016-08-11T23:47:17-04:00"
 image = ""
 math = false
 tags = []
-title = "lets-encrypt-nginx"
+title = "lets encrypt Nginx"
 
 +++
 
