@@ -131,6 +131,10 @@ googleAnalytics = "UA-80699217-1"
     icon_pack = "fa"
     link = "//slides.com/mohitsharma44"
 
+  [[params.social]]
+    icon = "building"
+    icon_pack = "fa"
+    link = "http://cusp.nyu.edu/people/mohit-sharma/"
 
 # Navigation Links
 #   The weight parameter defines the order that the links will appear in.
