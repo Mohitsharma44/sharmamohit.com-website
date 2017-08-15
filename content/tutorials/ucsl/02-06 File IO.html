@@ -1,0 +1,515 @@
+
++++
+date = "2017-05-25"
+title = "02-06 File IO"
+tags = ['tutorials', 'ucsl', 'python']
+math = true
++++
+
+
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="02---06-File-I/O">02 - 06 File I/O<a class="anchor-link" href="#02---06-File-I/O">&#182;</a></h2><p>Before we jump in to file I/O functions, lets first look at some basic I/O functions that are available to use in Python. 
+In Python, there are three basic I/O connections, Standard Input, Standard Output and Standard Error. As the name suggests, Standard Input is the data that goes to the program through the keyboard. keyboard being the standard input. Standard output is the terminal console, unless redirected..(guess where?!!) and Standard error is the stream where the programs write their error messages which is again to the terminal unless redirected.</p>
+<h3 id="02---06.01-Standard-Input,-Output-and-Error:">02 - 06.01 Standard Input, Output and Error:<a class="anchor-link" href="#02---06.01-Standard-Input,-Output-and-Error:">&#182;</a></h3><p>The <code>input( )</code> function reads one line from the standard input and returns it as a string.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">name</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter your name: &quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello </span><span class="si">{name}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">))</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Enter your name: Mohit
+Hello Mohit
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Lets use list comprehension in the input</span>
+<span class="n">some_val</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter something: &quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;You entered: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">some_val</span><span class="p">))</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Enter something: [x for x in range(10) if x%2 == 0]
+You entered: [x for x in range(10) if x%2 == 0]
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Python2 users would have observed the output as <code>You entered: [0, 2, 4, 6, 8]</code>
+and Python3 users would have observed the output as <code>[x for x in range(10) if x%2 == 0]</code></p>
+<p>Until Python3.2 there used to be two methods for accepting input -- <code>raw_input</code> and <code>input</code> the behavior that python3 users are seeing is the actual behavior of <code>raw_input</code>. However after Python3.2, it was decided to drop the <code>input</code> method.</p>
+<blockquote><p>For the sake of staying on topic, we cannot discuss more on this.. but for the curious souls.. head here: <a href="https://www.python.org/dev/peps/pep-3111/">https://www.python.org/dev/peps/pep-3111/</a></p>
+</blockquote>
+<p>We saw the Standard Error in the Exception Handling module.</p>
+<p>We've also been using Standard Output since <code>module 1</code>, I guess.. using the <code>print</code> function (for python3) or <code>print</code> statement (for python2), right?</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="02---06.02-File-I/O">02 - 06.02 File I/O<a class="anchor-link" href="#02---06.02-File-I/O">&#182;</a></h3><p>Until now you have been reading and writing to the standard input. Lets now perform the same function to the files. Now we will see how we can read and write to the files.</p>
+<h4 id="..-06.02.01-Opening-Files:">.. 06.02.01 Opening Files:<a class="anchor-link" href="#..-06.02.01-Opening-Files:">&#182;</a></h4><p>Files can be opened using python's built-in <code>open()</code> function. This function creates a file object which is used for performing different operations on the file. It will become much clear when we look at a complete example. For now, just remember that we need to create a file object before performing any file I/O and try to remember the syntax.
+<code>fhandler = open(file_name, access mode, encoding)</code>
+<code>file_name</code>: The file name that you would like to perform your I/O operations on.
+encoding: Encoding tells python what encoding scheme to use to convert the stream of bytes to text. 
+<code>access_mode</code>: This is the mode which determines if the file is to opened as read only,read-write, write only etc modes. The ways in which a file can be opened are mentioned below:</p>
+<table>
+<thead><tr>
+<th style="text-align:left">access_mode</th>
+<th style="text-align:right">Its Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">r</td>
+<td style="text-align:right">Opens a file as read only</td>
+</tr>
+<tr>
+<td style="text-align:left">rb</td>
+<td style="text-align:right">Opens a file as read only in binary format</td>
+</tr>
+<tr>
+<td style="text-align:left">r+</td>
+<td style="text-align:right">Opens a file for reading and writing</td>
+</tr>
+<tr>
+<td style="text-align:left">rb+</td>
+<td style="text-align:right">Opens a file for reading and writing in binary format</td>
+</tr>
+<tr>
+<td style="text-align:left">w</td>
+<td style="text-align:right">Opens a file for writing only</td>
+</tr>
+<tr>
+<td style="text-align:left">wb</td>
+<td style="text-align:right">Opens a file for writing only in binary format</td>
+</tr>
+<tr>
+<td style="text-align:left">w+</td>
+<td style="text-align:right">Opens a file for both reading and writing</td>
+</tr>
+<tr>
+<td style="text-align:left">wb+</td>
+<td style="text-align:right">Opens a file for writing and reading in binary format</td>
+</tr>
+<tr>
+<td style="text-align:left">a</td>
+<td style="text-align:right">Opens a file for appending</td>
+</tr>
+<tr>
+<td style="text-align:left">ab</td>
+<td style="text-align:right">Opens a file for appending in binary</td>
+</tr>
+<tr>
+<td style="text-align:left">a+</td>
+<td style="text-align:right">Opens a file for appending and reading</td>
+</tr>
+<tr>
+<td style="text-align:left">ab+</td>
+<td style="text-align:right">Opens a file for appending and reading in binary format</td>
+</tr>
+</tbody>
+</table>
+<h4 id="..-06.02.02-Reading-and-Writing">.. 06.02.02 Reading and Writing<a class="anchor-link" href="#..-06.02.02-Reading-and-Writing">&#182;</a></h4><p>Once we have created a file object we can perform many operations on the file object which, like all objects, has methods to take care of nitty gritty details and perform the operations on the file. Before we jump into the functions, lets take a look at a complete File I/O example.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <span class="n">fhandler</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;test.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> 
+    <span class="n">fhandler</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;Hello World&#39;</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">IOError</span> <span class="k">as</span> <span class="n">ex</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Error performing I/O operations on the file: &quot;</span><span class="p">,</span><span class="n">ex</span><span class="p">)</span>
+<span class="k">finally</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">fhandler</span><span class="p">:</span>
+        <span class="n">fhandler</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<blockquote><p>If the above code ran without any exception, then it should have created a file test.txt (and if it existed before, it will overwrite it because of access_mode as <code>w</code>)</p>
+</blockquote>
+<p>Now before we proceed ahead, don't you think the total number of lines that we wrote to achieve just a small objective (of writing a string to file) is too much effort? Let's look at an alternative way of writing to a file</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;test.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fhandler</span><span class="p">:</span>
+        <span class="n">fhandler</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;Hello World&#39;</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">IOError</span> <span class="k">as</span> <span class="n">ex</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Error performing I/O operations on the file: &quot;</span><span class="p">,</span><span class="n">ex</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Much better, eh?</p>
+<p>In fact, It is good practice to use the <code>with</code> keyword when dealing with file objects. This has the advantage that the file is properly closed (<code>fhandler.close()</code>) after its suite finishes, even if an exception is raised on the way. It is also much shorter than writing equivalent <code>try-except-finally</code> blocks.</p>
+<p>Want another reason for using <code>with</code> statement? Ok, if you want to open multiple files together, you can do that using with statement by simply separating the different file handlers by a comma.. 
+something like this</p>
+
+<pre><code>with open('test0.txt', 'w') as fh0, open('test1.txt', 'w') as fh1 ...</code></pre>
+<p>So what is <code>with</code> statement? Putting it very very simply.. <code>with</code> has <code>__enter__()</code> and <code>__exit__()</code> functions where stuff like opening and closing the file handler can take place. The <code>with</code> statement guarantees that if the <code>__enter__()</code> method returns without an error, then <code>__exit__()</code> will always be called.</p>
+<blockquote><p>We cannot discuss more about <code>with</code> statement here as it can take up a whole module but again for curious minds out there, read this <code>pep</code>: <a href="https://www.python.org/dev/peps/pep-0343/">https://www.python.org/dev/peps/pep-0343/</a></p>
+</blockquote>
+<p>Alright, coming back to our discussion on File I/O,  lets now look at some of the functions that you may end up using.</p>
+<h5 id="..-02.01-file_object.close()">.. 02.01 file_object.close()<a class="anchor-link" href="#..-02.01-file_object.close()">&#182;</a></h5><p>This method will close the file that we have currently open. You should always call this method once you are done performing I/O operations on the file using the file object unless you are using <code>with</code> statement. <code>with</code> statement already does that for you.</p>
+<h5 id="..-02.02-file_object.mode">.. 02.02 file_object.mode<a class="anchor-link" href="#..-02.02-file_object.mode">&#182;</a></h5><p>This is a read-only attribute that is the value of the mode string used in the open call that created the file_object</p>
+<h5 id="..-02.03-file_object.readline([size])">.. 02.03 file_object.readline([size])<a class="anchor-link" href="#..-02.03-file_object.readline([size])">&#182;</a></h5><p>This method reads strings from the file till it reaches new line character ( <code>\n</code> ) if the <code>size</code> parameter is empty. If an integer is provided as size parameter, then this method returns string of length size.</p>
+<h5 id="..-02.04-file_object.readlines([size])">.. 02.04 file_object.readlines([size])<a class="anchor-link" href="#..-02.04-file_object.readlines([size])">&#182;</a></h5><p>This method basically calls the <code>readline()</code> method till it reaches the end of file.</p>
+<h5 id="..-02.05-file_object.seek(pos,-how=0)">.. 02.05 file_object.seek(pos, how=0)<a class="anchor-link" href="#..-02.05-file_object.seek(pos,-how=0)">&#182;</a></h5><p>Sets the file_object's current position to the signed integer byte offset by pos from the reference point. The how parameter, which is 0 by default, indicates the reference point. <code>how</code>=1 is the reference of current position and <code>how</code>=2 is the reference of the end of the file.</p>
+<h5 id="..-02.06-file_object.tell()">.. 02.06 file_object.tell()<a class="anchor-link" href="#..-02.06-file_object.tell()">&#182;</a></h5><p>This method tells the current file position when you are reading from or writing to a file.</p>
+<h5 id="..-02.07-file_object.truncate([size])">.. 02.07 file_object.truncate([size])<a class="anchor-link" href="#..-02.07-file_object.truncate([size])">&#182;</a></h5><p>This method truncates the file to be at most of size size.  If you don't mention the size it takes the size from <code>tell()</code> method as the new size.</p>
+<h5 id="..-02.08-file_object.write(str)">.. 02.08 file_object.write(str)<a class="anchor-link" href="#..-02.08-file_object.write(str)">&#182;</a></h5><p>Writes the bytes of string str to the file.</p>
+<h5 id="..-02.09-file_object.writelines(lst)">.. 02.09 file_object.writelines(lst)<a class="anchor-link" href="#..-02.09-file_object.writelines(lst)">&#182;</a></h5><p>Writes sequence of strings to file. No new line is added automatically.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;test.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;r+&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fhandler</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">fhandler</span><span class="o">.</span><span class="n">readline</span><span class="p">())</span>
+        <span class="n">fhandler</span><span class="o">.</span><span class="n">writelines</span><span class="p">([</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="s1">&#39;This is&#39;</span><span class="p">,</span> <span class="s1">&#39; Python&#39;</span><span class="p">])</span>
+        <span class="c1"># Go to the starting of file</span>
+        <span class="n">fhandler</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="c1"># Print the content of file</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">fhandler</span><span class="o">.</span><span class="n">readlines</span><span class="p">())</span>
+        <span class="n">fhandler</span><span class="o">.</span><span class="n">truncate</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+        <span class="n">fhandler</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;After truncate: &#39;</span><span class="p">,</span><span class="n">fhandler</span><span class="o">.</span><span class="n">readlines</span><span class="p">())</span>
+<span class="k">except</span> <span class="ne">IOError</span> <span class="k">as</span> <span class="n">ex</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Error performing I/O operations on the file: &quot;</span><span class="p">,</span><span class="n">ex</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Hello World
+[&#39;Hello World.This is Python&#39;]
+After truncate:  [&#39;Hello World.This is &#39;]
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Great! So now we opened the file, read its contents, added multiple strings, truncated and closed it! This covers pretty much everything that you will need when you are working with almost any kind of file that has some text.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="02---06.03-CSV-File-I/O">02 - 06.03 CSV File I/O<a class="anchor-link" href="#02---06.03-CSV-File-I/O">&#182;</a></h3><p>In the above examples, we saw how to perform read-write operations on a file. This is generally used for files that have multiple lines of strings. However if you have data like this:</p>
+<table>
+<thead><tr>
+<th style="text-align:left"></th>
+<th style="text-align:left"></th>
+<th style="text-align:left"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Data1</td>
+<td style="text-align:left">Data2</td>
+<td style="text-align:left">Data3</td>
+</tr>
+<tr>
+<td style="text-align:left">Example1</td>
+<td style="text-align:left">Example2</td>
+<td style="text-align:left">Example3</td>
+</tr>
+</tbody>
+</table>
+<p>It is stored in a file with this format:</p>
+
+<pre><code>Data1, Data2, Data3
+Example01, Example02, Example03
+Example11, Example12, Example13</code></pre>
+<p>As can be seen in the above example, each row is a new line, and each column is separated with a comma. Many online services allow its users to export tabular data from the website into a CSV file. These files can then be opened and viewed offline using a Spreadsheet program such as Google Sheets, Numbers or Microsoft Excel.</p>
+<h4 id="So-why-do-we-need-such-CSV-files?">So why do we need such CSV files?<a class="anchor-link" href="#So-why-do-we-need-such-CSV-files?">&#182;</a></h4><p>There are two primary reasons for the existence of this format:</p>
+<ul>
+<li>CSV are plain-text files which makes them easy to store and read from</li>
+<li>CSV files are stored as sequence of human readable characters, thus making it easy for humans to interpret the data without requiring any format conversion.</li>
+</ul>
+<p>CSV is a delimited text file that uses a comma to separate values (many implementations of CSV import/export tools allow other separators to be used). Simple CSV implementations may prohibit field values that contain a comma or other special characters such as newlines. More sophisticated CSV implementations permit them, often by requiring " (double quote) characters around values that contain reserved characters (such as commas, double quotes, or less commonly, newlines). Embedded double quote characters may then be represented by a pair of consecutive double quotes, or by prefixing an escape character such as a backslash (for example in Sybase Central). The name "CSV" indicates the use of the comma to separate data fields. Nevertheless, the term "CSV" is widely used to refer a large family of formats, which differ in many ways. Some implementations allow or require single or double quotation marks around some or all fields; and some reserve the very first record as a header containing a list of field names. An official standard for the CSV file format does not exist.</p>
+<p>Download a Sample* CSV file from <a href="./sample_datasets/sample_names.csv" title="Sample CSV"><code>HERE</code></a> and save it in your current folder location.</p>
+<blockquote><p>Disclaimer: The data generated is completely random using a third party website <a href="https://www.fakenamegenerator.com" title="FakeName Generator"><code>https://www.fakenamegenerator.com</code></a></p>
+</blockquote>
+<h4 id="..-06.03.01-Reading-CSV-files">.. 06.03.01 Reading CSV files<a class="anchor-link" href="#..-06.03.01-Reading-CSV-files">&#182;</a></h4><p><code>reader()</code> can be used to create an object that is used to read the data from a csv file. The reader can be used as an iterator to process the rows of the file in order. Lets take a look at an example:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">csv</span>
+<span class="n">row</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;./sample_datasets/sample_names.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fh</span><span class="p">:</span>
+        <span class="n">reader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="n">fh</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">info</span> <span class="ow">in</span> <span class="n">reader</span><span class="p">:</span>
+            <span class="n">row</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">info</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">IOError</span> <span class="k">as</span> <span class="n">ex</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Error performing I/O operations on the file: &quot;</span><span class="p">,</span><span class="n">ex</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">])</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[[&#39;\ufeffGivenName&#39;, &#39;Gender&#39;, &#39;Title&#39;, &#39;Occupation&#39;, &#39;City&#39;], [&#39;Nicholas&#39;, &#39;male&#39;, &#39;Mr.&#39;, &#39;Speech writer&#39;, &#39;Plantation&#39;], [&#39;Jeanette&#39;, &#39;female&#39;, &#39;Mrs.&#39;, &#39;Surfacing equipment operator&#39;, &#39;Chicago&#39;], [&#39;David&#39;, &#39;male&#39;, &#39;Mr.&#39;, &#39;Engineering geologist&#39;, &#39;Worthington&#39;], [&#39;Susan&#39;, &#39;female&#39;, &#39;Ms.&#39;, &#39;Cutting, punching, and press machine tender&#39;, &#39;Fulton&#39;], [&#39;Dennis&#39;, &#39;male&#39;, &#39;Mr.&#39;, &#39;Construction millwright&#39;, &#39;Fargo&#39;], [&#39;Susan&#39;, &#39;female&#39;, &#39;Mrs.&#39;, &#39;Private investigator&#39;, &#39;Blackwood&#39;], [&#39;John&#39;, &#39;male&#39;, &#39;Mr.&#39;, &#39;Chemical engineering technician&#39;, &#39;Marietta&#39;], [&#39;Damon&#39;, &#39;male&#39;, &#39;Mr.&#39;, &#39;Loan closer&#39;, &#39;Mansfield&#39;], [&#39;George&#39;, &#39;male&#39;, &#39;Mr.&#39;, &#39;Public defender&#39;, &#39;Minneapolis&#39;]]
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>reader()</code> is a method available in csv package so the first line basically imports the csv package. The <code>reader()</code> method takes sequence or an iterable file object, and returns an iterator. As the csv file is being read, each row of the input data is converted to a list of strings. The parser handles the line breaks embedded within the strings which is why using row is not always the output that you might get when taking a line input from file.</p>
+<h4 id="..-06.03.02-Writing-CSV-files">.. 06.03.02 Writing CSV files<a class="anchor-link" href="#..-06.03.02-Writing-CSV-files">&#182;</a></h4><p>Writing csv files is just as easy as reading them. To write to a csv file, we can use <code>writer()</code> method to create an object for writing and then iterate over the rows using csv's <code>writerow()</code> method to write it.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">csv</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;test.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fh</span><span class="p">:</span>
+        <span class="n">writer</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">writer</span><span class="p">(</span><span class="n">fh</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+            <span class="n">writer</span><span class="o">.</span><span class="n">writerow</span><span class="p">((</span><span class="n">num</span><span class="p">,</span> <span class="n">num</span><span class="o">**</span><span class="mi">1</span><span class="p">,</span> <span class="n">num</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
+<span class="k">except</span> <span class="ne">IOError</span> <span class="k">as</span> <span class="n">ex</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Error performing I/O operations on the file: &quot;</span><span class="p">,</span><span class="n">ex</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Now try opening the file just like we did before and see the contents</p>
+<h4 id="..-06.03.03-DictReader">.. 06.03.03 DictReader<a class="anchor-link" href="#..-06.03.03-DictReader">&#182;</a></h4><p>In addition to working with sequences or data, the <code>csv</code> module includes classes for working with rows as dictionaries so that the fields can be named. The <code>DictReader</code> and <code>DictWriter</code> classes translate rows to dictionaries instead of lists. Keys for the dictionary can be passed in, or inferred from the first row in the input.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">csv</span>
+<span class="n">row</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;./sample_datasets/sample_names.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fh</span><span class="p">:</span>
+        <span class="n">reader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">DictReader</span><span class="p">(</span><span class="n">fh</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">info</span> <span class="ow">in</span> <span class="n">reader</span><span class="p">:</span>
+            <span class="n">row</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">info</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">IOError</span> <span class="k">as</span> <span class="n">ex</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Error performing I/O operations on the file: &quot;</span><span class="p">,</span><span class="n">ex</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">])</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[OrderedDict([(&#39;\ufeffGivenName&#39;, &#39;Nicholas&#39;), (&#39;Gender&#39;, &#39;male&#39;), (&#39;Title&#39;, &#39;Mr.&#39;), (&#39;Occupation&#39;, &#39;Speech writer&#39;), (&#39;City&#39;, &#39;Plantation&#39;)]), OrderedDict([(&#39;\ufeffGivenName&#39;, &#39;Jeanette&#39;), (&#39;Gender&#39;, &#39;female&#39;), (&#39;Title&#39;, &#39;Mrs.&#39;), (&#39;Occupation&#39;, &#39;Surfacing equipment operator&#39;), (&#39;City&#39;, &#39;Chicago&#39;)]), OrderedDict([(&#39;\ufeffGivenName&#39;, &#39;David&#39;), (&#39;Gender&#39;, &#39;male&#39;), (&#39;Title&#39;, &#39;Mr.&#39;), (&#39;Occupation&#39;, &#39;Engineering geologist&#39;), (&#39;City&#39;, &#39;Worthington&#39;)]), OrderedDict([(&#39;\ufeffGivenName&#39;, &#39;Susan&#39;), (&#39;Gender&#39;, &#39;female&#39;), (&#39;Title&#39;, &#39;Ms.&#39;), (&#39;Occupation&#39;, &#39;Cutting, punching, and press machine tender&#39;), (&#39;City&#39;, &#39;Fulton&#39;)]), OrderedDict([(&#39;\ufeffGivenName&#39;, &#39;Dennis&#39;), (&#39;Gender&#39;, &#39;male&#39;), (&#39;Title&#39;, &#39;Mr.&#39;), (&#39;Occupation&#39;, &#39;Construction millwright&#39;), (&#39;City&#39;, &#39;Fargo&#39;)]), OrderedDict([(&#39;\ufeffGivenName&#39;, &#39;Susan&#39;), (&#39;Gender&#39;, &#39;female&#39;), (&#39;Title&#39;, &#39;Mrs.&#39;), (&#39;Occupation&#39;, &#39;Private investigator&#39;), (&#39;City&#39;, &#39;Blackwood&#39;)]), OrderedDict([(&#39;\ufeffGivenName&#39;, &#39;John&#39;), (&#39;Gender&#39;, &#39;male&#39;), (&#39;Title&#39;, &#39;Mr.&#39;), (&#39;Occupation&#39;, &#39;Chemical engineering technician&#39;), (&#39;City&#39;, &#39;Marietta&#39;)]), OrderedDict([(&#39;\ufeffGivenName&#39;, &#39;Damon&#39;), (&#39;Gender&#39;, &#39;male&#39;), (&#39;Title&#39;, &#39;Mr.&#39;), (&#39;Occupation&#39;, &#39;Loan closer&#39;), (&#39;City&#39;, &#39;Mansfield&#39;)]), OrderedDict([(&#39;\ufeffGivenName&#39;, &#39;George&#39;), (&#39;Gender&#39;, &#39;male&#39;), (&#39;Title&#39;, &#39;Mr.&#39;), (&#39;Occupation&#39;, &#39;Public defender&#39;), (&#39;City&#39;, &#39;Minneapolis&#39;)]), OrderedDict([(&#39;\ufeffGivenName&#39;, &#39;Elizabeth&#39;), (&#39;Gender&#39;, &#39;female&#39;), (&#39;Title&#39;, &#39;Dr.&#39;), (&#39;Occupation&#39;, &#39;Professional athlete&#39;), (&#39;City&#39;, &#39;Boston&#39;)])]
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<blockquote><p>Python 2 users should see a <code>list of dictionaries</code> and Python3 users should see a list of <code>OrderedDict</code>. The <code>OrderedDict</code>, as the name suggests, will preserve the order in which the entries were inserted. (You can guess why!)</p>
+</blockquote>
+<h4 id="..-06.03.03-DictWriter">.. 06.03.03 DictWriter<a class="anchor-link" href="#..-06.03.03-DictWriter">&#182;</a></h4><p>Similar to DictReader, we also have DictWriter which needs to be given a list of field names so it know how to order the columns in the output file.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">csv</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">fieldnm</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;Title1&#39;</span><span class="p">,</span> <span class="s1">&#39;Title2&#39;</span><span class="p">,</span> <span class="s1">&#39;Title3&#39;</span><span class="p">)</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;test_dict.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fh</span><span class="p">:</span>
+        <span class="n">writer</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">DictWriter</span><span class="p">(</span><span class="n">fh</span><span class="p">,</span> <span class="n">fieldnames</span><span class="o">=</span><span class="n">fieldnm</span><span class="p">)</span>
+        <span class="n">headers</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">((</span><span class="n">hdr</span><span class="p">,</span> <span class="n">hdr</span><span class="p">)</span> <span class="k">for</span> <span class="n">hdr</span> <span class="ow">in</span> <span class="n">fieldnm</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+            <span class="n">writer</span><span class="o">.</span><span class="n">writerow</span><span class="p">({</span><span class="s1">&#39;Title1&#39;</span><span class="p">:</span><span class="n">num</span><span class="p">,</span> <span class="s1">&#39;Title2&#39;</span><span class="p">:</span><span class="n">num</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;Title3&#39;</span><span class="p">:</span><span class="n">num</span><span class="o">+</span><span class="mi">2</span><span class="p">})</span>
+<span class="k">except</span> <span class="ne">IOError</span> <span class="k">as</span> <span class="n">ex</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Error performing I/O operations on the file: &quot;</span><span class="p">,</span><span class="n">ex</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The above DictReader and DictWriter techniques are good when the filesize (or the number of columns) is not very big. When the row numbers starts scaling up, the list that is created by the reader() method starts growing in memory and makes the process very very slow.</p>
+<p>We will generally be dealing with the files that have over a million row entries and this method is not the most efficient way of dealing with such files. To handle such 'Big Data', we will study python packages like <code>Numpy</code> and <code>Pandas</code> in next few modules.</p>
+
+</div>
+</div>
+</div>
+ 
+

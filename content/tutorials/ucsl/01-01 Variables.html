@@ -1,0 +1,277 @@
+
++++
+date = "2017-05-25"
+title = "01-01 Variables"
+tags = ['tutorials', 'ucsl', 'python']
+math = true
++++
+
+
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="01---01-Variables">01 - 01 Variables<a class="anchor-link" href="#01---01-Variables">&#182;</a></h2><p>As the name implies, a variable is something that can change. A variable is just a way of referring to a memory location used by a python program. Based on the datatype of the variable, the python interpreter allocates the memory and decides what can be stored in the reserved memory. This makes python a <strong>dynamically-typed</strong> language.</p>
+<blockquote><ul>
+<li>If you are familiar with other programming languages like C, C++ or Java it might be tempting to consider variable as just a container to store data. However in Python, you can at best, think of variables as pointers. This is why you can <em>dynamically</em> change the type of data that a variable is pointing at.</li>
+</ul>
+</blockquote>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="01---01.01-Assigning-values-to-variables">01 - 01.01 Assigning values to variables<a class="anchor-link" href="#01---01.01-Assigning-values-to-variables">&#182;</a></h3><p>One of the main differences between Python and strongly types languages like C++ or Java is the way it deals with the data types. In languages like C++ or Java, every variable must have a unique data type i.e if a variable is of type string it cannot store integers or floats. Moreover every variable has to be declared before it can be used, thus binding it to the data type that can be stored in it. Python variables do not need explicit declaration to reserve memory space. The declaration happens automatically when a value is assigned to a variable. This means that a variable that was used to store a string can now be used to store an integer. Try it out. Do something like this:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">var</span> <span class="o">=</span> <span class="s1">&#39;I am in NYC&#39;</span>
+<span class="k">print</span><span class="p">(</span><span class="n">var</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>I am in NYC
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>var</code> is a string in the above case.</p>
+<p>Well.. don't take my word for it. Lets confirm</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">var</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[2]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>str</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><a href="https://docs.python.org/2/library/functions.html#type"><code>type</code></a> is a built-in function that returns the datatype of anything.. and by anything, I mean absolutely anything (give it a spin!). It is one of the cool things in Python. We will talk about this and many other cool built-in functions in the later chapters.</p>
+<p>so now if I point our variable <code>var</code> to, lets say, an integer.. it will simply work</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">var</span> <span class="o">=</span> <span class="mi">123</span>
+<span class="nb">type</span><span class="p">(</span><span class="n">var</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[3]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>int</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>So what are the <strong>rules</strong> of naming a variable?</p>
+<p>Every language has some rules for naming the identifier of variables (aka the variable name). In Python, a valid identifier is a non-empty sequence of characters of any length with:</p>
+<p>The start of the character can be an underscore "_" or a capital or lower case letter. However it is generally recommended to use all upper case for global variables and all lower case for local variables.
+The letters following the first letter can be a digit or a string.
+Python is a case-sensitive language. Therefore, <code>var</code> is not equal to <code>VAR</code> or <code>vAr</code>.</p>
+<p>Apart from above restrictions, python keywords cannot be used as identifier names. These are:</p>
+<table>
+<thead><tr>
+<th style="text-align:left"></th>
+<th style="text-align:left"></th>
+<th style="text-align:left"></th>
+<th style="text-align:left"></th>
+<th style="text-align:left"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">and</td>
+<td style="text-align:left">del</td>
+<td style="text-align:left">from</td>
+<td style="text-align:left">not</td>
+<td style="text-align:left">while</td>
+</tr>
+<tr>
+<td style="text-align:left">as</td>
+<td style="text-align:left">elif</td>
+<td style="text-align:left">global</td>
+<td style="text-align:left">or</td>
+<td style="text-align:left">with</td>
+</tr>
+<tr>
+<td style="text-align:left">assert</td>
+<td style="text-align:left">else</td>
+<td style="text-align:left">if</td>
+<td style="text-align:left">pass</td>
+<td style="text-align:left">yield</td>
+</tr>
+<tr>
+<td style="text-align:left">break</td>
+<td style="text-align:left">except</td>
+<td style="text-align:left">import</td>
+<td style="text-align:left">print</td>
+</tr>
+<tr>
+<td style="text-align:left">class</td>
+<td style="text-align:left">exec</td>
+<td style="text-align:left">in</td>
+<td style="text-align:left">raise</td>
+</tr>
+<tr>
+<td style="text-align:left">continue</td>
+<td style="text-align:left">finally</td>
+<td style="text-align:left">is</td>
+<td style="text-align:left">return </td>
+</tr>
+<tr>
+<td style="text-align:left">def</td>
+<td style="text-align:left">for</td>
+<td style="text-align:left">lambda</td>
+<td style="text-align:left">try</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="01---01.02-Multiple-Assignment">01 - 01.02 Multiple Assignment<a class="anchor-link" href="#01---01.02-Multiple-Assignment">&#182;</a></h3><p>Python allows you to assign a single value to several variables simultaneously. For example:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">y</span> <span class="o">=</span> <span class="n">z</span> <span class="o">=</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>or even assign different values to different variables:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">a</span> <span class="o">=</span> <span class="s1">&#39;Hello&#39;</span><span class="p">,</span> <span class="s1">&#39;World&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<blockquote><p>Print the above variables</p>
+</blockquote>
+
+</div>
+</div>
+</div>
+ 
+

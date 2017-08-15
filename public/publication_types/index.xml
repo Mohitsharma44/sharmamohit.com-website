@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Publication_types on Mohit Sharma</title>
+    <link>https://sharmamohit.com/publication_types/</link>
+    <description>Recent content in Publication_types on Mohit Sharma</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2017 Mohit Sharma</copyright>
+    <lastBuildDate>Tue, 20 Dec 2016 11:17:33 -0400</lastBuildDate>
+    <atom:link href="/publication_types/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>2</title>
+      <link>https://sharmamohit.com/publication_types/2/</link>
+      <pubDate>Tue, 20 Dec 2016 11:17:33 -0400</pubDate>
+      
+      <guid>https://sharmamohit.com/publication_types/2/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

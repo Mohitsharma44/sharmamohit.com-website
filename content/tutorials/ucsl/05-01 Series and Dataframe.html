@@ -1,0 +1,2244 @@
+
++++
+date = "2017-05-25"
+title = "05-01 Series and Dataframe"
+tags = ['tutorials', 'ucsl', 'python']
+math = true
++++
+
+
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="05---01-Pandas-Series-and-Dataframes">05 - 01 Pandas Series and Dataframes<a class="anchor-link" href="#05---01-Pandas-Series-and-Dataframes">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Pandas</strong> is a Python package providing fast, flexible, and expressive data structures designed to make working with “relational” or “labeled” data both easy and intuitive. It aims to be the fundamental high-level building block for doing practical, real world data analysis in Python.
+Pandas provides high-performance, easy-to-use data structures and data analysis tools for the Python programming language. To get started with pandas, you will need to get comfortable with its two workhorse data structures: Series and DataFrame.</p>
+<h2 id="Series">Series<a class="anchor-link" href="#Series">&#182;</a></h2><p>Pandas Series is a one-dimensional array-like object that has index and value just like Numpy. Infact if you view the type of the <code>values</code> of series object, you will see that it indeed is <code>numpy.ndarray</code>.</p>
+<p>You can assign name to pandas Series.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;seaborn-darkgrid&#39;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ob</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">8</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">5</span><span class="p">],</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;test_data&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Name: &#39;</span><span class="p">,</span><span class="n">ob</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Data:</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">ob</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Type of Object: &#39;</span><span class="p">,</span><span class="nb">type</span><span class="p">(</span><span class="n">ob</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Type of elements:&#39;</span><span class="p">,</span><span class="nb">type</span><span class="p">(</span><span class="n">ob</span><span class="o">.</span><span class="n">values</span><span class="p">))</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Name:  test_data
+Data:
+ 0    8
+1    7
+2    6
+3    5
+Name: test_data, dtype: int64
+Type of Object:  &lt;class &#39;pandas.core.series.Series&#39;&gt;
+Type of elements: &lt;class &#39;numpy.ndarray&#39;&gt;
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>You can also use your numpy array and convert them to Series.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># integers between 5 to 8 (reversed)</span>
+<span class="n">ob</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)[::</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ob</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">ob</span><span class="p">))</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>0    8
+1    7
+2    6
+3    5
+dtype: int64
+&lt;class &#39;pandas.core.series.Series&#39;&gt;
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>You can also provide custom index to the values and just like in Numpy, access them with the index.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ob</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">8</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">5</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">,</span><span class="s1">&#39;d&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ob</span><span class="p">[</span><span class="s1">&#39;b&#39;</span><span class="p">])</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>7
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Pandas Series is more like an fixed size dictionary whose mapping of index-value is preserved when array operations are applied to them. For example,</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># select all the values greater than 4 and less than 8</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ob</span><span class="p">[(</span><span class="n">ob</span><span class="o">&gt;</span><span class="mi">4</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">ob</span><span class="o">&lt;</span><span class="mi">8</span><span class="p">)])</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>b    7
+c    6
+d    5
+dtype: int64
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>This also means that if you have a dictionary, you can easily convert that into pandas series.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">states_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;State1&#39;</span><span class="p">:</span> <span class="s1">&#39;Alabama&#39;</span><span class="p">,</span> 
+               <span class="s1">&#39;State2&#39;</span><span class="p">:</span> <span class="s1">&#39;California&#39;</span><span class="p">,</span> 
+               <span class="s1">&#39;State3&#39;</span><span class="p">:</span> <span class="s1">&#39;New Jersey&#39;</span><span class="p">,</span> 
+               <span class="s1">&#39;State4&#39;</span><span class="p">:</span> <span class="s1">&#39;New York&#39;</span><span class="p">}</span>
+<span class="n">ob</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">states_dict</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ob</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">ob</span><span class="p">))</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>State1       Alabama
+State2    California
+State3    New Jersey
+State4      New York
+dtype: object
+&lt;class &#39;pandas.core.series.Series&#39;&gt;
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Just like dictionaries, you can also change the index..</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ob</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;AL&#39;</span><span class="p">,</span><span class="s1">&#39;CA&#39;</span><span class="p">,</span><span class="s1">&#39;NJ&#39;</span><span class="p">,</span><span class="s1">&#39;NY&#39;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ob</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>AL       Alabama
+CA    California
+NJ    New Jersey
+NY      New York
+dtype: object
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>or use dictionary's method to get the label..</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ob</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;CA&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[8]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&#39;California&#39;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Dataframe">Dataframe<a class="anchor-link" href="#Dataframe">&#182;</a></h2><p>Dataframe is something like spreadsheet or a sql table. It is basically a 2 dimensional labelled data structure with columns of potentially different datatype. Like Series, DataFrame accepts many different kinds of input:</p>
+<ul>
+<li>Dict of 1D ndarrays, lists, dicts, or Series</li>
+<li>2-D numpy.ndarray</li>
+<li><a href="http://docs.scipy.org/doc/numpy/user/basics.rec.html" title="Structured or record ndarray"><code>Structured or record ndarray</code></a></li>
+<li>A Series</li>
+<li>Another DataFrame</li>
+</ul>
+<p>Compared with other such DataFrame-like structures you may have used before (like <code>R’s</code> <code>data.frame</code>), row- oriented and column-oriented operations in DataFrame are treated roughly symmetrically. Under the hood, the data is stored as one or more two-dimensional blocks rather than a list, dict, or some other collection of one-dimensional arrays.</p>
+<h3 id="Creating-Dataframes-from-dictionaries">Creating Dataframes from dictionaries<a class="anchor-link" href="#Creating-Dataframes-from-dictionaries">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;one&#39;</span> <span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">,</span> <span class="mf">3.</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">]),</span>
+    <span class="s1">&#39;two&#39;</span> <span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">,</span> <span class="mf">3.</span><span class="p">,</span> <span class="mf">4.</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">])}</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Dataframe:</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">df</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Type of Object:&#39;</span><span class="p">,</span><span class="nb">type</span><span class="p">(</span><span class="n">df</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Type of elements:&#39;</span><span class="p">,</span><span class="nb">type</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">values</span><span class="p">))</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Dataframe:
+    one  two
+a  1.0  1.0
+b  2.0  2.0
+c  3.0  3.0
+d  NaN  4.0
+Type of Object: &lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+Type of elements: &lt;class &#39;numpy.ndarray&#39;&gt;
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<blockquote><p>Another way to construct dataframe from dictionaries is by using <code>DataFrame.from_dict</code> function. <code>DataFrame.from_dict</code> takes a dict of dicts or a dict of array-like sequences and returns a DataFrame. It operates like the DataFrame constructor except for the orient parameter which is 'columns' by default, but which can be set to 'index' in order to use the dict keys as row labels.</p>
+</blockquote>
+<p>Just like Series, you can access index, values and also columns.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Index: &#39;</span><span class="p">,</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Columns: &#39;</span><span class="p">,</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Values of Column one: &#39;</span><span class="p">,</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;one&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Values of Column two: &#39;</span><span class="p">,</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;two&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Index:  Index([&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;], dtype=&#39;object&#39;)
+Columns:  Index([&#39;one&#39;, &#39;two&#39;], dtype=&#39;object&#39;)
+Values of Column one:  [  1.   2.   3.  nan]
+Values of Column two:  [ 1.  2.  3.  4.]
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Creating-dataframe-from-list-of-dictionaries">Creating dataframe from list of dictionaries<a class="anchor-link" href="#Creating-dataframe-from-list-of-dictionaries">&#182;</a></h3><p>As with Series, if you pass a column that isn’t contained in data, it will appear with NaN values in the result</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([{</span><span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">:</span><span class="kc">None</span><span class="p">},</span> 
+                    <span class="p">{</span><span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">:</span> <span class="mi">4</span><span class="p">}],</span>
+                   <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;one&#39;</span><span class="p">,</span> <span class="s1">&#39;two&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Dataframe: </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">df2</span><span class="p">)</span>
+
+<span class="c1"># Ofcourse you can also transpose the result:</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Transposed Dataframe: </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">df2</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Dataframe: 
+      a  b  c    d
+one  1  2  3  NaN
+two  2  2  3  4.0
+Transposed Dataframe: 
+    one  two
+a  1.0  2.0
+b  2.0  2.0
+c  3.0  3.0
+d  NaN  4.0
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Assigning a column that doesn’t exist will create a new column.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[23]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;three&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Added third column: </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">df</span><span class="p">)</span>
+
+<span class="c1"># The del keyword can be used delete columns:</span>
+<span class="k">del</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;three&#39;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Deleted third column: </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">df</span><span class="p">)</span>
+<span class="c1"># You can also use df.drop(). We shall see that later</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Added third column: 
+    one  two three
+a  1.0  1.0  None
+b  2.0  2.0  None
+c  3.0  3.0  None
+d  NaN  4.0  None
+
+Deleted third column: 
+    one  two
+a  1.0  1.0
+b  2.0  2.0
+c  3.0  3.0
+d  NaN  4.0
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Each Index has a number of methods and properties for set logic and answering other common questions about the data it contains.</p>
+<table>
+<thead><tr>
+<th style="text-align:left">Method</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>append</code></td>
+<td style="text-align:left">Concatenate with additional Index objects, producing a new Index</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>diff</code></td>
+<td style="text-align:left">Compute set difference as an Index</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>intersection</code></td>
+<td style="text-align:left">Compute set intersection</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>union</code></td>
+<td style="text-align:left">Compute set union</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>isin</code></td>
+<td style="text-align:left">Compute boolean array indicating whether each value is contained in the passed collection</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>delete</code></td>
+<td style="text-align:left">Compute new Index with element at index i deleted</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>drop</code></td>
+<td style="text-align:left">Compute new index by deleting passed values</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>insert</code></td>
+<td style="text-align:left">Compute new Index by inserting element at index i</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>is_monotonic</code></td>
+<td style="text-align:left">Returns True if each element is greater than or equal to the previous element</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>is_unique</code></td>
+<td style="text-align:left">Returns True if the Index has no duplicate values</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>unique</code></td>
+<td style="text-align:left">Compute the array of unique values in the Index</td>
+</tr>
+</tbody>
+</table>
+<p>for example:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">1</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">one</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;one&#39;</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>True
+True
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Reindexing">Reindexing<a class="anchor-link" href="#Reindexing">&#182;</a></h2><p>A critical method on pandas objects is reindex, which means to create a new object with the data conformed to a new index.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;one&#39;</span> <span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">,</span> <span class="mf">3.</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">]),</span>
+    <span class="s1">&#39;two&#39;</span> <span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">,</span> <span class="mf">3.</span><span class="p">,</span> <span class="mf">4.</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">])}</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>   one  two
+a  1.0  1.0
+b  2.0  2.0
+c  3.0  3.0
+d  NaN  4.0
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Reindex in descending order.</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">reindex</span><span class="p">([</span><span class="s1">&#39;d&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;a&#39;</span><span class="p">]))</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>   one  two
+d  NaN  4.0
+c  3.0  3.0
+b  2.0  2.0
+a  1.0  1.0
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>If you <code>reindex</code> with more number of rows than in the dataframe, it will return the dataframe with new row whose values are <code>NaN</code>.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[18]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">reindex</span><span class="p">([</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">,</span><span class="s1">&#39;d&#39;</span><span class="p">,</span><span class="s1">&#39;e&#39;</span><span class="p">]))</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>   one  two
+a  1.0  1.0
+b  2.0  2.0
+c  3.0  3.0
+d  NaN  4.0
+e  NaN  NaN
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Reindexing is also useful when you want to introduce any missing values. For example in our case, look at column <code>one</code> and row <code>d</code></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[19]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">reindex</span><span class="p">([</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">,</span><span class="s1">&#39;d&#39;</span><span class="p">,</span><span class="s1">&#39;e&#39;</span><span class="p">],</span> <span class="n">fill_value</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="c1"># Guess why the df[&#39;one&#39;][&#39;d&#39;] was not filled with 0 ?</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[19]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>one</th>
+      <th>two</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>a</th>
+      <td>1.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>b</th>
+      <td>2.0</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>c</th>
+      <td>3.0</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>d</th>
+      <td>NaN</td>
+      <td>4.0</td>
+    </tr>
+    <tr>
+      <th>e</th>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>For ordered data like time series, it may be desirable to do some interpolation or filling of values when <code>reindex</code>ing. The method option allows us to do this, using a <code>method</code> such as <code>ffill</code> which forward fills the values:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[20]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">reindex</span><span class="p">([</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">,</span><span class="s1">&#39;d&#39;</span><span class="p">,</span><span class="s1">&#39;e&#39;</span><span class="p">],</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;ffill&#39;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[20]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>one</th>
+      <th>two</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>a</th>
+      <td>1.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>b</th>
+      <td>2.0</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>c</th>
+      <td>3.0</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>d</th>
+      <td>NaN</td>
+      <td>4.0</td>
+    </tr>
+    <tr>
+      <th>e</th>
+      <td>NaN</td>
+      <td>4.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>There are basically two different types of method (interpolation) options:</p>
+<table>
+<thead><tr>
+<th style="text-align:left">Method</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>ffill</code> or <code>pad</code></td>
+<td style="text-align:left">Fill (or carry) values forward</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>bfill</code> or <code>backfill</code></td>
+<td style="text-align:left">Fill (or carry) values backward</td>
+</tr>
+</tbody>
+</table>
+<p>Reindexing has following arguments:</p>
+<table>
+<thead><tr>
+<th style="text-align:left">Argument</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>index</code></td>
+<td style="text-align:left">New sequence to use as index. Can be Index instance or any other sequence-like Python data structure. An Index will be used exactly as is without any copying</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>method</code></td>
+<td style="text-align:left">Interpolation (fill) method, see above table for options.</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>fill_value</code></td>
+<td style="text-align:left">Substitute value to use when introducing missing data by reindexing.</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>limit</code></td>
+<td style="text-align:left">When forward- or backfilling, maximum size gap to fill</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>level</code></td>
+<td style="text-align:left">Match simple Index on level of MultiIndex, otherwise select subset of</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>copy</code></td>
+<td style="text-align:left">Do not copy underlying data if new index is equivalent to old index. True by default (i.e. always copy data)</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Dropping-Entries">Dropping Entries<a class="anchor-link" href="#Dropping-Entries">&#182;</a></h2><p>Dropping one or more entries from an axis is easy if you have an index array or list without those entries.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[21]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Drop row c and row a</span>
+<span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">])</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[21]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>one</th>
+      <th>two</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>b</th>
+      <td>2.0</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>d</th>
+      <td>NaN</td>
+      <td>4.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[24]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Drop column two</span>
+<span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;two&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[24]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>one</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>a</th>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>b</th>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>c</th>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>d</th>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Indexing,-selection,-Sorting-and-filtering">Indexing, selection, Sorting and filtering<a class="anchor-link" href="#Indexing,-selection,-Sorting-and-filtering">&#182;</a></h2><p>Series indexing works analogously to NumPy array indexing, except you can use the Series’s index values instead of only integers.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[27]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Dataframe: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span><span class="n">df</span><span class="p">)</span>
+<span class="c1"># Slicing and selecting only column `one` for row 0 and row 4</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;one&#39;</span><span class="p">][[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">]]</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Dataframe: 
+    one  two
+a  1.0  1.0
+b  2.0  2.0
+c  3.0  3.0
+d  NaN  4.0
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[27]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>a    1.0
+d    NaN
+Name: one, dtype: float64</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[28]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Slicing df from row b to row 4 for column `one`</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;one&#39;</span><span class="p">][</span><span class="s1">&#39;b&#39;</span><span class="p">:</span><span class="s1">&#39;d&#39;</span><span class="p">]</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[28]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>b    2.0
+c    3.0
+d    NaN
+Name: one, dtype: float64</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>If you observe the above command (and the one above it), you will see that slicing with labels behaves differently than normal Python slicing in that the endpoint is inclusive.</p>
+<p>For DataFrame label-indexing on the rows, there is a special indexing field <code>ix</code> (or <code>loc</code>). It enables you to select a subset of the rows and columns from a DataFrame with NumPy- like notation plus axis labels. It is a less verbose way to do the reindexing.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[31]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">ix</span><span class="p">[[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">],[</span><span class="s1">&#39;one&#39;</span><span class="p">]]</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[31]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>one</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>a</th>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>c</th>
+      <td>3.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[32]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;one&#39;</span><span class="p">]]</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[32]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>one</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>a</th>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>c</th>
+      <td>3.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[33]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">ix</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">one</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">]</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[33]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>one</th>
+      <th>two</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>b</th>
+      <td>2.0</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>c</th>
+      <td>3.0</td>
+      <td>3.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>There are many ways to select and rearrange the data contained in a pandas object. Some indexing options can be seen in below table:</p>
+<table>
+<thead><tr>
+<th style="text-align:left">Indexing Type</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">df[val]</td>
+<td style="text-align:left">Select single column or sequence of columns from the DataFrame. Special case con- veniences: boolean array (filter rows), slice (slice rows), or boolean DataFrame (set values based on some criterion).</td>
+</tr>
+<tr>
+<td style="text-align:left">df.ix[val]</td>
+<td style="text-align:left">Selects single row of subset of rows from the DataFrame.</td>
+</tr>
+<tr>
+<td style="text-align:left">df.ix[:, val]</td>
+<td style="text-align:left">Selects single column of subset of columns.</td>
+</tr>
+<tr>
+<td style="text-align:left">df.ix[val1, val2]</td>
+<td style="text-align:left">Select both rows and columns.</td>
+</tr>
+<tr>
+<td style="text-align:left">reindex method</td>
+<td style="text-align:left">Conform one or more axes to new indexes.</td>
+</tr>
+<tr>
+<td style="text-align:left">xs method</td>
+<td style="text-align:left">Select single row or column as a Series by label.</td>
+</tr>
+<tr>
+<td style="text-align:left">icol, irowmethods</td>
+<td style="text-align:left">Select single column or row, respectively, as a Series by integer location.</td>
+</tr>
+<tr>
+<td style="text-align:left">get_value, set_value methods</td>
+<td style="text-align:left">Select single value by row and column label.</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>You can sort a data frame or series (by some criteria) using the built-in functions. To sort lexicographically by row or column index, use the sort_index method, which returns a new, sorted object:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[36]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">dt</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">7</span><span class="p">),</span> 
+               <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;g&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">,</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;e&#39;</span><span class="p">,</span><span class="s1">&#39;d&#39;</span><span class="p">,</span><span class="s1">&#39;f&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Original Data: </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Sorted by Index: </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">dt</span><span class="o">.</span><span class="n">sort_index</span><span class="p">())</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Original Data: 
+ g    8
+c    7
+a    8
+b    5
+e    8
+d    6
+f    7
+dtype: int64
+
+Sorted by Index: 
+ a    8
+b    5
+c    7
+d    6
+e    8
+f    7
+g    8
+dtype: int64
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Data-alignment-and-arithmetic">Data alignment and arithmetic<a class="anchor-link" href="#Data-alignment-and-arithmetic">&#182;</a></h2><p>Data alignment between DataFrame objects automatically align on both the columns and the index (row labels). The resulting object will have the union of the column and row labels.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[38]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="s1">&#39;D&#39;</span><span class="p">])</span>
+<span class="n">df2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;df1:</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">df1</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;df2:</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">df2</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Sum:</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">df1</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">df2</span><span class="p">))</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>df1:
+           A         B         C         D
+0 -0.362487 -2.112680 -0.806952 -1.108754
+1  1.011245 -1.183287  0.143261 -0.648712
+2 -0.607728  0.185564 -0.316349 -0.108025
+3  1.133124  0.313431  0.480309 -0.435832
+4 -0.138228  0.873961  0.354257  0.573475
+5 -1.048813  0.907835 -0.858269 -0.193833
+6  0.102733 -1.975696  0.538086  0.191236
+7  0.438749 -1.705098 -0.642303 -0.843471
+8  1.491922 -1.348542  0.520506  0.991557
+9 -1.160722 -0.624619 -0.431036  1.218312
+
+df2:
+           A         B         C
+0 -1.512020  0.487113  1.279393
+1  1.291985  1.842381 -1.222940
+2 -0.111107 -0.670234 -0.554140
+3  1.614198  0.863894 -0.771780
+4 -0.600226 -1.377429 -1.372277
+5  1.276203  2.589817 -0.938377
+6 -0.532945  1.564143 -0.185730
+
+Sum:
+           A         B         C   D
+0 -1.874507 -1.625566  0.472441 NaN
+1  2.303230  0.659094 -1.079679 NaN
+2 -0.718835 -0.484670 -0.870488 NaN
+3  2.747322  1.177326 -0.291471 NaN
+4 -0.738454 -0.503468 -1.018020 NaN
+5  0.227390  3.497653 -1.796646 NaN
+6 -0.430212 -0.411553  0.352356 NaN
+7       NaN       NaN       NaN NaN
+8       NaN       NaN       NaN NaN
+9       NaN       NaN       NaN NaN
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Note that in arithmetic operations between differently-indexed objects, you might want to fill with a special value, like 0, when an axis label is found in one object but not the other:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[39]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Sum:</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">df1</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">df2</span><span class="p">,</span> <span class="n">fill_value</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Sum:
+           A         B         C         D
+0 -1.874507 -1.625566  0.472441 -1.108754
+1  2.303230  0.659094 -1.079679 -0.648712
+2 -0.718835 -0.484670 -0.870488 -0.108025
+3  2.747322  1.177326 -0.291471 -0.435832
+4 -0.738454 -0.503468 -1.018020  0.573475
+5  0.227390  3.497653 -1.796646 -0.193833
+6 -0.430212 -0.411553  0.352356  0.191236
+7  0.438749 -1.705098 -0.642303 -0.843471
+8  1.491922 -1.348542  0.520506  0.991557
+9 -1.160722 -0.624619 -0.431036  1.218312
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Similarly you can perform subtracion, multiplication and division.</p>
+<p>When doing an operation between DataFrame and Series, the default behavior is to align the Series index on the DataFrame columns, thus broadcasting (just like in numpy) row-wise.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[45]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Dataframe: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">df1</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Operand (0th row): </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">df1</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Subtraction: </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">df1</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">df1</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Dataframe: 
+           A         B         C         D
+0 -0.362487 -2.112680 -0.806952 -1.108754
+1  1.011245 -1.183287  0.143261 -0.648712
+2 -0.607728  0.185564 -0.316349 -0.108025
+3  1.133124  0.313431  0.480309 -0.435832
+4 -0.138228  0.873961  0.354257  0.573475
+5 -1.048813  0.907835 -0.858269 -0.193833
+6  0.102733 -1.975696  0.538086  0.191236
+7  0.438749 -1.705098 -0.642303 -0.843471
+8  1.491922 -1.348542  0.520506  0.991557
+9 -1.160722 -0.624619 -0.431036  1.218312
+
+Operand (0th row): 
+ A   -0.362487
+B   -2.112680
+C   -0.806952
+D   -1.108754
+Name: 0, dtype: float64
+
+Subtraction: 
+           A         B         C         D
+0  0.000000  0.000000  0.000000  0.000000
+1  1.373732  0.929393  0.950213  0.460042
+2 -0.245241  2.298244  0.490603  1.000729
+3  1.495611  2.426111  1.287261  0.672921
+4  0.224258  2.986641  1.161209  1.682229
+5 -0.686326  3.020515 -0.051317  0.914921
+6  0.465220  0.136984  1.345038  1.299990
+7  0.801236  0.407582  0.164649  0.265283
+8  1.854409  0.764138  1.327459  2.100311
+9 -0.798235  1.488061  0.375916  2.327066
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>In the special case of working with time series data, and the DataFrame index also contains dates, the broadcasting will be column-wise:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[48]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ind1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="s1">&#39;06/1/2017&#39;</span><span class="p">,</span> <span class="n">periods</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">df1</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="n">ind1</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[48]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>A</th>
+      <th>B</th>
+      <th>C</th>
+      <th>D</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2017-06-01</th>
+      <td>-0.362487</td>
+      <td>-2.112680</td>
+      <td>-0.806952</td>
+      <td>-1.108754</td>
+    </tr>
+    <tr>
+      <th>2017-06-02</th>
+      <td>1.011245</td>
+      <td>-1.183287</td>
+      <td>0.143261</td>
+      <td>-0.648712</td>
+    </tr>
+    <tr>
+      <th>2017-06-03</th>
+      <td>-0.607728</td>
+      <td>0.185564</td>
+      <td>-0.316349</td>
+      <td>-0.108025</td>
+    </tr>
+    <tr>
+      <th>2017-06-04</th>
+      <td>1.133124</td>
+      <td>0.313431</td>
+      <td>0.480309</td>
+      <td>-0.435832</td>
+    </tr>
+    <tr>
+      <th>2017-06-05</th>
+      <td>-0.138228</td>
+      <td>0.873961</td>
+      <td>0.354257</td>
+      <td>0.573475</td>
+    </tr>
+    <tr>
+      <th>2017-06-06</th>
+      <td>-1.048813</td>
+      <td>0.907835</td>
+      <td>-0.858269</td>
+      <td>-0.193833</td>
+    </tr>
+    <tr>
+      <th>2017-06-07</th>
+      <td>0.102733</td>
+      <td>-1.975696</td>
+      <td>0.538086</td>
+      <td>0.191236</td>
+    </tr>
+    <tr>
+      <th>2017-06-08</th>
+      <td>0.438749</td>
+      <td>-1.705098</td>
+      <td>-0.642303</td>
+      <td>-0.843471</td>
+    </tr>
+    <tr>
+      <th>2017-06-09</th>
+      <td>1.491922</td>
+      <td>-1.348542</td>
+      <td>0.520506</td>
+      <td>0.991557</td>
+    </tr>
+    <tr>
+      <th>2017-06-10</th>
+      <td>-1.160722</td>
+      <td>-0.624619</td>
+      <td>-0.431036</td>
+      <td>1.218312</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Using-Numpy-functions-on-DataFrame">Using Numpy functions on DataFrame<a class="anchor-link" href="#Using-Numpy-functions-on-DataFrame">&#182;</a></h2><p>Elementwise NumPy <code>ufuncs</code> like <code>log</code>, <code>exp</code>, <code>sqrt</code>, ... and various other NumPy functions can be used on DataFrame</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[49]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">df1</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[49]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>A</th>
+      <th>B</th>
+      <th>C</th>
+      <th>D</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.362487</td>
+      <td>2.112680</td>
+      <td>0.806952</td>
+      <td>1.108754</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1.011245</td>
+      <td>1.183287</td>
+      <td>0.143261</td>
+      <td>0.648712</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.607728</td>
+      <td>0.185564</td>
+      <td>0.316349</td>
+      <td>0.108025</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1.133124</td>
+      <td>0.313431</td>
+      <td>0.480309</td>
+      <td>0.435832</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0.138228</td>
+      <td>0.873961</td>
+      <td>0.354257</td>
+      <td>0.573475</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>1.048813</td>
+      <td>0.907835</td>
+      <td>0.858269</td>
+      <td>0.193833</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>0.102733</td>
+      <td>1.975696</td>
+      <td>0.538086</td>
+      <td>0.191236</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>0.438749</td>
+      <td>1.705098</td>
+      <td>0.642303</td>
+      <td>0.843471</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>1.491922</td>
+      <td>1.348542</td>
+      <td>0.520506</td>
+      <td>0.991557</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>1.160722</td>
+      <td>0.624619</td>
+      <td>0.431036</td>
+      <td>1.218312</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[50]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Convert to numpy array</span>
+<span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">df1</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[50]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>array([[-0.36248689, -2.11267995, -0.80695205, -1.1087539 ],
+       [ 1.01124514, -1.18328675,  0.14326111, -0.64871176],
+       [-0.60772766,  0.18556379, -0.31634858, -0.10802532],
+       [ 1.13312415,  0.31343103,  0.48030905, -0.43583243],
+       [-0.13822844,  0.87396131,  0.35425682,  0.5734751 ],
+       [-1.04881286,  0.90783519, -0.85826904, -0.19383257],
+       [ 0.10273273, -1.9756959 ,  0.53808642,  0.19123646],
+       [ 0.4387492 , -1.7050977 , -0.64230271, -0.84347095],
+       [ 1.4919221 , -1.34854196,  0.52050645,  0.99155684],
+       [-1.16072188, -0.62461892, -0.43103621,  1.21831203]])</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Another frequent operation is applying a function on 1D arrays to each column or row. DataFrame’s apply method does exactly this:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[52]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">fn</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Get max and min of the columns</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="n">x</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">x</span><span class="o">.</span><span class="n">max</span><span class="p">()],</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;min&#39;</span><span class="p">,</span> <span class="s1">&#39;max&#39;</span><span class="p">])</span>
+
+<span class="n">df1</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">fn</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[52]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>A</th>
+      <th>B</th>
+      <th>C</th>
+      <th>D</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>min</th>
+      <td>-1.160722</td>
+      <td>-2.112680</td>
+      <td>-0.858269</td>
+      <td>-1.108754</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>1.491922</td>
+      <td>0.907835</td>
+      <td>0.538086</td>
+      <td>1.218312</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Element-wise Python functions can be used, too. Suppose you wanted to format the dataframe elements in floating point format with accuracy of only 3 decimal places. You can do this with applymap:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[53]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">fmt</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="s2">&quot;</span><span class="si">{:.3f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">df1</span><span class="o">.</span><span class="n">applymap</span><span class="p">(</span><span class="n">fmt</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[53]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>A</th>
+      <th>B</th>
+      <th>C</th>
+      <th>D</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>-0.362</td>
+      <td>-2.113</td>
+      <td>-0.807</td>
+      <td>-1.109</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1.011</td>
+      <td>-1.183</td>
+      <td>0.143</td>
+      <td>-0.649</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>-0.608</td>
+      <td>0.186</td>
+      <td>-0.316</td>
+      <td>-0.108</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1.133</td>
+      <td>0.313</td>
+      <td>0.480</td>
+      <td>-0.436</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>-0.138</td>
+      <td>0.874</td>
+      <td>0.354</td>
+      <td>0.573</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>-1.049</td>
+      <td>0.908</td>
+      <td>-0.858</td>
+      <td>-0.194</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>0.103</td>
+      <td>-1.976</td>
+      <td>0.538</td>
+      <td>0.191</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>0.439</td>
+      <td>-1.705</td>
+      <td>-0.642</td>
+      <td>-0.843</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>1.492</td>
+      <td>-1.349</td>
+      <td>0.521</td>
+      <td>0.992</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>-1.161</td>
+      <td>-0.625</td>
+      <td>-0.431</td>
+      <td>1.218</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<blockquote><p>The reason for the name <code>applymap</code> for dataframe (instead of simply using <code>map</code>)is that pandas Series already has a <code>map</code> method for applying an element-wise operation</p>
+</blockquote>
+
+</div>
+</div>
+</div>
+ 
+
