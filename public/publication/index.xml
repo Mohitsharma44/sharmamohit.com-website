@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Publications on Mohit Sharma</title>
-    <link>https://sharmamohit.com/publication/</link>
+    <link>/publication/</link>
     <description>Recent content in Publications on Mohit Sharma</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
@@ -12,28 +12,28 @@
     
     <item>
       <title>Hyperspectral survey of NYC lighting technology</title>
-      <link>https://sharmamohit.com/publication/hyperspectral-survery-of-nyc-lighting-technology/</link>
+      <link>/publication/hyperspectral-survery-of-nyc-lighting-technology/</link>
       <pubDate>Tue, 20 Dec 2016 11:17:33 -0400</pubDate>
       
-      <guid>https://sharmamohit.com/publication/hyperspectral-survery-of-nyc-lighting-technology/</guid>
+      <guid>/publication/hyperspectral-survery-of-nyc-lighting-technology/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Hypertemporal Imaging of NYC Grid Dynamics</title>
-      <link>https://sharmamohit.com/publication/hypertemporal-imaging-of-nyc-grid-dynamics/</link>
+      <link>/publication/hypertemporal-imaging-of-nyc-grid-dynamics/</link>
       <pubDate>Sat, 13 Aug 2016 14:57:46 -0400</pubDate>
       
-      <guid>https://sharmamohit.com/publication/hypertemporal-imaging-of-nyc-grid-dynamics/</guid>
+      <guid>/publication/hypertemporal-imaging-of-nyc-grid-dynamics/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Dynamics of the Urban Lightscape</title>
-      <link>https://sharmamohit.com/publication/dynamics-of-the-urban-lightscape/</link>
+      <link>/publication/dynamics-of-the-urban-lightscape/</link>
       <pubDate>Thu, 31 Dec 2015 11:17:33 -0400</pubDate>
       
-      <guid>https://sharmamohit.com/publication/dynamics-of-the-urban-lightscape/</guid>
+      <guid>/publication/dynamics-of-the-urban-lightscape/</guid>
       <description></description>
     </item>
     

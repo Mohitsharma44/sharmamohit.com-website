@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on Mohit Sharma</title>
-    <link>https://sharmamohit.com/post/</link>
+    <link>/post/</link>
     <description>Recent content in Posts on Mohit Sharma</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
@@ -12,10 +12,10 @@
     
     <item>
       <title>lets encrypt Nginx</title>
-      <link>https://sharmamohit.com/post/lets-encrypt-nginx/</link>
+      <link>/post/lets-encrypt-nginx/</link>
       <pubDate>Thu, 11 Aug 2016 00:00:00 +0000</pubDate>
       
-      <guid>https://sharmamohit.com/post/lets-encrypt-nginx/</guid>
+      <guid>/post/lets-encrypt-nginx/</guid>
       <description>
 
 &lt;p&gt;Encrypting the web traffic is a standard practice today. It is used by almost everyone regardless of whether you are a Bank making sure your customers feel safe to use online services, an e-commerce website trying to gain the confidence of your customers or just another blog writer who wants to look cool with the nice green lock in the address bar. In today&amp;rsquo;s world and with the recent developments/ enhancements in the TLS security (check the draft for v1.3 here &lt;a href=&#34;https://tlswg.github.io/tls13-spec/&#34; target=&#34;_blank&#34;&gt;https://tlswg.github.io/tls13-spec/&lt;/a&gt;) and especially with the launch of &lt;a href=&#34;https://letsencrypt.org/&#34; target=&#34;_blank&#34;&gt;&lt;code&gt;Let&#39;s Encrypt&lt;/code&gt;&lt;/a&gt;, there is only one reason to not encrypt your webtraffic.. Laziness! and No, encrypting all your traffic is not computationally heavy. So even if you are running your blog or any webservice on a $5/month 512MB droplet from digitalocean, you should be fine!&lt;/p&gt;
@@ -263,10 +263,10 @@ Add DH group in the end&lt;/p&gt;
     
     <item>
       <title>jupyter notebooks in blog</title>
-      <link>https://sharmamohit.com/post/jupyter-notebooks-in-blog/</link>
+      <link>/post/jupyter-notebooks-in-blog/</link>
       <pubDate>Tue, 12 Jul 2016 00:59:02 -0400</pubDate>
       
-      <guid>https://sharmamohit.com/post/jupyter-notebooks-in-blog/</guid>
+      <guid>/post/jupyter-notebooks-in-blog/</guid>
       <description>&lt;p&gt;I love Jupyter notebooks! They are great for experimenting and playing around with the ideas. I always liked the idea of using a single web based application for writing code snippets, visualizations, creating presentations and even blogging! &lt;br/&gt;
 There are great static website generators out there but most of them use restructured text or markdown to convert to html pages. 
 &lt;br&gt;

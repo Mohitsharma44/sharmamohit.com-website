@@ -6,6 +6,15 @@ date = "2016-12-20T11:17:33-04:00"
 image = ""
 image_preview = ""
 math = false
+# Publication type.
+# Legend:
+# 0 = Uncategorized
+# 1 = Conference proceedings
+# 2 = Journal
+# 3 = Work in progress
+# 4 = Technical report
+# 5 = Book
+# 6 = Book chapter
 publication_types = ["2"]
 publication = "In *Sensors*"
 publication_short = ""

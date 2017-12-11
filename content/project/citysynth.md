@@ -1,11 +1,16 @@
 +++
 client_name = "NYU CUSP"
 date = "2014-06-01"
+# Optional external URL for project (replaces project detail page).
 external_link = ""
 image = ""
+# Optional image to display on homepage (relative to `static/img/` folder)
 image_preview = "citysynth/citysynth_banner.png"
 math = false
+# Project summary to display on homepage.
 summary = "Masters Thesis on developing a cost efficient technique for performing persistent and synoptic observation of the lighting in city which can be used a proxy for understanding and improving the quality of life of people. This project aims to build an IoT infrastructure to further facilitate the research presented in [Dynamics of Urban Lightscape](publication/dynamics-of-the-urban-lightscape) on a larger and granular scale"
+# Tags: can be used for filtering projects.
+# Example: `tags = ["machine-learning", "deep-learning"]`
 tags = ["iot", "imaging"]
 title = "Citysynth"
 
@@ -15,6 +20,7 @@ url_pdf = "https://drive.google.com/file/d/0B8u6lNL0UNKgVkJLeUxDS2N5LVE/view?usp
 name = "Website"
 url = "https://citysynth.com"
 
+# Optional featured image (relative to `static/img/` folder).
 [header]
 image = "citysynth/citysynth_banner.png"
 caption = "Master's thesis"

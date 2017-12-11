@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Recent &amp; Upcoming Talks on Mohit Sharma</title>
-    <link>https://sharmamohit.com/talk/</link>
+    <link>/talk/</link>
     <description>Recent content in Recent &amp; Upcoming Talks on Mohit Sharma</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
@@ -12,10 +12,10 @@
     
     <item>
       <title>CUSP’s Employment: Discover, Aspire &amp; Prepare program</title>
-      <link>https://sharmamohit.com/talk/cusp-edap/</link>
+      <link>/talk/cusp-edap/</link>
       <pubDate>Sun, 01 Jan 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://sharmamohit.com/talk/cusp-edap/</guid>
+      <guid>/talk/cusp-edap/</guid>
       <description>&lt;p&gt;Technical workshop on Writing Idiomatic Python, Python Packaging and creating static websites using python&lt;/p&gt;
 
 &lt;iframe src=&#34;//slides.com/mohitsharma44/cusp-edap/embed?style=dark&#34; width=&#34;576&#34; height=&#34;420&#34; scrolling=&#34;no&#34; frameborder=&#34;0&#34; webkitallowfullscreen mozallowfullscreen allowfullscreen&gt;&lt;/iframe&gt;

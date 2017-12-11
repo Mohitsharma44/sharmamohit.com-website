@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Mohit Sharma on Mohit Sharma</title>
-    <link>https://sharmamohit.com/</link>
+    <link>/</link>
     <description>Recent content in Mohit Sharma on Mohit Sharma</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2017 Mohit Sharma</copyright>
-    <lastBuildDate>Wed, 20 Apr 2016 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 15 Oct 2017 00:00:00 -0400</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
       <title>IoT and Microservices</title>
-      <link>https://sharmamohit.com/tutorials/gx-6004c/</link>
+      <link>/tutorials/gx-6004c/</link>
       <pubDate>Mon, 24 Jul 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://sharmamohit.com/tutorials/gx-6004c/</guid>
+      <guid>/tutorials/gx-6004c/</guid>
       <description>
 
 &lt;p&gt;A 3 - week course on Advanced Topics in Urban Informatics.&lt;/p&gt;
@@ -45,10 +45,10 @@
     
     <item>
       <title>00-00 Welcome</title>
-      <link>https://sharmamohit.com/tutorials/ucsl/00-00-welcome/</link>
+      <link>/tutorials/ucsl/00-00-welcome/</link>
       <pubDate>Thu, 25 May 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://sharmamohit.com/tutorials/ucsl/00-00-welcome/</guid>
+      <guid>/tutorials/ucsl/00-00-welcome/</guid>
       <description>&lt;div class=&#34;cell border-box-sizing text_cell rendered&#34;&gt;&lt;div class=&#34;prompt input_prompt&#34;&gt;
 &lt;/div&gt;
 &lt;div class=&#34;inner_cell&#34;&gt;
@@ -262,10 +262,10 @@ However if you would like to install everything locally on your machine (which I
     
     <item>
       <title>00-01 Accessing Jupyter Notebook</title>
-      <link>https://sharmamohit.com/tutorials/ucsl/00-01-accessing-jupyter-notebook/</link>
+      <link>/tutorials/ucsl/00-01-accessing-jupyter-notebook/</link>
       <pubDate>Thu, 25 May 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://sharmamohit.com/tutorials/ucsl/00-01-accessing-jupyter-notebook/</guid>
+      <guid>/tutorials/ucsl/00-01-accessing-jupyter-notebook/</guid>
       <description>&lt;div class=&#34;cell border-box-sizing text_cell rendered&#34;&gt;&lt;div class=&#34;prompt input_prompt&#34;&gt;
 &lt;/div&gt;
 &lt;div class=&#34;inner_cell&#34;&gt;
@@ -378,10 +378,10 @@ python2 -m ipykernel install --user&lt;/code&gt;&lt;/pre&gt;
     
     <item>
       <title>00-02 Introduction to Notebook and beyond</title>
-      <link>https://sharmamohit.com/tutorials/ucsl/00-02-introduction-to-notebook-and-beyond/</link>
+      <link>/tutorials/ucsl/00-02-introduction-to-notebook-and-beyond/</link>
       <pubDate>Thu, 25 May 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://sharmamohit.com/tutorials/ucsl/00-02-introduction-to-notebook-and-beyond/</guid>
+      <guid>/tutorials/ucsl/00-02-introduction-to-notebook-and-beyond/</guid>
       <description>&lt;div class=&#34;cell border-box-sizing text_cell rendered&#34;&gt;&lt;div class=&#34;prompt input_prompt&#34;&gt;
 &lt;/div&gt;
 &lt;div class=&#34;inner_cell&#34;&gt;
@@ -460,20 +460,20 @@ These cell types can be viewed by clicking &lt;code&gt;Cell -&amp;gt; Cell Type&
 &lt;h4 id=&#34;Working-with-Notebook&#34;&gt;Working with Notebook&lt;a class=&#34;anchor-link&#34; href=&#34;#Working-with-Notebook&#34;&gt;&amp;#182;&lt;/a&gt;&lt;/h4&gt;&lt;blockquote&gt;&lt;p&gt;This section will assume that you are using CUSP CDF. However following along on your local installation should be trivial.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h5 id=&#34;Dashboard&#34;&gt;Dashboard&lt;a class=&#34;anchor-link&#34; href=&#34;#Dashboard&#34;&gt;&amp;#182;&lt;/a&gt;&lt;/h5&gt;&lt;p&gt;Once you have logged in to the jupyter hub, you should see a dashboard. The dashboard serves as a home page for the notebook displaying the notebooks and files in the current directory.
-&lt;img src=&#34;https://sharmamohit.com/img/ucsl-images/00/localhost_dash.png&#34; alt=&#34;Jupyter notebook dashboard&#34; align=&#39;center&#39;&gt;&lt;/p&gt;
+&lt;img src=&#34;/img/ucsl-images/00/localhost_dash.png&#34; alt=&#34;Jupyter notebook dashboard&#34; align=&#39;center&#39;&gt;&lt;/p&gt;
 &lt;h5 id=&#34;New-Notebook&#34;&gt;New Notebook&lt;a class=&#34;anchor-link&#34; href=&#34;#New-Notebook&#34;&gt;&amp;#182;&lt;/a&gt;&lt;/h5&gt;&lt;p&gt;Once you navigate to your home directories (from where you have opened this notebook), you can create a new notebook by clicking on New on top right corner and selecting &lt;code&gt;Python 2&lt;/code&gt; or &lt;code&gt;Python 3&lt;/code&gt;
-&lt;img src=&#34;https://sharmamohit.com/img/ucsl-images/00/new_py2.png&#34; alt=&#34;Jupyter notebook dashboard&#34; align=&#39;center&#39;&gt;&lt;/p&gt;
+&lt;img src=&#34;/img/ucsl-images/00/new_py2.png&#34; alt=&#34;Jupyter notebook dashboard&#34; align=&#39;center&#39;&gt;&lt;/p&gt;
 &lt;blockquote&gt;&lt;p&gt;UCSL bootcamp will be compatible with Python2 as well as Python3&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;Jupyter Notebook has a modal user interface. This means that the keyboard does different things depending on which mode the Notebook is in. There are two modes: &lt;strong&gt;Edit&lt;/strong&gt; mode and &lt;strong&gt;Command&lt;/strong&gt; mode.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;p&gt;##### Edit Mode
 Edit mode is indicated by a green (or some different color than when you are not editing the cell) cell border and a prompt showing in the editor area. When a cell is in edit mode, you can type into the cell, like a normal text editor. To enter the edit mode, navigate to the cell and press &lt;code&gt;Enter&lt;/code&gt;
-&lt;img src=&#34;https://sharmamohit.com/img/ucsl-images/00/new_edit.png&#34; alt=&#34;Jupyter notebook dashboard&#34; align=&#39;center&#39;&gt;&lt;/p&gt;
+&lt;img src=&#34;/img/ucsl-images/00/new_edit.png&#34; alt=&#34;Jupyter notebook dashboard&#34; align=&#39;center&#39;&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;p&gt;##### Command Mode
 Command mode is indicated by a grey cell border with a blue (or some different color than when you are editing the cell) left margin. To enter into command mode, press &lt;code&gt;Esc&lt;/code&gt; key. This will bring you out of the edit mode
-&lt;img src=&#34;https://sharmamohit.com/img/ucsl-images/00/new_command.png&#34; alt=&#34;Jupyter notebook dashboard&#34; align=&#39;center&#39;&gt;&lt;/p&gt;
+&lt;img src=&#34;/img/ucsl-images/00/new_command.png&#34; alt=&#34;Jupyter notebook dashboard&#34; align=&#39;center&#39;&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;p&gt;##### Keyboard Shortcuts
 In command mode, the keyboard is mapped to a set of shortcuts that let you perform notebook and cell actions efficiently.
@@ -489,7 +489,7 @@ This will help speed up your development time.
 To know more about keyboard shortcuts, click: &lt;code&gt;Help -&amp;gt; Keyboard Shortcuts&lt;/code&gt; in the menu bar&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h5 id=&#34;Closing-and-Deleting-a-Notebook&#34;&gt;Closing and Deleting a Notebook&lt;a class=&#34;anchor-link&#34; href=&#34;#Closing-and-Deleting-a-Notebook&#34;&gt;&amp;#182;&lt;/a&gt;&lt;/h5&gt;&lt;p&gt;The notebooks that are currently open are shown in green icon on dashboard page. The notebooks will remain running until you explicitly shut them down. To do that, check the box next to the notebook that you want to close and observe the controls on top of the notebook.
-&lt;img src=&#34;https://sharmamohit.com/img/ucsl-images/00/closing.png&#34; alt=&#34;Jupyter notebook dashboard&#34; align=&#39;center&#39;&gt;&lt;/p&gt;
+&lt;img src=&#34;/img/ucsl-images/00/closing.png&#34; alt=&#34;Jupyter notebook dashboard&#34; align=&#39;center&#39;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;To close the notebook, you can click on the &lt;code&gt;shutdown&lt;/code&gt; button&lt;/li&gt;
 &lt;li&gt;To remove/ delete the notebook you can click on &lt;em&gt;recycle bin&lt;/em&gt; next to the shutdown option&lt;/li&gt;
@@ -999,10 +999,10 @@ An inline comment is a comment on the same line as a statement. Inline comments 
     
     <item>
       <title>01-00 Introduction to Python</title>
-      <link>https://sharmamohit.com/tutorials/ucsl/01-00-introduction-to-python/</link>
+      <link>/tutorials/ucsl/01-00-introduction-to-python/</link>
       <pubDate>Thu, 25 May 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://sharmamohit.com/tutorials/ucsl/01-00-introduction-to-python/</guid>
+      <guid>/tutorials/ucsl/01-00-introduction-to-python/</guid>
       <description>&lt;div class=&#34;cell border-box-sizing text_cell rendered&#34;&gt;&lt;div class=&#34;prompt input_prompt&#34;&gt;
 &lt;/div&gt;
 &lt;div class=&#34;inner_cell&#34;&gt;
@@ -1122,10 +1122,10 @@ An inline comment is a comment on the same line as a statement. Inline comments 
     
     <item>
       <title>01-01 Variables</title>
-      <link>https://sharmamohit.com/tutorials/ucsl/01-01-variables/</link>
+      <link>/tutorials/ucsl/01-01-variables/</link>
       <pubDate>Thu, 25 May 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://sharmamohit.com/tutorials/ucsl/01-01-variables/</guid>
+      <guid>/tutorials/ucsl/01-01-variables/</guid>
       <description>&lt;div class=&#34;cell border-box-sizing text_cell rendered&#34;&gt;&lt;div class=&#34;prompt input_prompt&#34;&gt;
 &lt;/div&gt;
 &lt;div class=&#34;inner_cell&#34;&gt;
@@ -1399,10 +1399,10 @@ Python is a case-sensitive language. Therefore, &lt;code&gt;var&lt;/code&gt; is 
     
     <item>
       <title>01-02 Strings</title>
-      <link>https://sharmamohit.com/tutorials/ucsl/01-02-strings/</link>
+      <link>/tutorials/ucsl/01-02-strings/</link>
       <pubDate>Thu, 25 May 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://sharmamohit.com/tutorials/ucsl/01-02-strings/</guid>
+      <guid>/tutorials/ucsl/01-02-strings/</guid>
       <description>&lt;div class=&#34;cell border-box-sizing text_cell rendered&#34;&gt;&lt;div class=&#34;prompt input_prompt&#34;&gt;
 &lt;/div&gt;
 &lt;div class=&#34;inner_cell&#34;&gt;
@@ -2818,10 +2818,10 @@ ame\of\dir
     
     <item>
       <title>01-03 Numeric Types</title>
-      <link>https://sharmamohit.com/tutorials/ucsl/01-03-numeric-types/</link>
+      <link>/tutorials/ucsl/01-03-numeric-types/</link>
       <pubDate>Thu, 25 May 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://sharmamohit.com/tutorials/ucsl/01-03-numeric-types/</guid>
+      <guid>/tutorials/ucsl/01-03-numeric-types/</guid>
       <description>&lt;div class=&#34;cell border-box-sizing text_cell rendered&#34;&gt;&lt;div class=&#34;prompt input_prompt&#34;&gt;
 &lt;/div&gt;
 &lt;div class=&#34;inner_cell&#34;&gt;
@@ -3157,10 +3157,10 @@ ame\of\dir
     
     <item>
       <title>01-04 Operators</title>
-      <link>https://sharmamohit.com/tutorials/ucsl/01-04-operators/</link>
+      <link>/tutorials/ucsl/01-04-operators/</link>
       <pubDate>Thu, 25 May 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://sharmamohit.com/tutorials/ucsl/01-04-operators/</guid>
+      <guid>/tutorials/ucsl/01-04-operators/</guid>
       <description>&lt;div class=&#34;cell border-box-sizing text_cell rendered&#34;&gt;&lt;div class=&#34;prompt input_prompt&#34;&gt;
 &lt;/div&gt;
 &lt;div class=&#34;inner_cell&#34;&gt;
@@ -5159,10 +5159,10 @@ Is the output of 3.0/2 and 3 / 2 the same? Why or Why not?&lt;/p&gt;
     
     <item>
       <title>01-05 Control Flow</title>
-      <link>https://sharmamohit.com/tutorials/ucsl/01-05-control-flow/</link>
+      <link>/tutorials/ucsl/01-05-control-flow/</link>
       <pubDate>Thu, 25 May 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://sharmamohit.com/tutorials/ucsl/01-05-control-flow/</guid>
+      <guid>/tutorials/ucsl/01-05-control-flow/</guid>
       <description>&lt;div class=&#34;cell border-box-sizing text_cell rendered&#34;&gt;&lt;div class=&#34;prompt input_prompt&#34;&gt;
 &lt;/div&gt;
 &lt;div class=&#34;inner_cell&#34;&gt;
@@ -5769,10 +5769,10 @@ Condition satisfied
     
     <item>
       <title>02-00 Python in Practice</title>
-      <link>https://sharmamohit.com/tutorials/ucsl/02-00-python-in-practice/</link>
+      <link>/tutorials/ucsl/02-00-python-in-practice/</link>
       <pubDate>Thu, 25 May 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://sharmamohit.com/tutorials/ucsl/02-00-python-in-practice/</guid>
+      <guid>/tutorials/ucsl/02-00-python-in-practice/</guid>
       <description>&lt;div class=&#34;cell border-box-sizing text_cell rendered&#34;&gt;&lt;div class=&#34;prompt input_prompt&#34;&gt;
 &lt;/div&gt;
 &lt;div class=&#34;inner_cell&#34;&gt;
@@ -5813,10 +5813,10 @@ Condition satisfied
     
     <item>
       <title>02-01 Lists</title>
-      <link>https://sharmamohit.com/tutorials/ucsl/02-01-lists/</link>
+      <link>/tutorials/ucsl/02-01-lists/</link>
       <pubDate>Thu, 25 May 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://sharmamohit.com/tutorials/ucsl/02-01-lists/</guid>
+      <guid>/tutorials/ucsl/02-01-lists/</guid>
       <description>&lt;div class=&#34;cell border-box-sizing text_cell rendered&#34;&gt;&lt;div class=&#34;prompt input_prompt&#34;&gt;
 &lt;/div&gt;
 &lt;div class=&#34;inner_cell&#34;&gt;
@@ -7217,10 +7217,10 @@ The basic structure of the syntax includes a for loop that traverses the list an
     
     <item>
       <title>02-02 Tuples</title>
-      <link>https://sharmamohit.com/tutorials/ucsl/02-02-tuples/</link>
+      <link>/tutorials/ucsl/02-02-tuples/</link>
       <pubDate>Thu, 25 May 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://sharmamohit.com/tutorials/ucsl/02-02-tuples/</guid>
+      <guid>/tutorials/ucsl/02-02-tuples/</guid>
       <description>&lt;div class=&#34;cell border-box-sizing text_cell rendered&#34;&gt;&lt;div class=&#34;prompt input_prompt&#34;&gt;
 &lt;/div&gt;
 &lt;div class=&#34;inner_cell&#34;&gt;
@@ -7757,10 +7757,10 @@ tuple2[10]: 5
     
     <item>
       <title>02-03 Dictionaries</title>
-      <link>https://sharmamohit.com/tutorials/ucsl/02-03-dictionaries/</link>
+      <link>/tutorials/ucsl/02-03-dictionaries/</link>
       <pubDate>Thu, 25 May 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://sharmamohit.com/tutorials/ucsl/02-03-dictionaries/</guid>
+      <guid>/tutorials/ucsl/02-03-dictionaries/</guid>
       <description>&lt;div class=&#34;cell border-box-sizing text_cell rendered&#34;&gt;&lt;div class=&#34;prompt input_prompt&#34;&gt;
 &lt;/div&gt;
 &lt;div class=&#34;inner_cell&#34;&gt;
@@ -8795,10 +8795,10 @@ NY : New York
     
     <item>
       <title>02-04 Functions</title>
-      <link>https://sharmamohit.com/tutorials/ucsl/02-04-functions/</link>
+      <link>/tutorials/ucsl/02-04-functions/</link>
       <pubDate>Thu, 25 May 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://sharmamohit.com/tutorials/ucsl/02-04-functions/</guid>
+      <guid>/tutorials/ucsl/02-04-functions/</guid>
       <description>&lt;div class=&#34;cell border-box-sizing text_cell rendered&#34;&gt;&lt;div class=&#34;prompt input_prompt&#34;&gt;
 &lt;/div&gt;
 &lt;div class=&#34;inner_cell&#34;&gt;

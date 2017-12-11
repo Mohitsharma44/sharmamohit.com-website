@@ -5,7 +5,7 @@
     
     <url>
     
-      <loc>https://sharmamohit.com/tutorials/gx-6004c/</loc>
+      <loc>/tutorials/gx-6004c/</loc>
       <lastmod>2017-07-24T00:00:00+00:00</lastmod>
     </url>
     
@@ -14,7 +14,7 @@
     
     <url>
     
-      <loc>https://sharmamohit.com/tutorials/ucsl/00-00-welcome/</loc>
+      <loc>/tutorials/ucsl/00-00-welcome/</loc>
       <lastmod>2017-05-25T00:00:00+00:00</lastmod>
     </url>
     
@@ -23,7 +23,7 @@
     
     <url>
     
-      <loc>https://sharmamohit.com/tutorials/ucsl/00-01-accessing-jupyter-notebook/</loc>
+      <loc>/tutorials/ucsl/00-01-accessing-jupyter-notebook/</loc>
       <lastmod>2017-05-25T00:00:00+00:00</lastmod>
     </url>
     
@@ -32,7 +32,7 @@
     
     <url>
     
-      <loc>https://sharmamohit.com/tutorials/ucsl/00-02-introduction-to-notebook-and-beyond/</loc>
+      <loc>/tutorials/ucsl/00-02-introduction-to-notebook-and-beyond/</loc>
       <lastmod>2017-05-25T00:00:00+00:00</lastmod>
     </url>
     
@@ -41,7 +41,7 @@
     
     <url>
     
-      <loc>https://sharmamohit.com/tutorials/ucsl/01-00-introduction-to-python/</loc>
+      <loc>/tutorials/ucsl/01-00-introduction-to-python/</loc>
       <lastmod>2017-05-25T00:00:00+00:00</lastmod>
     </url>
     
@@ -50,7 +50,7 @@
     
     <url>
     
-      <loc>https://sharmamohit.com/tutorials/ucsl/01-01-variables/</loc>
+      <loc>/tutorials/ucsl/01-01-variables/</loc>
       <lastmod>2017-05-25T00:00:00+00:00</lastmod>
     </url>
     
@@ -59,7 +59,7 @@
     
     <url>
     
-      <loc>https://sharmamohit.com/tutorials/ucsl/01-02-strings/</loc>
+      <loc>/tutorials/ucsl/01-02-strings/</loc>
       <lastmod>2017-05-25T00:00:00+00:00</lastmod>
     </url>
     
@@ -68,7 +68,7 @@
     
     <url>
     
-      <loc>https://sharmamohit.com/tutorials/ucsl/01-03-numeric-types/</loc>
+      <loc>/tutorials/ucsl/01-03-numeric-types/</loc>
       <lastmod>2017-05-25T00:00:00+00:00</lastmod>
     </url>
     
@@ -77,7 +77,7 @@
     
     <url>
     
-      <loc>https://sharmamohit.com/tutorials/ucsl/01-04-operators/</loc>
+      <loc>/tutorials/ucsl/01-04-operators/</loc>
       <lastmod>2017-05-25T00:00:00+00:00</lastmod>
     </url>
     
@@ -86,7 +86,7 @@
     
     <url>
     
-      <loc>https://sharmamohit.com/tutorials/ucsl/01-05-control-flow/</loc>
+      <loc>/tutorials/ucsl/01-05-control-flow/</loc>
       <lastmod>2017-05-25T00:00:00+00:00</lastmod>
     </url>
     
@@ -95,7 +95,7 @@
     
     <url>
     
-      <loc>https://sharmamohit.com/tutorials/ucsl/02-00-python-in-practice/</loc>
+      <loc>/tutorials/ucsl/02-00-python-in-practice/</loc>
       <lastmod>2017-05-25T00:00:00+00:00</lastmod>
     </url>
     
@@ -104,7 +104,7 @@
     
     <url>
     
-      <loc>https://sharmamohit.com/tutorials/ucsl/02-01-lists/</loc>
+      <loc>/tutorials/ucsl/02-01-lists/</loc>
       <lastmod>2017-05-25T00:00:00+00:00</lastmod>
     </url>
     
@@ -113,7 +113,7 @@
     
     <url>
     
-      <loc>https://sharmamohit.com/tutorials/ucsl/02-02-tuples/</loc>
+      <loc>/tutorials/ucsl/02-02-tuples/</loc>
       <lastmod>2017-05-25T00:00:00+00:00</lastmod>
     </url>
     
@@ -122,7 +122,7 @@
     
     <url>
     
-      <loc>https://sharmamohit.com/tutorials/ucsl/02-03-dictionaries/</loc>
+      <loc>/tutorials/ucsl/02-03-dictionaries/</loc>
       <lastmod>2017-05-25T00:00:00+00:00</lastmod>
     </url>
     
@@ -131,7 +131,7 @@
     
     <url>
     
-      <loc>https://sharmamohit.com/tutorials/ucsl/02-04-functions/</loc>
+      <loc>/tutorials/ucsl/02-04-functions/</loc>
       <lastmod>2017-05-25T00:00:00+00:00</lastmod>
     </url>
     
@@ -140,7 +140,7 @@
     
     <url>
     
-      <loc>https://sharmamohit.com/tutorials/ucsl/02-05-exception-handling/</loc>
+      <loc>/tutorials/ucsl/02-05-exception-handling/</loc>
       <lastmod>2017-05-25T00:00:00+00:00</lastmod>
     </url>
     
@@ -149,7 +149,7 @@
     
     <url>
     
-      <loc>https://sharmamohit.com/tutorials/ucsl/02-06-file-io/</loc>
+      <loc>/tutorials/ucsl/02-06-file-io/</loc>
       <lastmod>2017-05-25T00:00:00+00:00</lastmod>
     </url>
     
@@ -158,7 +158,7 @@
     
     <url>
     
-      <loc>https://sharmamohit.com/tutorials/ucsl/03-00-introduction-to-numpy/</loc>
+      <loc>/tutorials/ucsl/03-00-introduction-to-numpy/</loc>
       <lastmod>2017-05-25T00:00:00+00:00</lastmod>
     </url>
     
@@ -167,7 +167,7 @@
     
     <url>
     
-      <loc>https://sharmamohit.com/tutorials/ucsl/03-01-numpy-array-basics/</loc>
+      <loc>/tutorials/ucsl/03-01-numpy-array-basics/</loc>
       <lastmod>2017-05-25T00:00:00+00:00</lastmod>
     </url>
     
@@ -176,7 +176,7 @@
     
     <url>
     
-      <loc>https://sharmamohit.com/tutorials/ucsl/03-02-ufuncs/</loc>
+      <loc>/tutorials/ucsl/03-02-ufuncs/</loc>
       <lastmod>2017-05-25T00:00:00+00:00</lastmod>
     </url>
     
@@ -185,7 +185,7 @@
     
     <url>
     
-      <loc>https://sharmamohit.com/tutorials/ucsl/03-03-broadcasting-and-computation/</loc>
+      <loc>/tutorials/ucsl/03-03-broadcasting-and-computation/</loc>
       <lastmod>2017-05-25T00:00:00+00:00</lastmod>
     </url>
     
@@ -194,7 +194,7 @@
     
     <url>
     
-      <loc>https://sharmamohit.com/tutorials/ucsl/04-00-introduction-to-matplotlib/</loc>
+      <loc>/tutorials/ucsl/04-00-introduction-to-matplotlib/</loc>
       <lastmod>2017-05-25T00:00:00+00:00</lastmod>
     </url>
     
@@ -203,7 +203,7 @@
     
     <url>
     
-      <loc>https://sharmamohit.com/tutorials/ucsl/04-01-interactive-plotting-with-matplotlib/</loc>
+      <loc>/tutorials/ucsl/04-01-interactive-plotting-with-matplotlib/</loc>
       <lastmod>2017-05-25T00:00:00+00:00</lastmod>
     </url>
     
@@ -212,7 +212,7 @@
     
     <url>
     
-      <loc>https://sharmamohit.com/tutorials/ucsl/04-02-various-types-of-plots/</loc>
+      <loc>/tutorials/ucsl/04-02-various-types-of-plots/</loc>
       <lastmod>2017-05-25T00:00:00+00:00</lastmod>
     </url>
     
@@ -221,7 +221,7 @@
     
     <url>
     
-      <loc>https://sharmamohit.com/tutorials/ucsl/04-03-subplots-text-and-annotations/</loc>
+      <loc>/tutorials/ucsl/04-03-subplots-text-and-annotations/</loc>
       <lastmod>2017-05-25T00:00:00+00:00</lastmod>
     </url>
     
@@ -230,7 +230,7 @@
     
     <url>
     
-      <loc>https://sharmamohit.com/tutorials/ucsl/05-00-intro-to-pandas/</loc>
+      <loc>/tutorials/ucsl/05-00-intro-to-pandas/</loc>
       <lastmod>2017-05-25T00:00:00+00:00</lastmod>
     </url>
     
@@ -239,7 +239,7 @@
     
     <url>
     
-      <loc>https://sharmamohit.com/tutorials/ucsl/05-01-series-and-dataframe/</loc>
+      <loc>/tutorials/ucsl/05-01-series-and-dataframe/</loc>
       <lastmod>2017-05-25T00:00:00+00:00</lastmod>
     </url>
     
@@ -248,7 +248,7 @@
     
     <url>
     
-      <loc>https://sharmamohit.com/tutorials/ucsl/05-02-exploratory-data-analysis-using-pandas/</loc>
+      <loc>/tutorials/ucsl/05-02-exploratory-data-analysis-using-pandas/</loc>
       <lastmod>2017-05-25T00:00:00+00:00</lastmod>
     </url>
     
@@ -257,7 +257,7 @@
     
     <url>
     
-      <loc>https://sharmamohit.com/tutorials/ucsl/xx-miscellaneous-plots/</loc>
+      <loc>/tutorials/ucsl/xx-miscellaneous-plots/</loc>
       <lastmod>2017-05-25T00:00:00+00:00</lastmod>
     </url>
     
@@ -266,7 +266,7 @@
     
     <url>
     
-      <loc>https://sharmamohit.com/talk/cusp-edap/</loc>
+      <loc>/talk/cusp-edap/</loc>
       <lastmod>2017-01-01T00:00:00+00:00</lastmod>
     </url>
     
@@ -275,7 +275,7 @@
     
     <url>
     
-      <loc>https://sharmamohit.com/tags/academic/</loc>
+      <loc>/tags/academic/</loc>
       <lastmod>2017-01-01T00:00:00+00:00</lastmod>
     </url>
     
@@ -284,7 +284,7 @@
     
     <url>
     
-      <loc>https://sharmamohit.com/post/</loc>
+      <loc>/post/</loc>
       <lastmod>2017-01-01T00:00:00+00:00</lastmod>
     </url>
     
@@ -293,7 +293,7 @@
     
     <url>
     
-      <loc>https://sharmamohit.com/publication/</loc>
+      <loc>/publication/</loc>
       <lastmod>2017-01-01T00:00:00+00:00</lastmod>
     </url>
     
@@ -302,7 +302,7 @@
     
     <url>
     
-      <loc>https://sharmamohit.com/talk/</loc>
+      <loc>/talk/</loc>
       <lastmod>2017-01-01T00:00:00+00:00</lastmod>
     </url>
     
@@ -311,7 +311,7 @@
     
     <url>
     
-      <loc>https://sharmamohit.com/publication/hyperspectral-survery-of-nyc-lighting-technology/</loc>
+      <loc>/publication/hyperspectral-survery-of-nyc-lighting-technology/</loc>
       <lastmod>2016-12-20T11:17:33-04:00</lastmod>
     </url>
     
@@ -320,7 +320,7 @@
     
     <url>
     
-      <loc>https://sharmamohit.com/publication/hypertemporal-imaging-of-nyc-grid-dynamics/</loc>
+      <loc>/publication/hypertemporal-imaging-of-nyc-grid-dynamics/</loc>
       <lastmod>2016-08-13T14:57:46-04:00</lastmod>
     </url>
     
@@ -329,7 +329,7 @@
     
     <url>
     
-      <loc>https://sharmamohit.com/post/lets-encrypt-nginx/</loc>
+      <loc>/post/lets-encrypt-nginx/</loc>
       <lastmod>2016-08-11T00:00:00+00:00</lastmod>
     </url>
     
@@ -338,7 +338,7 @@
     
     <url>
     
-      <loc>https://sharmamohit.com/tutorials/gx-9004-005-16/</loc>
+      <loc>/tutorials/gx-9004-005-16/</loc>
       <lastmod>2016-07-12T16:29:28-04:00</lastmod>
     </url>
     
@@ -347,7 +347,7 @@
     
     <url>
     
-      <loc>https://sharmamohit.com/tutorials/cusp-edap16/</loc>
+      <loc>/tutorials/cusp-edap16/</loc>
       <lastmod>2016-07-12T16:17:21-04:00</lastmod>
     </url>
     
@@ -356,7 +356,7 @@
     
     <url>
     
-      <loc>https://sharmamohit.com/post/jupyter-notebooks-in-blog/</loc>
+      <loc>/post/jupyter-notebooks-in-blog/</loc>
       <lastmod>2016-07-12T00:59:02-04:00</lastmod>
     </url>
     
@@ -365,7 +365,7 @@
     
     <url>
     
-      <loc>https://sharmamohit.com/tutorials/ucsl/</loc>
+      <loc>/tutorials/ucsl/</loc>
       <lastmod>2016-07-10T12:58:22-04:00</lastmod>
     </url>
     
@@ -374,7 +374,7 @@
     
     <url>
     
-      <loc>https://sharmamohit.com/project/sonyc/</loc>
+      <loc>/project/sonyc/</loc>
       <lastmod>2016-07-09T22:06:00-04:00</lastmod>
     </url>
     
@@ -383,7 +383,7 @@
     
     <url>
     
-      <loc>https://sharmamohit.com/publication/dynamics-of-the-urban-lightscape/</loc>
+      <loc>/publication/dynamics-of-the-urban-lightscape/</loc>
       <lastmod>2015-12-31T11:17:33-04:00</lastmod>
     </url>
     
@@ -392,7 +392,7 @@
     
     <url>
     
-      <loc>https://sharmamohit.com/project/citysynth/</loc>
+      <loc>/project/citysynth/</loc>
       <lastmod>2014-06-01T00:00:00+00:00</lastmod>
     </url>
     
@@ -401,7 +401,7 @@
     
     <url>
     
-      <loc>https://sharmamohit.com/publication_types/2/</loc>
+      <loc>/publication_types/2/</loc>
       <lastmod>2016-12-20T11:17:33-04:00</lastmod>
       <priority>0</priority>
     </url>
@@ -411,7 +411,7 @@
     
     <url>
     
-      <loc>https://sharmamohit.com/tags/blog/</loc>
+      <loc>/tags/blog/</loc>
       <lastmod>2016-07-12T00:59:02-04:00</lastmod>
       <priority>0</priority>
     </url>
@@ -421,7 +421,7 @@
     
     <url>
     
-      <loc>https://sharmamohit.com/categories/</loc>
+      <loc>/categories/</loc>
       <priority>0</priority>
     </url>
     
@@ -430,7 +430,7 @@
     
     <url>
     
-      <loc>https://sharmamohit.com/tags/cusp/</loc>
+      <loc>/tags/cusp/</loc>
       <lastmod>2017-07-24T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
@@ -440,7 +440,7 @@
     
     <url>
     
-      <loc>https://sharmamohit.com/tags/imaging/</loc>
+      <loc>/tags/imaging/</loc>
       <lastmod>2014-06-01T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
@@ -450,7 +450,7 @@
     
     <url>
     
-      <loc>https://sharmamohit.com/tags/iot/</loc>
+      <loc>/tags/iot/</loc>
       <lastmod>2016-07-09T22:06:00-04:00</lastmod>
       <priority>0</priority>
     </url>
@@ -460,7 +460,7 @@
     
     <url>
     
-      <loc>https://sharmamohit.com/tags/jupyter/</loc>
+      <loc>/tags/jupyter/</loc>
       <lastmod>2016-07-12T00:59:02-04:00</lastmod>
       <priority>0</priority>
     </url>
@@ -470,8 +470,8 @@
     
     <url>
     
-      <loc>https://sharmamohit.com/</loc>
-      <lastmod>2016-04-20T00:00:00+00:00</lastmod>
+      <loc>/</loc>
+      <lastmod>2017-10-15T00:00:00-04:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -480,7 +480,7 @@
     
     <url>
     
-      <loc>https://sharmamohit.com/tags/nyu/</loc>
+      <loc>/tags/nyu/</loc>
       <lastmod>2017-07-24T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
@@ -490,7 +490,7 @@
     
     <url>
     
-      <loc>https://sharmamohit.com/project/</loc>
+      <loc>/project/</loc>
       <lastmod>2016-07-09T22:06:00-04:00</lastmod>
       <priority>0</priority>
     </url>
@@ -500,7 +500,7 @@
     
     <url>
     
-      <loc>https://sharmamohit.com/publication_types/</loc>
+      <loc>/publication_types/</loc>
       <lastmod>2016-12-20T11:17:33-04:00</lastmod>
       <priority>0</priority>
     </url>
@@ -510,7 +510,7 @@
     
     <url>
     
-      <loc>https://sharmamohit.com/tags/python/</loc>
+      <loc>/tags/python/</loc>
       <lastmod>2017-05-25T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
@@ -520,7 +520,7 @@
     
     <url>
     
-      <loc>https://sharmamohit.com/tags/</loc>
+      <loc>/tags/</loc>
       <lastmod>2017-01-01T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
@@ -530,7 +530,7 @@
     
     <url>
     
-      <loc>https://sharmamohit.com/tutorials/</loc>
+      <loc>/tutorials/</loc>
       <lastmod>2017-07-24T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
@@ -540,7 +540,7 @@
     
     <url>
     
-      <loc>https://sharmamohit.com/tags/tutorials/</loc>
+      <loc>/tags/tutorials/</loc>
       <lastmod>2017-07-24T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
@@ -550,7 +550,7 @@
     
     <url>
     
-      <loc>https://sharmamohit.com/tags/ucsl/</loc>
+      <loc>/tags/ucsl/</loc>
       <lastmod>2017-05-25T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
@@ -560,7 +560,7 @@
     
     <url>
     
-      <loc>https://sharmamohit.com/tags/workshop/</loc>
+      <loc>/tags/workshop/</loc>
       <lastmod>2017-07-24T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>

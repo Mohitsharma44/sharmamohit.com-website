@@ -6,6 +6,15 @@ date = "2016-08-13T14:57:46-04:00"
 image = ""
 image_preview = ""
 math = false
+# Publication type.
+# Legend:
+# 0 = Uncategorized
+# 1 = Conference proceedings
+# 2 = Journal
+# 3 = Work in progress
+# 4 = Technical report
+# 5 = Book
+# 6 = Book chapter
 publication_types = ["2"]
 publication = "In *Association for Computing Machinery BuildSys 2016*"
 publication_short = "In *ACM BuildSys '16*"
@@ -17,6 +26,9 @@ url_pdf = "http://dl.acm.org/citation.cfm?id=2993570"
 url_project = ""
 url_slides = ""
 url_video = ""
+# Projects (optional).
+#   Associate this publication with one or more of your projects.
+#   Simply enter the filename (excluding '.md') of your project file in `content/project/`.
+# projects = [""]
 
 +++
-
