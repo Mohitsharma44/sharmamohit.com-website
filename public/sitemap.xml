@@ -5,6 +5,24 @@
     
     <url>
     
+      <loc>/project/uocontroller/</loc>
+      <lastmod>2017-12-12T23:35:07-05:00</lastmod>
+    </url>
+    
+  
+    
+    
+    <url>
+    
+      <loc>/project/cuic/</loc>
+      <lastmod>2017-12-12T21:42:55-05:00</lastmod>
+    </url>
+    
+  
+    
+    
+    <url>
+    
       <loc>/tutorials/gx-6004c/</loc>
       <lastmod>2017-07-24T00:00:00+00:00</lastmod>
     </url>
@@ -411,6 +429,16 @@
     
     <url>
     
+      <loc>/tags/amqp/</loc>
+      <lastmod>2017-12-12T23:35:07-05:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    
+    <url>
+    
       <loc>/tags/blog/</loc>
       <lastmod>2016-07-12T00:59:02-04:00</lastmod>
       <priority>0</priority>
@@ -421,7 +449,37 @@
     
     <url>
     
+      <loc>/tags/c/</loc>
+      <lastmod>2017-12-12T21:42:55-05:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    
+    <url>
+    
+      <loc>/tags/c&#43;&#43;/</loc>
+      <lastmod>2017-12-12T21:42:55-05:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    
+    <url>
+    
       <loc>/categories/</loc>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    
+    <url>
+    
+      <loc>/tags/cli/</loc>
+      <lastmod>2017-12-12T23:35:07-05:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -441,7 +499,7 @@
     <url>
     
       <loc>/tags/imaging/</loc>
-      <lastmod>2014-06-01T00:00:00+00:00</lastmod>
+      <lastmod>2017-12-12T21:42:55-05:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -480,6 +538,16 @@
     
     <url>
     
+      <loc>/tags/networking/</loc>
+      <lastmod>2017-12-12T23:35:07-05:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    
+    <url>
+    
       <loc>/tags/nyu/</loc>
       <lastmod>2017-07-24T00:00:00+00:00</lastmod>
       <priority>0</priority>
@@ -491,7 +559,7 @@
     <url>
     
       <loc>/project/</loc>
-      <lastmod>2016-07-09T22:06:00-04:00</lastmod>
+      <lastmod>2017-12-12T23:35:07-05:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -511,7 +579,17 @@
     <url>
     
       <loc>/tags/python/</loc>
-      <lastmod>2017-05-25T00:00:00+00:00</lastmod>
+      <lastmod>2017-12-12T23:35:07-05:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    
+    <url>
+    
+      <loc>/tags/rabbitmq/</loc>
+      <lastmod>2017-12-12T23:35:07-05:00</lastmod>
       <priority>0</priority>
     </url>
     
