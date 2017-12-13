@@ -13,7 +13,7 @@ math = false
 summary = "CUSP Urban Imaging Capture"
 # Tags: can be used for filtering projects.
 # Example: `tags = ["machine-learning", "deep-learning"]`
-tags = ["imaging", "c++", "python"]
+tags = ["imaging", "c", "c++", "python"]
 
 # Optional featured image (relative to `static/img/` folder).
 [header]
