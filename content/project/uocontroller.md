@@ -33,7 +33,7 @@ The code for this project is located in my Github repo thoughtfully named --
 <br/>
 The following diagram should make the idea more clear:
 
-![uocontroller_flow](http://localhost:1313/img/uocontroller/uocontroller_flow.png)
+![uocontroller_flow](https://sharmamohit.com/img/uocontroller/uocontroller_flow.png)
 
 What's I want is that the cameras / equipments marked as `South` and `North`
 should be controllable via this CLI from either Admin's workstation or from
