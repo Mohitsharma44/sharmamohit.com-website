@@ -49,12 +49,12 @@ filter_default = 0
   tag = ".kubernetes"
 
 [[filter]]
-  name = "c++"
-  tag = "c++"
+  name = "c/c++"
+  tag = ".c"
 
 [[filter]]
   name = "Pi"
-  tag = "Pi"
+  tag = ".pi"
 
 [[filter]]
   name = "Container"
