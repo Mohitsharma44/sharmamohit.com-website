@@ -43,12 +43,12 @@ Admin's any trusted device (over VPN).
 Currently this module interacts and controls that Thermographic FLIR A320 cameras
 using custom [A320 library](https://github.com/Mohitsharma44/pyfrac/blob/master/pyfrac/acquire/capture.py)
 that is a part of my [PyFRAC](https://sharmamohit.com/project/pyfrac) project
-and with the [CUIC](https://sharmamohit.com/projects/cuic) project.
+and with the [CUIC](https://sharmamohit.com/project/cuic) project.
 
 <br/>
 Since I have written most of the other camera's driving modules in C/ C++, I am using
 `rabbitmq-c`, a C library for rabbitmq to serve the RPC calls initiated by this CLI.
-More information on this setup can be found in the [CUIC](https://sharmamohit.com/projects/cuic)
+More information on this setup can be found in the [CUIC](https://sharmamohit.com/project/cuic)
 project.
 
 **Installation**

@@ -38,12 +38,12 @@ Admin&amp;rsquo;s any trusted device (over VPN).&lt;/p&gt;
 Currently this module interacts and controls that Thermographic FLIR A320 cameras
 using custom &lt;a href=&#34;https://github.com/Mohitsharma44/pyfrac/blob/master/pyfrac/acquire/capture.py&#34; target=&#34;_blank&#34;&gt;A320 library&lt;/a&gt;
 that is a part of my &lt;a href=&#34;https://sharmamohit.com/project/pyfrac&#34; target=&#34;_blank&#34;&gt;PyFRAC&lt;/a&gt; project
-and with the &lt;a href=&#34;https://sharmamohit.com/projects/cuic&#34; target=&#34;_blank&#34;&gt;CUIC&lt;/a&gt; project.&lt;/p&gt;
+and with the &lt;a href=&#34;https://sharmamohit.com/project/cuic&#34; target=&#34;_blank&#34;&gt;CUIC&lt;/a&gt; project.&lt;/p&gt;
 
 &lt;p&gt;&lt;br/&gt;
 Since I have written most of the other camera&amp;rsquo;s driving modules in C/ C++, I am using
 &lt;code&gt;rabbitmq-c&lt;/code&gt;, a C library for rabbitmq to serve the RPC calls initiated by this CLI.
-More information on this setup can be found in the &lt;a href=&#34;https://sharmamohit.com/projects/cuic&#34; target=&#34;_blank&#34;&gt;CUIC&lt;/a&gt;
+More information on this setup can be found in the &lt;a href=&#34;https://sharmamohit.com/project/cuic&#34; target=&#34;_blank&#34;&gt;CUIC&lt;/a&gt;
 project.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Installation&lt;/strong&gt;&lt;/p&gt;
