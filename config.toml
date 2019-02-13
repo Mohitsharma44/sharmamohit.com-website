@@ -1,6 +1,6 @@
-baseurl = "/"  # End your URL with a `/` trailing slash, e.g. `https://example.com/`.
+baseurl = "work/"  # End your URL with a `/` trailing slash, e.g. `https://example.com/`.
 title = "Mohit Sharma"
-copyright = "&copy; 2017 Mohit Sharma"
+copyright = "&copy; 2019 Mohit Sharma"
 theme = "academic"
 enableEmoji = true
 footnotereturnlinkcontents = "<sup>^</sup>"
