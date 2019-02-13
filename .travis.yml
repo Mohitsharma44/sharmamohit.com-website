@@ -1,0 +1,28 @@
+dist: xenial
+language: go
+
+go:
+  - master
+
+install:
+  - go get github.com/gohugoio/hugo
+
+before_script:
+  - rm -rm public 2> /dev/null
+
+script:
+  - hugo
+  - mkdir -p final_output/work/
+  - cp -r public/* final_output/work/
+  - cp -r resume/* final_output/
+
+
+deploy:
+  provider: s3
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET
+  bucket: "Test Bucket"
+  skip_cleanup: true
+  region: "Bucket region"
+  acl: public_read
+  local_dir: final_output
