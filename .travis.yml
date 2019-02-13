@@ -8,7 +8,7 @@ install:
   - go get github.com/gohugoio/hugo
 
 before_script:
-  - rm -rm public 2> /dev/null
+  - rm -rf public 2> /dev/null
 
 script:
   - hugo
