@@ -21,8 +21,7 @@ deploy:
   provider: s3
   access_key_id: $AWS_ACCESS_KEY
   secret_access_key: $AWS_SECRET
-  bucket: "Test Bucket"
+  bucket: "mohitsharma44-test-bucket"
   skip_cleanup: true
-  region: "Bucket region"
   acl: public_read
   local_dir: final_output
