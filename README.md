@@ -15,7 +15,7 @@ The `/work/` slug is a portfolio website created using gohugo and Academic theme
 
 ### Building
 
-The website is deployed automatically by TravisCI to AWS S3 bucket. The script for travis primarily consists 
+The website is built and deployed automatically by TravisCI to AWS S3 bucket when a commit is pushed to the master branch. The script for travis primarily consists 
 of building the hugo website to `public` directory, then copying the contents from `resume` to public and finally
 pushing the public directory to S3 bucket.
 
