@@ -10,9 +10,10 @@ weight = 5
 # List your academic interests.
 [interests]
 interests = [
+"Docker",
+"Continuous Integration and Continuous Deployment",
 "Internet of Things",
-"Urban Science",
-"Communication Networks"
+"Urban Science"
 ]
 
 # List your qualifications (such as academic degrees).
@@ -30,7 +31,14 @@ year = 2012
 
 # Biography
 
-I am an Associate Research Scientist at the New York University, Center for Urban Science and Progress (CUSP). My research interest’s lie in
-the Internet of Things (IoT), with a focus on the networking aspects. I am an engineer by training and a researcher by profession. My work includes the development and implementation of the software and networking infrastructure for large scale deployments of cyber-physical systems. To date, I have played a major infrastructure development role in multiple projects at CUSP including Urban Observatory and Sounds of New York City.
+I am a DevOps engineer with strong Linux background and over 4 years of experience in developing and implementing software and networking infrastructure for large-scale deployments of remote sensing and cyber physical systems.
+<br/>
+At my current job, I am responsible for administering, architecting and orchestrating the compute and storage systems and for building secure IoT platforms using CI/CD framework. Since most of my work involves scripting, be it for data analysis or orchestrating the infrastructure, I use Python as my weapon of choice.
+<br/>
+I also work as an adjunct professor teaching graduate students broad topics such as wireless sensor networks, Internet of Things and micro services architecture. I have also designed an [Urban Computing Skills Lab](https://ucsl.cusp.nyu.edu), an online class, for incoming graduate students to get them up to speed on python and data analysis skills for Masters in Urban Informatics at CUSP.
+<br/>
+I am also a researcher fueled by my passion to understand the working of the cities from a physical sciences point of view. I am actively involved with [Urban Observatory](http://cuspuo.org) and [Sounds of New York City](https://sonycproject.com). I actively contribute to, and have published a few papers with my colleagues, in these two projects.
 <br/><br/>
-I received my Masters from NYU Tandon School of Engineering in Computer Systems and Networking where I designed a prototype infrastructure that utilizes window mounted cellphones to continually capture images of New York City skyline to provide deeper understanding about how the city works.
+I received my Masters from NYU Tandon School of Engineering in Computer Systems and Networking where I designed [Citysynth](https://sharmamohit.com/work/project/citysynth/) a prototype infrastructure that utilizes window mounted cellphones to continually capture images of New York City skyline and perform on-the-fly processing to provide deeper understanding about how the city works.
+<br/>
+I consider myself to be a *forever student*, eager to build on my academic background and stay in tune with the latest technology through continued professional development.
