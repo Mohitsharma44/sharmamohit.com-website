@@ -205,7 +205,7 @@ publication_format = 3
 [[params.social]]
 icon = "envelope"
 icon_pack = "fa"
-link = "mailto:test@example.org"
+link = "mailto:mohit.sharma@nyu.edu"
 
 [[params.social]]
 icon = "bar-chart"
@@ -225,7 +225,7 @@ link = "//github.com/Mohitsharma44"
 [[params.social]]
 icon = "building"
 icon_pack = "fa"
-link = "http://cusp.nyu.edu/people/mohit-sharma/"
+link = "https://cusp.nyu.edu/profiles/mohit-sharma/"
 
 
 # Navigation Links
