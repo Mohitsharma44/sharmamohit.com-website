@@ -16,6 +16,8 @@ script:
   - cp -r public/* final_output/work/
   - cp -r resume/* final_output/
 
+before_deploy:
+  - ./aws_creds_env.sh
 
 deploy:
   on:
