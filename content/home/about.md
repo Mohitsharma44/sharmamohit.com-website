@@ -33,9 +33,9 @@ year = 2012
 
 I am a DevOps engineer with strong Linux background and over 4 years of experience in developing and implementing software and networking infrastructure for large-scale deployments of remote sensing and cyber physical systems.
 <br/>
-At my current job, I am responsible for administering, architecting and orchestrating the compute and storage systems and for building secure IoT platforms using CI/CD framework. Since most of my work involves scripting, be it for data analysis or orchestrating the infrastructure, I use Python as my weapon of choice.
+Throughout my career, I have been responsible for administering, architecting and orchestrating the compute and storage systems and for building secure IoT platforms using CI/CD framework. Since most of my work involves scripting, be it for data analysis or orchestrating the infrastructure, I use Python as my weapon of choice.
 <br/>
-I also work as an adjunct professor teaching graduate students broad topics such as wireless sensor networks, Internet of Things and micro services architecture. I have also designed an [Urban Computing Skills Lab](https://ucsl.cusp.nyu.edu), an online class, for incoming graduate students to get them up to speed on python and data analysis skills for Masters in Urban Informatics at CUSP.
+In the past, I have also worked as an adjunct professor at NYU, teaching graduate students broad topics such as wireless sensor networks, Internet of Things and micro services architecture for which I designed [Urban Computing Skills Lab](https://ucsl.cusp.nyu.edu), an online class, for incoming graduate students. This helpef them get up to speed on python and data analysis skills for Masters in Urban Informatics.
 <br/>
 I am also a researcher fueled by my passion to understand the working of the cities from a physical sciences point of view. I am actively involved with [Urban Observatory](http://cuspuo.org) and [Sounds of New York City](https://sonycproject.com). I actively contribute to, and have published a few papers with my colleagues, in these two projects.
 <br/><br/>

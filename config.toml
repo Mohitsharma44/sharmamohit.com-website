@@ -40,18 +40,18 @@ font = "default"
 
 # Your details.
 name = "Mohit Sharma"
-role = "Associate Research Scientist"
+role = "Software Development Engineer II, DevOps"
 
 # Organizations/Affiliations.
 #   Separate multiple entries with a comma, using the form: `[ {name="Org1", url=""}, {name="Org2", url=""} ]`.
-organizations = [ { name = "New York University (Center for Urban Science and Progress)", url = "http://cusp.nyu.edu/" } ]
+organizations = [ { name = "Workday", url = "https://www.workday.com/" } ]
 
 gravatar = true  # Get your avatar from Gravatar.com? (true/false)
 #avatar = "portrait.jpg"  # Specify an avatar image (in `static/img/` folder) or delete value to disable avatar.
-email = "mohit.sharma@nyu.edu"
-address = "NYU CUSP, 370 Jay Street, 13 Floor, Brooklyn, NY, USA"
+email = "mohitsharma44@gmail.com"
+address = "Workday, 1515 Douglas St, Victoria, BC V8W 2B9, Canada"
 office_hours = "Email for appointment"
-phone = "646 997 0566"
+#phone = "646 997 0566"
 skype = "mohitsharma44"
 telegram = ""
 
@@ -205,7 +205,7 @@ publication_format = 3
 [[params.social]]
 icon = "envelope"
 icon_pack = "fa"
-link = "mailto:mohit.sharma@nyu.edu"
+link = "mailto:mohitsharma44@gmail.com"
 
 [[params.social]]
 icon = "bar-chart"
