@@ -28,7 +28,7 @@ deploy:
   bucket: "sharmamohit.com"
   skip_cleanup: true
   acl: public_read
-  local_dir: final_output
+  local_dir: work/final_output
 
 after_deploy:
   # Allow `awscli` to make requests to CloudFront.
