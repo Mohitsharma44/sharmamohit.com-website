@@ -1,4 +1,4 @@
 */virtenv/*
 *.DS_Store
-public/*
+*/public/*
 *.idea/*
