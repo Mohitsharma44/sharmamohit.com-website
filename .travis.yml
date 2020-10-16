@@ -1,21 +1,19 @@
-dist: xenial
+dist: focal
 
 addons:
-  snaps:
-    - name: hugo
   apt:
     update: true
 
 before_script:
-  - rm -rf public 2> /dev/null
-  - rm -rf ../final_output 2> /dev/null
+  - rm -rf work/public 2> /dev/null
+  - rm -rf work/final_output 2> /dev/null
+  - sudo apt-get install hugo
 
 script:
-  - cd work
-  - hugo
-  - mkdir -p ../final_output/work/
-  - cp -r public/* ../final_output/work/
-  - cp -r ../landing_page/* ../final_output/
+  - hugo -s work
+  - mkdir -p work/final_output/work/
+  - cp -r work/public/* work/final_output/work/
+  - cp -r landing_page/* work/final_output/
 
 before_deploy:
   - ./aws_creds_env.sh
