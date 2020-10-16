@@ -3,21 +3,23 @@ dist: xenial
 addons:
   snaps:
     - name: hugo
-    - name: aws-cli
-      classic: true
-      channel: latest/edge
+  apt:
+    update: true
 
 before_script:
   - rm -rf public 2> /dev/null
+  - rm -rf ../final_output 2> /dev/null
 
 script:
+  - cd work
   - hugo
-  - mkdir -p final_output/work/
-  - cp -r public/* final_output/work/
-  - cp -r resume/* final_output/
+  - mkdir -p ../final_output/work/
+  - cp -r public/* ../final_output/work/
+  - cp -r ../landing_page/* ../final_output/
 
 before_deploy:
   - ./aws_creds_env.sh
+  - sudo apt-get install -y awscli
 
 deploy:
   on:
