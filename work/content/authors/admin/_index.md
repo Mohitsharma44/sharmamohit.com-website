@@ -14,7 +14,7 @@ organizations:
   url: https://www.workday.com/
 
 # Short bio (displayed in user profile at end of posts)
-bio: DevOps engineer with a strong Linux background and over 6 years of experience in developing and implementing software and networking infrastructure for large-scale deployments.
+bio: DevOps engineer with a strong Linux background and over 8 years of experience in developing and implementing software and networking infrastructure for large-scale deployments.
 
 # Interests to show in About widget
 interests:
@@ -69,9 +69,9 @@ email: "mohitsharma44@gmail.com"
 #- Principal Investigators
 ---
 
-I am a DevOps engineer with strong Linux background and over 6 years of experience in developing and implementing software and networking infrastructure for large-scale deployments of on-prem, cloud and cyber physical systems.
+I am a DevOps engineer with strong Linux background and over 8 years of experience in developing and implementing software and networking infrastructure for large-scale deployments of on-prem, cloud and cyber physical systems.
 <br/>
-Throughout my career, I have been responsible for administering, architecting and orchestrating the compute & storage systems and for building secure IoT platforms using CI/CD framework. Since most of my work involves scripting, be it for data analysis or orchestrating the infrastructure, I use Python as my weapon of choice.
+Throughout my career, I have leveraged SRE principles and DevOps processes for administering, architecting and orchestrating the compute & storage systems and for building secure IoT platforms. Since most of my work involves scripting, be it for data analysis or orchestrating the infrastructure, I use Python as my weapon of choice.
 <br/>
 In the past, I have also worked as an adjunct professor at NYU, teaching graduate students broad topics such as wireless sensor networks, Internet of Things and micro services architecture. I have also designed and implemented [Urban Computing Skills Lab](https://ucsl.cusp.nyu.edu), an online class, for incoming graduate students for Masters in Urban Informatics.
 <br/>
