@@ -2,3 +2,12 @@
 *.DS_Store
 */public/*
 *.idea/*
+## Latex files
+*.aux
+*.*latexmk
+*.fls
+*.out
+*.synctex.gz
+*.log
+## hugo temporary files
+resources/

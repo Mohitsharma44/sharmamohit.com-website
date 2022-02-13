@@ -36,15 +36,21 @@ experience:
     reducing operations toil by several hours.
       * Actively manage, improve, and monitor infrastructure resources in DC and on AWS including but not limited to
         EC2, ECS, Route53, S3, RDS, Lambda, ES etc. using tools like terraform, wavefront, ELK stack and slack.
+      * Introduced team to using policies (OPA) for managing infrastructure giving developers more control over their cloud resources.
       * Writing ansible roles to help manage the hosts and perform application deployment.
       * Writing Jenkinsfiles and improving shared libraries for automated build and deployment of several applications and services using Jenkins.
       * Migrating application services to an in-house flavor of Kubernetes platform.
     * Knowledge Share
       <br/><br/>
       * Spearheaded an initiative between Ops and multiple dev teams to empower the developers with the knowledge
-    they would need to take ownership of their services.}
+    they would need to take ownership of their services.
+    * Scrum Master
+      <br/><br/>
+      * Helping team self organize and self manage by incorporating servant leadership principles.
   location: Victoria, BC, Canada
-  title: SDE, DevOps Engineer
+  title: |- 
+    * SDE III, DevOps Engineer
+    * SDE II, DevOps Engineer
 - company: NYU CUSP
   company_url: "https://cusp.nyu.edu"
   date_end: "2019-05-14"
