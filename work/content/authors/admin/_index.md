@@ -6,7 +6,7 @@ title: Mohit Sharma
 superuser: true
 
 # Role/position/tagline
-role: Software Development Engineer, DevOps
+role: Senior Software Development Engineer, DevOps
 
 # Organizations/Affiliations to show in About widget
 organizations:
@@ -14,7 +14,7 @@ organizations:
   url: https://www.workday.com/
 
 # Short bio (displayed in user profile at end of posts)
-bio: DevOps engineer with a strong Linux background and over 8 years of experience in developing and implementing software and networking infrastructure for large-scale deployments.
+bio: DevOps engineer with a strong Linux background and over a decade of experience designing, automating and managing mission critical infrastructure deployments by leveraging SRE principles and other DevOps processes. Expert in scripting using python with an emphasis on real-time, high speed data pipelines and distributed computing across networks.
 
 # Interests to show in About widget
 interests:
@@ -69,7 +69,7 @@ email: "mohitsharma44@gmail.com"
 #- Principal Investigators
 ---
 
-I am a DevOps engineer with strong Linux background and over 8 years of experience in developing and implementing software and networking infrastructure for large-scale deployments of on-prem, cloud and cyber physical systems.
+I am a DevOps engineer with strong Linux background and over a decade of experience in developing and implementing software and networking infrastructure for large-scale deployments of on-prem, cloud and cyber physical systems.
 <br/>
 Throughout my career, I have leveraged SRE principles and DevOps processes for administering, architecting and orchestrating the compute & storage systems and for building secure IoT platforms. Since most of my work involves scripting, be it for data analysis or orchestrating the infrastructure, I use Python as my weapon of choice.
 <br/>
