@@ -17,6 +17,7 @@
 \usepackage{fancyhdr}
 \usepackage{xcolor}
 \usepackage{siunitx}
+\input{glyphtounicode}
 
 
 \pagestyle{fancy}
@@ -37,6 +38,9 @@
 \raggedbottom
 \raggedright
 \setlength{\tabcolsep}{0in}
+
+% Ensure that generate pdf is machine readable/ATS parsable
+\pdfgentounicode=1
 
 % Sections formatting
 \titleformat{\section}{
@@ -62,7 +66,14 @@
 \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
     \textbf{#1}       & #2                 \\
     \textit{\small#3} & \textit{\small #4} \\
-\end{tabular*}\vspace{-5pt}
+\end{tabular*}\vspace{-3pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+    \vspace{3pt}
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-5pt}
 }
 
 \newcommand{\resumeSubItem}[2]{\resumeItem{#1}{#2}\vspace{-4pt}}
@@ -92,7 +103,7 @@
 
 %-----------SUMMARY-------------------
 \section{\color[HTML]{DF691A} Summary}
-Innovative DevOps engineer with a strong Linux background and over 8 years of experience designing,  automating and managing mission critical infrastructure deployments by leveraging SRE principles and other DevOps processes.  Expert in scripting using python with an emphasis on real-time, high speed data pipelines and distributed computing across networks.
+Innovative DevOps engineer with a strong Linux background and over a decade of experience designing,  automating and managing mission critical infrastructure deployments by leveraging SRE principles and other DevOps processes.  Expert in scripting using python with an emphasis on real-time, high speed data pipelines and distributed computing across networks.
 
 
 %-----------EXPERIENCE-----------------
@@ -101,23 +112,30 @@ Innovative DevOps engineer with a strong Linux background and over 8 years of ex
 
 \resumeSubheading
 {Workday}{Victoria, BC, Canada}
-{Software Development Engineer III, DevOps}{May 2021 - Present}
-
-\textit{\small{Software Development Engineer II, DevOps}} \null\hfill \textit{\small{May 2019 - May 2021.}}
+{Senior Software Development Engineer, DevOps}{May 2023 - Present.}
+\resumeSubSubheading
+{Software Development Engineer III, DevOps}{May 2021 - April 2023.}
+\resumeSubSubheading
+{Software Development Engineer II, DevOps}{May 2019 - April 2021.}
 \resumeItemListStart
-\resumeItem{Development and Operations}{Created an automated AWS deployment pipeline to deploy microservice application cross account and cross region
+\resumeItem{Development and Operations}{}
+\newline
+{\textbf{-} Implementing policy-based infrastructure management using 
+\href{https://www.openpolicyagent.org/}{OPA} and \href{https://www.runatlantis.io/}{Atlantis} 
+improving developer experience while providing them more control over their resources and helping them shift 
+security best practices to the left.}
+\newline
+{\textbf{-} Mentoring developers and junior engineers as they grow into their role.}
+\newline
+{\textbf{-} Created an automated AWS deployment pipeline to deploy microservice application cross account and cross region
 reducing operations toil by several hours.}
 \newline
-{Actively manage, improve, and monitor infrastructure resources in DC and on AWS including but not limited to
-EC2, ECS, Route53, S3, RDS, Lambda, ES etc. using tools like terraform, wavefront, ELK stack and slackbot.}
+{\textbf{-} Actively manage, improve, and monitor infrastructure resources in DC and on AWS including but not limited to
+EC2, ECS, Route53, S3, RDS, Lambda, ES etc. using tools like ansible, terraform, wavefront, ELK stack and slackbot.}
 \newline
-{Introduced team to using policies (OPA) for managing infrastructure giving developers more control over their cloud resources.}
+{\textbf{-} Writing Jenkinsfiles and improving shared libraries for automated build and deployment of several applications and services using Jenkins.}
 \newline
-{Writing ansible roles to help manage the hosts and to perform application deployments.}
-\newline
-{Writing Jenkinsfiles and improving shared libraries for automated build and deployment of several applications and services using Jenkins.}
-\newline
-{Migrating application services to an in-house flavor of Kubernetes platform.}
+{\textbf{-} Migrating applications and services to an in-house flavor of Kubernetes platform.}
 \resumeItem{Knowledge Share}{Spearheaded an initiative between operations and multiple dev teams to empower the developers with the knowledge
 they would need to take ownership of their services.}
 \resumeItem{Scrum Master}{Helping team self organize and self manage by incorporating servant leadership principles.}
@@ -126,11 +144,11 @@ they would need to take ownership of their services.}
 \resumeSubheading
 {NYU CUSP}{Brooklyn, NY, USA}
 {Associate Research Scientist}{May 2015 - May 2019}
-
-\textit{\small{Assistant Research Scientist}} \null\hfill \textit{\small{June 2014 - May 2015 .}}
+\resumeSubSubheading
+{Assistant Research Scientist}{June 2014 - May 2015.}
 \resumeItemListStart
 \resumeItem{Dockkeeper}
-{Developed a scalable and secure container scheduling and monitoring tool that leverages the docker ecosystem and prometheus for provisioning services on physical hosts. This helped eliminate the VM license fees of over \$35,000 per year and optimizing the efficiency of hosts by over 55\%. \\Deployed a multi-node kubernetes cluster for exposing load-balanced web applications on the web.}
+{Developed a scalable and secure container scheduling and monitoring tool that leverages the docker ecosystem and prometheus for provisioning services on physical hosts. This helped eliminate the VM license fees of over \$35,000 per year and optimizing the efficiency of hosts by over 55\%.}
 \resumeItem{UOInfra}
 {Architected the NYU/CUSP Urban Observatory's multi-site physical infrastructure consisting of multiple dense compute and storage nodes comprising of over half a petabyte of storage space, provisioned for multi-user mini-HPC environments, using Ansible and Packer.\\
 Deployed a 27 screen vizwall using a cluster of networked raspberry Pi's enabling researchers to interpret their visualizable data, while keeping the whole price to 1/8 th of that of a commercial solution.}
@@ -143,13 +161,10 @@ Deployed a 27 screen vizwall using a cluster of networked raspberry Pi's enablin
 \section{\color[HTML]{DF691A} Education}
 \resumeSubHeadingListStart
 \resumeSubheading
-{NYU Polytechnic School of Engineering}{Brooklyn, NY, USA}
+{NYU Tandon School of Engineering}{Brooklyn, NY, USA}
 {Master of Science in Telecommunication Networks}{Aug. 2012 -- May. 2014}
 
 \textit{\small{Thesis - \href{https://sharmamohit.com/project/citysynth/}{CitySynth: Imaging with a Network of Devices}}}
-%\resumeSubheading
-%  {Birla Institute of Technology and Science}{Pilani, India}
-%  {Bachelor of Engineering in Electrical and Electronics;  GPA: 3.66 (9.15/10.0)}{Aug. 2008 -- July. 2012}
 \resumeSubHeadingListEnd
 
 
@@ -165,12 +180,12 @@ Deployed a 27 screen vizwall using a cluster of networked raspberry Pi's enablin
 %-----------PROJECTS-----------------
 \section{\color[HTML]{DF691A} Projects}
 \resumeSubHeadingListStart
-\resumeSubItem{CUIC}
-{Open source python library for interfacing with GigE vision broadband, thermographic and hyperspectral cameras using advanced message queuing protocol to acquire images and perform pre-processing on-the-fly.}
+% \resumeSubItem{CUIC}
+% {Open source python library for interfacing with GigE vision broadband, thermographic and hyperspectral cameras using advanced message queuing protocol to acquire images and perform pre-processing on-the-fly.}
 \resumeSubItem{UCSLHUB}
-{Developed a resilient and scalable back-end infrastructure using docker swarm, jupyterhub and keycloak for hosting the CUSP's UCSL bootcamp which will be accessed by hundreds of students every year.}
+{Developed a resilient and scalable back-end infrastructure using docker swarm, jupyterhub and keycloak for hosting the CUSP's UCSL bootcamp which are accessed by hundreds of students every year.}
 \resumeSubItem{HOMELAB}
-{Running homelab with ansible and terraform managed VMWare ESXI, KVM and VSphere instances behind a Pfsense firewall that is used for testing and development including emulation of distributed datacenters for UOInfra.}
+{Running a HCI homelab with ansible and terraform managed KVM nodes with Ceph running behind a Pfsense firewall that is used for testing and development including emulation of distributed datacenters for UO Infra.}
 \resumeSubHeadingListEnd
 
 \section{\color[HTML]{DF691A} Publications, Teaching Experience and more..}
@@ -178,27 +193,5 @@ Deployed a 27 screen vizwall using a cluster of networked raspberry Pi's enablin
 \resumeItem{View it online}{\href{https://sharmamohit.com/work/}{https://sharmamohit.com/}}
 \newline
 \resumeSubHeadingListEnd
-%%-----------PUBLICATIONS-----------------
-%\section{\color[HTML]{DF691A} Publications}
-%\resumeSubHeadingListStart
-%\resumePublicationItem{\href{https://ieeexplore.ieee.org/document/8646419}{Persistent Hyperspectral Observations of the Urban Lightscape}}{\textit{IEEE GlobalSIP}, 2018}{Training a supervised classifier to automatically determine location of light sources on persistent hyperspectral imaging of the New York City urban lightscape, with \resumeTilde 7.2 x \num{e-4} \SI{}{\micro\metre} spectral resolution, surveyed over 25 consecutive summer nights over a 6 minute time resolution using Dockkeeper infrastructure.}
-%\resumePublicationItem{\href{http://www.mdpi.com/1424-8220/16/12/2047/html}{A Hyperspectral Survey of New York City Lighting Technology}, 2016}{\textit{Sensors}, 16, 12}
-%{Using a scanning, single channel spectrograph to identify the lighting technologies in use in the NYC}
-%\resumePublicationItem{\href{http://dl.acm.org/citation.cfm?id=2993570}{Hypertemporal imaging of NYC Grid Dynamics}, 2016}{\textit{BuildSys '16}}
-%{Demonstrating the concept of capturing the 120 Hz flicker of lights across a NYC skyline as a proxy to indicate the health of distribution transformers}
-%\resumePublicationItem{\href{http://www.sciencedirect.com/science/article/pii/S0306437915001167}{Dynamics of Urban Lightscape}, 2015}{\textit{Information System}, 54, 115}
-%{Using a network of cameras to understand \textit{the pulse of the city}}
-%\resumeSubHeadingListEnd
-%
-%%-----------Teaching-----------------
-%\section{\color[HTML]{DF691A} Teaching Experience}
-%\resumeSubHeadingListStart
-%\resumePublicationItem{ \href{https://sharmamohit.com/\#teaching}{\textbf{Urban Computing Skills Lab}} at NYU}{\textit{2014 - 2019}}
-%{Instructor for summer boot camp course on introduction to Python and SciPy packages.}
-%\resumePublicationItem{ \href{https://sharmamohit.com/\#teaching}{\textbf{Advanced Topics in Urban Informatics}} at NYU}{\textit{2016, 2017, 2019}}
-%{Instructor for a 3 week intensive course on topics including Wireless Sensor Networks, IoT and Microservices}
-%%\resumePublicationItem {CUSP City Challenge Week}{\textit{2016}}{Advised 14 graduate students on a 2 day challenge of Analyzing Crime in NYC}
-%\resumePublicationItem{Advised NYU/CUSP graduate student Denis Khryashchev}{\textit{2015 - 2016}}{project: \href{https://www.overleaf.com/read/ssrzkqkznpkw}{\textit{Social Pattern Detection by scanning GSM downlink spectrum}}}
-%\resumeSubHeadingListEnd
 
 \end{document}
