@@ -32,8 +32,10 @@ experience:
   description: |-
     * Development and Operations
       <br/><br/>
-      *  Created an automated AWS deployment pipeline to deploy microservice application cross account and cross region;
-    reducing operations toil by several hours.
+      * Implementing policy-based infrastructure management using OPA and Atlantis improving developer experience while providing them more control over their resources and helping them shift security best practices to the left.
+      * Mentoring developers and junior engineers as they grow into their role.
+      * Created an automated AWS deployment pipeline to deploy microservice application cross account and cross region;
+      reducing operations toil by several hours.
       * Actively manage, improve, and monitor infrastructure resources in DC and on AWS including but not limited to
         EC2, ECS, Route53, S3, RDS, Lambda, ES etc. using tools like terraform, wavefront, ELK stack and slack.
       * Introduced team to using policies (OPA) for managing infrastructure giving developers more control over their cloud resources.
@@ -49,8 +51,9 @@ experience:
       * Helping team self organize and self manage by incorporating servant leadership principles.
   location: Victoria, BC, Canada
   title: |- 
-    * SDE III, DevOps Engineer
-    * SDE II, DevOps Engineer
+    * Senior Software Development Engineer, DevOps
+    * Software Development Engineer III, DevOps
+    * Software Development Engineer II, DevOps
 - company: NYU CUSP
   company_url: "https://cusp.nyu.edu"
   date_end: "2019-05-14"
