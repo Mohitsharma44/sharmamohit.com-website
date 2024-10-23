@@ -39,6 +39,7 @@ jobs:
         uses: actions/download-artifact@v4.1.7
         with:
           name: output
+          path: output
       - name: Display structure of downloaded files
         run: ls -R output/
       - name: Configure AWS credentials
