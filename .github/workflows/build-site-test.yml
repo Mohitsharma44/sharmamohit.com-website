@@ -41,13 +41,13 @@ jobs:
           name: output
           path: output
       - name: Display structure of downloaded files
-        run: ls -R output/
-      - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@v1
-        with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET }}
-          aws-region: ${{ env.AWS-DEFAULT-REGION }}
+        run: ls -lah ./
+      # - name: Configure AWS credentials
+      #   uses: aws-actions/configure-aws-credentials@v1
+      #   with:
+      #     aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY }}
+      #     aws-secret-access-key: ${{ secrets.AWS_SECRET }}
+      #     aws-region: ${{ env.AWS-DEFAULT-REGION }}
       # - name: Sync site to S3 with aws cli
       #   run: aws s3 sync --size-only --delete output/ s3://${{ secrets.S3_BUCKET }}
       # - name: Invalidate cache on CloudFront
