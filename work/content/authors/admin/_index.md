@@ -6,21 +6,23 @@ title: Mohit Sharma
 superuser: true
 
 # Role/position/tagline
-role: Senior Software Development Engineer, DevOps
+role: Senior Infrastructure Engineer
 
 # Organizations/Affiliations to show in About widget
 organizations:
-- name: Workday
-  url: https://www.workday.com/
+- name: Angi
+  url: https://angi.com/
 
 # Short bio (displayed in user profile at end of posts)
-bio: DevOps engineer with a strong Linux background and over a decade of experience designing, automating and managing mission critical infrastructure deployments by leveraging SRE principles and other DevOps processes. Expert in scripting using python with an emphasis on real-time, high speed data pipelines and distributed computing across networks.
+bio: DevOps Engineer with 10+ years of experience automating and scaling mission-critical systems. Proven expertise in Kubernetes, AWS, and Linux, with a strong focus on reducing operational complexity, enhancing developer experience, and fostering cross-functional collaboration. A track record of driving infrastructure automation, mentoring teams, and implementing best practices to deliver resilient, highly available systems.
 
 # Interests to show in About widget
 interests:
-- System design and architecture
-- Infrastructure automation
+- Cloud infrastructure automation
 - Distributed computing
+- Kubernetes and container orchestration
+- DevOps best practices and SRE principles
+- Urban computing and IoT research
 
 # Education to show in About widget
 education:
@@ -69,16 +71,16 @@ email: "mohitsharma44@gmail.com"
 #- Principal Investigators
 ---
 
-I am a DevOps engineer with strong Linux background and over a decade of experience in developing and implementing software and networking infrastructure for large-scale deployments of on-prem, cloud and cyber physical systems.
+I’m a DevOps Engineer with over a decade of experience in architecting and automating mission-critical infrastructure across on-premises, cloud, and cyber-physical systems. With a strong Linux background and a passion for leveraging SRE principles and DevOps processes, I focus on reducing complexity and delivering scalable, reliable solutions.
 <br/>
-Throughout my career, I have leveraged SRE principles and DevOps processes for administering, architecting and orchestrating the compute & storage systems and for building secure IoT platforms. Since most of my work involves scripting, be it for data analysis or orchestrating the infrastructure, I use Python as my weapon of choice.
+Throughout my career, I’ve worked on large-scale deployments using tools like Kubernetes and Terraform, driving infrastructure automation and empowering development teams to focus on building, not managing infrastructure. While Python has been my scripting language of choice for automating workflows and streamlining data processes, I’ve recently been leaning more into Golang for various tasks.
 <br/>
-In the past, I have also worked as an adjunct professor at NYU, teaching graduate students broad topics such as wireless sensor networks, Internet of Things and micro services architecture. I have also designed and implemented [Urban Computing Skills Lab](https://ucsl.cusp.nyu.edu), an online class, for incoming graduate students for Masters in Urban Informatics.
+Previously, at NYU CUSP, I developed a range of infrastructure solutions, including building secure IoT platforms and designing scalable compute and storage systems. I also had the opportunity to teach as an Adjunct Professor at NYU, covering topics such as wireless sensor networks, Internet of Things, and microservices architecture. My experience also includes creating the [Urban Computing Skills Lab](https://ucsl.cusp.nyu.edu), an online course for graduate students.
 <br/>
-I am also a researcher fueled by my passion to understand the working of the cities from a physical sciences point of view. I am actively involved with [Urban Observatory](http://cuspuo.org) and [Sounds of New York City](https://sonycproject.com). I actively contribute to, and have published a few papers with my colleagues, in these two projects.
+In addition to my industry work, I’ve contributed to urban research projects like the [Urban Observatory](http://cuspuo.org) and [Sounds of New York City](https://sonycproject.com), where I have co-authored and published several papers. I am passionate about applying technology to understand and improve urban environments.
 <br/><br/>
-I received my Masters from NYU Tandon School of Engineering in Computer Systems and Networking where I designed [Citysynth](https://sharmamohit.com/work/project/citysynth/), a prototype infrastructure, that utilizes window mounted cellphones to continually capture images of New York City skyline and perform on-the-fly processing to provide deeper understanding about how the city works.
+I earned my Master's from NYU Tandon School of Engineering in Computer Systems and Networking, where I developed [Citysynth](https://sharmamohit.com/work/project/citysynth/), a project leveraging networked devices to monitor and analyze the New York City skyline.
 <br/>
-I consider myself to be a *forever student*, eager to build on my academic background and stay in tune with the latest technology through continued professional development.
+I consider myself a lifelong learner, continuously advancing my skills and staying on the cutting edge of DevOps practices, cloud infrastructure, and urban computing through ongoing professional development and curiosity.
 
 {{< icon name="download" pack="fas" >}} Download my {{< staticref "media/mohit_resume.pdf" "newtab" >}}resumé{{< /staticref >}}.
