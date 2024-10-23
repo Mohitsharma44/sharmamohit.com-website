@@ -27,7 +27,7 @@ jobs:
           cp -r landing_page/* work/final_output/
         shell: bash
       - name: Store public dir as an artifact
-        uses: actions/upload-artifact@v1
+        uses: actions/upload-artifact@v4.4.3
         with:
           name: output
           path: work/final_output/
