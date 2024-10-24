@@ -4,7 +4,7 @@
 % License : MIT
 %------------------------
 
-\documentclass[letterpaper,10.5pt]{article}
+\documentclass[letterpaper,11pt]{article}
 
 \usepackage{latexsym}
 \usepackage[empty]{fullpage}
@@ -97,22 +97,34 @@
 %----------HEADING-----------------
 \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
 \textbf{\href{https://sharmamohit.com/} {\color[HTML]{DF691A} Mohit Sharma}} & \color[HTML]{DF691A} Email : \href{mailto:mohitsharma44@gmail.com}{mohitsharma44@gmail.com}\\
-\href{https://sharmamohit.com/}{https://www.sharmamohit.com}  & Mobile : +1-778-587-6241\\
+\href{https://sharmamohit.com/}{https://www.sharmamohit.com}  & LinkedIn : \href{https://linkedin.com/in/mohitsharma44/}{linkedin.com/in/mohitsharma44}\\
 \end{tabular*}
 
 
 %-----------SUMMARY-------------------
 \section{\color[HTML]{DF691A} Summary}
-Innovative DevOps engineer with a strong Linux background and over a decade of experience designing,  automating and managing mission critical infrastructure deployments by leveraging SRE principles and other DevOps processes.  Expert in scripting using python with an emphasis on real-time, high speed data pipelines and distributed computing across networks.
-
+DevOps Engineer with 10+ years of experience automating and scaling mission-critical systems. Proven expertise in Kubernetes, AWS, and Linux, with a strong focus on reducing operational complexity, enhancing developer experience, and fostering cross-functional collaboration. A track record of driving infrastructure automation, mentoring teams, and implementing best practices to deliver resilient, highly available systems.
 
 %-----------EXPERIENCE-----------------
 \section{\color[HTML]{DF691A} Experience}
 \resumeSubHeadingListStart
 
 \resumeSubheading
+{Angi Inc}{Remote}
+{Senior Infrastructure Engineer}{Sept 2023 - Present}
+\resumeItemListStart
+\resumeItem{Angi One}{}
+\newline
+{\textbf{-} Collaborated with cross-functional teams to build key components of the Angi One platform using Kubernetes controllers, Flux, and ArgoCD, enabling single-manifest deployments for applications and cloud services, reducing developer overhead and cutting production time by 50\%.}
+\newline
+{\textbf{-} Led efforts to automate documentation workflows based on CRDs, ensuring up-to-date documentation with every release, reducing manual effort and support inquiries.}
+\newline
+{\textbf{-} Partnering with development and observability teams to enhance and automate component generation in the Backstage catalog, streamlining the onboarding process and improving system visibility.}
+\resumeItemListEnd
+
+\resumeSubheading
 {Workday}{Victoria, BC, Canada}
-{Senior Software Development Engineer, DevOps}{May 2023 - Present.}
+{Senior Software Development Engineer, DevOps}{May 2023 - Sept 2023.}
 \resumeSubSubheading
 {Software Development Engineer III, DevOps}{May 2021 - April 2023.}
 \resumeSubSubheading
@@ -120,15 +132,15 @@ Innovative DevOps engineer with a strong Linux background and over a decade of e
 \resumeItemListStart
 \resumeItem{Development and Operations}{}
 \newline
-{\textbf{-} Implementing policy-based infrastructure management using 
+{\textbf{-} Implemented policy-based infrastructure management using 
 \href{https://www.openpolicyagent.org/}{OPA} and \href{https://www.runatlantis.io/}{Atlantis} 
 improving developer experience while providing them more control over their resources and helping them shift 
 security best practices to the left.}
 \newline
-{\textbf{-} Mentoring developers and junior engineers as they grow into their role.}
+{\textbf{-} Mentored developers and junior engineers as they grew into their role.}
 \newline
 {\textbf{-} Created an automated AWS deployment pipeline to deploy microservice application cross account and cross region
-reducing operations toil by several hours.}
+reducing operations toil by over 4 hours every week.}
 \newline
 {\textbf{-} Actively manage, improve, and monitor infrastructure resources in DC and on AWS including but not limited to
 EC2, ECS, Route53, S3, RDS, Lambda, ES etc. using tools like ansible, terraform, wavefront, ELK stack and slackbot.}
@@ -138,7 +150,7 @@ EC2, ECS, Route53, S3, RDS, Lambda, ES etc. using tools like ansible, terraform,
 {\textbf{-} Migrating applications and services to an in-house flavor of Kubernetes platform.}
 \resumeItem{Knowledge Share}{Spearheaded an initiative between operations and multiple dev teams to empower the developers with the knowledge
 they would need to take ownership of their services.}
-\resumeItem{Scrum Master}{Helping team self organize and self manage by incorporating servant leadership principles.}
+\resumeItem{Scrum Master}{Helped team self organize and self manage by incorporating servant leadership principles.}
 \resumeItemListEnd
 
 \resumeSubheading
@@ -171,10 +183,7 @@ Deployed a 27 screen vizwall using a cluster of networked raspberry Pi's enablin
 %-----------CERTIFICATIONS-----------
 \section{\color[HTML]{DF691A} Certifications}
 \resumeSubHeadingListStart
-\resumeSubItem{CKA Certified Kubernetes Administrator} \null\hfill \textit{\small{August 2020 - August 2023}}
-\newline
-\newline
-{Certificate Id: \href{https://www.youracclaim.com/badges/ce11744e-269f-459d-836a-9ce4c11ff2c9}{LF-bu4edd0v34}}
+\resumeSubItem{CKA Certified Kubernetes Administrator} \null\hfill \textit{\small{}}
 \resumeSubHeadingListEnd
 
 %-----------PROJECTS-----------------
@@ -182,10 +191,14 @@ Deployed a 27 screen vizwall using a cluster of networked raspberry Pi's enablin
 \resumeSubHeadingListStart
 % \resumeSubItem{CUIC}
 % {Open source python library for interfacing with GigE vision broadband, thermographic and hyperspectral cameras using advanced message queuing protocol to acquire images and perform pre-processing on-the-fly.}
+\resumeSubItem{AdguardController}
+{Developed a Kubernetes controller to automate DNS record management, significantly improving deployment efficiency and reducing manual errors.}
 \resumeSubItem{UCSLHUB}
-{Developed a resilient and scalable back-end infrastructure using docker swarm, jupyterhub and keycloak for hosting the CUSP's UCSL bootcamp which are accessed by hundreds of students every year.}
-\resumeSubItem{HOMELAB}
-{Running a HCI homelab with ansible and terraform managed KVM nodes with Ceph running behind a Pfsense firewall that is used for testing and development including emulation of distributed datacenters for UO Infra.}
+{Developed a resilient and scalable back-end infrastructure using Kubernetes, jupyterhub and keycloak for hosting the CUSP's UCSL bootcamp \textbf{which is accessed by hundreds of students every year}.}
+\resumeSubItem{MUON}
+{Developed a research and analysis platform for scientists in the Multi-City Urban Observatory Network at the University of Delaware.}
+\resumeSubItem{Homelab}
+{Running a HCI homelab with ansible and terraform managed KVM nodes with Ceph running behind a Pfsense firewall that is used for testing and development including emulation of distributed datacenters.}
 \resumeSubHeadingListEnd
 
 \section{\color[HTML]{DF691A} Publications, Teaching Experience and more..}
