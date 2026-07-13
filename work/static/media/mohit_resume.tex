@@ -103,15 +103,43 @@
 
 %-----------SUMMARY-------------------
 \section{\color[HTML]{DF691A} Summary}
-DevOps Engineer with 10+ years of experience automating and scaling mission-critical systems. Proven expertise in Kubernetes, AWS, and Linux, with a strong focus on reducing operational complexity, enhancing developer experience, and fostering cross-functional collaboration. A track record of driving infrastructure automation, mentoring teams, and implementing best practices to deliver resilient, highly available systems.
+Platform and reliability engineer with 12+ years building and scaling mission-critical systems across Kubernetes, AWS, Terraform, and Linux. I eliminate operational toil and harden reliability at fleet scale, increasingly by building the AI-assisted automation and platform tooling that teams across the org rely on to remediate security issues, migrate to zero-trust, and ship services safely.
+
+%-----------SKILLS-------------------
+\section{\color[HTML]{DF691A} Skills}
+\small{
+\textbf{Languages:} Go, Python, Bash \\
+\textbf{Orchestration \& Platform:} Kubernetes, Helm, ArgoCD, Flux, Backstage \\
+\textbf{Cloud \& IaC:} AWS, GCP, Terraform, Ansible, Packer \\
+\textbf{Observability:} Prometheus, Grafana, OpenTelemetry, ELK \\
+\textbf{CI/CD \& Security:} Jenkins, GitHub Actions, Semaphore, Atlantis, Vault, SPIRE, OPA
+}
 
 %-----------EXPERIENCE-----------------
 \section{\color[HTML]{DF691A} Experience}
 \resumeSubHeadingListStart
 
 \resumeSubheading
+{Confluent}{Remote}
+{Senior Software Engineer II, Developer Productivity}{April 2025 - Present}
+\resumeItemListStart
+\resumeItem{Vulnerability remediation}
+{Designed and shipped an AI agent that automates the full software-vulnerability remediation lifecycle; now the organization's default, it has remediated 300+ vulnerabilities in about five months. Championed its evolution onto a new autonomous-workflow platform, driving cross-team design reviews and coaching its owner to lead it.}
+\resumeItem{Developer platform}
+{Co-leading the technical direction of the internal developer platform, owning the developer-experience and self-service roadmap that helps engineering teams ship services faster and more safely.}
+\resumeItem{AI gateway}
+{Leading the selection and architecture of the company's AI gateway (the control plane for how services access large language models), where source-level verification caught a supply-chain compromise in a leading candidate before adoption. An earlier AI-infrastructure evaluation I led avoided over half a million dollars a year by recommending against an unready deployment.}
+\resumeItem{Zero-trust \& secrets}
+{Drove fleet-wide security and reliability hardening, automating a zero-trust (mTLS) service migration with AI-guided tooling and moving services onto modern least-privilege secret management, reducing operational toil and shrinking the credential attack surface.}
+\resumeItem{Production reliability}
+{Re-architected a production policy-enforcement service that silently dropped critical configuration-change approvals whenever slow synchronous processing exceeded an upstream timeout. Moving it to an asynchronous, back-pressured design with dashboards and alerting eliminated a class of silent failures and the on-call toil they caused.}
+\resumeItem{Technical leadership \& enablement}
+{Authored RFCs and one-pagers that steered cross-team AI-tooling decisions, taught engineers across the org to build high-quality AI-assistant plugins, and published several to the company's internal marketplace.}
+\resumeItemListEnd
+
+\resumeSubheading
 {Angi Inc}{Remote}
-{Senior Infrastructure Engineer}{Sept 2023 - Present}
+{Senior Infrastructure Engineer}{Sept 2023 - Mar 2025}
 \resumeItemListStart
 \resumeItem{Angi One}{}
 \newline
