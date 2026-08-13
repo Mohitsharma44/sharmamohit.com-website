@@ -25,16 +25,32 @@ date_format: Jan 2006
 #   Leave `date_end` empty if it's your current employer.
 #   You can begin a multiline `description` using YAML's `|-`.
 experience:
+- company: Confluent
+  company_url: "https://www.confluent.io"
+  date_end: ""
+  date_start: "2025-04-01"
+  description: |-
+    * Developer Productivity and Platform Engineering
+      <br/><br/>
+      * Co-leading technical direction for the internal developer platform, owning the developer-experience and self-service roadmap.
+      * Leading evaluation and architecture of the company's AI gateway, a shared control plane for how services access large language models.
+      * Designed and shipped an AI agent that automates the software-vulnerability remediation lifecycle and became the organization's default workflow.
+      * Drove fleet-wide reliability and security hardening, including zero-trust mTLS adoption and least-privilege secret management.
+      * Re-architected a production policy-enforcement service into an asynchronous, back-pressured design, eliminating a class of silent failures and related on-call toil.
+      * Authored RFCs and technical one-pagers that shaped cross-team platform and AI-tooling decisions.
+  location: Remote
+  title: |-
+    * Senior Software Engineer II, Developer Productivity
 - company: Angi
   company_url: "https://angi.com"
-  date_end: ""
+  date_end: "2025-03-21"
   date_start: "2023-09-11"
   description: |-
     * Angi One
       <br/><br/>
       * Collaborated with cross-functional teams to build key components of the Angi One platform using Kubernetes controllers, Flux, and ArgoCD, enabling single-manifest deployments for applications and cloud services, reducing developer overhead and cutting production time by 50%.
       * Led efforts to automate documentation workflows based on CRDs, ensuring up-to-date documentation with every release, reducing manual effort and support inquiries.
-      * Partnering with development and observability teams to enhance and automate component generation in the Backstage catalog, streamlining the onboarding process and improving system visibility.
+      * Partnered with development and observability teams to enhance and automate component generation in the Backstage catalog, streamlining onboarding and improving system visibility.
   location: Remote
   title: |-
     * Senior Infrastructure Engineer
