@@ -1,6 +1,9 @@
 name: Personal Website CICD
 on:
   pull_request:
+  push:
+    branches:
+      - master
 
 env:
   AWS-DEFAULT-REGION: us-west-2
@@ -32,6 +35,7 @@ jobs:
           name: output
           path: work/final_output/
   publish-site:
+    if: github.event_name == 'push' && github.ref == 'refs/heads/master'
     runs-on: ubuntu-latest
     needs: build-site
     steps:
