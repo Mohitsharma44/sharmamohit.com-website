@@ -1,0 +1,190 @@
+%-------------------------
+% Netflix Agent Platform-tailored Resume in LaTeX
+% Author  : Mohit Sharma
+% License : MIT
+%------------------------
+
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage{xcolor}
+\usepackage{siunitx}
+\input{glyphtounicode}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-0.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+\pdfgentounicode=1
+
+\titleformat{\section}{
+\vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{orange} \titlerule \vspace{-5pt}]
+
+\newcommand{\resumeItem}[2]{
+\item\small{
+\textbf{#1}{: #2 \vspace{-2pt}}
+}
+}
+
+\newcommand{\resumePubItem}[3]{
+\item\small{
+\textbf{#1 \null\hfill{#2}}{#3} \vspace{-2pt}
+}
+}
+
+\newcommand{\resumeSubheading}[4]{
+\vspace{-1pt}\item
+\begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+    \textbf{#1}       & #2                 \\
+    \textit{\small#3} & \textit{\small #4} \\
+\end{tabular*}\vspace{-3pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+    \vspace{3pt}
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-5pt}
+}
+
+\newcommand{\resumeSubItem}[2]{\resumeItem{#1}{#2}\vspace{-4pt}}
+\newcommand{\resumePublicationItem}[3]{\resumePubItem{#1}{#2}\newline{#3}\vspace{-4pt}}
+\renewcommand{\labelitemii}{$\circ$}
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=*]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+\newcommand{\resumeTilde}{\raise.17ex\hbox{$\scriptstyle\sim$}}
+
+\begin{document}
+
+\begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+\textbf{\href{https://sharmamohit.com/} {\color[HTML]{DF691A} Mohit Sharma}} & \color[HTML]{DF691A} Email : \href{mailto:mohitsharma44@gmail.com}{mohitsharma44@gmail.com}\\
+\href{https://sharmamohit.com/}{https://www.sharmamohit.com}  & LinkedIn : \href{https://linkedin.com/in/mohitsharma44/}{linkedin.com/in/mohitsharma44}\\
+\end{tabular*}
+
+\section{\color[HTML]{DF691A} Summary}
+Platform and reliability engineer with 12+ years designing and operating distributed systems, developer platforms, and cloud infrastructure. I build production AI-agent workflows, secure MCP tooling, and reusable platform capabilities that help engineers automate multi-step operational work safely. My recent work spans agent orchestration, tool integration, durable workflow state, LLM gateway architecture, evaluation, observability, Kubernetes, and production reliability.
+
+\section{\color[HTML]{DF691A} Skills}
+\small{
+\textbf{Languages:} Go, Python, Bash \\
+\textbf{AI \& Agent Platform:} MCP/FastMCP, agent workflows, tool/function calling, LLM gateway architecture, retrieval evaluation, FastAPI \\
+\textbf{Distributed Systems \& Platform:} Kubernetes, Temporal-based workflows, Linux, PostgreSQL, Helm, ArgoCD, Flux, Backstage \\
+\textbf{Cloud \& Infrastructure:} AWS, GCP, Terraform, Ansible, Packer, multi-account and multi-region deployments \\
+\textbf{Observability \& Reliability:} OpenTelemetry, Prometheus, Grafana, ELK, CI/CD, production operations \\
+\textbf{Security:} SPIRE, OPA, Vault, mTLS, least-privilege credentials, policy enforcement
+}
+
+\section{\color[HTML]{DF691A} Experience}
+\resumeSubHeadingListStart
+
+\resumeSubheading
+{Confluent}{Remote}
+{Senior Software Engineer II, Developer Productivity}{April 2025 - Present}
+\resumeItemListStart
+\resumeItem{Production AI-agent workflow}
+{Designed and led a production CVE-remediation agent used broadly across the engineering organization, evolving it into a resumable hub-and-spoke architecture with ten specialized workers, durable state, approval gates, batch execution, fail-closed guardrails, and MCP-integrated tooling. System fingerprints show 344 remediations across 72 repositories by 52 engineers and 174 merged PRs.}
+\resumeItem{Secure MCP tooling}
+{Built and operationalized a Python/FastMCP server for FedRAMP Jira, keeping credentials outside model context with Keychain-backed authentication, exposing typed ticket/comment/transition/search tools, filtering sensitive responses, and adding protocol-level token-leakage and error-contract regression tests.}
+\resumeItem{Agent workflows \& platform capabilities}
+{Co-developed a typed Go/Python CVE-remediation workflow on Confluent's Temporal-based R2 platform and extended platform capabilities needed by agents to interact safely with Jira and source repositories. Separated deterministic credentialed tasks from constrained LLM reasoning, added reusable workflow components, provenance and validation contracts, and hardened runtime images after diagnosing live staging failures.}
+\resumeItem{AI/model gateway architecture}
+{Led a source-verified evaluation of 19 LLM/MCP gateways across 64 dimensions, defining a target architecture for unified Anthropic, OpenAI, Gemini, Vertex, and Bedrock access with identity, policy, rate/cost controls, MCP governance, and OpenTelemetry/Prometheus observability; identified supply-chain risk in a leading candidate before adoption.}
+\resumeItem{AI evaluation \& platform decisions}
+{Led a 60-day enterprise-memory evaluation spanning AWS/Kubernetes deployment, retrieval quality, governance, operability, and downstream coding-task experiments; built reproducible Recall@K/MRR/latency benchmarks and recommended against production adoption when the evidence showed material reliability and governance gaps.}
+\resumeItem{Production systems reliability}
+{Re-architected a production policy-enforcement service that silently dropped configuration-change approvals when synchronous work exceeded an upstream timeout. Moved processing to an asynchronous, back-pressured design with dashboards and alerting, eliminating the silent-failure mode and related on-call toil.}
+\resumeItemListEnd
+
+\resumeSubheading
+{Angi Inc}{Remote}
+{Senior Infrastructure Engineer}{Sept 2023 - Mar 2025}
+\resumeItemListStart
+\resumeItem{Cloud-native developer platform}
+{Built foundational components of the Angi One internal platform using Kubernetes controllers, Flux, and ArgoCD, enabling developers to provision applications and cloud services from a single declarative manifest and cutting production delivery time by 50\%.}
+\resumeItem{Platform product experience}
+{Partnered with application and observability teams to automate Backstage catalog component generation and improve service onboarding and system visibility across the engineering organization.}
+\resumeItem{Developer tooling}
+{Led automation of documentation workflows from Kubernetes CRDs so platform documentation evolved with releases, reducing manual upkeep and support overhead.}
+\resumeItemListEnd
+
+\resumeSubheading
+{Workday}{Victoria, BC, Canada}
+{Senior Software Development Engineer, DevOps}{May 2023 - Sept 2023}
+\resumeSubSubheading
+{Software Development Engineer III, DevOps}{May 2021 - April 2023}
+\resumeSubSubheading
+{Software Development Engineer II, DevOps}{May 2019 - April 2021}
+\resumeItemListStart
+\resumeItem{Distributed deployment platform}
+{Designed an automated AWS deployment pipeline for microservices across accounts and regions, standardizing service delivery and reducing recurring operations toil by more than four hours per week.}
+\resumeItem{Policy and self-service infrastructure}
+{Implemented policy-based infrastructure workflows using OPA and Atlantis, giving developers safer self-service control over cloud resources while shifting security checks earlier in the delivery lifecycle.}
+\resumeItem{Cloud and Kubernetes platform engineering}
+{Built and operated production infrastructure across AWS and datacenter environments, including EC2, ECS, Route53, S3, RDS, Lambda, and Elasticsearch, while migrating applications and services onto an internal Kubernetes platform.}
+\resumeItem{CI/CD platform}
+{Developed Jenkins pipelines and shared delivery libraries used by multiple applications and services, improving consistency and repeatability across build and deployment workflows.}
+\resumeItemListEnd
+
+\resumeSubheading
+{NYU CUSP}{Brooklyn, NY, USA}
+{Associate Research Scientist}{May 2015 - May 2019}
+\resumeSubSubheading
+{Assistant Research Scientist}{June 2014 - May 2015}
+\resumeItemListStart
+\resumeItem{Container orchestration}
+{Developed Dockkeeper, a scalable and secure container scheduling and monitoring system using Docker and Prometheus to provision services across physical hosts; eliminated more than \$35K per year in VM licensing costs and improved host utilization by over 55\%.}
+\resumeItem{Distributed compute and storage infrastructure}
+{Architected the NYU/CUSP Urban Observatory's multi-site physical infrastructure with dense compute and more than half a petabyte of storage, provisioned as multi-user mini-HPC environments using Ansible and Packer.}
+\resumeItem{Production IoT platform}
+{Developed a secure, mission-critical IoT platform and CI/CD framework for deploying and operating more than 100 urban noise-monitoring sensors across New York City as part of the NSF-funded SONYC project.}
+\resumeItemListEnd
+\resumeSubHeadingListEnd
+
+\section{\color[HTML]{DF691A} Education}
+\resumeSubHeadingListStart
+\resumeSubheading
+{NYU Tandon School of Engineering}{Brooklyn, NY, USA}
+{Master of Science in Telecommunication Networks}{Aug. 2012 -- May. 2014}
+\textit{\small{Thesis - \href{https://sharmamohit.com/project/citysynth/}{CitySynth: Imaging with a Network of Devices}}}
+\resumeSubHeadingListEnd
+
+\section{\color[HTML]{DF691A} Selected Projects}
+\resumeSubHeadingListStart
+\resumeSubItem{Memoria}
+{Built a local agent-memory and retrieval system with FastAPI, SQLite FTS/vector search, provenance, hybrid retrieval, and reproducible Recall@K/MRR/latency benchmarking for coding-agent workflows.}
+\resumeSubItem{AdguardController}
+{Developed a Kubernetes controller to automate DNS record management, replacing manual infrastructure changes with a declarative control loop.}
+\resumeSubItem{Homelab}
+{Operate a distributed HCI lab with Ansible and Terraform-managed KVM nodes, Ceph storage, Kubernetes, and network segmentation for testing distributed systems and multi-datacenter failure scenarios.}
+\resumeSubHeadingListEnd
+
+\section{\color[HTML]{DF691A} Publications, Teaching Experience and more..}
+\resumeSubHeadingListStart
+\resumeItem{View it online}{\href{https://sharmamohit.com/work/}{https://sharmamohit.com/}}
+\newline
+\resumeSubHeadingListEnd
+
+\end{document}
