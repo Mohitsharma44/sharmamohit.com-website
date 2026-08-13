@@ -2,6 +2,8 @@ name: Personal Website CICD
 on:
   pull_request:
   push:
+    branches:
+      - master
 
 env:
   AWS-DEFAULT-REGION: us-west-2
