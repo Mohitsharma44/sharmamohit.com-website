@@ -74,7 +74,7 @@ email: "mohitsharma44@gmail.com"
 
 I'm a platform and reliability engineer with more than 12 years of experience designing, building, and operating mission-critical systems across Kubernetes, cloud infrastructure, and Linux. I currently work at Confluent on Developer Productivity, where I help shape internal platforms and self-service capabilities used by engineering teams.
 <br/>
-My work sits at the intersection of distributed systems, reliability, security, and developer experience. Recent projects include platform architecture, AI-enabled automation, zero-trust service infrastructure, vulnerability remediation, and production reliability improvements. I enjoy taking ambiguous infrastructure problems from design through production and turning them into systems that are easier for engineers to use and operate.
+My work sits at the intersection of distributed systems, reliability, security, developer experience, and applied AI. Recent projects include building AI-enabled automation for operational workflows, architecting shared infrastructure for LLM access, improving production reliability, and driving zero-trust service infrastructure. I'm particularly interested in using AI to remove operational toil and make complex engineering systems easier and safer to operate.
 <br/>
 Earlier in my career, I worked at Angi and Workday on cloud-native developer platforms, Kubernetes, infrastructure automation, CI/CD, policy-as-code, and multi-account and multi-region AWS systems. At NYU CUSP, I built secure IoT platforms and distributed compute and storage infrastructure, and taught topics including wireless sensor networks, Internet of Things, and microservices architecture.
 <br/>
