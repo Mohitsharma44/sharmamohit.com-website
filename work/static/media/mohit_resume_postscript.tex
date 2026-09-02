@@ -1,0 +1,105 @@
+%-------------------------
+% Postscript-tailored Resume in LaTeX
+% Author  : Mohit Sharma
+% License : MIT
+%------------------------
+\documentclass[letterpaper,11pt]{article}
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage{xcolor}
+\usepackage{siunitx}
+\input{glyphtounicode}
+\pagestyle{fancy}\fancyhf{}\fancyfoot{}\renewcommand{\headrulewidth}{0pt}\renewcommand{\footrulewidth}{0pt}
+\addtolength{\oddsidemargin}{-0.5in}\addtolength{\evensidemargin}{-0.5in}\addtolength{\textwidth}{1in}\addtolength{\topmargin}{-0.5in}\addtolength{\textheight}{1.0in}
+\urlstyle{same}\raggedbottom\raggedright\setlength{\tabcolsep}{0in}\pdfgentounicode=1
+\titleformat{\section}{\vspace{-4pt}\scshape\raggedright\large}{}{0em}{}[\color{orange}\titlerule\vspace{-5pt}]
+\newcommand{\resumeItem}[2]{\item\small{\textbf{#1}{: #2 \vspace{-2pt}}}}
+\newcommand{\resumeSubheading}[4]{\vspace{-1pt}\item\begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}\textbf{#1} & #2 \\\textit{\small#3} & \textit{\small #4} \\\end{tabular*}\vspace{-3pt}}
+\newcommand{\resumeSubSubheading}[2]{\vspace{3pt}\begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}\textit{\small#1} & \textit{\small #2} \\\end{tabular*}\vspace{-5pt}}
+\newcommand{\resumeSubItem}[2]{\resumeItem{#1}{#2}\vspace{-4pt}}
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=*]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+\renewcommand{\labelitemii}{$\circ$}
+\begin{document}
+\begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+\textbf{\href{https://sharmamohit.com/}{\color[HTML]{DF691A} Mohit Sharma}} & \color[HTML]{DF691A} Email : \href{mailto:mohitsharma44@gmail.com}{mohitsharma44@gmail.com}\\
+\href{https://sharmamohit.com/}{https://www.sharmamohit.com} & LinkedIn : \href{https://linkedin.com/in/mohitsharma44/}{linkedin.com/in/mohitsharma44}\\
+\end{tabular*}
+
+\section{\color[HTML]{DF691A} Summary}
+Staff-level platform and reliability engineer with 12+ years designing, building, and operating production infrastructure across Kubernetes, AWS, Linux, and distributed systems. I lead cross-functional platform initiatives from architecture through incident response, with a bias toward encoding operational knowledge into safe, repeatable automation. My recent work spans self-service developer platforms, zero-trust service infrastructure, AI-operated remediation workflows, policy enforcement, and production reliability.
+
+\section{\color[HTML]{DF691A} Skills}
+\small{
+\textbf{Languages:} Go, Python, Bash \\
+\textbf{Kubernetes \& Platform:} Kubernetes, EKS, Karpenter, Helm, Kustomize, ArgoCD, Flux, Backstage, Kubernetes controllers \\
+\textbf{Cloud \& Data Infrastructure:} AWS, Terraform, Ansible, Packer, RDS/Aurora PostgreSQL, MSK/Kafka, S3, multi-account and multi-region systems \\
+\textbf{Reliability \& Observability:} Prometheus, Grafana, OpenTelemetry, ELK, SLOs, alerting, incident response \\
+\textbf{Security \& Automation:} SPIFFE/SPIRE, mTLS, Vault, OPA, GitOps, policy-as-code, AI-agent workflows, CI/CD
+}
+
+\section{\color[HTML]{DF691A} Experience}
+\resumeSubHeadingListStart
+\resumeSubheading{Confluent}{Remote}{Senior Software Engineer II, Developer Productivity}{April 2025 - Present}
+\resumeItemListStart
+\resumeItem{Agent-operated remediation}{Designed and shipped an AI agent that automates the end-to-end software-vulnerability remediation lifecycle; adopted as the organization's default, it remediated 300+ vulnerabilities in roughly five months. Championed its migration to a new autonomous-workflow platform, with explicit guardrails, ownership boundaries, and cross-team design reviews.}
+\resumeItem{Production reliability}{Re-architected a production policy-enforcement service that silently dropped critical configuration-change approvals when synchronous processing exceeded an upstream timeout. Designed an asynchronous, back-pressured architecture with dashboards and alerting, eliminating the silent-failure mode and the on-call toil it caused.}
+\resumeItem{Zero-trust service infrastructure}{Drove fleet-wide security and reliability hardening by automating service migration to SPIFFE/SPIRE-backed mTLS and modern least-privilege secret management, reducing manual steps while shrinking the credential attack surface.}
+\resumeItem{Developer platform}{Co-leading technical direction for the internal developer platform, owning the developer-experience and self-service roadmap and shaping paved paths that help teams provision, deploy, and operate services safely.}
+\resumeItem{Shared infrastructure control plane}{Leading evaluation and architecture of the company's AI gateway, a shared control plane for model access. Source-level verification caught a supply-chain compromise in a leading candidate before adoption; an earlier infrastructure evaluation I led avoided more than \$500K in annual spend by recommending against an unready deployment.}
+\resumeItem{Technical leadership}{Authored RFCs and technical one-pagers that steered cross-team platform and AI-tooling decisions; mentored engineers through design and ownership transitions and taught teams to encode operational workflows into reusable automation.}
+\resumeItemListEnd
+
+\resumeSubheading{Angi Inc}{Remote}{Senior Infrastructure Engineer}{Sept 2023 - Mar 2025}
+\resumeItemListStart
+\resumeItem{Platform abstractions}{Built foundational components of the Angi One platform using Kubernetes controllers, Flux, and ArgoCD, enabling applications and cloud services to be provisioned from a single declarative manifest and cutting production delivery time by 50\%.}
+\resumeItem{GitOps and developer self-service}{Automated documentation and platform workflows from Kubernetes CRDs so operational state and developer-facing guidance evolved with releases, reducing manual upkeep and support overhead.}
+\resumeItem{Platform observability}{Partnered with application and observability teams to automate Backstage catalog component generation, improving service onboarding, ownership visibility, and system discoverability across engineering.}
+\resumeItemListEnd
+
+\resumeSubheading{Workday}{Victoria, BC, Canada}{Senior Software Development Engineer, DevOps}{May 2023 - Sept 2023}
+\resumeSubSubheading{Software Development Engineer III, DevOps}{May 2021 - April 2023}
+\resumeSubSubheading{Software Development Engineer II, DevOps}{May 2019 - April 2021}
+\resumeItemListStart
+\resumeItem{Cloud platform operations}{Built and operated production infrastructure across AWS and datacenter environments, including Kubernetes, EC2, ECS, Route53, S3, RDS, Lambda, and Elasticsearch, using Terraform, Ansible, monitoring, and automated delivery systems.}
+\resumeItem{Policy guardrails}{Implemented policy-based infrastructure workflows with OPA and Atlantis, giving developers safer self-service control over cloud resources while moving validation and security checks earlier in the delivery path.}
+\resumeItem{Multi-region deployment automation}{Designed an automated AWS deployment pipeline for microservices across accounts and regions, standardizing service delivery and eliminating more than four hours of recurring operational toil each week.}
+\resumeItem{Operational ownership}{Improved Jenkins pipelines and shared delivery libraries, supported production services, mentored engineers, and led a cross-team enablement effort that helped development teams take greater ownership of operating their services.}
+\resumeItemListEnd
+
+\resumeSubheading{NYU CUSP}{Brooklyn, NY, USA}{Associate Research Scientist}{May 2015 - May 2019}
+\resumeSubSubheading{Assistant Research Scientist}{June 2014 - May 2015}
+\resumeItemListStart
+\resumeItem{Container orchestration}{Developed Dockkeeper, a scalable and secure container scheduling and monitoring system using Docker and Prometheus to provision services across physical hosts; eliminated more than \$35K per year in VM licensing and improved host utilization by over 55\%.}
+\resumeItem{Distributed infrastructure}{Architected a multi-site compute and storage platform with more than half a petabyte of storage, provisioned as multi-user mini-HPC environments using Ansible and Packer.}
+\resumeItem{Production IoT platform}{Developed a secure, mission-critical IoT platform and CI/CD framework for deploying and operating more than 100 urban noise-monitoring sensors across New York City.}
+\resumeItemListEnd
+\resumeSubHeadingListEnd
+
+\section{\color[HTML]{DF691A} Education}
+\resumeSubHeadingListStart
+\resumeSubheading{NYU Tandon School of Engineering}{Brooklyn, NY, USA}{Master of Science in Telecommunication Networks}{Aug. 2012 -- May. 2014}
+\textit{\small{Thesis - \href{https://sharmamohit.com/project/citysynth/}{CitySynth: Imaging with a Network of Devices}}}
+\resumeSubHeadingListEnd
+
+\section{\color[HTML]{DF691A} Selected Projects}
+\resumeSubHeadingListStart
+\resumeSubItem{AdguardController}{Developed a Kubernetes controller to automate DNS record management, replacing manual changes with a declarative reconciliation loop.}
+\resumeSubItem{UCSLHUB}{Developed resilient Kubernetes, JupyterHub, and Keycloak infrastructure for a university bootcamp platform serving hundreds of students each year.}
+\resumeSubItem{Homelab}{Operate a distributed HCI lab with Terraform/Ansible-managed KVM nodes, Ceph storage, Kubernetes, and segmented networking for testing distributed systems and failure scenarios.}
+\resumeSubHeadingListEnd
+
+\section{\color[HTML]{DF691A} Publications, Teaching Experience and more..}
+\resumeSubHeadingListStart
+\resumeItem{View it online}{\href{https://sharmamohit.com/work/}{https://sharmamohit.com/}}
+\resumeSubHeadingListEnd
+\end{document}
